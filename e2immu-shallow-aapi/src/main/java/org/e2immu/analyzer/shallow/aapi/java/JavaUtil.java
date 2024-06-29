@@ -182,10 +182,12 @@ public class JavaUtil extends AnnotatedAPI {
          there is a "default forEach" in Iterable, but here we can guarantee that consumer is @NotNull(content=true):
          its arguments will not be null either.
          @NotModified because the default for void methods in @Container is @Modified.
-         */
+
         @NotModified
         void forEach(@Independent(hc = true) @NotNull(content = true) Consumer<? super E> action);
 
+        TODO at the moment, we cannot generate copies of methods
+        */
         default boolean remove$Modification$Size(int i, Integer j) {
             return j == null ? i >= 0 : (i <= j && i >= j - 1);
         }
@@ -670,13 +672,6 @@ public class JavaUtil extends AnnotatedAPI {
         Stack$() {
         }
 
-        boolean Stack$Modification$Size(int post, Collection<? extends E> c) {
-            return post == c.size();
-        }
-
-        Stack$(@NotNull(content = true) @Independent(hc = true) Collection<? extends E> c) {
-        }
-
         @Modified
         E pop() {
             return null;
@@ -1043,11 +1038,6 @@ public class JavaUtil extends AnnotatedAPI {
 
         LinkedHashMap$(@NotNull(content = true) @Independent(hc = true) Map<? extends K, ? extends V> map) {
         }
-
-        boolean containsKey(@NotNull @Independent Object k) { return true; };
-
-        @Modified
-        V put(@NotNull K k, @NotNull V v) { return null; }
 
         V get(@NotNull Object o){ return null; }
     }

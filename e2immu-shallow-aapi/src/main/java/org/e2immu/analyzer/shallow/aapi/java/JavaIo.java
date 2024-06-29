@@ -204,7 +204,10 @@ public class JavaIo {
         void append(CharSequence csq);
 
         @Modified
-        void write(char[] cbuf);
+        void write(String string);
+
+        @Modified
+        void write(int c);
 
         @Modified
         void write(char[] cbuf, int off, int len);
