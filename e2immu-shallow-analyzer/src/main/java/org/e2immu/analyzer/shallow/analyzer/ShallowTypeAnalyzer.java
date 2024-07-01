@@ -26,6 +26,8 @@ public class ShallowTypeAnalyzer extends CommonAnalyzer {
         if (typeInfo.analysis().getOrDefault(PropertyImpl.SHALLOW_ANALYZER, ValueImpl.BoolImpl.FALSE).isTrue()) {
             return; // already done
         }
+        typeInfo.analysis().set(PropertyImpl.SHALLOW_ANALYZER, ValueImpl.BoolImpl.TRUE);
+
         boolean isExtensible = typeInfo.isAbstract() || !typeInfo.isSealedOrFinal();
         List<AnnotationExpression> annotations = annotationProvider.annotations(typeInfo);
         Map<Property, Value> map = annotationsToMap(typeInfo, annotations);
@@ -50,6 +52,11 @@ public class ShallowTypeAnalyzer extends CommonAnalyzer {
     public void analyzeFields(TypeInfo typeInfo) {
         boolean isEnum = typeInfo.typeNature().isEnum();
         for (FieldInfo fieldInfo : typeInfo.fields()) {
+            if (fieldInfo.analysis().getOrDefault(PropertyImpl.SHALLOW_ANALYZER, ValueImpl.BoolImpl.FALSE).isTrue()) {
+                continue; // already done
+            }
+            fieldInfo.analysis().set(PropertyImpl.SHALLOW_ANALYZER, ValueImpl.BoolImpl.TRUE);
+
             List<AnnotationExpression> fieldAnnotations = annotationProvider.annotations(fieldInfo);
             Map<Property, Value> fieldMap = annotationsToMap(fieldInfo, fieldAnnotations);
             boolean enumField = isEnum && fieldInfo.isSynthetic();

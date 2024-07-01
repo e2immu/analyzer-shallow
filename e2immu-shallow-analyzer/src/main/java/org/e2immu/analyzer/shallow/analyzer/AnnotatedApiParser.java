@@ -103,6 +103,7 @@ public class AnnotatedApiParser implements AnnotationProvider {
                     annotations += sourceMethod.annotations().size();
                     Data methodData = new Data(sourceMethod.annotations());
                     infoMap.put(targetMethod, methodData);
+                    doParameters(sourceMethod, targetMethod);
                 } else {
                     LOGGER.warn("Ignoring method '{}', not found in target type '{}'", sourceMethod, targetType);
                     ++warnings;
@@ -115,6 +116,7 @@ public class AnnotatedApiParser implements AnnotationProvider {
                 annotations += sourceMethod.annotations().size();
                 Data methodData = new Data(sourceMethod.annotations());
                 infoMap.put(targetMethod, methodData);
+                doParameters(sourceMethod, targetMethod);
             } else {
                 LOGGER.warn("Ignoring constructor '{}', not found in target type '{}'", sourceMethod, targetType);
                 ++warnings;
@@ -130,6 +132,17 @@ public class AnnotatedApiParser implements AnnotationProvider {
                 LOGGER.warn("Ignoring field '{}', not found in target type '{}'", sourceField, targetType);
                 ++warnings;
             }
+        }
+    }
+
+    private void doParameters(MethodInfo sourceMethod, MethodInfo targetMethod) {
+        int i = 0;
+        for (ParameterInfo sourceParameter : sourceMethod.parameters()) {
+            ParameterInfo targetParameter = targetMethod.parameters().get(i);
+            annotations += sourceParameter.annotations().size();
+            Data paramData = new Data(sourceParameter.annotations());
+            infoMap.put(targetParameter, paramData);
+            i++;
         }
     }
 
