@@ -1,6 +1,7 @@
 package org.e2immu.analyzer.shallow.analyzer;
 
 import org.e2immu.annotation.*;
+import org.e2immu.annotation.rare.IgnoreModifications;
 import org.e2immu.language.cst.api.analysis.Property;
 import org.e2immu.language.cst.api.analysis.Value;
 import org.e2immu.language.cst.api.expression.AnnotationExpression;
@@ -15,59 +16,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
-public class ShallowAnalyzer {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ShallowAnalyzer.class);
+class CommonAnalyzer {
+    private static final Logger LOGGER = LoggerFactory.getLogger(CommonAnalyzer.class);
 
-    private final AnnotationProvider annotationProvider;
+    protected final AnnotationProvider annotationProvider;
 
-    public ShallowAnalyzer(AnnotationProvider annotationProvider) {
+    CommonAnalyzer(AnnotationProvider annotationProvider) {
         this.annotationProvider = annotationProvider;
     }
 
-    public void analyze(TypeInfo typeInfo) {
-        if (typeInfo.analysis().getOrDefault(PropertyImpl.SHALLOW_ANALYZER, ValueImpl.BoolImpl.FALSE).isTrue()) {
-            return; // already done
-        }
-        List<AnnotationExpression> annotations = annotationProvider.annotations(typeInfo);
-        Map<Property, Value> map = typeAnnotationsToMap(typeInfo, annotations);
-        map.forEach(typeInfo.analysis()::set);
-    }
-
-    public void check(TypeInfo typeInfo) {
-        Value.Immutable immutable = typeInfo.analysis().getOrDefault(PropertyImpl.IMMUTABLE_TYPE,
-                ValueImpl.ImmutableImpl.MUTABLE);
-        if (immutable.isAtLeastImmutableHC()) {
-            Value.Immutable least = leastOfHierarchy(typeInfo, PropertyImpl.IMMUTABLE_TYPE, ValueImpl.ImmutableImpl.MUTABLE,
-                    ValueImpl.ImmutableImpl.IMMUTABLE_HC);
-            if (!least.isAtLeastImmutableHC()) {
-                LOGGER.warn("@Immutable inconsistency in hierarchy");
-            }
-        }
-        Value.Bool container = typeInfo.analysis().getOrDefault(PropertyImpl.CONTAINER_TYPE, ValueImpl.BoolImpl.FALSE);
-        if (container.isTrue()) {
-            Value least = leastOfHierarchy(typeInfo, PropertyImpl.CONTAINER_TYPE, ValueImpl.BoolImpl.FALSE,
-                    ValueImpl.BoolImpl.TRUE);
-            if (least.lt(container)) {
-                LOGGER.warn("@Container inconsistency in hierarchy");
-            }
-        }
-        Value.Independent independent = typeInfo.analysis().getOrDefault(PropertyImpl.INDEPENDENT_TYPE,
-                ValueImpl.IndependentImpl.DEPENDENT);
-        if (independent.isAtLeastIndependentHc()) {
-            Value least = leastOfHierarchy(typeInfo, PropertyImpl.INDEPENDENT_TYPE, ValueImpl.IndependentImpl.DEPENDENT,
-                    ValueImpl.IndependentImpl.INDEPENDENT);
-            if (least.lt(independent)) {
-                LOGGER.warn("@Independent inconsistency in hierarchy");
-            }
-        }
-        if (immutable.isImmutable() && !independent.isIndependent()
-            || immutable.isAtLeastImmutableHC() && !independent.isAtLeastIndependentHc()) {
-            LOGGER.warn("Inconsistency between @Independent and @Immutable");
-        }
-    }
-
     @SuppressWarnings("unchecked")
-    private <T extends Value> T leastOfHierarchy(TypeInfo typeInfo, Property property, T defaultValue, T bestValue) {
+    protected <T extends Value> T leastOfHierarchy(TypeInfo typeInfo, Property property, T defaultValue, T bestValue) {
         T v;
         if (typeInfo.parentClass() != null) {
             TypeInfo parentType = typeInfo.parentClass().typeInfo();
@@ -84,10 +43,16 @@ public class ShallowAnalyzer {
         return v;
     }
 
-    private Map<Property, Value> typeAnnotationsToMap(TypeInfo typeInfo, List<AnnotationExpression> annotations) {
+    protected Map<Property, Value> annotationsToMap(Info info, List<AnnotationExpression> annotations) {
         int immutableLevel = 0;
         int independentLevel = -1;
+        int notNullLevel = 0;
         boolean isContainer = false;
+        boolean isFluent = false;
+        boolean isIdentity = false;
+        boolean isModifying = false;
+        boolean isIgnoreModifications = false;
+        boolean isFinal = false;
         for (AnnotationExpression ae : annotations) {
             boolean isAbsent = ae.extractBoolean("absent");
             if (!isAbsent) {
@@ -109,20 +74,59 @@ public class ShallowAnalyzer {
                     boolean hc = ae.extractBoolean("hc");
                     independentLevel = hc ? ValueImpl.IndependentImpl.INDEPENDENT_HC.value()
                             : ValueImpl.IndependentImpl.INDEPENDENT.value();
+                } else if (NotModified.class.getCanonicalName().equals(fqn)) {
+                    assert !isModifying;
+                } else if (Modified.class.getCanonicalName().equals(fqn)) {
+                    isModifying = true;
+                } else if (Identity.class.getCanonicalName().equals(fqn)) {
+                    isIdentity = true;
+                } else if (Fluent.class.getCanonicalName().equals(fqn)) {
+                    isFluent = true;
+                } else if (NotNull.class.getCanonicalName().equals(fqn)) {
+                    boolean content = ae.extractBoolean("content");
+                    notNullLevel = content ? ValueImpl.NotNullImpl.CONTENT_NOT_NULL.value()
+                            : ValueImpl.NotNullImpl.NOT_NULL.value();
+                } else if (Final.class.getCanonicalName().equals(fqn)) {
+                    isFinal = true;
+                } else if (IgnoreModifications.class.getCanonicalName().equals(fqn)) {
+                    isIgnoreModifications = true;
                 }
             }
         }
         Value container = ValueImpl.BoolImpl.from(isContainer);
         Value.Immutable immutable = ValueImpl.ImmutableImpl.from(immutableLevel);
         Value independent;
-        if (independentLevel == -1) {
+        if (independentLevel == -1 && info instanceof TypeInfo typeInfo) {
             independent = simpleComputeIndependent(typeInfo, immutable);
         } else {
             independent = ValueImpl.IndependentImpl.from(independentLevel);
         }
-        return Map.of(PropertyImpl.IMMUTABLE_TYPE, immutable,
-                PropertyImpl.INDEPENDENT_TYPE, independent,
-                PropertyImpl.CONTAINER_TYPE, container);
+        if (info instanceof TypeInfo) {
+            return Map.of(PropertyImpl.IMMUTABLE_TYPE, immutable,
+                    PropertyImpl.INDEPENDENT_TYPE, independent,
+                    PropertyImpl.CONTAINER_TYPE, container);
+        }
+        Value notNull = ValueImpl.NotNullImpl.from(notNullLevel);
+        if (info instanceof MethodInfo) {
+            Value modified = ValueImpl.BoolImpl.from(isModifying);
+            Value fluent = ValueImpl.BoolImpl.from(isFluent);
+            Value identity = ValueImpl.BoolImpl.from(isIdentity);
+            return Map.of(PropertyImpl.IMMUTABLE_METHOD, immutable,
+                    PropertyImpl.INDEPENDENT_METHOD, independent,
+                    PropertyImpl.CONTAINER_METHOD, container,
+                    PropertyImpl.MODIFIED_METHOD, modified,
+                    PropertyImpl.FLUENT_METHOD, fluent,
+                    PropertyImpl.IDENTITY_METHOD, identity,
+                    PropertyImpl.NOT_NULL_METHOD, notNull);
+        }
+        if (info instanceof FieldInfo) {
+            Value ignoreMods = ValueImpl.BoolImpl.from(isIgnoreModifications);
+            Value finalField = ValueImpl.BoolImpl.from(isFinal);
+            return Map.of(PropertyImpl.NOT_NULL_FIELD, notNull,
+                    PropertyImpl.FINAL_FIELD, finalField,
+                    PropertyImpl.IGNORE_MODIFICATIONS_FIELD, ignoreMods);
+        }
+        throw new UnsupportedOperationException();
     }
 
     private Value simpleComputeIndependent(TypeInfo typeInfo, Value.Immutable immutable) {
@@ -140,5 +144,4 @@ public class ShallowAnalyzer {
         }
         return ValueImpl.IndependentImpl.DEPENDENT;
     }
-
 }
