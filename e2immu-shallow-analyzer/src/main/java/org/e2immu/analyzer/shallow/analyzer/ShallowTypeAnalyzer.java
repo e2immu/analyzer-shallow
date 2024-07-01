@@ -26,9 +26,19 @@ public class ShallowTypeAnalyzer extends CommonAnalyzer {
         if (typeInfo.analysis().getOrDefault(PropertyImpl.SHALLOW_ANALYZER, ValueImpl.BoolImpl.FALSE).isTrue()) {
             return; // already done
         }
+        boolean isExtensible = typeInfo.isAbstract() || !typeInfo.isSealedOrFinal();
         List<AnnotationExpression> annotations = annotationProvider.annotations(typeInfo);
         Map<Property, Value> map = annotationsToMap(typeInfo, annotations);
-        map.forEach(typeInfo.analysis()::set);
+        map.forEach((p, v) -> {
+            Value vv;
+            if (p == PropertyImpl.IMMUTABLE_TYPE && isExtensible
+                && ((ValueImpl.ImmutableImpl) v).isImmutable()) {
+                vv = ValueImpl.ImmutableImpl.IMMUTABLE_HC;
+            } else {
+                vv = v;
+            }
+            typeInfo.analysis().set(p, vv);
+        });
 
         boolean immutableDeterminedByTypeParameters = typeInfo.typeParameters().stream()
                 .anyMatch(tp -> tp.annotations().stream().anyMatch(ae ->
@@ -57,6 +67,9 @@ public class ShallowTypeAnalyzer extends CommonAnalyzer {
                 } else if (p == PropertyImpl.IMMUTABLE_FIELD && !((ValueImpl.ImmutableImpl) v).isImmutable()) {
                     Value.Immutable formally = analysisHelper.typeImmutable(fieldInfo.type());
                     vv = formally.max((ValueImpl.ImmutableImpl) v);
+                } else if (p == PropertyImpl.INDEPENDENT_FIELD && !((ValueImpl.IndependentImpl) v).isIndependent()) {
+                    Value.Independent formally = analysisHelper.typeIndependent(fieldInfo.type());
+                    vv = formally.max((ValueImpl.IndependentImpl) v);
                 } else {
                     vv = v;
                 }

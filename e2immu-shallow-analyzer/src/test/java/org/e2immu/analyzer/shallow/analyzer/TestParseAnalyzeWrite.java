@@ -2,12 +2,17 @@ package org.e2immu.analyzer.shallow.analyzer;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
+import org.e2immu.language.cst.api.analysis.Value;
 import org.e2immu.language.cst.api.expression.AnnotationExpression;
+import org.e2immu.language.cst.api.info.FieldInfo;
 import org.e2immu.language.cst.api.info.MethodInfo;
 import org.e2immu.language.cst.api.info.TypeInfo;
 import org.e2immu.language.cst.api.runtime.Runtime;
+import org.e2immu.language.cst.impl.analysis.PropertyImpl;
+import org.e2immu.language.cst.impl.analysis.ValueImpl;
 import org.e2immu.language.inspection.api.integration.JavaInspector;
 import org.e2immu.language.inspection.api.parser.SourceTypes;
+import org.e2immu.language.inspection.api.resource.CompiledTypesManager;
 import org.e2immu.language.inspection.integration.JavaInspectorImpl;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -15,20 +20,20 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.e2immu.language.cst.impl.analysis.PropertyImpl.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestParseAnalyzeWrite {
+    private static CompiledTypesManager compiledTypesManager;
+
     @BeforeAll
-    public static void beforeAll() {
+    public static void beforeAll() throws IOException {
         ((Logger) LoggerFactory.getLogger(org.slf4j.Logger.ROOT_LOGGER_NAME)).setLevel(Level.INFO);
         ((Logger) LoggerFactory.getLogger("org.e2immu.analyzer.shallow")).setLevel(Level.DEBUG);
-    }
 
-    @Test
-    public void test() throws IOException {
         AnnotatedApiParser annotatedApiParser = new AnnotatedApiParser();
         annotatedApiParser.initialize(
                 List.of(JavaInspectorImpl.JAR_WITH_PATH_PREFIX + "org/slf4j"),
@@ -50,5 +55,68 @@ public class TestParseAnalyzeWrite {
         for (TypeInfo typeInfo : types) {
             shallowTypeAnalyzer.check(typeInfo);
         }
+        compiledTypesManager = annotatedApiParser.javaInspector().compiledTypesManager();
+    }
+
+    @Test
+    public void testObject() {
+        TypeInfo typeInfo = compiledTypesManager.get(Object.class);
+        testImmutableContainer(typeInfo, true);
+    }
+
+    @Test
+    public void testString() {
+        TypeInfo typeInfo = compiledTypesManager.get(String.class);
+        testImmutableContainer(typeInfo, false);
+    }
+
+    @Test
+    public void testClass() {
+        TypeInfo typeInfo = compiledTypesManager.get(Class.class);
+        testImmutableContainer(typeInfo, false);
+    }
+
+    @Test
+    public void testSystem() {
+        TypeInfo typeInfo = compiledTypesManager.get(System.class);
+        Value.Immutable immutable = typeInfo.analysis().getOrDefault(IMMUTABLE_TYPE, ValueImpl.ImmutableImpl.MUTABLE);
+        // immutable because there are @IgnoreModifications on the exposed fields!
+        assertTrue(immutable.isImmutable());
+    }
+
+    @Test
+    public void testSystemOut() {
+        TypeInfo typeInfo = compiledTypesManager.get(System.class);
+        FieldInfo out = typeInfo.getFieldByName("out", true);
+        assertTrue(out.hasBeenInspected());
+        assertTrue(out.isPropertyNotNull());
+        assertTrue(out.isIgnoreModifications());
+        assertTrue(out.access().isPublic());
+        assertTrue(out.isFinal());
+        assertTrue(out.isPropertyFinal());
+        assertTrue(out.isStatic());
+    }
+
+    @Test
+    public void testCollection() {
+        TypeInfo typeInfo = compiledTypesManager.get(Collection.class);
+        assertTrue(typeInfo.isInterface());
+        assertFalse(typeInfo.isAtLeastImmutableHC());
+        assertSame(ValueImpl.IndependentImpl.DEPENDENT, typeInfo.analysis().getOrDefault(INDEPENDENT_TYPE,
+                ValueImpl.IndependentImpl.DEPENDENT));
+        assertTrue(typeInfo.analysis().getOrDefault(CONTAINER_TYPE, ValueImpl.BoolImpl.FALSE).isTrue());
+    }
+
+    private void testImmutableContainer(TypeInfo typeInfo, boolean hc) {
+        Value.Immutable immutable = typeInfo.analysis().getOrDefault(IMMUTABLE_TYPE,
+                ValueImpl.ImmutableImpl.MUTABLE);
+        Value.Immutable expectImmutable = hc ? ValueImpl.ImmutableImpl.IMMUTABLE_HC : ValueImpl.ImmutableImpl.IMMUTABLE;
+        assertSame(expectImmutable, immutable);
+
+        Value.Independent independent = typeInfo.analysis().getOrDefault(INDEPENDENT_TYPE,
+                ValueImpl.IndependentImpl.DEPENDENT);
+        assertSame(ValueImpl.IndependentImpl.INDEPENDENT, independent);
+        boolean container = typeInfo.analysis().getOrDefault(CONTAINER_TYPE, ValueImpl.BoolImpl.FALSE).isTrue();
+        assertTrue(container);
     }
 }

@@ -120,6 +120,17 @@ public class AnnotatedApiParser implements AnnotationProvider {
                 ++warnings;
             }
         }
+        for (FieldInfo sourceField : sourceType.fields()) {
+            FieldInfo targetField = findTargetField(targetType, sourceField);
+            if (targetField != null) {
+                annotations += sourceField.annotations().size();
+                Data fieldData = new Data(sourceField.annotations());
+                infoMap.put(targetField, fieldData);
+            } else {
+                LOGGER.warn("Ignoring field '{}', not found in target type '{}'", sourceField, targetType);
+                ++warnings;
+            }
+        }
     }
 
     private MethodInfo findTargetConstructor(TypeInfo targetType, MethodInfo sourceMethod) {
@@ -142,6 +153,10 @@ public class AnnotatedApiParser implements AnnotationProvider {
             }
         }
         return null; // cannot find the method, we'll NOT be looking at a supertype, since we cannot add a copy
+    }
+
+    private FieldInfo findTargetField(TypeInfo targetType, FieldInfo sourceField) {
+        return targetType.getFieldByName(sourceField.name(), false);
     }
 
     private boolean sameParameterTypes(MethodInfo candidate, MethodInfo sourceMethod) {
@@ -183,5 +198,9 @@ public class AnnotatedApiParser implements AnnotationProvider {
 
     public List<TypeInfo> types() {
         return infoMap.keySet().stream().filter(i -> i instanceof TypeInfo).map(t -> (TypeInfo) t).toList();
+    }
+
+    public JavaInspector javaInspector() {
+        return javaInspector;
     }
 }

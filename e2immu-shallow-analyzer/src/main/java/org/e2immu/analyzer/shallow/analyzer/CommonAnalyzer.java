@@ -1,7 +1,9 @@
 package org.e2immu.analyzer.shallow.analyzer;
 
 import org.e2immu.annotation.*;
+import org.e2immu.annotation.method.GetSet;
 import org.e2immu.annotation.rare.IgnoreModifications;
+import org.e2immu.annotation.type.UtilityClass;
 import org.e2immu.language.cst.api.analysis.Property;
 import org.e2immu.language.cst.api.analysis.Value;
 import org.e2immu.language.cst.api.expression.AnnotationExpression;
@@ -53,6 +55,7 @@ class CommonAnalyzer {
         boolean isModifying = false;
         boolean isIgnoreModifications = false;
         boolean isFinal = false;
+        String getSetFieldName = null;
         for (AnnotationExpression ae : annotations) {
             boolean isAbsent = ae.extractBoolean("absent");
             if (!isAbsent) {
@@ -90,6 +93,11 @@ class CommonAnalyzer {
                     isFinal = true;
                 } else if (IgnoreModifications.class.getCanonicalName().equals(fqn)) {
                     isIgnoreModifications = true;
+                } else if (GetSet.class.getCanonicalName().equals(fqn)) {
+                    getSetFieldName = ae.extractString("value");
+                } else if (UtilityClass.class.getCanonicalName().equals(fqn)) {
+                    immutableLevel = ValueImpl.ImmutableImpl.IMMUTABLE.value();
+                    independentLevel = ValueImpl.IndependentImpl.INDEPENDENT.value();
                 }
             }
         }
@@ -108,16 +116,24 @@ class CommonAnalyzer {
         }
         Value notNull = ValueImpl.NotNullImpl.from(notNullLevel);
         Value modified = ValueImpl.BoolImpl.from(isModifying);
-        if (info instanceof MethodInfo) {
+        if (info instanceof MethodInfo methodInfo) {
             Value fluent = ValueImpl.BoolImpl.from(isFluent);
             Value identity = ValueImpl.BoolImpl.from(isIdentity);
+            Value getSetField;
+            if (getSetFieldName != null) {
+                FieldInfo field = methodInfo.typeInfo().getFieldByName(getSetFieldName, true);
+                getSetField = new ValueImpl.FieldValueImpl(field);
+            } else {
+                getSetField = ValueImpl.FieldValueImpl.EMPTY;
+            }
             return Map.of(PropertyImpl.IMMUTABLE_METHOD, immutable,
                     PropertyImpl.INDEPENDENT_METHOD, independent,
                     PropertyImpl.CONTAINER_METHOD, container,
                     PropertyImpl.MODIFIED_METHOD, modified,
                     PropertyImpl.FLUENT_METHOD, fluent,
                     PropertyImpl.IDENTITY_METHOD, identity,
-                    PropertyImpl.NOT_NULL_METHOD, notNull);
+                    PropertyImpl.NOT_NULL_METHOD, notNull,
+                    PropertyImpl.GET_SET_FIELD, getSetField);
         }
         Value ignoreMods = ValueImpl.BoolImpl.from(isIgnoreModifications);
         if (info instanceof FieldInfo) {
