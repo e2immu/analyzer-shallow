@@ -16,7 +16,7 @@ public class ShallowTypeAnalyzer extends CommonAnalyzer {
     private static final Logger LOGGER = LoggerFactory.getLogger(ShallowTypeAnalyzer.class);
 
     public ShallowTypeAnalyzer(AnnotationProvider annotationProvider) {
-       super(annotationProvider);
+        super(annotationProvider);
     }
 
     public void analyze(TypeInfo typeInfo) {
@@ -26,6 +26,12 @@ public class ShallowTypeAnalyzer extends CommonAnalyzer {
         List<AnnotationExpression> annotations = annotationProvider.annotations(typeInfo);
         Map<Property, Value> map = annotationsToMap(typeInfo, annotations);
         map.forEach(typeInfo.analysis()::set);
+
+        for (FieldInfo fieldInfo : typeInfo.fields()) {
+            List<AnnotationExpression> fieldAnnotations = annotationProvider.annotations(fieldInfo);
+            Map<Property, Value> fieldMap = annotationsToMap(fieldInfo, fieldAnnotations);
+            fieldMap.forEach(fieldInfo.analysis()::set);
+        }
     }
 
     public void check(TypeInfo typeInfo) {
@@ -36,6 +42,16 @@ public class ShallowTypeAnalyzer extends CommonAnalyzer {
                     ValueImpl.ImmutableImpl.IMMUTABLE_HC);
             if (!least.isAtLeastImmutableHC()) {
                 LOGGER.warn("@Immutable inconsistency in hierarchy");
+            }
+            for (FieldInfo fieldInfo : typeInfo.fields()) {
+                if (fieldInfo.analysis().getOrDefault(PropertyImpl.MODIFIED_FIELD, ValueImpl.BoolImpl.FALSE).isTrue()) {
+                    LOGGER.warn("Have @Modified field {} in @Immutable type {}", fieldInfo.name(), typeInfo);
+                }
+            }
+            for (MethodInfo methodInfo : typeInfo.methods()) {
+                if (methodInfo.analysis().getOrDefault(PropertyImpl.MODIFIED_METHOD, ValueImpl.BoolImpl.FALSE).isTrue()) {
+                    LOGGER.warn("Have @Modified method {} in @Immutable type {}", methodInfo.name(), typeInfo);
+                }
             }
         }
         Value.Bool container = typeInfo.analysis().getOrDefault(PropertyImpl.CONTAINER_TYPE, ValueImpl.BoolImpl.FALSE);

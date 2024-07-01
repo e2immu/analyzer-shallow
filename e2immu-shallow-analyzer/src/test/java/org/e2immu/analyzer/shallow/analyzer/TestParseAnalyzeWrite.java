@@ -22,7 +22,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class TestParseAnalyzeWrite {
     @BeforeAll
     public static void beforeAll() {
-        ((Logger) LoggerFactory.getLogger(org.slf4j.Logger.ROOT_LOGGER_NAME)).setLevel(Level.DEBUG);
+        ((Logger) LoggerFactory.getLogger(org.slf4j.Logger.ROOT_LOGGER_NAME)).setLevel(Level.INFO);
+        ((Logger) LoggerFactory.getLogger("org.e2immu.analyzer.shallow")).setLevel(Level.DEBUG);
     }
 
     @Test

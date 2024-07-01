@@ -107,8 +107,8 @@ class CommonAnalyzer {
                     PropertyImpl.CONTAINER_TYPE, container);
         }
         Value notNull = ValueImpl.NotNullImpl.from(notNullLevel);
+        Value modified = ValueImpl.BoolImpl.from(isModifying);
         if (info instanceof MethodInfo) {
-            Value modified = ValueImpl.BoolImpl.from(isModifying);
             Value fluent = ValueImpl.BoolImpl.from(isFluent);
             Value identity = ValueImpl.BoolImpl.from(isIdentity);
             return Map.of(PropertyImpl.IMMUTABLE_METHOD, immutable,
@@ -119,12 +119,23 @@ class CommonAnalyzer {
                     PropertyImpl.IDENTITY_METHOD, identity,
                     PropertyImpl.NOT_NULL_METHOD, notNull);
         }
+        Value ignoreMods = ValueImpl.BoolImpl.from(isIgnoreModifications);
         if (info instanceof FieldInfo) {
-            Value ignoreMods = ValueImpl.BoolImpl.from(isIgnoreModifications);
             Value finalField = ValueImpl.BoolImpl.from(isFinal);
             return Map.of(PropertyImpl.NOT_NULL_FIELD, notNull,
                     PropertyImpl.FINAL_FIELD, finalField,
-                    PropertyImpl.IGNORE_MODIFICATIONS_FIELD, ignoreMods);
+                    PropertyImpl.IGNORE_MODIFICATIONS_FIELD, ignoreMods,
+                    PropertyImpl.MODIFIED_FIELD, modified,
+                    PropertyImpl.IMMUTABLE_FIELD, immutable,
+                    PropertyImpl.CONTAINER_FIELD, container);
+        }
+        if (info instanceof ParameterInfo) {
+            return Map.of(PropertyImpl.MODIFIED_PARAMETER, modified,
+                    PropertyImpl.NOT_NULL_PARAMETER, notNull,
+                    PropertyImpl.IGNORE_MODIFICATIONS_PARAMETER, ignoreMods,
+                    PropertyImpl.IMMUTABLE_PARAMETER, immutable,
+                    PropertyImpl.INDEPENDENT_PARAMETER, independent,
+                    PropertyImpl.CONTAINER_PARAMETER, container);
         }
         throw new UnsupportedOperationException();
     }
