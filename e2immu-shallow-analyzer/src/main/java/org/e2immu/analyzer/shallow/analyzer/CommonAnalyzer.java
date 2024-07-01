@@ -99,7 +99,7 @@ class CommonAnalyzer {
         if (independentLevel == -1 && info instanceof TypeInfo typeInfo) {
             independent = simpleComputeIndependent(typeInfo, immutable);
         } else {
-            independent = ValueImpl.IndependentImpl.from(independentLevel);
+            independent = ValueImpl.IndependentImpl.from(Math.max(0, independentLevel));
         }
         if (info instanceof TypeInfo) {
             return Map.of(PropertyImpl.IMMUTABLE_TYPE, immutable,
@@ -127,6 +127,7 @@ class CommonAnalyzer {
                     PropertyImpl.IGNORE_MODIFICATIONS_FIELD, ignoreMods,
                     PropertyImpl.MODIFIED_FIELD, modified,
                     PropertyImpl.IMMUTABLE_FIELD, immutable,
+                    PropertyImpl.INDEPENDENT_FIELD, independent,
                     PropertyImpl.CONTAINER_FIELD, container);
         }
         if (info instanceof ParameterInfo) {

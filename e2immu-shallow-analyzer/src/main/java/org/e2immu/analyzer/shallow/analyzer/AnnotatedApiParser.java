@@ -180,4 +180,8 @@ public class AnnotatedApiParser implements AnnotationProvider {
     public int getWarnings() {
         return warnings;
     }
+
+    public List<TypeInfo> types() {
+        return infoMap.keySet().stream().filter(i -> i instanceof TypeInfo).map(t -> (TypeInfo) t).toList();
+    }
 }

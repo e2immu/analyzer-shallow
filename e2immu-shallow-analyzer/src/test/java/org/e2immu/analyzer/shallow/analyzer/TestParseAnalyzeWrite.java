@@ -6,6 +6,7 @@ import org.e2immu.language.cst.api.expression.AnnotationExpression;
 import org.e2immu.language.cst.api.info.MethodInfo;
 import org.e2immu.language.cst.api.info.TypeInfo;
 import org.e2immu.language.cst.api.runtime.Runtime;
+import org.e2immu.language.inspection.api.integration.JavaInspector;
 import org.e2immu.language.inspection.api.parser.SourceTypes;
 import org.e2immu.language.inspection.integration.JavaInspectorImpl;
 import org.junit.jupiter.api.BeforeAll;
@@ -34,5 +35,20 @@ public class TestParseAnalyzeWrite {
                 List.of("../e2immu-shallow-aapi/src/main/java/org/e2immu/analyzer/shallow/aapi"),
                 List.of("java"));
 
+        ShallowTypeAnalyzer shallowTypeAnalyzer = new ShallowTypeAnalyzer(annotatedApiParser);
+        ShallowMethodAnalyzer shallowMethodAnalyzer = new ShallowMethodAnalyzer(annotatedApiParser);
+        List<TypeInfo> types = annotatedApiParser.types();
+        for (TypeInfo typeInfo : types) {
+            shallowTypeAnalyzer.analyze(typeInfo);
+        }
+        for (TypeInfo typeInfo : types) {
+            shallowTypeAnalyzer.analyzeFields(typeInfo);
+            for (MethodInfo methodInfo : typeInfo.methods()) {
+                shallowMethodAnalyzer.analyze(methodInfo);
+            }
+        }
+        for (TypeInfo typeInfo : types) {
+            shallowTypeAnalyzer.check(typeInfo);
+        }
     }
 }

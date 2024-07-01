@@ -1,9 +1,11 @@
 package org.e2immu.analyzer.shallow.analyzer;
 
+import org.e2immu.annotation.Independent;
 import org.e2immu.language.cst.api.analysis.Property;
 import org.e2immu.language.cst.api.analysis.Value;
 import org.e2immu.language.cst.api.expression.AnnotationExpression;
 import org.e2immu.language.cst.api.info.*;
+import org.e2immu.language.cst.api.type.ParameterizedType;
 import org.e2immu.language.cst.impl.analysis.PropertyImpl;
 import org.e2immu.language.cst.impl.analysis.ValueImpl;
 import org.slf4j.Logger;
@@ -14,6 +16,7 @@ import java.util.Map;
 
 public class ShallowTypeAnalyzer extends CommonAnalyzer {
     private static final Logger LOGGER = LoggerFactory.getLogger(ShallowTypeAnalyzer.class);
+    private final AnalysisHelper analysisHelper = new AnalysisHelper();
 
     public ShallowTypeAnalyzer(AnnotationProvider annotationProvider) {
         super(annotationProvider);
@@ -27,11 +30,45 @@ public class ShallowTypeAnalyzer extends CommonAnalyzer {
         Map<Property, Value> map = annotationsToMap(typeInfo, annotations);
         map.forEach(typeInfo.analysis()::set);
 
+        boolean immutableDeterminedByTypeParameters = typeInfo.typeParameters().stream()
+                .anyMatch(tp -> tp.annotations().stream().anyMatch(ae ->
+                        Independent.class.getCanonicalName().equals(ae.typeInfo().fullyQualifiedName())));
+        typeInfo.analysis().set(PropertyImpl.IMMUTABLE_TYPE_DETERMINED_BY_PARAMETERS,
+                ValueImpl.BoolImpl.from(immutableDeterminedByTypeParameters));
+    }
+
+    public void analyzeFields(TypeInfo typeInfo) {
+        boolean isEnum = typeInfo.typeNature().isEnum();
         for (FieldInfo fieldInfo : typeInfo.fields()) {
             List<AnnotationExpression> fieldAnnotations = annotationProvider.annotations(fieldInfo);
             Map<Property, Value> fieldMap = annotationsToMap(fieldInfo, fieldAnnotations);
-            fieldMap.forEach(fieldInfo.analysis()::set);
+            boolean enumField = isEnum && fieldInfo.isSynthetic();
+            fieldMap.forEach((p, v) -> {
+                Value vv;
+                if (p == PropertyImpl.FINAL_FIELD && ((ValueImpl.BoolImpl) v).isFalse()
+                    && (enumField || fieldInfo.isFinal())) {
+                    vv = ValueImpl.BoolImpl.TRUE;
+                } else if (p == PropertyImpl.NOT_NULL_FIELD && ((ValueImpl.NotNullImpl) v).isNullable()
+                           && (enumField || fieldInfo.type().isPrimitiveExcludingVoid())) {
+                    vv = ValueImpl.NotNullImpl.NOT_NULL;
+                } else if (p == PropertyImpl.CONTAINER_FIELD && ((ValueImpl.BoolImpl) v).isFalse()
+                           && typeIsContainer(fieldInfo.type())) {
+                    vv = ValueImpl.BoolImpl.TRUE;
+                } else if (p == PropertyImpl.IMMUTABLE_FIELD && !((ValueImpl.ImmutableImpl) v).isImmutable()) {
+                    Value.Immutable formally = analysisHelper.typeImmutable(fieldInfo.type());
+                    vv = formally.max((ValueImpl.ImmutableImpl) v);
+                } else {
+                    vv = v;
+                }
+                fieldInfo.analysis().set(p, vv);
+            });
         }
+    }
+
+    private boolean typeIsContainer(ParameterizedType type) {
+        TypeInfo best = type.bestTypeInfo();
+        if (best == null) return true;
+        return best.analysis().getOrDefault(PropertyImpl.CONTAINER_TYPE, ValueImpl.BoolImpl.FALSE).isTrue();
     }
 
     public void check(TypeInfo typeInfo) {
