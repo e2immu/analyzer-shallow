@@ -34,6 +34,7 @@ public class ShallowTypeAnalyzer extends CommonAnalyzer {
     }
 
     public void analyze(TypeInfo typeInfo) {
+        LOGGER.debug("Analyzing type {}", typeInfo);
         if (typeInfo.analysis().getOrDefault(SHALLOW_ANALYZER, FALSE).isTrue()) {
             return; // already done
         }
@@ -68,6 +69,7 @@ public class ShallowTypeAnalyzer extends CommonAnalyzer {
     public void analyzeFields(TypeInfo typeInfo) {
         boolean isEnum = typeInfo.typeNature().isEnum();
         for (FieldInfo fieldInfo : typeInfo.fields()) {
+            if (!fieldInfo.access().isPublic()) continue;
             if (fieldInfo.analysis().getOrDefault(SHALLOW_ANALYZER, FALSE).isTrue()) {
                 continue; // already done
             }

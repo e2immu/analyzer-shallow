@@ -12,8 +12,7 @@ import org.e2immu.language.cst.impl.analysis.ValueImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static org.e2immu.language.cst.impl.analysis.PropertyImpl.*;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.FALSE;
@@ -24,6 +23,7 @@ import static org.e2immu.language.cst.impl.analysis.ValueImpl.IndependentImpl.IN
 public class ShallowMethodAnalyzer extends CommonAnalyzer {
     private static final Logger LOGGER = LoggerFactory.getLogger(ShallowMethodAnalyzer.class);
     private final AnalysisHelper analysisHelper;
+    private final Map<TypeInfo, Set<TypeInfo>> hierarchyProblems = new HashMap<>();
 
     public ShallowMethodAnalyzer(AnnotationProvider annotationProvider) {
         super(annotationProvider);
@@ -89,33 +89,41 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
     }
 
     private void methodPropertiesBeforeParameters(MethodInfo methodInfo, Map<Property, Value> map, boolean explicitlyEmpty) {
-        Value.Bool fluent = (Value.Bool) map.get(FLUENT_METHOD);
-        if (fluent != null) {
-            if (fluent.isTrue() && explicitlyEmpty) {
-                LOGGER.warn("Impossible! how can a method without statements be @Fluent?");
-            }
+        if (methodInfo.isConstructor()) {
+            map.put(FLUENT_METHOD, FALSE);
+            map.put(IDENTITY_METHOD, FALSE);
+            map.put(MODIFIED_METHOD, TRUE);
         } else {
-            map.put(FLUENT_METHOD, explicitlyEmpty ? FALSE : computeMethodFluent(methodInfo));
-        }
-        Value.Bool identity = (Value.Bool) map.get(IDENTITY_METHOD);
-        if (identity != null) {
-            if (identity.isTrue() && explicitlyEmpty) {
-                LOGGER.warn("Impossible! how can a method without statements be @Identity?");
+            Value.Bool fluent = (Value.Bool) map.get(FLUENT_METHOD);
+            if (fluent != null) {
+                if (fluent.isTrue() && explicitlyEmpty) {
+                    LOGGER.warn("Impossible! how can a method without statements be @Fluent?");
+                }
+            } else {
+                map.put(FLUENT_METHOD, explicitlyEmpty ? FALSE : computeMethodFluent(methodInfo));
             }
-            if (identity.isTrue() && (methodInfo.parameters().isEmpty()
-                                      || !methodInfo.returnType().equals(methodInfo.parameters().get(0).parameterizedType()))) {
-                LOGGER.warn("@Identity method must have return type identical to formal type of first parameter");
+            Value.Bool identity = (Value.Bool) map.get(IDENTITY_METHOD);
+            if (identity != null) {
+                if (identity.isTrue() && explicitlyEmpty) {
+                    LOGGER.warn("Impossible! how can a method without statements be @Identity?");
+                }
+                if (identity.isTrue() && (methodInfo.parameters().isEmpty()
+                        || !methodInfo.returnType().equals(methodInfo.parameters().get(0).parameterizedType()))) {
+                    LOGGER.warn("@Identity method must have return type identical to formal type of first parameter");
+                }
+            } else {
+                map.put(IDENTITY_METHOD, explicitlyEmpty || methodInfo.parameters().isEmpty()
+                        ? FALSE : computeMethodIdentity(methodInfo));
             }
-        } else {
-            map.put(IDENTITY_METHOD, explicitlyEmpty ? FALSE : computeMethodIdentity(methodInfo));
-        }
-        Value.Bool modified = (Value.Bool) map.get(MODIFIED_METHOD);
-        if (modified != null) {
-            if (modified.isTrue() && explicitlyEmpty) {
-                LOGGER.warn("Impossible! how can a method without statements be @Modified?");
+
+            Value.Bool modified = (Value.Bool) map.get(MODIFIED_METHOD);
+            if (modified != null) {
+                if (modified.isTrue() && explicitlyEmpty) {
+                    LOGGER.warn("Impossible! how can a method without statements be @Modified?");
+                }
+            } else {
+                map.put(MODIFIED_METHOD, explicitlyEmpty ? FALSE : computeMethodModified(methodInfo, map));
             }
-        } else {
-            map.put(MODIFIED_METHOD, explicitlyEmpty ? FALSE : computeMethodModified(methodInfo, map));
         }
     }
 
@@ -198,6 +206,11 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
         }
         Value.Independent override = methodInfo.overrides().stream()
                 .map(mi -> mi.parameters().get(parameterInfo.index()))
+                .filter(pi -> pi.analysis().haveAnalyzedValueFor(INDEPENDENT_PARAMETER, () -> {
+                    if (hierarchyProblems.computeIfAbsent(methodInfo.typeInfo(), t -> new HashSet<>()).add(pi.methodInfo().typeInfo())) {
+                        LOGGER.warn("Have no @Independent value for the parameters of {}, overridden by {}", pi, methodInfo);
+                    }
+                }))
                 .map(pi -> (Value.Independent) pi.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT))
                 .reduce(DEPENDENT, Value.Independent::max);
         return override.max(value);
@@ -206,26 +219,45 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
 
     private Value computeMethodModified(MethodInfo methodInfo, Map<Property, Value> map) {
         if (methodInfo.isConstructor()) return TRUE;
-        Value.Bool fluent = (Value.Bool) map.get(PropertyImpl.FLUENT_METHOD);
+        Value.Bool fluent = (Value.Bool) map.get(FLUENT_METHOD);
         Value.Bool containerType = methodInfo.typeInfo().analysis().getOrDefault(CONTAINER_TYPE, FALSE);
         boolean voidMethod = methodInfo.noReturnValue();
         Value.Bool addToModified = ValueImpl.BoolImpl.from(containerType.isTrue() && (fluent.isTrue() || voidMethod));
         return methodInfo.overrides().stream()
-                .map(m -> m.analysis().getOrDefault(PropertyImpl.MODIFIED_METHOD, FALSE))
+                .filter(m -> m.analysis().haveAnalyzedValueFor(MODIFIED_METHOD, () -> {
+                    if (hierarchyProblems.computeIfAbsent(methodInfo.typeInfo(), t -> new HashSet<>()).add(m.typeInfo())) {
+                        LOGGER.warn("Have no modification value for {}, overridden by {}", m, methodInfo);
+                    }
+                }))
+                .map(m -> m.analysis().getOrDefault(MODIFIED_METHOD, FALSE))
                 .reduce(FALSE, Value.Bool::or)
                 .or(addToModified);
     }
 
     private Value computeMethodFluent(MethodInfo methodInfo) {
+        if (methodInfo.returnType().typeInfo() != methodInfo.typeInfo()) return FALSE;
         return methodInfo.overrides().stream()
-                .map(m -> m.analysis().getOrDefault(PropertyImpl.FLUENT_METHOD, FALSE))
+                .filter(m -> m.analysis().haveAnalyzedValueFor(FLUENT_METHOD, () -> {
+                    if (hierarchyProblems.computeIfAbsent(methodInfo.typeInfo(), t -> new HashSet<>()).add(m.typeInfo())) {
+                        LOGGER.warn("Have no @Fluent value for {}, overridden by {}", m, methodInfo);
+                    }
+                }))
+                .map(m -> m.analysis().getOrDefault(FLUENT_METHOD, FALSE))
                 .reduce(FALSE, Value.Bool::or);
     }
 
     private Value computeMethodIdentity(MethodInfo methodInfo) {
         return methodInfo.overrides().stream()
-                .map(m -> m.analysis().getOrDefault(PropertyImpl.FLUENT_METHOD, FALSE))
+                .filter(m -> m.analysis().haveAnalyzedValueFor(IDENTITY_METHOD, () -> {
+                    if (hierarchyProblems.computeIfAbsent(methodInfo.typeInfo(), t -> new HashSet<>()).add(m.typeInfo())) {
+                        LOGGER.warn("Have no @Identity value for {}, overridden by {}", m, methodInfo);
+                    }
+                }))
+                .map(m -> m.analysis().getOrDefault(IDENTITY_METHOD, FALSE))
                 .reduce(FALSE, Value.Bool::or);
     }
 
+    public Map<TypeInfo, Set<TypeInfo>> getHierarchyProblems() {
+        return hierarchyProblems;
+    }
 }

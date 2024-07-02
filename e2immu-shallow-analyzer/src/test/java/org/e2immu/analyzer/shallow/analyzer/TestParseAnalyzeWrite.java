@@ -34,6 +34,8 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestParseAnalyzeWrite {
     private static CompiledTypesManager compiledTypesManager;
 
+    // FIXME ZipFile implements Closeable, AutoCloseable, should come AFTER those two
+
     @BeforeAll
     public static void beforeAll() throws IOException {
         ((Logger) LoggerFactory.getLogger(org.slf4j.Logger.ROOT_LOGGER_NAME)).setLevel(Level.INFO);
@@ -48,10 +50,14 @@ public class TestParseAnalyzeWrite {
         ShallowTypeAnalyzer shallowTypeAnalyzer = new ShallowTypeAnalyzer(annotatedApiParser);
         ShallowMethodAnalyzer shallowMethodAnalyzer = new ShallowMethodAnalyzer(annotatedApiParser);
         List<TypeInfo> types = annotatedApiParser.types();
-        List<TypeInfo> allTypes = types.stream().flatMap(TypeInfo::recursiveSubTypeStream).toList();
+        List<TypeInfo> allTypes = types.stream().flatMap(TypeInfo::recursiveSubTypeStream)
+                .filter(TypeInfo::isPublic)
+                .toList();
         G.Builder<TypeInfo> graphBuilder = new G.Builder<>(Long::sum);
         for (TypeInfo typeInfo : allTypes) {
-            List<TypeInfo> allSuperTypes = typeInfo.recursiveSuperTypeStream().toList();
+            List<TypeInfo> allSuperTypes = typeInfo.recursiveSuperTypeStream()
+                    .filter(TypeInfo::isPublic)
+                    .toList();
             graphBuilder.add(typeInfo, allSuperTypes);
         }
         G<TypeInfo> graph = graphBuilder.build();
@@ -62,9 +68,9 @@ public class TestParseAnalyzeWrite {
         }
         for (TypeInfo typeInfo : sorted) {
             shallowTypeAnalyzer.analyzeFields(typeInfo);
-            for (MethodInfo methodInfo : typeInfo.methods()) {
-                shallowMethodAnalyzer.analyze(methodInfo);
-            }
+            typeInfo.methodAndConstructorStream()
+                    .filter(MethodInfo::isPublic)
+                    .forEach(shallowMethodAnalyzer::analyze);
         }
         for (TypeInfo typeInfo : sorted) {
             shallowTypeAnalyzer.check(typeInfo);

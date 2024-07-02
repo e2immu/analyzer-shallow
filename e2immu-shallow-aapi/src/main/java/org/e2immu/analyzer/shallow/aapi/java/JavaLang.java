@@ -205,6 +205,9 @@ class JavaLang {
         Appendable append(/*@Independent(hc=true)*/CharSequence charSequence, int start, int end);
     }
 
+    interface AbstractStringBuilder$ {
+
+    }
     @Container
     interface AutoCloseable$ {
 
