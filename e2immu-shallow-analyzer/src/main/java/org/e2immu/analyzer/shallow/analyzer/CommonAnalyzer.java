@@ -11,9 +11,11 @@ import org.e2immu.language.cst.api.info.*;
 import org.e2immu.language.cst.api.type.ParameterizedType;
 import org.e2immu.language.cst.impl.analysis.PropertyImpl;
 import org.e2immu.language.cst.impl.analysis.ValueImpl;
+import org.e2immu.util.internal.util.GetSetHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
@@ -46,120 +48,137 @@ class CommonAnalyzer {
     }
 
     protected Map<Property, Value> annotationsToMap(Info info, List<AnnotationExpression> annotations) {
-        int immutableLevel = 0;
-        int independentLevel = -1;
-        int notNullLevel = 0;
-        boolean isContainer = false;
-        boolean isFluent = false;
-        boolean isIdentity = false;
-        boolean isModifying = false;
-        boolean isIgnoreModifications = false;
-        boolean isFinal = false;
-        String getSetFieldName = null;
+        Value.Immutable immutable = null;
+        Value.Independent independent = null;
+        Value.NotNull notNull = null;
+        Value.Bool container = null;
+        Value.Bool fluent = null;
+        Value.Bool identity = null;
+        Value.Bool modified = null;
+        Value.Bool ignoreModifications = null;
+        Value.Bool isFinal = null;
+        Value.FieldValue getSetField = null;
+
         for (AnnotationExpression ae : annotations) {
             boolean isAbsent = ae.extractBoolean("absent");
-            if (!isAbsent) {
-                String fqn = ae.typeInfo().fullyQualifiedName();
-                if (Immutable.class.getCanonicalName().equals(fqn)) {
+            Value.Bool valueForTrue = ValueImpl.BoolImpl.from(!isAbsent);
+
+            String fqn = ae.typeInfo().fullyQualifiedName();
+            if (Immutable.class.getCanonicalName().equals(fqn)) {
+                if (isAbsent) {
+                    immutable = ValueImpl.ImmutableImpl.MUTABLE;
+                } else {
                     boolean hc = ae.extractBoolean("hc");
-                    immutableLevel = hc ? ValueImpl.ImmutableImpl.IMMUTABLE_HC.value()
-                            : ValueImpl.ImmutableImpl.IMMUTABLE.value();
-                } else if (ImmutableContainer.class.getCanonicalName().equals(fqn)) {
-                    boolean hc = ae.extractBoolean("hc");
-                    immutableLevel = hc ? ValueImpl.ImmutableImpl.IMMUTABLE_HC.value()
-                            : ValueImpl.ImmutableImpl.IMMUTABLE.value();
-                    isContainer = true;
-                } else if (FinalFields.class.getCanonicalName().equals(fqn)) {
-                    immutableLevel = ValueImpl.ImmutableImpl.FINAL_FIELDS.value();
-                } else if (Container.class.getCanonicalName().equals(fqn)) {
-                    isContainer = true;
-                } else if (Independent.class.getCanonicalName().equals(fqn)) {
-                    boolean hc = ae.extractBoolean("hc");
-                    independentLevel = hc ? ValueImpl.IndependentImpl.INDEPENDENT_HC.value()
-                            : ValueImpl.IndependentImpl.INDEPENDENT.value();
-                } else if (NotModified.class.getCanonicalName().equals(fqn)) {
-                    assert !isModifying;
-                } else if (Modified.class.getCanonicalName().equals(fqn)) {
-                    isModifying = true;
-                } else if (Identity.class.getCanonicalName().equals(fqn)) {
-                    isIdentity = true;
-                } else if (Fluent.class.getCanonicalName().equals(fqn)) {
-                    isFluent = true;
-                } else if (NotNull.class.getCanonicalName().equals(fqn)) {
-                    boolean content = ae.extractBoolean("content");
-                    notNullLevel = content ? ValueImpl.NotNullImpl.CONTENT_NOT_NULL.value()
-                            : ValueImpl.NotNullImpl.NOT_NULL.value();
-                } else if (Final.class.getCanonicalName().equals(fqn)) {
-                    isFinal = true;
-                } else if (IgnoreModifications.class.getCanonicalName().equals(fqn)) {
-                    isIgnoreModifications = true;
-                } else if (GetSet.class.getCanonicalName().equals(fqn)) {
-                    getSetFieldName = ae.extractString("value");
-                } else if (UtilityClass.class.getCanonicalName().equals(fqn)) {
-                    immutableLevel = ValueImpl.ImmutableImpl.IMMUTABLE.value();
-                    independentLevel = ValueImpl.IndependentImpl.INDEPENDENT.value();
+                    immutable = hc ? ValueImpl.ImmutableImpl.IMMUTABLE_HC : ValueImpl.ImmutableImpl.IMMUTABLE;
                 }
+            } else if (ImmutableContainer.class.getCanonicalName().equals(fqn)) {
+                if (isAbsent) {
+                    immutable = ValueImpl.ImmutableImpl.MUTABLE;
+                    container = ValueImpl.BoolImpl.FALSE;
+                } else {
+                    boolean hc = ae.extractBoolean("hc");
+                    immutable = hc ? ValueImpl.ImmutableImpl.IMMUTABLE_HC : ValueImpl.ImmutableImpl.IMMUTABLE;
+                    container = ValueImpl.BoolImpl.TRUE;
+                }
+            } else if (FinalFields.class.getCanonicalName().equals(fqn)) {
+                if (isAbsent) {
+                    immutable = ValueImpl.ImmutableImpl.MUTABLE;
+                } else {
+                    immutable = ValueImpl.ImmutableImpl.FINAL_FIELDS;
+                }
+            } else if (Container.class.getCanonicalName().equals(fqn)) {
+                container = valueForTrue;
+            } else if (Independent.class.getCanonicalName().equals(fqn)) {
+                if (isAbsent) {
+                    independent = ValueImpl.IndependentImpl.DEPENDENT;
+                } else {
+                    boolean hc = ae.extractBoolean("hc");
+                    independent = hc ? ValueImpl.IndependentImpl.INDEPENDENT_HC : ValueImpl.IndependentImpl.INDEPENDENT;
+                }
+            } else if (NotModified.class.getCanonicalName().equals(fqn)) {
+                modified = ValueImpl.BoolImpl.from(isAbsent);
+            } else if (Modified.class.getCanonicalName().equals(fqn)) {
+                modified = valueForTrue;
+            } else if (Identity.class.getCanonicalName().equals(fqn)) {
+                identity = valueForTrue;
+            } else if (Fluent.class.getCanonicalName().equals(fqn)) {
+                fluent = valueForTrue;
+            } else if (NotNull.class.getCanonicalName().equals(fqn)) {
+                if (isAbsent) {
+                    notNull = ValueImpl.NotNullImpl.NULLABLE;
+                } else {
+                    boolean content = ae.extractBoolean("content");
+                    notNull = content ? ValueImpl.NotNullImpl.CONTENT_NOT_NULL : ValueImpl.NotNullImpl.NOT_NULL;
+                }
+            } else if (Final.class.getCanonicalName().equals(fqn)) {
+                isFinal = valueForTrue;
+            } else if (IgnoreModifications.class.getCanonicalName().equals(fqn)) {
+                ignoreModifications = valueForTrue;
+            } else if (GetSet.class.getCanonicalName().equals(fqn)) {
+                if (info instanceof MethodInfo methodInfo) {
+                    String name = ae.extractString("value", GetSetHelper.fieldName(methodInfo.name()));
+                    FieldInfo field = methodInfo.typeInfo().getFieldByName(name, false);
+                    if (field == null) {
+                        LOGGER.warn("Cannot find field {} in {}", name, methodInfo.typeInfo());
+                    } else {
+                        getSetField = new ValueImpl.FieldValueImpl(field);
+                    }
+                }
+            } else if (UtilityClass.class.getCanonicalName().equals(fqn)) {
+                immutable = ValueImpl.ImmutableImpl.IMMUTABLE;
+                independent = ValueImpl.IndependentImpl.INDEPENDENT;
             }
         }
-        Value container = ValueImpl.BoolImpl.from(isContainer);
-        Value.Immutable immutable = ValueImpl.ImmutableImpl.from(immutableLevel);
-        Value independent;
-        if (independentLevel == -1 && info instanceof TypeInfo typeInfo) {
+
+        if (independent == null && info instanceof TypeInfo typeInfo) {
             independent = simpleComputeIndependent(typeInfo, immutable);
-        } else {
-            independent = ValueImpl.IndependentImpl.from(Math.max(0, independentLevel));
         }
+        Map<Property, Value> map = new HashMap<>();
+
         if (info instanceof TypeInfo) {
-            return Map.of(PropertyImpl.IMMUTABLE_TYPE, immutable,
-                    PropertyImpl.INDEPENDENT_TYPE, independent,
-                    PropertyImpl.CONTAINER_TYPE, container);
+            if (immutable != null) map.put(PropertyImpl.IMMUTABLE_TYPE, immutable);
+            if (independent != null) map.put(PropertyImpl.INDEPENDENT_TYPE, independent);
+            if (container != null) map.put(PropertyImpl.CONTAINER_TYPE, container);
+            return map;
         }
-        Value notNull = ValueImpl.NotNullImpl.from(notNullLevel);
-        Value modified = ValueImpl.BoolImpl.from(isModifying);
-        if (info instanceof MethodInfo methodInfo) {
-            Value fluent = ValueImpl.BoolImpl.from(isFluent);
-            Value identity = ValueImpl.BoolImpl.from(isIdentity);
-            Value getSetField;
-            if (getSetFieldName != null) {
-                FieldInfo field = methodInfo.typeInfo().getFieldByName(getSetFieldName, true);
-                getSetField = new ValueImpl.FieldValueImpl(field);
-            } else {
-                getSetField = ValueImpl.FieldValueImpl.EMPTY;
-            }
-            return Map.of(PropertyImpl.IMMUTABLE_METHOD, immutable,
-                    PropertyImpl.INDEPENDENT_METHOD, independent,
-                    PropertyImpl.CONTAINER_METHOD, container,
-                    PropertyImpl.MODIFIED_METHOD, modified,
-                    PropertyImpl.FLUENT_METHOD, fluent,
-                    PropertyImpl.IDENTITY_METHOD, identity,
-                    PropertyImpl.NOT_NULL_METHOD, notNull,
-                    PropertyImpl.GET_SET_FIELD, getSetField);
+        if (info instanceof MethodInfo) {
+            if (fluent != null) map.put(PropertyImpl.FLUENT_METHOD, fluent);
+            if (identity != null) map.put(PropertyImpl.IDENTITY_METHOD, identity);
+            if (getSetField != null) map.put(PropertyImpl.GET_SET_FIELD, getSetField);
+            if (immutable != null) map.put(PropertyImpl.IMMUTABLE_METHOD, immutable);
+            if (independent != null) map.put(PropertyImpl.INDEPENDENT_METHOD, independent);
+            if (container != null) map.put(PropertyImpl.CONTAINER_METHOD, container);
+            if (notNull != null) map.put(PropertyImpl.NOT_NULL_METHOD, notNull);
+            if (modified != null) map.put(PropertyImpl.MODIFIED_METHOD, modified);
+            return map;
         }
-        Value ignoreMods = ValueImpl.BoolImpl.from(isIgnoreModifications);
         if (info instanceof FieldInfo) {
-            Value finalField = ValueImpl.BoolImpl.from(isFinal);
-            return Map.of(PropertyImpl.NOT_NULL_FIELD, notNull,
-                    PropertyImpl.FINAL_FIELD, finalField,
-                    PropertyImpl.IGNORE_MODIFICATIONS_FIELD, ignoreMods,
-                    PropertyImpl.MODIFIED_FIELD, modified,
-                    PropertyImpl.IMMUTABLE_FIELD, immutable,
-                    PropertyImpl.INDEPENDENT_FIELD, independent,
-                    PropertyImpl.CONTAINER_FIELD, container);
+            if (immutable != null) map.put(PropertyImpl.IMMUTABLE_FIELD, immutable);
+            if (independent != null) map.put(PropertyImpl.INDEPENDENT_FIELD, independent);
+            if (container != null) map.put(PropertyImpl.CONTAINER_FIELD, container);
+            if (notNull != null) map.put(PropertyImpl.NOT_NULL_FIELD, notNull);
+            if (modified != null) map.put(PropertyImpl.MODIFIED_FIELD, modified);
+            if (isFinal != null) map.put(PropertyImpl.FINAL_FIELD, isFinal);
+            if (ignoreModifications != null) map.put(PropertyImpl.IGNORE_MODIFICATIONS_FIELD, ignoreModifications);
+            return map;
         }
         if (info instanceof ParameterInfo) {
-            return Map.of(PropertyImpl.MODIFIED_PARAMETER, modified,
-                    PropertyImpl.NOT_NULL_PARAMETER, notNull,
-                    PropertyImpl.IGNORE_MODIFICATIONS_PARAMETER, ignoreMods,
-                    PropertyImpl.IMMUTABLE_PARAMETER, immutable,
-                    PropertyImpl.INDEPENDENT_PARAMETER, independent,
-                    PropertyImpl.CONTAINER_PARAMETER, container);
+            if (immutable != null) map.put(PropertyImpl.IMMUTABLE_PARAMETER, immutable);
+            if (independent != null) map.put(PropertyImpl.INDEPENDENT_PARAMETER, independent);
+            if (container != null) map.put(PropertyImpl.CONTAINER_PARAMETER, container);
+            if (notNull != null) map.put(PropertyImpl.NOT_NULL_PARAMETER, notNull);
+            if (modified != null) map.put(PropertyImpl.MODIFIED_PARAMETER, modified);
+            if (ignoreModifications != null) map.put(PropertyImpl.IGNORE_MODIFICATIONS_PARAMETER, ignoreModifications);
+            return map;
         }
         throw new UnsupportedOperationException();
     }
 
-    private Value simpleComputeIndependent(TypeInfo typeInfo, Value.Immutable immutable) {
-        if (immutable.isImmutable()) return ValueImpl.IndependentImpl.INDEPENDENT;
-        if (immutable.isAtLeastImmutableHC()) return ValueImpl.IndependentImpl.INDEPENDENT_HC;
+    private Value.Independent simpleComputeIndependent(TypeInfo typeInfo, Value.Immutable immutable) {
+        if (immutable != null) {
+            if (immutable.isImmutable()) return ValueImpl.IndependentImpl.INDEPENDENT;
+            if (immutable.isAtLeastImmutableHC()) return ValueImpl.IndependentImpl.INDEPENDENT_HC;
+        }
         Stream<MethodInfo> stream = Stream.concat(typeInfo.methodStream(), typeInfo.constructors().stream())
                 .filter(MethodInfo::isPubliclyAccessible);
 

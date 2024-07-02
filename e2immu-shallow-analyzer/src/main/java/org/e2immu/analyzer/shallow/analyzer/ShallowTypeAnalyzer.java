@@ -31,16 +31,21 @@ public class ShallowTypeAnalyzer extends CommonAnalyzer {
         boolean isExtensible = typeInfo.isAbstract() || !typeInfo.isSealedOrFinal();
         List<AnnotationExpression> annotations = annotationProvider.annotations(typeInfo);
         Map<Property, Value> map = annotationsToMap(typeInfo, annotations);
-        map.forEach((p, v) -> {
-            Value vv;
-            if (p == PropertyImpl.IMMUTABLE_TYPE && isExtensible
-                && ((ValueImpl.ImmutableImpl) v).isImmutable()) {
-                vv = ValueImpl.ImmutableImpl.IMMUTABLE_HC;
-            } else {
-                vv = v;
-            }
-            typeInfo.analysis().set(p, vv);
-        });
+
+        map.putIfAbsent(PropertyImpl.CONTAINER_TYPE, ValueImpl.BoolImpl.FALSE);
+        Value.Immutable imm = (Value.Immutable) map.get(PropertyImpl.IMMUTABLE_TYPE);
+        if (imm != null && imm.isImmutable() && isExtensible) {
+            map.put(PropertyImpl.IMMUTABLE_TYPE, ValueImpl.ImmutableImpl.IMMUTABLE_HC);
+        } else if (imm == null) {
+            map.put(PropertyImpl.IMMUTABLE_TYPE, ValueImpl.ImmutableImpl.MUTABLE);
+        }
+        Value.Independent ind = (Value.Independent) map.get(PropertyImpl.INDEPENDENT_TYPE);
+        if (ind != null && ind.isIndependent() && isExtensible) {
+            map.put(PropertyImpl.INDEPENDENT_FIELD, ValueImpl.IndependentImpl.INDEPENDENT_HC);
+        } else if (ind == null) {
+            map.put(PropertyImpl.INDEPENDENT_FIELD, ValueImpl.IndependentImpl.DEPENDENT);
+        }
+        map.forEach(typeInfo.analysis()::set);
 
         boolean immutableDeterminedByTypeParameters = typeInfo.typeParameters().stream()
                 .anyMatch(tp -> tp.annotations().stream().anyMatch(ae ->
@@ -60,28 +65,42 @@ public class ShallowTypeAnalyzer extends CommonAnalyzer {
             List<AnnotationExpression> fieldAnnotations = annotationProvider.annotations(fieldInfo);
             Map<Property, Value> fieldMap = annotationsToMap(fieldInfo, fieldAnnotations);
             boolean enumField = isEnum && fieldInfo.isSynthetic();
-            fieldMap.forEach((p, v) -> {
-                Value vv;
-                if (p == PropertyImpl.FINAL_FIELD && ((ValueImpl.BoolImpl) v).isFalse()
-                    && (enumField || fieldInfo.isFinal())) {
-                    vv = ValueImpl.BoolImpl.TRUE;
-                } else if (p == PropertyImpl.NOT_NULL_FIELD && ((ValueImpl.NotNullImpl) v).isNullable()
-                           && (enumField || fieldInfo.type().isPrimitiveExcludingVoid())) {
-                    vv = ValueImpl.NotNullImpl.NOT_NULL;
-                } else if (p == PropertyImpl.CONTAINER_FIELD && ((ValueImpl.BoolImpl) v).isFalse()
-                           && typeIsContainer(fieldInfo.type())) {
-                    vv = ValueImpl.BoolImpl.TRUE;
-                } else if (p == PropertyImpl.IMMUTABLE_FIELD && !((ValueImpl.ImmutableImpl) v).isImmutable()) {
-                    Value.Immutable formally = analysisHelper.typeImmutable(fieldInfo.type());
-                    vv = formally.max((ValueImpl.ImmutableImpl) v);
-                } else if (p == PropertyImpl.INDEPENDENT_FIELD && !((ValueImpl.IndependentImpl) v).isIndependent()) {
-                    Value.Independent formally = analysisHelper.typeIndependent(fieldInfo.type());
-                    vv = formally.max((ValueImpl.IndependentImpl) v);
-                } else {
-                    vv = v;
+
+            Value.Bool ff = (Value.Bool) fieldMap.get(PropertyImpl.FINAL_FIELD);
+            if (ff == null || ff.isFalse()) {
+                if (enumField || fieldInfo.isFinal()) {
+                    fieldMap.put(PropertyImpl.FINAL_FIELD, ValueImpl.BoolImpl.TRUE);
+                } else if (ff == null) {
+                    fieldMap.put(PropertyImpl.FINAL_FIELD, ValueImpl.BoolImpl.FALSE);
                 }
-                fieldInfo.analysis().set(p, vv);
-            });
+            }
+            Value.NotNull nn = (Value.NotNull) fieldMap.get(PropertyImpl.NOT_NULL_FIELD);
+            if (nn == null || nn.isNullable()) {
+                if (enumField || fieldInfo.type().isPrimitiveExcludingVoid()) {
+                    fieldMap.put(PropertyImpl.NOT_NULL_FIELD, ValueImpl.NotNullImpl.NOT_NULL);
+                } else if (nn == null) {
+                    fieldMap.put(PropertyImpl.NOT_NULL_FIELD, ValueImpl.NotNullImpl.NULLABLE);
+                }
+            }
+            Value.Bool c = (Value.Bool) fieldMap.get(PropertyImpl.CONTAINER_FIELD);
+            if (c == null || c.isFalse()) {
+                if (typeIsContainer(fieldInfo.type())) {
+                    fieldMap.put(PropertyImpl.CONTAINER_FIELD, ValueImpl.BoolImpl.TRUE);
+                } else if (c == null) {
+                    fieldMap.put(PropertyImpl.CONTAINER_FIELD, ValueImpl.BoolImpl.FALSE);
+                }
+            }
+            Value.Immutable imm = (Value.Immutable) fieldMap.get(PropertyImpl.IMMUTABLE_FIELD);
+            if (imm == null || !imm.isImmutable()) {
+                Value.Immutable formally = analysisHelper.typeImmutable(fieldInfo.type());
+                fieldMap.put(PropertyImpl.IMMUTABLE_FIELD, formally.max(imm));
+            }
+            Value.Independent ind = (Value.Independent) fieldMap.get(PropertyImpl.INDEPENDENT_FIELD);
+            if (ind == null || !ind.isIndependent()) {
+                Value.Independent formally = analysisHelper.typeIndependent(fieldInfo.type());
+                fieldMap.put(PropertyImpl.INDEPENDENT_FIELD, formally.max(ind));
+            }
+            fieldMap.forEach(fieldInfo.analysis()::set);
         }
     }
 

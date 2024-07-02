@@ -5,6 +5,8 @@ import org.e2immu.language.cst.api.analysis.Value;
 import org.e2immu.language.cst.api.expression.AnnotationExpression;
 import org.e2immu.language.cst.api.info.MethodInfo;
 import org.e2immu.language.cst.api.info.ParameterInfo;
+import org.e2immu.language.cst.api.info.TypeInfo;
+import org.e2immu.language.cst.api.type.ParameterizedType;
 import org.e2immu.language.cst.impl.analysis.PropertyImpl;
 import org.e2immu.language.cst.impl.analysis.ValueImpl;
 import org.slf4j.Logger;
@@ -13,70 +15,217 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 import java.util.Map;
 
+import static org.e2immu.language.cst.impl.analysis.PropertyImpl.*;
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.FALSE;
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.TRUE;
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.IndependentImpl.DEPENDENT;
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.IndependentImpl.INDEPENDENT;
+
 public class ShallowMethodAnalyzer extends CommonAnalyzer {
     private static final Logger LOGGER = LoggerFactory.getLogger(ShallowMethodAnalyzer.class);
+    private final AnalysisHelper analysisHelper;
 
     public ShallowMethodAnalyzer(AnnotationProvider annotationProvider) {
         super(annotationProvider);
+        this.analysisHelper = new AnalysisHelper();
     }
 
-
     public void analyze(MethodInfo methodInfo) {
-        if (methodInfo.analysis().getOrDefault(PropertyImpl.SHALLOW_ANALYZER, ValueImpl.BoolImpl.FALSE).isTrue()) {
+        if (methodInfo.analysis().getOrDefault(SHALLOW_ANALYZER, FALSE).isTrue()) {
             return; // already done
         }
-        methodInfo.analysis().set(PropertyImpl.SHALLOW_ANALYZER, ValueImpl.BoolImpl.TRUE);
+        methodInfo.analysis().set(SHALLOW_ANALYZER, TRUE);
 
         boolean explicitlyEmpty = methodInfo.explicitlyEmptyMethod();
-        for (ParameterInfo parameterInfo : methodInfo.parameters()) {
-            List<AnnotationExpression> annotations = annotationProvider.annotations(parameterInfo);
-            Map<Property, Value> map = annotationsToMap(parameterInfo, annotations);
-            map.forEach((p, v) -> {
-                Value vv = v;
-                if (explicitlyEmpty) {
-                    if (PropertyImpl.INDEPENDENT_PARAMETER == p) {
-                        vv = ValueImpl.IndependentImpl.INDEPENDENT;
-                    } else if (PropertyImpl.MODIFIED_PARAMETER == p && ((ValueImpl.BoolImpl) v).isTrue()) {
-                        LOGGER.warn("Impossible! how can an empty method modify its argument?");
-                    }
-                }
-                parameterInfo.analysis().set(p, vv);
-            });
-        }
 
         List<AnnotationExpression> annotations = annotationProvider.annotations(methodInfo);
         Map<Property, Value> map = annotationsToMap(methodInfo, annotations);
 
-        map.forEach((p, v) -> {
-            Value vv = v;
-            if (explicitlyEmpty) {
-                if (PropertyImpl.FLUENT_METHOD == p && ((ValueImpl.BoolImpl) v).isTrue()) {
-                    LOGGER.warn("Impossible! how can a method without statements be @Fluent?");
-                } else if (PropertyImpl.IDENTITY_METHOD == p && ((ValueImpl.BoolImpl) v).isTrue()) {
-                    LOGGER.warn("Impossible! how can a method without statements be @Identity?");
-                }
-            } else if (PropertyImpl.FLUENT_METHOD == p && ((ValueImpl.BoolImpl) v).isFalse()) {
-                vv = computeFluent(methodInfo);
-            } else if (PropertyImpl.IDENTITY_METHOD == p && ((ValueImpl.BoolImpl) v).isFalse()) {
-                vv = computeIdentity(methodInfo);
-            } else if (PropertyImpl.MODIFIED_METHOD == p && methodInfo.isConstructor()) {
-                vv = ValueImpl.BoolImpl.TRUE;
+        methodPropertiesBeforeParameters(methodInfo, map, explicitlyEmpty);
+
+        for (ParameterInfo parameterInfo : methodInfo.parameters()) {
+            handleParameter(parameterInfo, map, explicitlyEmpty);
+        }
+
+        methodPropertiesAfterParameters(methodInfo, map);
+
+        map.forEach(methodInfo.analysis()::set);
+    }
+
+    private Value.Bool computeMethodContainer(MethodInfo methodInfo) {
+        ParameterizedType returnType = methodInfo.returnType();
+        if (returnType.arrays() > 0 || returnType.isPrimitiveExcludingVoid() || returnType.isVoid()) {
+            return TRUE;
+        }
+        if (returnType.isReturnTypeOfConstructor()) {
+            return ValueImpl.BoolImpl.NO_VALUE;
+        }
+        TypeInfo bestType = returnType.bestTypeInfo();
+        if (bestType == null) {
+            return FALSE; // unbound type parameter
+        }
+
+        // check formal return type
+        Value.Bool fromReturnType = bestType.analysis().getOrDefault(CONTAINER_TYPE, FALSE);
+        Value.Bool bestOfOverrides = methodInfo.overrides().stream()
+                .map(mi -> mi.analysis().getOrDefault(CONTAINER_TYPE, FALSE))
+                .reduce(FALSE, Value.Bool::or);
+        Value.Bool formal = bestOfOverrides.or(fromReturnType);
+        if (formal.isTrue()) return formal;
+
+        // check identity and parameter contract
+        if (methodInfo.analysis().getOrDefault(IDENTITY_METHOD, FALSE).isTrue()) {
+            ParameterInfo p0 = methodInfo.parameters().get(0);
+            return p0.analysis().getOrDefault(CONTAINER_PARAMETER, FALSE);
+        }
+        return FALSE;
+    }
+
+    private void methodPropertiesAfterParameters(MethodInfo methodInfo, Map<Property, Value> map) {
+        Value.Bool c = (Value.Bool) map.get(CONTAINER_METHOD);
+        if (c == null) {
+            map.put(CONTAINER_METHOD, computeMethodContainer(methodInfo));
+        }
+    }
+
+    private void methodPropertiesBeforeParameters(MethodInfo methodInfo, Map<Property, Value> map, boolean explicitlyEmpty) {
+        Value.Bool fluent = (Value.Bool) map.get(FLUENT_METHOD);
+        if (fluent != null) {
+            if (fluent.isTrue() && explicitlyEmpty) {
+                LOGGER.warn("Impossible! how can a method without statements be @Fluent?");
             }
-            methodInfo.analysis().set(p, vv);
-        });
-        LOGGER.debug("Finished shallow analyser on {}", methodInfo);
+        } else {
+            map.put(FLUENT_METHOD, explicitlyEmpty ? FALSE : computeMethodFluent(methodInfo));
+        }
+        Value.Bool identity = (Value.Bool) map.get(IDENTITY_METHOD);
+        if (identity != null) {
+            if (identity.isTrue() && explicitlyEmpty) {
+                LOGGER.warn("Impossible! how can a method without statements be @Identity?");
+            }
+            if (identity.isTrue() && (methodInfo.parameters().isEmpty()
+                                      || !methodInfo.returnType().equals(methodInfo.parameters().get(0).parameterizedType()))) {
+                LOGGER.warn("@Identity method must have return type identical to formal type of first parameter");
+            }
+        } else {
+            map.put(IDENTITY_METHOD, explicitlyEmpty ? FALSE : computeMethodIdentity(methodInfo));
+        }
+        Value.Bool modified = (Value.Bool) map.get(MODIFIED_METHOD);
+        if (modified != null) {
+            if (modified.isTrue() && explicitlyEmpty) {
+                LOGGER.warn("Impossible! how can a method without statements be @Modified?");
+            }
+        } else {
+            map.put(MODIFIED_METHOD, explicitlyEmpty ? FALSE : computeMethodModified(methodInfo, map));
+        }
     }
 
-    private Value computeFluent(MethodInfo methodInfo) {
-        return methodInfo.overrides().stream()
-                .map(m -> m.analysis().getOrDefault(PropertyImpl.FLUENT_METHOD, ValueImpl.BoolImpl.FALSE))
-                .reduce(ValueImpl.BoolImpl.FALSE, Value.Bool::or);
+    private void handleParameter(ParameterInfo parameterInfo, Map<Property, Value> methodMap, boolean explicitlyEmpty) {
+        List<AnnotationExpression> annotations = annotationProvider.annotations(parameterInfo);
+        Map<Property, Value> map = annotationsToMap(parameterInfo, annotations);
+        if (explicitlyEmpty) {
+            Value.Independent ind = (Value.Independent) map.get(INDEPENDENT_PARAMETER);
+            if (ind != null && ind != INDEPENDENT) {
+                LOGGER.warn("Parameter {} must be independent", parameterInfo);
+            }
+            map.put(INDEPENDENT_PARAMETER, INDEPENDENT);
+            Value.Bool modified = (Value.Bool) map.get(MODIFIED_PARAMETER);
+            if (modified != null && modified.isTrue()) {
+                LOGGER.warn("Parameter {} cannot be @Modified", parameterInfo);
+            }
+            map.put(MODIFIED_PARAMETER, FALSE);
+        } else {
+            Value.Immutable imm = (Value.Immutable) map.get(IMMUTABLE_PARAMETER);
+            if (imm == null) {
+                map.put(IMMUTABLE_PARAMETER, analysisHelper.typeImmutable(parameterInfo.parameterizedType()));
+            }
+            Value.Independent ind = (Value.Independent) map.get(INDEPENDENT_PARAMETER);
+            if (ind == null) {
+                map.put(INDEPENDENT_PARAMETER, computeParameterIndependent(parameterInfo, methodMap, map));
+            }
+            Value.Bool mod = (Value.Bool) map.get(MODIFIED_PARAMETER);
+            if (mod == null) {
+                map.put(MODIFIED_PARAMETER, computeParameterModified(parameterInfo));
+            }
+        }
+        map.forEach(parameterInfo.analysis()::set);
     }
 
-    private Value computeIdentity(MethodInfo methodInfo) {
+
+    private Value.Bool computeParameterModified(ParameterInfo parameterInfo) {
+        MethodInfo methodInfo = parameterInfo.methodInfo();
+        Value.Bool typeContainer = methodInfo.typeInfo().analysis().getOrDefault(CONTAINER_TYPE, FALSE);
+        if (typeContainer.isTrue()) {
+            return FALSE;
+        }
+        Value.Bool override = methodInfo.overrides().stream()
+                .map(mi -> mi.parameters().get(parameterInfo.index()))
+                .map(pi -> pi.analysis().getOrDefault(MODIFIED_PARAMETER, FALSE))
+                .reduce(ValueImpl.BoolImpl.NO_VALUE, Value.Bool::or);
+        if (override.hasAValue()) {
+            return override;
+        }
+        ParameterizedType type = parameterInfo.parameterizedType();
+        if (type.isPrimitiveStringClass()) {
+            return FALSE;
+        }
+        Value.Independent typeIndependent = analysisHelper.typeIndependent(type);
+        return ValueImpl.BoolImpl.from(!typeIndependent.isIndependent());
+    }
+
+
+    private Value.Independent computeParameterIndependent(ParameterInfo parameterInfo,
+                                                          Map<Property, Value> methodMap,
+                                                          Map<Property, Value> map) {
+        ParameterizedType type = parameterInfo.parameterizedType();
+        Value.Immutable immutable = (Value.Immutable) map.get(PropertyImpl.IMMUTABLE_PARAMETER);
+        MethodInfo methodInfo = parameterInfo.methodInfo();
+
+        Value.Independent value;
+        if (type.isPrimitiveExcludingVoid() || immutable.isImmutable()) {
+            value = INDEPENDENT;
+        } else {
+            // @Modified needs to be marked explicitly
+            Value.Bool modifiedMethod = (Value.Bool) methodMap.get(PropertyImpl.MODIFIED_METHOD);
+            if (modifiedMethod.isTrue() || methodInfo.isFactoryMethod()) {
+                // note that an unbound type parameter is by default @Dependent, not @Independent1!!
+                Value.Independent independentFromImmutable = immutable.toCorrespondingIndependent();
+                TypeInfo ownerType = parameterInfo.methodInfo().typeInfo();
+                Value.Independent independentType = ownerType.analysis().getOrDefault(INDEPENDENT_TYPE, DEPENDENT);
+                value = independentType.max(independentFromImmutable);
+            } else {
+                value = INDEPENDENT;
+            }
+        }
+        Value.Independent override = methodInfo.overrides().stream()
+                .map(mi -> mi.parameters().get(parameterInfo.index()))
+                .map(pi -> (Value.Independent) pi.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT))
+                .reduce(DEPENDENT, Value.Independent::max);
+        return override.max(value);
+    }
+
+
+    private Value computeMethodModified(MethodInfo methodInfo, Map<Property, Value> map) {
+        if (methodInfo.isConstructor()) return TRUE;
+        Value.Bool fluent = (Value.Bool) map.get(PropertyImpl.FLUENT_METHOD);
+        Value.Bool containerType = methodInfo.typeInfo().analysis().getOrDefault(CONTAINER_TYPE, FALSE);
+        boolean voidMethod = methodInfo.noReturnValue();
+        Value.Bool addToModified = ValueImpl.BoolImpl.from(containerType.isTrue() && (fluent.isTrue() || voidMethod));
         return methodInfo.overrides().stream()
-                .map(m -> m.analysis().getOrDefault(PropertyImpl.FLUENT_METHOD, ValueImpl.BoolImpl.FALSE))
-                .reduce(ValueImpl.BoolImpl.FALSE, Value.Bool::or);
+                .map(m -> m.analysis().getOrDefault(PropertyImpl.MODIFIED_METHOD, FALSE))
+                .reduce(FALSE, Value.Bool::or)
+                .or(addToModified);
+    }
+
+    private Value computeMethodFluent(MethodInfo methodInfo) {
+        return methodInfo.overrides().stream()
+                .map(m -> m.analysis().getOrDefault(PropertyImpl.FLUENT_METHOD, FALSE))
+                .reduce(FALSE, Value.Bool::or);
+    }
+
+    private Value computeMethodIdentity(MethodInfo methodInfo) {
+        return methodInfo.overrides().stream()
+                .map(m -> m.analysis().getOrDefault(PropertyImpl.FLUENT_METHOD, FALSE))
+                .reduce(FALSE, Value.Bool::or);
     }
 
 }

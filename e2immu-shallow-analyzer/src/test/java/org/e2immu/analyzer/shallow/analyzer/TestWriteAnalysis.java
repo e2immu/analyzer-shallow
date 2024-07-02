@@ -28,7 +28,7 @@ public class TestWriteAnalysis {
         CompilationUnit cu = runtime.newCompilationUnitBuilder().setPackageName("org.e2immu").build();
         TypeInfo typeInfo = runtime.newTypeInfo(cu, "C");
 
-        typeInfo.analysis().set(PropertyImpl.IMMUTABLE_TYPE, new ValueImpl.ImmutableImpl(3));
+        typeInfo.analysis().set(PropertyImpl.IMMUTABLE_TYPE, ValueImpl.ImmutableImpl.IMMUTABLE);
         typeInfo.analysis().set(PropertyImpl.SHALLOW_ANALYZER, ValueImpl.BoolImpl.TRUE);
         typeInfo.analysis().set(PropertyImpl.COMMUTABLE_METHODS,
                 new ValueImpl.CommutableDataImpl("p1", "p2,p3", "p4"));
