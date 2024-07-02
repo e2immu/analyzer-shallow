@@ -208,6 +208,7 @@ class JavaLang {
     interface AbstractStringBuilder$ {
 
     }
+
     @Container
     interface AutoCloseable$ {
 
@@ -252,9 +253,9 @@ class JavaLang {
             return str.length() + len;
         }
 
-        boolean concat$Postcondition(String str) {
-            return startsWith(this) && endsWith(str) && contains(this) && contains(str);
-        }
+        //boolean concat$Postcondition(String str) {
+        //    return startsWith(this) && endsWith(str) && contains(this) && contains(str);
+        //}
 
         @NotNull
         String concat(@NotNull String str) {
@@ -337,7 +338,7 @@ class JavaLang {
             return s.length() <= len && retVal;
         }
 
-        boolean startsWith(@NotNull String$ s) {
+        boolean startsWith(@NotNull String s) {
             return true;
         } // we use the $ version because of post-condition in concat
 
@@ -409,7 +410,17 @@ class JavaLang {
         }
 
         @NotNull
-        char[] toCharArray(){ return null; }
+        char[] toCharArray() {
+            return null;
+        }
+
+        // IMPORTANT: violates @Container, but @Deprecated
+        @NotModified
+        void getBytes(int srcBegin, int srcEnd, byte[] dst, int dstBegin) {}
+
+        // IMPORTANT: violates @Container
+        @NotModified
+        void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin) {}
     }
 
     /*
@@ -487,10 +498,14 @@ class JavaLang {
         }
 
         @Fluent
-        StringBuilder delete(int i, int j) { return null; }
+        StringBuilder delete(int i, int j) {
+            return null;
+        }
 
         @Fluent
-        StringBuilder reverse() { return null; }
+        StringBuilder reverse() {
+            return null;
+        }
 
         int toString$Transfer$Len(int len) {
             return len;

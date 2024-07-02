@@ -16,6 +16,7 @@ import org.e2immu.language.inspection.api.parser.SourceTypes;
 import org.e2immu.language.inspection.api.resource.CompiledTypesManager;
 import org.e2immu.language.inspection.integration.JavaInspectorImpl;
 import org.e2immu.util.internal.graph.G;
+import org.e2immu.util.internal.graph.V;
 import org.e2immu.util.internal.graph.op.Linearize;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -23,6 +24,9 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.util.zip.ZipFile;
 
 import static org.e2immu.language.cst.impl.analysis.PropertyImpl.*;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.FALSE;
@@ -34,7 +38,9 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestParseAnalyzeWrite {
     private static CompiledTypesManager compiledTypesManager;
 
-    // FIXME ZipFile implements Closeable, AutoCloseable, should come AFTER those two
+    static List<TypeInfo> allTypes;
+    static List<TypeInfo> sorted;
+    static G<TypeInfo> graph;
 
     @BeforeAll
     public static void beforeAll() throws IOException {
@@ -50,8 +56,10 @@ public class TestParseAnalyzeWrite {
         ShallowTypeAnalyzer shallowTypeAnalyzer = new ShallowTypeAnalyzer(annotatedApiParser);
         ShallowMethodAnalyzer shallowMethodAnalyzer = new ShallowMethodAnalyzer(annotatedApiParser);
         List<TypeInfo> types = annotatedApiParser.types();
-        List<TypeInfo> allTypes = types.stream().flatMap(TypeInfo::recursiveSubTypeStream)
+        allTypes = types.stream().flatMap(TypeInfo::recursiveSubTypeStream)
                 .filter(TypeInfo::isPublic)
+                .flatMap(t -> Stream.concat(Stream.of(t), t.recursiveSuperTypeStream()))
+                .distinct()
                 .toList();
         G.Builder<TypeInfo> graphBuilder = new G.Builder<>(Long::sum);
         for (TypeInfo typeInfo : allTypes) {
@@ -60,9 +68,9 @@ public class TestParseAnalyzeWrite {
                     .toList();
             graphBuilder.add(typeInfo, allSuperTypes);
         }
-        G<TypeInfo> graph = graphBuilder.build();
+        graph = graphBuilder.build();
         Linearize.Result<TypeInfo> linearize = Linearize.linearize(graph, Linearize.LinearizationMode.ALL);
-        List<TypeInfo> sorted = linearize.asList(Comparator.comparing(TypeInfo::fullyQualifiedName));
+        sorted = linearize.asList(Comparator.comparing(TypeInfo::fullyQualifiedName));
         for (TypeInfo typeInfo : sorted) {
             shallowTypeAnalyzer.analyze(typeInfo);
         }
@@ -79,6 +87,31 @@ public class TestParseAnalyzeWrite {
     }
 
     @Test
+    public void testSort() {
+        TypeInfo autoCloseable = compiledTypesManager.get(AutoCloseable.class);
+        TypeInfo zipFile = compiledTypesManager.get(ZipFile.class);
+
+        assertTrue(allTypes.contains(autoCloseable));
+        // after the superTypes(), we can see zipFile
+        assertTrue(allTypes.contains(zipFile));
+
+        V<TypeInfo> a = graph.vertex(autoCloseable);
+        Map<V<TypeInfo>, Long> ea = graph.edges(a);
+        assertEquals(1, ea.size());
+        assertEquals("{java.lang.Object=1}", ea.toString());
+
+        V<TypeInfo> z = graph.vertex(zipFile);
+        Map<V<TypeInfo>, Long> ez = graph.edges(z);
+        assertEquals(3, ez.size());
+        assertEquals("java.io.Closeable=1,java.lang.AutoCloseable=1,java.lang.Object=4",
+                ez.entrySet().stream().map(Objects::toString).sorted().collect(Collectors.joining(",")));
+
+        int ia = sorted.indexOf(autoCloseable);
+        int iz = sorted.indexOf(zipFile);
+        assertTrue(ia < iz, ia + ">" + iz);
+    }
+
+    @Test
     public void testObject() {
         TypeInfo typeInfo = compiledTypesManager.get(Object.class);
         testImmutableContainer(typeInfo, true);
@@ -88,6 +121,15 @@ public class TestParseAnalyzeWrite {
     public void testString() {
         TypeInfo typeInfo = compiledTypesManager.get(String.class);
         testImmutableContainer(typeInfo, false);
+    }
+
+    @Test
+    public void testStringGetBytes() {
+        TypeInfo typeInfo = compiledTypesManager.get(String.class);
+        MethodInfo getBytes = typeInfo.findUniqueMethod("getBytes", 4);
+        assertEquals(1, getBytes.annotations().size());
+        assertEquals("@Deprecated(since=\"1.1\")", getBytes.annotations().get(0).toString());
+        assertSame(FALSE, getBytes.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
     }
 
     @Test

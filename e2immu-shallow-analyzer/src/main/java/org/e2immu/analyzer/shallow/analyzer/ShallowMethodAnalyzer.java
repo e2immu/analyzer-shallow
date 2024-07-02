@@ -205,6 +205,7 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
             }
         }
         Value.Independent override = methodInfo.overrides().stream()
+                .filter(MethodInfo::isPublic)
                 .map(mi -> mi.parameters().get(parameterInfo.index()))
                 .filter(pi -> pi.analysis().haveAnalyzedValueFor(INDEPENDENT_PARAMETER, () -> {
                     if (hierarchyProblems.computeIfAbsent(methodInfo.typeInfo(), t -> new HashSet<>()).add(pi.methodInfo().typeInfo())) {
@@ -224,6 +225,7 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
         boolean voidMethod = methodInfo.noReturnValue();
         Value.Bool addToModified = ValueImpl.BoolImpl.from(containerType.isTrue() && (fluent.isTrue() || voidMethod));
         return methodInfo.overrides().stream()
+                .filter(MethodInfo::isPublic)
                 .filter(m -> m.analysis().haveAnalyzedValueFor(MODIFIED_METHOD, () -> {
                     if (hierarchyProblems.computeIfAbsent(methodInfo.typeInfo(), t -> new HashSet<>()).add(m.typeInfo())) {
                         LOGGER.warn("Have no modification value for {}, overridden by {}", m, methodInfo);
@@ -237,6 +239,7 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
     private Value computeMethodFluent(MethodInfo methodInfo) {
         if (methodInfo.returnType().typeInfo() != methodInfo.typeInfo()) return FALSE;
         return methodInfo.overrides().stream()
+                .filter(MethodInfo::isPublic)
                 .filter(m -> m.analysis().haveAnalyzedValueFor(FLUENT_METHOD, () -> {
                     if (hierarchyProblems.computeIfAbsent(methodInfo.typeInfo(), t -> new HashSet<>()).add(m.typeInfo())) {
                         LOGGER.warn("Have no @Fluent value for {}, overridden by {}", m, methodInfo);
@@ -248,6 +251,7 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
 
     private Value computeMethodIdentity(MethodInfo methodInfo) {
         return methodInfo.overrides().stream()
+                .filter(MethodInfo::isPublic)
                 .filter(m -> m.analysis().haveAnalyzedValueFor(IDENTITY_METHOD, () -> {
                     if (hierarchyProblems.computeIfAbsent(methodInfo.typeInfo(), t -> new HashSet<>()).add(m.typeInfo())) {
                         LOGGER.warn("Have no @Identity value for {}, overridden by {}", m, methodInfo);
