@@ -24,6 +24,10 @@ import java.util.Collection;
 import java.util.List;
 
 import static org.e2immu.language.cst.impl.analysis.PropertyImpl.*;
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.FALSE;
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.TRUE;
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.ImmutableImpl.MUTABLE;
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.IndependentImpl.DEPENDENT;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestParseAnalyzeWrite {
@@ -79,7 +83,7 @@ public class TestParseAnalyzeWrite {
     @Test
     public void testSystem() {
         TypeInfo typeInfo = compiledTypesManager.get(System.class);
-        Value.Immutable immutable = typeInfo.analysis().getOrDefault(IMMUTABLE_TYPE, ValueImpl.ImmutableImpl.MUTABLE);
+        Value.Immutable immutable = typeInfo.analysis().getOrDefault(IMMUTABLE_TYPE, MUTABLE);
         // immutable because there are @IgnoreModifications on the exposed fields!
         assertTrue(immutable.isImmutable());
     }
@@ -102,19 +106,35 @@ public class TestParseAnalyzeWrite {
         TypeInfo typeInfo = compiledTypesManager.get(Collection.class);
         assertTrue(typeInfo.isInterface());
         assertFalse(typeInfo.isAtLeastImmutableHC());
-        assertSame(ValueImpl.IndependentImpl.DEPENDENT, typeInfo.analysis().getOrDefault(INDEPENDENT_TYPE,
-                ValueImpl.IndependentImpl.DEPENDENT));
+        assertSame(DEPENDENT, typeInfo.analysis().getOrDefault(INDEPENDENT_TYPE, DEPENDENT));
         assertTrue(typeInfo.analysis().getOrDefault(CONTAINER_TYPE, ValueImpl.BoolImpl.FALSE).isTrue());
+    }
+
+    @Test
+    public void testList() {
+        TypeInfo typeInfo = compiledTypesManager.get(List.class);
+        assertTrue(typeInfo.isInterface());
+        assertFalse(typeInfo.isAtLeastImmutableHC());
+        assertSame(DEPENDENT, typeInfo.analysis().getOrDefault(INDEPENDENT_TYPE, DEPENDENT));
+        assertTrue(typeInfo.analysis().getOrDefault(CONTAINER_TYPE, ValueImpl.BoolImpl.FALSE).isTrue());
+    }
+
+    @Test
+    public void testListAdd() {
+        TypeInfo typeInfo = compiledTypesManager.get(List.class);
+        MethodInfo add = typeInfo.findUniqueMethod("add", 1);
+        assertEquals(1, add.overrides().size());
+        assertSame(TRUE, add.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
     }
 
     private void testImmutableContainer(TypeInfo typeInfo, boolean hc) {
         Value.Immutable immutable = typeInfo.analysis().getOrDefault(IMMUTABLE_TYPE,
-                ValueImpl.ImmutableImpl.MUTABLE);
+                MUTABLE);
         Value.Immutable expectImmutable = hc ? ValueImpl.ImmutableImpl.IMMUTABLE_HC : ValueImpl.ImmutableImpl.IMMUTABLE;
         assertSame(expectImmutable, immutable);
 
         Value.Independent independent = typeInfo.analysis().getOrDefault(INDEPENDENT_TYPE,
-                ValueImpl.IndependentImpl.DEPENDENT);
+                DEPENDENT);
         assertSame(ValueImpl.IndependentImpl.INDEPENDENT, independent);
         boolean container = typeInfo.analysis().getOrDefault(CONTAINER_TYPE, ValueImpl.BoolImpl.FALSE).isTrue();
         assertTrue(container);
