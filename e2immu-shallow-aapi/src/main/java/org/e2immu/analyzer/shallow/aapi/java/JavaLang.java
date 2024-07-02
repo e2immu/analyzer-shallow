@@ -192,6 +192,7 @@ class JavaLang {
      and force them to copy the chars in their own sequence.
      Override this choice by uncommenting the @Independent(hc=true).
      */
+    @Container
     @Independent
     interface Appendable$ {
         @Fluent
@@ -723,5 +724,10 @@ class JavaLang {
     interface Runnable$ {
         @Modified
         void run();
+    }
+
+    @Container
+    interface Cloneable$ {
+
     }
 }

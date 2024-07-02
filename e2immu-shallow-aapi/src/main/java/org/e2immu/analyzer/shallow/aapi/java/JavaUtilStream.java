@@ -235,7 +235,8 @@ public class JavaUtilStream {
         <A> A[] toArray(IntFunction<A[]> generator);
     }
 
-    @ImmutableContainer
+    // mutable because of close() method
+    @Container
     interface BaseStream$ {
 
     }

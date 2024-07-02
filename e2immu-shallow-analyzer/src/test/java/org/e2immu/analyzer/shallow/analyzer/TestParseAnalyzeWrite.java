@@ -15,14 +15,14 @@ import org.e2immu.language.inspection.api.integration.JavaInspector;
 import org.e2immu.language.inspection.api.parser.SourceTypes;
 import org.e2immu.language.inspection.api.resource.CompiledTypesManager;
 import org.e2immu.language.inspection.integration.JavaInspectorImpl;
+import org.e2immu.util.internal.graph.G;
+import org.e2immu.util.internal.graph.op.Linearize;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 import static org.e2immu.language.cst.impl.analysis.PropertyImpl.*;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.FALSE;
@@ -48,17 +48,25 @@ public class TestParseAnalyzeWrite {
         ShallowTypeAnalyzer shallowTypeAnalyzer = new ShallowTypeAnalyzer(annotatedApiParser);
         ShallowMethodAnalyzer shallowMethodAnalyzer = new ShallowMethodAnalyzer(annotatedApiParser);
         List<TypeInfo> types = annotatedApiParser.types();
-        // FIXME we must sort these types according to the hierarchy, or use a system of delays
-        for (TypeInfo typeInfo : types) {
+        List<TypeInfo> allTypes = types.stream().flatMap(TypeInfo::recursiveSubTypeStream).toList();
+        G.Builder<TypeInfo> graphBuilder = new G.Builder<>(Long::sum);
+        for (TypeInfo typeInfo : allTypes) {
+            List<TypeInfo> allSuperTypes = typeInfo.recursiveSuperTypeStream().toList();
+            graphBuilder.add(typeInfo, allSuperTypes);
+        }
+        G<TypeInfo> graph = graphBuilder.build();
+        Linearize.Result<TypeInfo> linearize = Linearize.linearize(graph, Linearize.LinearizationMode.ALL);
+        List<TypeInfo> sorted = linearize.asList(Comparator.comparing(TypeInfo::fullyQualifiedName));
+        for (TypeInfo typeInfo : sorted) {
             shallowTypeAnalyzer.analyze(typeInfo);
         }
-        for (TypeInfo typeInfo : types) {
+        for (TypeInfo typeInfo : sorted) {
             shallowTypeAnalyzer.analyzeFields(typeInfo);
             for (MethodInfo methodInfo : typeInfo.methods()) {
                 shallowMethodAnalyzer.analyze(methodInfo);
             }
         }
-        for (TypeInfo typeInfo : types) {
+        for (TypeInfo typeInfo : sorted) {
             shallowTypeAnalyzer.check(typeInfo);
         }
         compiledTypesManager = annotatedApiParser.javaInspector().compiledTypesManager();

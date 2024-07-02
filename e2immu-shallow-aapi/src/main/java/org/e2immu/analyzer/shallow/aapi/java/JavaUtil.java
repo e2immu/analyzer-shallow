@@ -1082,12 +1082,13 @@ public class JavaUtil extends AnnotatedAPI {
         V get(@NotNull Object o){ return null; }
     }
 
+    @Container
     interface AbstractCollection$<E> {
 
         Iterator<E> iterator();
     }
 
-    @Container
+    //not a @Container, its parent RandomGenerator has methods that obviously violate the contract
     @Independent
     interface Random$ {
 
@@ -1126,4 +1127,28 @@ public class JavaUtil extends AnnotatedAPI {
     interface IntSummaryStatistics$ {
         void combine(@NotNull @Independent(hc = true) @NotModified IntSummaryStatistics other);
     }
+
+    // marker interface
+    @Container
+    interface RandomAccess$ {
+
+    }
+
+    @Container
+    interface AbstractList$ {
+
+    }
+    @Container
+    interface AbstractSequentialList$ {
+
+    }
+    @Container
+    interface AbstractSet$ {
+
+    }
+    @Container
+    interface Vector$ {
+
+    }
+
 }

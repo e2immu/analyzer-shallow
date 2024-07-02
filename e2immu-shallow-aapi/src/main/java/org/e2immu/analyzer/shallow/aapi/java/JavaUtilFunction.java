@@ -137,18 +137,21 @@ public class JavaUtilFunction {
         double applyAsDouble(R value);
     }
 
+    @Container
     @Independent(hc = true)
     interface IntFunction$<R> {
         @Modified
         R apply(int value);
     }
 
+    @Container
     @Independent(hc = true)
     interface DoubleFunction$<R> {
         @Modified
         R apply(double value);
     }
 
+    @Container
     @Independent(hc = true)
     interface LongFunction$<R> {
         @Modified
@@ -181,12 +184,14 @@ public class JavaUtilFunction {
         void accept(T t, double i);
     }
 
+    @Container
     @Independent
     interface IntConsumer$ {
         @Modified
         void accept(int i);
     }
 
+    @Container
     @Independent
     interface IntPredicate$ {
         @Modified

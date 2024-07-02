@@ -31,20 +31,10 @@ class CommonAnalyzer {
 
     @SuppressWarnings("unchecked")
     protected <T extends Value> T leastOfHierarchy(TypeInfo typeInfo, Property property, T defaultValue, T bestValue) {
-        T v;
-        if (typeInfo.parentClass() != null) {
-            TypeInfo parentType = typeInfo.parentClass().typeInfo();
-            Value parentValue = parentType.analysis().getOrDefault(property, defaultValue);
-            v = (T) leastOfHierarchy(parentType, property, defaultValue, bestValue).min(parentValue);
-        } else {
-            v = bestValue;
-        }
-        for (ParameterizedType interfaceImplemented : typeInfo.interfacesImplemented()) {
-            TypeInfo interfaceType = interfaceImplemented.bestTypeInfo();
-            Value interfaceValue = interfaceType.analysis().getOrDefault(property, defaultValue);
-            v = (T) leastOfHierarchy(interfaceType, property, defaultValue, bestValue).min(v).min(interfaceValue);
-        }
-        return v;
+        return typeInfo.recursiveSuperTypeStream()
+                .filter(TypeInfo::isPublic)
+                .map(ti -> ti.analysis().getOrDefault(property, defaultValue))
+                .reduce(bestValue, (t1, t2) -> (T) t1.min(t2));
     }
 
     protected Map<Property, Value> annotationsToMap(Info info, List<AnnotationExpression> annotations) {
@@ -184,7 +174,7 @@ class CommonAnalyzer {
 
         boolean allMethodsOnlyPrimitives = stream.allMatch(m ->
                 (m.isConstructor() || m.isVoid() || m.returnType().isPrimitiveStringClass())
-                && m.parameters().stream().allMatch(p -> p.parameterizedType().isPrimitiveStringClass()));
+                        && m.parameters().stream().allMatch(p -> p.parameterizedType().isPrimitiveStringClass()));
         if (allMethodsOnlyPrimitives) {
             return leastOfHierarchy(typeInfo, PropertyImpl.INDEPENDENT_TYPE, ValueImpl.IndependentImpl.DEPENDENT,
                     ValueImpl.IndependentImpl.INDEPENDENT);
