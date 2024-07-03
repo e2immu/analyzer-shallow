@@ -44,7 +44,7 @@ public class TestJavaUtil extends CommonTest {
         assertTrue(methodInfo.overrides().isEmpty());
         assertFalse(methodInfo.allowsInterrupts());
 
-        assertSame(TRUE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertTrue(methodInfo.isModifying());
         assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
     }
 

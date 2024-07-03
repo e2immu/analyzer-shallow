@@ -36,7 +36,7 @@ public class TestJavaUtilFunction extends CommonTest {
         TypeInfo typeInfo = compiledTypesManager.get(Consumer.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("accept", 1);
         assertFalse(methodInfo.allowsInterrupts());
-        assertSame(TRUE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertTrue(methodInfo.isModifying());
         assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
         assertSame(NO_VALUE, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
 
@@ -61,7 +61,7 @@ public class TestJavaUtilFunction extends CommonTest {
         TypeInfo typeInfo = compiledTypesManager.get(Function.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("apply", 1);
         assertFalse(methodInfo.allowsInterrupts());
-        assertSame(TRUE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertTrue(methodInfo.isModifying());
         assertSame(INDEPENDENT_HC, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
         assertSame(IMMUTABLE_HC, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
         assertSame(NULLABLE, methodInfo.analysis().getOrDefault(NOT_NULL_METHOD, NULLABLE));
@@ -87,7 +87,7 @@ public class TestJavaUtilFunction extends CommonTest {
         TypeInfo typeInfo = compiledTypesManager.get(Predicate.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("test", 1);
         assertFalse(methodInfo.allowsInterrupts());
-        assertSame(TRUE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertTrue(methodInfo.isModifying());
         assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
         assertSame(IMMUTABLE, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
         assertSame(NOT_NULL, methodInfo.analysis().getOrDefault(NOT_NULL_METHOD, NULLABLE));

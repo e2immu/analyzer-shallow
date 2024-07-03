@@ -26,6 +26,7 @@ public class JavaUtilStream {
 
     static final String PACKAGE_NAME = "java.util.stream";
 
+    @Container
     interface Collector$<T, A, R> {
         @NotNull(content = true)
         @Modified

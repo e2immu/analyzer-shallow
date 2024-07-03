@@ -232,6 +232,7 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
             }
             map.put(MODIFIED_PARAMETER, FALSE);
             map.put(NOT_NULL_PARAMETER, analysisHelper.notNullOfType(parameterInfo.parameterizedType()));
+            map.putIfAbsent(IGNORE_MODIFICATIONS_PARAMETER, FALSE);
         } else {
             Value.Immutable imm = (Value.Immutable) map.get(IMMUTABLE_PARAMETER);
             if (imm == null) {
@@ -249,8 +250,18 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
             if (nn == null) {
                 map.put(NOT_NULL_PARAMETER, computeParameterNotNull(parameterInfo));
             }
+            Value.Bool ign = (Bool) map.get(IGNORE_MODIFICATIONS_PARAMETER);
+            if (ign == null) {
+                map.put(IGNORE_MODIFICATIONS_PARAMETER, computeParameterIgnoreModifications(parameterInfo));
+            }
         }
         map.forEach(parameterInfo.analysis()::set);
+    }
+
+    private Value computeParameterIgnoreModifications(ParameterInfo parameterInfo) {
+        ParameterizedType pt = parameterInfo.parameterizedType();
+        return ValueImpl.BoolImpl.from(pt.isFunctionalInterface()
+                && "java.util.function".equals(pt.typeInfo().packageName()));
     }
 
     private Value.NotNull computeParameterNotNull(ParameterInfo parameterInfo) {

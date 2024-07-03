@@ -27,7 +27,7 @@ public class TestJavaTime extends CommonTest {
         TypeInfo typeInfo = compiledTypesManager.get(Duration.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("ofMillis", 1);
         assertFalse(methodInfo.allowsInterrupts());
-        assertSame(FALSE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertFalse(methodInfo.isModifying());
         assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
         assertSame(IMMUTABLE, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
     }

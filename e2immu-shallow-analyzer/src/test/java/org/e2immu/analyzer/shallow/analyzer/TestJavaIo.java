@@ -37,7 +37,7 @@ public class TestJavaIo extends CommonTest {
         MethodInfo methodInfo = typeInfo.findUniqueMethod("print", intTypeInfo);
         assertTrue(methodInfo.allowsInterrupts());
 
-        assertSame(TRUE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertTrue(methodInfo.isModifying());
         assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
 
         ParameterInfo p0 = methodInfo.parameters().get(0);
@@ -59,7 +59,7 @@ public class TestJavaIo extends CommonTest {
         assertFalse(methodInfo.isDefault());
         assertFalse(methodInfo.isAbstract());
 
-        assertSame(TRUE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertTrue(methodInfo.isModifying());
         assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
 
         ParameterInfo p0 = methodInfo.parameters().get(0);
@@ -105,7 +105,7 @@ public class TestJavaIo extends CommonTest {
         MethodInfo methodInfo = typeInfo.findUniqueMethod("toByteArray", 0);
         assertFalse(methodInfo.allowsInterrupts());
 
-        assertSame(FALSE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertFalse(methodInfo.isModifying());
         assertSame(DEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
         assertSame(FINAL_FIELDS, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
     }

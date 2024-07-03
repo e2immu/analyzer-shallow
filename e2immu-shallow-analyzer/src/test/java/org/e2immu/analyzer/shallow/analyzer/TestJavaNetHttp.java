@@ -25,7 +25,7 @@ public class TestJavaNetHttp extends CommonTest {
         TypeInfo typeInfo = compiledTypesManager.get(HttpRequest.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("newBuilder", 0);
         assertFalse(methodInfo.allowsInterrupts());
-        assertSame(FALSE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertFalse(methodInfo.isModifying());
         assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
         assertSame(MUTABLE, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
     }
@@ -37,7 +37,7 @@ public class TestJavaNetHttp extends CommonTest {
         MethodInfo methodInfo = typeInfo.findUniqueMethod("newBuilder", uri);
 
         assertFalse(methodInfo.allowsInterrupts());
-        assertSame(FALSE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertFalse(methodInfo.isModifying());
         assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
         assertSame(MUTABLE, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
 
@@ -69,7 +69,7 @@ public class TestJavaNetHttp extends CommonTest {
 
     private static void testFluent(MethodInfo methodInfo) {
         assertFalse(methodInfo.allowsInterrupts());
-        assertSame(TRUE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertTrue(methodInfo.isModifying());
         assertSame(TRUE, methodInfo.analysis().getOrDefault(FLUENT_METHOD, FALSE));
         assertSame(DEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
         assertSame(MUTABLE, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));

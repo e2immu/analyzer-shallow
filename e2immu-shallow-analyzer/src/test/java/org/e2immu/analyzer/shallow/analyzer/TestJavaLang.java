@@ -35,7 +35,7 @@ public class TestJavaLang extends CommonTest {
         MethodInfo methodInfo = typeInfo.findUniqueMethod("toString", 0);
         assertSame(TRUE, methodInfo.analysis().getOrDefault(CONTAINER_METHOD, FALSE));
         assertSame(NOT_NULL, methodInfo.analysis().getOrDefault(NOT_NULL_METHOD, NULLABLE));
-        assertSame(FALSE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertFalse(methodInfo.isModifying());
         assertSame(IMMUTABLE, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
         assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
     }
@@ -93,7 +93,7 @@ public class TestJavaLang extends CommonTest {
 
         MethodInfo methodInfo = typeInfo.findUniqueMethod("append", runtime.booleanTypeInfo());
         assertSame(TRUE, methodInfo.analysis().getOrDefault(FLUENT_METHOD, FALSE));
-        assertSame(TRUE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertTrue(methodInfo.isModifying());
         assertSame(MUTABLE, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
         assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
 
@@ -110,7 +110,7 @@ public class TestJavaLang extends CommonTest {
 
         MethodInfo methodInfo = typeInfo.findUniqueMethod("append", runtime.stringTypeInfo());
         assertSame(TRUE, methodInfo.analysis().getOrDefault(FLUENT_METHOD, FALSE));
-        assertSame(TRUE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertTrue(methodInfo.isModifying());
         assertSame(MUTABLE, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
         assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
 
@@ -139,7 +139,7 @@ public class TestJavaLang extends CommonTest {
         TypeInfo typeInfo = compiledTypesManager.get(Class.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("getAnnotatedInterfaces", 0);
         assertSame(FALSE, methodInfo.analysis().getOrDefault(FLUENT_METHOD, FALSE));
-        assertSame(FALSE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertFalse(methodInfo.isModifying());
         assertSame(FINAL_FIELDS, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
         assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
     }
@@ -156,7 +156,7 @@ public class TestJavaLang extends CommonTest {
         MethodInfo methodInfo = typeInfo.findUniqueMethod("compareTo", 1);
         assertSame(FALSE, methodInfo.analysis().getOrDefault(FLUENT_METHOD, FALSE));
         assertSame(FALSE, methodInfo.analysis().getOrDefault(IDENTITY_METHOD, FALSE));
-        assertSame(FALSE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertFalse(methodInfo.isModifying());
         assertSame(IMMUTABLE, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
         assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
 
@@ -198,7 +198,7 @@ public class TestJavaLang extends CommonTest {
         TypeInfo typeInfo = compiledTypesManager.get(Appendable.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("append", 3);
         assertTrue(methodInfo.overrides().isEmpty());
-        assertSame(TRUE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertTrue(methodInfo.isModifying());
         assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
         ParameterInfo p0 = methodInfo.parameters().get(0);
         assertSame(INDEPENDENT, p0.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT));
@@ -226,7 +226,7 @@ public class TestJavaLang extends CommonTest {
 
         assertSame(FALSE, methodInfo.analysis().getOrDefault(FLUENT_METHOD, FALSE));
         assertSame(FALSE, methodInfo.analysis().getOrDefault(IDENTITY_METHOD, FALSE));
-        assertSame(FALSE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertFalse(methodInfo.isModifying());
         assertSame(NO_VALUE, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
         assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
 
@@ -295,7 +295,7 @@ public class TestJavaLang extends CommonTest {
         assertEquals("java.lang.Object.toString()",
                 methodInfo.overrides().stream().findFirst().orElseThrow().fullyQualifiedName());
         assertFalse(methodInfo.isStatic());
-        assertSame(FALSE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertFalse(methodInfo.isModifying());
         assertSame(IMMUTABLE, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
         assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
     }
@@ -307,7 +307,7 @@ public class TestJavaLang extends CommonTest {
         assertTrue(methodInfo.isStatic());
         assertTrue(methodInfo.overrides().isEmpty());
 
-        assertSame(FALSE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertFalse(methodInfo.isModifying());
         assertSame(IMMUTABLE, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
         assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
         ParameterInfo p0 = methodInfo.parameters().get(0);
@@ -322,7 +322,7 @@ public class TestJavaLang extends CommonTest {
     public void testNumberDoubleValue() {
         TypeInfo typeInfo = compiledTypesManager.get(Number.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("doubleValue", 0);
-        assertSame(FALSE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertFalse(methodInfo.isModifying());
     }
 
 
@@ -346,7 +346,7 @@ public class TestJavaLang extends CommonTest {
     public void testReadableRead() {
         TypeInfo typeInfo = compiledTypesManager.get(Readable.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("read", 1);
-        assertSame(TRUE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertTrue(methodInfo.isModifying());
         assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
 
         ParameterInfo p0 = methodInfo.parameters().get(0);

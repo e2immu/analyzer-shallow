@@ -27,7 +27,7 @@ public class TestJavaLangConstant extends CommonTest {
     public void testConstableDescribeConstable() {
         TypeInfo typeInfo = compiledTypesManager.get(Constable.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("describeConstable", 0);
-        assertSame(FALSE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertFalse(methodInfo.isModifying());
         assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
         assertSame(IMMUTABLE_HC, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
     }
