@@ -84,4 +84,13 @@ public class AnalysisHelper {
         return baseValue;
     }
 
+    public Value notNullOfType(ParameterizedType parameterizedType) {
+        if (parameterizedType.isPrimitiveExcludingVoid()) {
+            return ValueImpl.NotNullImpl.NOT_NULL;
+        }
+        if (parameterizedType.isVoid()) {
+            return ValueImpl.NotNullImpl.NO_VALUE;
+        }
+        return ValueImpl.NotNullImpl.NULLABLE;
+    }
 }

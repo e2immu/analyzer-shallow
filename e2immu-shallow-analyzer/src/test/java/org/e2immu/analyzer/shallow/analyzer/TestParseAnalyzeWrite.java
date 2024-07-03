@@ -6,6 +6,7 @@ import org.e2immu.language.cst.api.analysis.Value;
 import org.e2immu.language.cst.api.expression.AnnotationExpression;
 import org.e2immu.language.cst.api.info.FieldInfo;
 import org.e2immu.language.cst.api.info.MethodInfo;
+import org.e2immu.language.cst.api.info.ParameterInfo;
 import org.e2immu.language.cst.api.info.TypeInfo;
 import org.e2immu.language.cst.api.runtime.Runtime;
 import org.e2immu.language.cst.api.type.ParameterizedType;
@@ -31,8 +32,11 @@ import java.util.zip.ZipFile;
 import static org.e2immu.language.cst.impl.analysis.PropertyImpl.*;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.FALSE;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.TRUE;
-import static org.e2immu.language.cst.impl.analysis.ValueImpl.ImmutableImpl.MUTABLE;
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.ImmutableImpl.*;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.IndependentImpl.DEPENDENT;
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.IndependentImpl.INDEPENDENT;
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.NotNullImpl.NOT_NULL;
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.NotNullImpl.NULLABLE;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestParseAnalyzeWrite {
@@ -41,6 +45,7 @@ public class TestParseAnalyzeWrite {
     static List<TypeInfo> allTypes;
     static List<TypeInfo> sorted;
     static G<TypeInfo> graph;
+    static Runtime runtime;
 
     @BeforeAll
     public static void beforeAll() throws IOException {
@@ -84,6 +89,7 @@ public class TestParseAnalyzeWrite {
             shallowTypeAnalyzer.check(typeInfo);
         }
         compiledTypesManager = annotatedApiParser.javaInspector().compiledTypesManager();
+        runtime = annotatedApiParser.runtime();
     }
 
     @Test
@@ -118,6 +124,17 @@ public class TestParseAnalyzeWrite {
     }
 
     @Test
+    public void testObjectToString() {
+        TypeInfo typeInfo = compiledTypesManager.get(Object.class);
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("toString", 0);
+        assertSame(TRUE, methodInfo.analysis().getOrDefault(CONTAINER_METHOD, FALSE));
+        assertSame(NOT_NULL, methodInfo.analysis().getOrDefault(NOT_NULL_METHOD, NULLABLE));
+        assertSame(FALSE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertSame(IMMUTABLE, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
+        assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
+    }
+
+    @Test
     public void testString() {
         TypeInfo typeInfo = compiledTypesManager.get(String.class);
         testImmutableContainer(typeInfo, false);
@@ -133,9 +150,118 @@ public class TestParseAnalyzeWrite {
     }
 
     @Test
+    public void testStringToLowerCase() {
+        TypeInfo typeInfo = compiledTypesManager.get(String.class);
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("toLowerCase", 0);
+        assertFalse(methodInfo.allowsInterrupts());
+        assertTrue(methodInfo.isPublic());
+        assertFalse(methodInfo.isAbstract());
+        assertFalse(methodInfo.isDefault());
+        assertFalse(methodInfo.isStatic());
+        assertEquals(10, methodInfo.complexity());
+    }
+
+    @Test
+    public void testStringBuilder() {
+        TypeInfo typeInfo = compiledTypesManager.get(StringBuilder.class);
+        assertSame(INDEPENDENT, typeInfo.analysis().getOrDefault(INDEPENDENT_TYPE, DEPENDENT));
+        assertSame(TRUE, typeInfo.analysis().getOrDefault(CONTAINER_TYPE, FALSE));
+        assertSame(MUTABLE, typeInfo.analysis().getOrDefault(IMMUTABLE_TYPE, MUTABLE));
+        /*
+         There is no specific "length()" method in StringBuilder, we inherit from CharSequence.
+         If BasicCompanionMethods_3 runs green, we are guaranteed that the CharSequence method
+         is chosen over the one in AbstractStringBuilder (this type is non-public, and cannot be
+         annotated / analysed).
+        */
+        try {
+            typeInfo.findUniqueMethod("length", 0);
+            fail();
+        } catch (NoSuchElementException nse) {
+            // ak!
+        }
+    }
+
+    @Test
+    public void testStringBuilderAppendBoolean() {
+        TypeInfo typeInfo = compiledTypesManager.get(StringBuilder.class);
+
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("append", runtime.booleanTypeInfo());
+        assertSame(TRUE, methodInfo.analysis().getOrDefault(FLUENT_METHOD, FALSE));
+        assertSame(TRUE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertSame(MUTABLE, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
+        assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
+
+        ParameterInfo p0 = methodInfo.parameters().get(0);
+        assertSame(INDEPENDENT, p0.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT));
+        assertSame(IMMUTABLE, p0.analysis().getOrDefault(IMMUTABLE_PARAMETER, MUTABLE));
+        assertSame(NOT_NULL, p0.analysis().getOrDefault(NOT_NULL_PARAMETER, NULLABLE));
+        assertSame(FALSE, p0.analysis().getOrDefault(MODIFIED_PARAMETER, FALSE));
+    }
+
+    @Test
+    public void testStringBuilderAppendString() {
+        TypeInfo typeInfo = compiledTypesManager.get(StringBuilder.class);
+
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("append", runtime.stringTypeInfo());
+        assertSame(TRUE, methodInfo.analysis().getOrDefault(FLUENT_METHOD, FALSE));
+        assertSame(TRUE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertSame(MUTABLE, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
+        assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
+
+        ParameterInfo p0 = methodInfo.parameters().get(0);
+        assertSame(INDEPENDENT, p0.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT));
+        assertSame(IMMUTABLE, p0.analysis().getOrDefault(IMMUTABLE_PARAMETER, MUTABLE));
+        assertSame(NULLABLE, p0.analysis().getOrDefault(NOT_NULL_PARAMETER, NULLABLE));
+        assertSame(FALSE, p0.analysis().getOrDefault(MODIFIED_PARAMETER, FALSE));
+    }
+
+    @Test
+    public void testCharSequence() {
+        TypeInfo typeInfo = compiledTypesManager.get(CharSequence.class);
+        testImmutableContainer(typeInfo, true);
+    }
+
+    @Test
     public void testClass() {
         TypeInfo typeInfo = compiledTypesManager.get(Class.class);
         testImmutableContainer(typeInfo, false);
+    }
+
+    //AnnotatedType[] getAnnotatedInterfaces()
+    @Test
+    public void testClassGetAnnotatedInterfaces() {
+        TypeInfo typeInfo = compiledTypesManager.get(Class.class);
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("getAnnotatedInterfaces", 0);
+        assertSame(FALSE, methodInfo.analysis().getOrDefault(FLUENT_METHOD, FALSE));
+        assertSame(FALSE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertSame(FINAL_FIELDS, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
+        assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
+    }
+
+    @Test
+    public void testComparable() {
+        TypeInfo typeInfo = compiledTypesManager.get(Comparable.class);
+        testImmutableContainer(typeInfo, true);
+    }
+
+    @Test
+    public void testComparableCompareTo() {
+        TypeInfo typeInfo = compiledTypesManager.get(Comparable.class);
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("compareTo", 1);
+        assertSame(FALSE, methodInfo.analysis().getOrDefault(FLUENT_METHOD, FALSE));
+        assertSame(FALSE, methodInfo.analysis().getOrDefault(IDENTITY_METHOD, FALSE));
+        assertSame(FALSE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertSame(IMMUTABLE, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
+        assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
+
+        ParameterInfo p0 = methodInfo.parameters().get(0);
+        // IMPORTANT: the parameter info is copied from the Annotated API, where we've called it "t" rather than "o" in the JDK
+        assertEquals("t", p0.name());
+        assertEquals(0,p0.index());
+        assertSame(INDEPENDENT, p0.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT));
+        assertSame(IMMUTABLE_HC, p0.analysis().getOrDefault(IMMUTABLE_PARAMETER, MUTABLE));
+        assertSame(NOT_NULL, p0.analysis().getOrDefault(NOT_NULL_PARAMETER, NULLABLE));
+        assertSame(FALSE, p0.analysis().getOrDefault(MODIFIED_PARAMETER, FALSE));
     }
 
     @Test

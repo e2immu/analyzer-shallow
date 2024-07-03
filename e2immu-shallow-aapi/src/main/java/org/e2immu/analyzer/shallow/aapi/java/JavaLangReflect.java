@@ -30,6 +30,10 @@ public class JavaLangReflect {
     }
 
     @ImmutableContainer
+    interface AnnotatedType$ {
+    }
+
+    @ImmutableContainer
     @Independent
     interface Type$ {
     }

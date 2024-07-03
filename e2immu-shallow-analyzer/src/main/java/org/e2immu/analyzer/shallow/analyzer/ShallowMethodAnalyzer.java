@@ -17,8 +17,9 @@ import java.util.*;
 import static org.e2immu.language.cst.impl.analysis.PropertyImpl.*;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.FALSE;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.TRUE;
-import static org.e2immu.language.cst.impl.analysis.ValueImpl.IndependentImpl.DEPENDENT;
-import static org.e2immu.language.cst.impl.analysis.ValueImpl.IndependentImpl.INDEPENDENT;
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.IndependentImpl.*;
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.NotNullImpl.NOT_NULL;
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.NotNullImpl.NULLABLE;
 
 public class ShallowMethodAnalyzer extends CommonAnalyzer {
     private static final Logger LOGGER = LoggerFactory.getLogger(ShallowMethodAnalyzer.class);
@@ -86,6 +87,94 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
         if (c == null) {
             map.put(CONTAINER_METHOD, computeMethodContainer(methodInfo));
         }
+        Value.Immutable imm = (Value.Immutable) map.get(IMMUTABLE_METHOD);
+        if (imm == null) {
+            map.put(IMMUTABLE_METHOD, computeMethodImmutable(methodInfo));
+        }
+        Value.Independent ind = (Value.Independent) map.get(INDEPENDENT_METHOD);
+        if (ind == null) {
+            map.put(INDEPENDENT_METHOD, computeMethodIndependent(methodInfo, map));
+        }
+        Value.NotNull nn = (Value.NotNull) map.get(NOT_NULL_METHOD);
+        if (nn == null) {
+            map.put(NOT_NULL_METHOD, computeMethodNotNull(methodInfo, map));
+        }
+    }
+
+    private Value.NotNull computeMethodNotNull(MethodInfo methodInfo, Map<Property, Value> map) {
+        if (methodInfo.isConstructor() || methodInfo.isVoid()) return ValueImpl.NotNullImpl.NO_VALUE;
+        if (methodInfo.returnType().isPrimitiveExcludingVoid()) {
+            return NOT_NULL;
+        }
+        Value.Bool fluent = (Value.Bool) map.get(FLUENT_METHOD);
+        if (fluent.isTrue()) return NOT_NULL;
+        return methodInfo.overrides().stream()
+                .filter(MethodInfo::isPublic)
+                .map(mi -> mi.analysis().getOrDefault(NOT_NULL_METHOD, NULLABLE))
+                .reduce(NULLABLE, Value.NotNull::max);
+    }
+
+    private Value.Immutable computeMethodImmutable(MethodInfo methodInfo) {
+        ParameterizedType returnType = methodInfo.returnType();
+        return analysisHelper.typeImmutable(returnType);
+    }
+
+
+    private Value.Independent computeMethodIndependent(MethodInfo methodInfo, Map<Property, Value> map) {
+        Value.Independent returnValueIndependent = computeMethodIndependentReturnValue(methodInfo, map);
+
+        // typeIndependent is set by hand in AnnotatedAPI files
+        Value.Independent typeIndependent = methodInfo.typeInfo().analysis().getOrDefault(INDEPENDENT_TYPE, DEPENDENT);
+        Value.Independent bestOfOverrides = methodInfo.overrides().stream()
+                .filter(MethodInfo::isPublic)
+                .map(mi -> mi.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT))
+                .reduce(DEPENDENT, Value.Independent::max);
+        Value.Independent result = returnValueIndependent.max(bestOfOverrides).max(typeIndependent);
+
+        if (result.isIndependentHc() && methodInfo.isFactoryMethod()) {
+            // at least one of the parameters must be independent HC!!
+            boolean hcParam = methodInfo.parameters().stream()
+                    .anyMatch(pa -> pa.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT).isIndependentHc());
+            if (!hcParam) {
+                LOGGER.warn("@Independent(hc=true) factory method must have at least one @Independent(hc=true) parameter");
+            }
+        }
+        return result;
+    }
+
+    private Value.Independent computeMethodIndependentReturnValue(MethodInfo methodInfo, Map<Property, Value> map) {
+        if (methodInfo.isConstructor() || methodInfo.isVoid()) {
+            return INDEPENDENT;
+        }
+        if (methodInfo.isStatic() && !methodInfo.isFactoryMethod()) {
+            // if factory method, we link return value to parameters, otherwise independent by default
+            return INDEPENDENT;
+        }
+        Value.Bool identity = (Value.Bool) map.get(IDENTITY_METHOD);
+        Value.Bool modified = (Value.Bool) map.get(MODIFIED_METHOD);
+        if (identity.isTrue() && modified.isFalse()) {
+            return INDEPENDENT; // @Identity + @NotModified -> must be @Independent
+        }
+        // from here on we're assuming the result is linked to the fields.
+
+        ParameterizedType pt = methodInfo.returnType();
+        if (pt.arrays() > 0) {
+            // array type, like int[]
+            return DEPENDENT;
+        }
+        TypeInfo bestType = pt.bestTypeInfo();
+        if (bestType == null || bestType.isJavaLangObject()) {
+            // unbound type parameter T, or unbound with array T[], T[][]
+            return INDEPENDENT_HC;
+        }
+        if (bestType.isPrimitiveExcludingVoid()) {
+            return INDEPENDENT;
+        }
+        Value.Immutable imm = (Immutable) map.get(IMMUTABLE_METHOD);
+        if (imm.isAtLeastImmutableHC()) {
+            return imm.toCorrespondingIndependent();
+        }
+        return DEPENDENT;
     }
 
     private void methodPropertiesBeforeParameters(MethodInfo methodInfo, Map<Property, Value> map, boolean explicitlyEmpty) {
@@ -141,6 +230,7 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
                 LOGGER.warn("Parameter {} cannot be @Modified", parameterInfo);
             }
             map.put(MODIFIED_PARAMETER, FALSE);
+            map.put(NOT_NULL_PARAMETER, analysisHelper.notNullOfType(parameterInfo.parameterizedType()));
         } else {
             Value.Immutable imm = (Value.Immutable) map.get(IMMUTABLE_PARAMETER);
             if (imm == null) {
@@ -154,10 +244,29 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
             if (mod == null) {
                 map.put(MODIFIED_PARAMETER, computeParameterModified(parameterInfo));
             }
+            Value.NotNull nn = (NotNull) map.get(NOT_NULL_PARAMETER);
+            if (nn == null) {
+                map.put(NOT_NULL_PARAMETER, computeParameterNotNull(parameterInfo));
+            }
         }
         map.forEach(parameterInfo.analysis()::set);
     }
 
+    private Value.NotNull computeParameterNotNull(ParameterInfo parameterInfo) {
+        ParameterizedType pt = parameterInfo.parameterizedType();
+        if (pt.isPrimitiveExcludingVoid()) return NOT_NULL;
+        MethodInfo methodInfo = parameterInfo.methodInfo();
+        return methodInfo.overrides().stream()
+                .filter(MethodInfo::isPublic)
+                .map(mi -> mi.parameters().get(parameterInfo.index()))
+                .filter(pi -> pi.analysis().haveAnalyzedValueFor(NOT_NULL_PARAMETER, () -> {
+                    if (hierarchyProblems.computeIfAbsent(methodInfo.typeInfo(), t -> new HashSet<>()).add(pi.methodInfo().typeInfo())) {
+                        LOGGER.warn("Have no @NotNull value for the parameters of {}, overridden by {}", pi, methodInfo);
+                    }
+                }))
+                .map(pi -> pi.analysis().getOrDefault(NOT_NULL_PARAMETER, NULLABLE))
+                .reduce(NULLABLE, Value.NotNull::max);
+    }
 
     private Value.Bool computeParameterModified(ParameterInfo parameterInfo) {
         MethodInfo methodInfo = parameterInfo.methodInfo();
@@ -212,7 +321,7 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
                         LOGGER.warn("Have no @Independent value for the parameters of {}, overridden by {}", pi, methodInfo);
                     }
                 }))
-                .map(pi -> (Value.Independent) pi.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT))
+                .map(pi -> pi.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT))
                 .reduce(DEPENDENT, Value.Independent::max);
         return override.max(value);
     }
