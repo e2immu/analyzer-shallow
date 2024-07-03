@@ -24,6 +24,7 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -33,8 +34,7 @@ import static org.e2immu.language.cst.impl.analysis.PropertyImpl.*;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.FALSE;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.TRUE;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.ImmutableImpl.*;
-import static org.e2immu.language.cst.impl.analysis.ValueImpl.IndependentImpl.DEPENDENT;
-import static org.e2immu.language.cst.impl.analysis.ValueImpl.IndependentImpl.INDEPENDENT;
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.IndependentImpl.*;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.NotNullImpl.NOT_NULL;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.NotNullImpl.NULLABLE;
 import static org.junit.jupiter.api.Assertions.*;
@@ -255,13 +255,70 @@ public class TestParseAnalyzeWrite {
         assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
 
         ParameterInfo p0 = methodInfo.parameters().get(0);
-        // IMPORTANT: the parameter info is copied from the Annotated API, where we've called it "t" rather than "o" in the JDK
+        // how do we get to the name 't'? JavaDoc (and AnnotatedAPI, not directly relevant) says 'o'
         assertEquals("t", p0.name());
-        assertEquals(0,p0.index());
+        assertEquals(0, p0.index());
         assertSame(INDEPENDENT, p0.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT));
         assertSame(IMMUTABLE_HC, p0.analysis().getOrDefault(IMMUTABLE_PARAMETER, MUTABLE));
         assertSame(NOT_NULL, p0.analysis().getOrDefault(NOT_NULL_PARAMETER, NULLABLE));
         assertSame(FALSE, p0.analysis().getOrDefault(MODIFIED_PARAMETER, FALSE));
+    }
+
+    @Test
+    public void testSerializable() {
+        TypeInfo typeInfo = compiledTypesManager.get(Serializable.class);
+        testImmutableContainer(typeInfo, true);
+    }
+
+    @Test
+    public void testAutoCloseable() {
+        TypeInfo typeInfo = compiledTypesManager.get(AutoCloseable.class);
+        assertSame(MUTABLE, typeInfo.analysis().getOrDefault(IMMUTABLE_TYPE, MUTABLE));
+        assertSame(INDEPENDENT, typeInfo.analysis().getOrDefault(INDEPENDENT_TYPE, DEPENDENT));
+        assertSame(TRUE, typeInfo.analysis().getOrDefault(CONTAINER_TYPE, FALSE));
+    }
+
+
+    @Test
+    public void testAppendable() {
+        TypeInfo typeInfo = compiledTypesManager.get(Appendable.class);
+        assertSame(MUTABLE, typeInfo.analysis().getOrDefault(IMMUTABLE_TYPE, MUTABLE));
+        assertSame(INDEPENDENT, typeInfo.analysis().getOrDefault(INDEPENDENT_TYPE, DEPENDENT));
+        assertSame(TRUE, typeInfo.analysis().getOrDefault(CONTAINER_TYPE, FALSE));
+    }
+
+    @Test
+    public void testAppendableAppend() {
+        TypeInfo typeInfo = compiledTypesManager.get(Appendable.class);
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("append", 3);
+        assertTrue(methodInfo.overrides().isEmpty());
+        assertSame(TRUE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
+        ParameterInfo p0 = methodInfo.parameters().get(0);
+        assertSame(INDEPENDENT, p0.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT));
+    }
+
+    @Test
+    public void testIterableForEach() {
+        TypeInfo typeInfo = compiledTypesManager.get(Iterable.class);
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("forEach", 1);
+        assertTrue(methodInfo.overrides().isEmpty());
+        assertEquals("java.lang.Iterable.forEach(java.util.function.Consumer<? super T>)",
+                methodInfo.fullyQualifiedName());
+        assertTrue(methodInfo.isPublic());
+        assertTrue(methodInfo.isDefault());
+        assertFalse(methodInfo.isStatic());
+        assertFalse(methodInfo.isAbstract());
+
+        assertSame(FALSE, methodInfo.analysis().getOrDefault(FLUENT_METHOD, FALSE));
+        assertSame(FALSE, methodInfo.analysis().getOrDefault(IDENTITY_METHOD, FALSE));
+        assertSame(FALSE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertSame(NO_VALUE, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
+        assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
+
+        ParameterInfo p0 = methodInfo.parameters().get(0);
+        assertSame(INDEPENDENT_HC, p0.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT));
+        assertSame(NOT_NULL, p0.analysis().getOrDefault(NOT_NULL_PARAMETER, NULLABLE));
     }
 
     @Test

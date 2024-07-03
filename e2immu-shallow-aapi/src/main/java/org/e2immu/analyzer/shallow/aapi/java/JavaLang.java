@@ -665,7 +665,7 @@ class JavaLang {
             return equals(t) || t.equals(this) ? 0 : retVal;
         }
 
-        int compareTo(@NotNull T t);
+        int compareTo(@NotNull T o);
     }
 
     /*
