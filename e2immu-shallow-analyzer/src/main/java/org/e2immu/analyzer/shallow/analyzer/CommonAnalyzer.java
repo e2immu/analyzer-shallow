@@ -2,6 +2,7 @@ package org.e2immu.analyzer.shallow.analyzer;
 
 import org.e2immu.annotation.*;
 import org.e2immu.annotation.method.GetSet;
+import org.e2immu.annotation.rare.AllowsInterrupt;
 import org.e2immu.annotation.rare.IgnoreModifications;
 import org.e2immu.annotation.type.UtilityClass;
 import org.e2immu.language.cst.api.analysis.Property;
@@ -48,6 +49,7 @@ class CommonAnalyzer {
         Value.Bool ignoreModifications = null;
         Value.Bool isFinal = null;
         Value.FieldValue getSetField = null;
+        Value.Bool allowInterrupt = null;
 
         for (AnnotationExpression ae : annotations) {
             boolean isAbsent = ae.extractBoolean("absent");
@@ -117,6 +119,8 @@ class CommonAnalyzer {
             } else if (UtilityClass.class.getCanonicalName().equals(fqn)) {
                 immutable = ValueImpl.ImmutableImpl.IMMUTABLE;
                 independent = ValueImpl.IndependentImpl.INDEPENDENT;
+            } else if (AllowsInterrupt.class.getCanonicalName().equals(fqn)) {
+                allowInterrupt = valueForTrue;
             }
         }
 
@@ -140,6 +144,7 @@ class CommonAnalyzer {
             if (container != null) map.put(PropertyImpl.CONTAINER_METHOD, container);
             if (notNull != null) map.put(PropertyImpl.NOT_NULL_METHOD, notNull);
             if (modified != null) map.put(PropertyImpl.MODIFIED_METHOD, modified);
+            if (allowInterrupt != null) map.put(PropertyImpl.METHOD_ALLOWS_INTERRUPTS, allowInterrupt);
             return map;
         }
         if (info instanceof FieldInfo) {

@@ -173,9 +173,15 @@ public class JavaIo {
     @Container
     interface Writer$ {
         @Modified
+        @AllowsInterrupt
+        void append(char c);
+
+        @Modified
+        @AllowsInterrupt
         void write(char[] cbuf);
 
         @Modified
+        @AllowsInterrupt
         void write(char[] cbuf, int off, int len);
     }
 

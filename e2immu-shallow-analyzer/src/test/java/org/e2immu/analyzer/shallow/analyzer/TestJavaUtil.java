@@ -40,9 +40,12 @@ public class TestJavaUtil extends CommonTest {
     @Test
     public void testCollectionAdd() {
         TypeInfo typeInfo = compiledTypesManager.get(Collection.class);
-        MethodInfo add = typeInfo.findUniqueMethod("add", 1);
-        assertTrue(add.overrides().isEmpty());
-        assertSame(TRUE, add.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("add", 1);
+        assertTrue(methodInfo.overrides().isEmpty());
+        assertFalse(methodInfo.allowsInterrupts());
+
+        assertSame(TRUE, methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
     }
 
     @Test

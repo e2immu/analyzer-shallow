@@ -214,6 +214,7 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
                 map.put(MODIFIED_METHOD, explicitlyEmpty ? FALSE : computeMethodModified(methodInfo, map));
             }
         }
+        map.putIfAbsent(METHOD_ALLOWS_INTERRUPTS, FALSE);
     }
 
     private void handleParameter(ParameterInfo parameterInfo, Map<Property, Value> methodMap, boolean explicitlyEmpty) {
