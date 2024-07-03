@@ -9,16 +9,13 @@ import org.e2immu.language.cst.api.analysis.Property;
 import org.e2immu.language.cst.api.analysis.Value;
 import org.e2immu.language.cst.api.expression.AnnotationExpression;
 import org.e2immu.language.cst.api.info.*;
-import org.e2immu.language.cst.api.type.ParameterizedType;
 import org.e2immu.language.cst.impl.analysis.PropertyImpl;
 import org.e2immu.language.cst.impl.analysis.ValueImpl;
 import org.e2immu.util.internal.util.GetSetHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Stream;
 
 class CommonAnalyzer {
@@ -50,6 +47,7 @@ class CommonAnalyzer {
         Value.Bool isFinal = null;
         Value.FieldValue getSetField = null;
         Value.Bool allowInterrupt = null;
+        Value.GetSetEquivalent getSetEquivalent = null;
 
         for (AnnotationExpression ae : annotations) {
             boolean isAbsent = ae.extractBoolean("absent");
@@ -108,12 +106,29 @@ class CommonAnalyzer {
                 ignoreModifications = valueForTrue;
             } else if (GetSet.class.getCanonicalName().equals(fqn)) {
                 if (info instanceof MethodInfo methodInfo) {
-                    String name = ae.extractString("value", GetSetHelper.fieldName(methodInfo.name()));
-                    FieldInfo field = methodInfo.typeInfo().getFieldByName(name, false);
-                    if (field == null) {
-                        LOGGER.warn("Cannot find field {} in {}", name, methodInfo.typeInfo());
+                    if (methodInfo.isConstructor() || methodInfo.isFactoryMethod()) {
+                        /*
+                         @GetSet on a constructor or factory method has a well-defined meaning.
+                         We search for the smallest constructor or factory method with the same name which
+                         is compatible with a subset of the parameters. Those not in the smallest, get marked as @GetSet
+                         replacements.
+                        */
+                        Stream<MethodInfo> candidateStream;
+                        if (methodInfo.isConstructor()) {
+                            candidateStream = methodInfo.typeInfo().constructors().stream();
+                        } else {
+                            candidateStream = methodInfo.typeInfo().methodStream()
+                                    .filter(m -> m.name().equals(methodInfo.name()));
+                        }
+                        getSetEquivalent = findBestCompatibleMethod(candidateStream, methodInfo);
                     } else {
-                        getSetField = new ValueImpl.FieldValueImpl(field);
+                        String name = ae.extractString("value", GetSetHelper.fieldName(methodInfo.name()));
+                        FieldInfo field = methodInfo.typeInfo().getFieldByName(name, false);
+                        if (field == null) {
+                            LOGGER.warn("Cannot find field {} in {}", name, methodInfo.typeInfo());
+                        } else {
+                            getSetField = new ValueImpl.FieldValueImpl(field);
+                        }
                     }
                 }
             } else if (UtilityClass.class.getCanonicalName().equals(fqn)) {
@@ -145,6 +160,7 @@ class CommonAnalyzer {
             if (notNull != null) map.put(PropertyImpl.NOT_NULL_METHOD, notNull);
             if (modified != null) map.put(PropertyImpl.MODIFIED_METHOD, modified);
             if (allowInterrupt != null) map.put(PropertyImpl.METHOD_ALLOWS_INTERRUPTS, allowInterrupt);
+            if (getSetEquivalent != null) map.put(PropertyImpl.GET_SET_EQUIVALENT, getSetEquivalent);
             return map;
         }
         if (info instanceof FieldInfo) {
@@ -167,6 +183,30 @@ class CommonAnalyzer {
             return map;
         }
         throw new UnsupportedOperationException();
+    }
+
+    private Value.GetSetEquivalent findBestCompatibleMethod(Stream<MethodInfo> candidateStream, MethodInfo target) {
+        return candidateStream
+                .map(mi -> createGetSetEquivalent(mi, target))
+                .filter(Objects::nonNull)
+                .max(Comparator.comparingInt(gse -> gse.convertToGetSet().size()))
+                .orElse(null);
+    }
+
+    /*
+    return null when not compatible.
+     */
+    private Value.GetSetEquivalent createGetSetEquivalent(MethodInfo candidate, MethodInfo target) {
+        if (candidate.parameters().size() >= target.parameters().size()) return null;
+        Set<ParameterInfo> params = new HashSet<>(target.parameters());
+        for (ParameterInfo pi : candidate.parameters()) {
+            ParameterInfo inSet = params.stream()
+                    .filter(p -> p.name().equals(pi.name()) && p.parameterizedType().equals(pi.parameterizedType()))
+                    .findFirst().orElse(null);
+            if (inSet == null) return null;
+            params.remove(inSet);
+        }
+        return new ValueImpl.GetSetEquivalentImpl(params, candidate);
     }
 
     private Value.Independent simpleComputeIndependent(TypeInfo typeInfo, Value.Immutable immutable) {
