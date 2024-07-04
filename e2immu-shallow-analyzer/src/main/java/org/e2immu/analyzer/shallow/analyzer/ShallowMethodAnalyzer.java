@@ -254,8 +254,16 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
             if (ign == null) {
                 map.put(IGNORE_MODIFICATIONS_PARAMETER, computeParameterIgnoreModifications(parameterInfo));
             }
+            Value.Bool c = (Bool) map.get(CONTAINER_PARAMETER);
+            if (c == null) {
+                map.put(CONTAINER_PARAMETER, computeParameterContainer(parameterInfo));
+            }
         }
         map.forEach(parameterInfo.analysis()::set);
+    }
+
+    private Value computeParameterContainer(ParameterInfo parameterInfo) {
+        return analysisHelper.typeContainer(parameterInfo.parameterizedType());
     }
 
     private Value computeParameterIgnoreModifications(ParameterInfo parameterInfo) {

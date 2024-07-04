@@ -134,6 +134,7 @@ class CommonAnalyzer {
             } else if (UtilityClass.class.getCanonicalName().equals(fqn)) {
                 immutable = ValueImpl.ImmutableImpl.IMMUTABLE;
                 independent = ValueImpl.IndependentImpl.INDEPENDENT;
+                //extensible = ValueImpl.BoolImpl.FALSE;
             } else if (AllowsInterrupt.class.getCanonicalName().equals(fqn)) {
                 allowInterrupt = valueForTrue;
             }

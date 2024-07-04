@@ -8,6 +8,9 @@ import org.e2immu.language.cst.impl.analysis.ValueImpl;
 
 import java.util.Map;
 
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.FALSE;
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.TRUE;
+
 public class AnalysisHelper {
 
     public Value.Immutable typeImmutable(ParameterizedType parameterizedType) {
@@ -92,5 +95,22 @@ public class AnalysisHelper {
             return ValueImpl.NotNullImpl.NO_VALUE;
         }
         return ValueImpl.NotNullImpl.NULLABLE;
+    }
+
+    public Value typeContainer(ParameterizedType parameterizedType) {
+        if (parameterizedType.arrays() > 0) {
+            return TRUE;
+        }
+        if (parameterizedType.isTypeOfNullConstant()) {
+            return FALSE;
+        }
+        if (parameterizedType.isUnboundTypeParameter()) {
+            return TRUE;
+        }
+        TypeInfo bestType = parameterizedType.bestTypeInfo();
+        if (bestType == null) {
+            return TRUE;
+        }
+        return bestType.analysis().getOrDefault(PropertyImpl.CONTAINER_TYPE, FALSE);
     }
 }

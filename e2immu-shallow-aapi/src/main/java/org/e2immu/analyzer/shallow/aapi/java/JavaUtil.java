@@ -1115,6 +1115,9 @@ public class JavaUtil extends AnnotatedAPI {
         NavigableMap<K, V> subMap(K from, K to);
 
         NavigableMap<K, V> tailMap(K k);
+
+        @ImmutableContainer(hc = true)
+        Map.Entry<K, V> firstEntry();
     }
 
     @Container
