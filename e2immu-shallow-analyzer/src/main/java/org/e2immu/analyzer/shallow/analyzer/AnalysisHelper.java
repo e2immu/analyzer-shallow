@@ -43,13 +43,16 @@ public class AnalysisHelper {
         if (immutableOfCurrent != null) {
             dynamicBaseValue = immutableOfCurrent;
         } else {
-            dynamicBaseValue = bestType.analysis().getOrDefault(PropertyImpl.IMMUTABLE_TYPE,
-                    ValueImpl.ImmutableImpl.MUTABLE);
+            dynamicBaseValue = bestType.analysis().getOrNull(PropertyImpl.IMMUTABLE_TYPE, ValueImpl.ImmutableImpl.class);
+            if (dynamicBaseValue == null) {
+                return null;
+            }
         }
         if (dynamicBaseValue.isAtLeastImmutableHC() && !parameterizedType.parameters().isEmpty()) {
-            boolean useTypeParameters = bestType.analysis()
-                    .getOrDefault(PropertyImpl.IMMUTABLE_TYPE_DETERMINED_BY_PARAMETERS, ValueImpl.BoolImpl.FALSE)
-                    .isTrue();
+            Value.Bool useBool = bestType.analysis().getOrNull(PropertyImpl.IMMUTABLE_TYPE_DETERMINED_BY_PARAMETERS,
+                    ValueImpl.BoolImpl.class);
+            if (useBool == null) return null;
+            boolean useTypeParameters = useBool.isTrue();
             if (useTypeParameters) {
                 return parameterizedType.parameters().stream()
                         .map(pt -> typeImmutable(pt, dynamicValues))
@@ -57,6 +60,13 @@ public class AnalysisHelper {
             }
         }
         return dynamicBaseValue;
+    }
+
+    public Value.Immutable typeImmutable(TypeInfo currentType, ParameterizedType fieldType) {
+        if (currentType.primaryType().equals(fieldType.typeInfo().primaryType())) {
+            return ValueImpl.ImmutableImpl.MUTABLE; // self-ref; ALWAYS mutable
+        }
+        return typeImmutable(fieldType, Map.of());
     }
 
 
@@ -70,21 +80,19 @@ public class AnalysisHelper {
             // unbound type parameter, null constant
             return ValueImpl.IndependentImpl.INDEPENDENT_HC;
         }
-        Value.Independent baseValue = bestType.analysis().getOrDefault(PropertyImpl.INDEPENDENT_TYPE,
-                ValueImpl.IndependentImpl.DEPENDENT);
         Value.Immutable immutable = bestType.analysis().getOrDefault(PropertyImpl.IMMUTABLE_TYPE,
                 ValueImpl.ImmutableImpl.MUTABLE);
         if (immutable.isAtLeastImmutableHC() && !parameterizedType.parameters().isEmpty()) {
-            boolean useTypeParameters = bestType.analysis()
-                    .getOrDefault(PropertyImpl.IMMUTABLE_TYPE_DETERMINED_BY_PARAMETERS, ValueImpl.BoolImpl.FALSE)
-                    .isTrue();
-            if (useTypeParameters) {
+            Value.Bool tpBool = bestType.analysis().getOrNull(PropertyImpl.IMMUTABLE_TYPE_DETERMINED_BY_PARAMETERS,
+                    ValueImpl.BoolImpl.class);
+            if (tpBool == null) return null;
+            if (tpBool.isTrue()) {
                 return parameterizedType.parameters().stream()
                         .map(this::typeIndependent)
                         .reduce(ValueImpl.IndependentImpl.INDEPENDENT, Value.Independent::min);
             }
         }
-        return baseValue;
+        return bestType.analysis().getOrNull(PropertyImpl.INDEPENDENT_TYPE, ValueImpl.IndependentImpl.class);
     }
 
     public Value notNullOfType(ParameterizedType parameterizedType) {

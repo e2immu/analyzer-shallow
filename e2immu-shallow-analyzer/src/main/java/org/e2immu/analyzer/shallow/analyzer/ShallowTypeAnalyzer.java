@@ -40,7 +40,7 @@ public class ShallowTypeAnalyzer extends CommonAnalyzer {
         }
         typeInfo.analysis().set(SHALLOW_ANALYZER, TRUE);
 
-        boolean isExtensible = typeInfo.isAbstract() || !typeInfo.isSealedOrFinal();
+        boolean isExtensible = typeInfo.isExtensible();
         List<AnnotationExpression> annotations = annotationProvider.annotations(typeInfo);
         Map<Property, Value> map = annotationsToMap(typeInfo, annotations);
 
@@ -175,7 +175,7 @@ public class ShallowTypeAnalyzer extends CommonAnalyzer {
             }
         }
         if (immutable.isImmutable() && !independent.isIndependent()
-                || immutable.isAtLeastImmutableHC() && !independent.isAtLeastIndependentHc()) {
+            || immutable.isAtLeastImmutableHC() && !independent.isAtLeastIndependentHc()) {
             LOGGER.warn("Inconsistency between @Independent and @Immutable for type {}: {}, {}", typeInfo,
                     immutable, independent);
             warnings.incrementAndGet();
