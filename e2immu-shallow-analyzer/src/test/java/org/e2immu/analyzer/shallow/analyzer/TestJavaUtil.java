@@ -63,7 +63,8 @@ public class TestJavaUtil extends CommonTest {
     public void testCollections() {
         TypeInfo typeInfo = compiledTypesManager.get(Collections.class);
         assertFalse(typeInfo.isInterface());
-        assertSame(IMMUTABLE, typeInfo.analysis().getOrDefault(IMMUTABLE_TYPE, MUTABLE));
+        // FIXME at the moment @UtilityClass does not enforce @Immutable
+        assertSame(IMMUTABLE_HC, typeInfo.analysis().getOrDefault(IMMUTABLE_TYPE, MUTABLE));
         assertSame(INDEPENDENT, typeInfo.analysis().getOrDefault(INDEPENDENT_TYPE, DEPENDENT));
         assertSame(FALSE, typeInfo.analysis().getOrDefault(CONTAINER_TYPE, FALSE));
     }

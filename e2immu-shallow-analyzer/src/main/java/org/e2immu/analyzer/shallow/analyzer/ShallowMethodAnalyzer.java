@@ -116,7 +116,12 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
 
     private Value.Immutable computeMethodImmutable(MethodInfo methodInfo) {
         ParameterizedType returnType = methodInfo.returnType();
-        return analysisHelper.typeImmutable(returnType);
+        Immutable immutable = analysisHelper.typeImmutable(returnType);
+        if (immutable == null) {
+            LOGGER.warn("No immutable value for {}", returnType);
+            return ValueImpl.ImmutableImpl.MUTABLE;
+        }
+        return immutable;
     }
 
 
@@ -197,7 +202,7 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
                     LOGGER.warn("Impossible! how can a method without statements be @Identity?");
                 }
                 if (identity.isTrue() && (methodInfo.parameters().isEmpty()
-                        || !methodInfo.returnType().equals(methodInfo.parameters().get(0).parameterizedType()))) {
+                                          || !methodInfo.returnType().equals(methodInfo.parameters().get(0).parameterizedType()))) {
                     LOGGER.warn("@Identity method must have return type identical to formal type of first parameter");
                 }
             } else {
@@ -236,7 +241,12 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
         } else {
             Value.Immutable imm = (Value.Immutable) map.get(IMMUTABLE_PARAMETER);
             if (imm == null) {
-                map.put(IMMUTABLE_PARAMETER, analysisHelper.typeImmutable(parameterInfo.parameterizedType()));
+                Immutable value = analysisHelper.typeImmutable(parameterInfo.parameterizedType());
+                if(value == null) {
+                    LOGGER.warn("Have no @Immutable value for {}", parameterInfo.parameterizedType());
+                    value = ValueImpl.ImmutableImpl.MUTABLE;
+                }
+                map.put(IMMUTABLE_PARAMETER, value);
             }
             Value.Independent ind = (Value.Independent) map.get(INDEPENDENT_PARAMETER);
             if (ind == null) {
@@ -269,7 +279,7 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
     private Value computeParameterIgnoreModifications(ParameterInfo parameterInfo) {
         ParameterizedType pt = parameterInfo.parameterizedType();
         return ValueImpl.BoolImpl.from(pt.isFunctionalInterface()
-                && "java.util.function".equals(pt.typeInfo().packageName()));
+                                       && "java.util.function".equals(pt.typeInfo().packageName()));
     }
 
     private Value.NotNull computeParameterNotNull(ParameterInfo parameterInfo) {
@@ -306,6 +316,10 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
             return FALSE;
         }
         Value.Independent typeIndependent = analysisHelper.typeIndependent(type);
+        if(typeIndependent == null) {
+            LOGGER.warn("Have no @Independent value for {}", type);
+            typeIndependent = DEPENDENT;
+        }
         return ValueImpl.BoolImpl.from(!typeIndependent.isIndependent());
     }
 

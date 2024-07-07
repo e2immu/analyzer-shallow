@@ -106,11 +106,19 @@ public class ShallowTypeAnalyzer extends CommonAnalyzer {
             Value.Immutable imm = (Value.Immutable) fieldMap.get(IMMUTABLE_FIELD);
             if (imm == null || !imm.isImmutable()) {
                 Value.Immutable formally = analysisHelper.typeImmutable(fieldInfo.type());
+                if(formally == null) {
+                    LOGGER.warn("Have no @Immutable value for {}", fieldInfo.type());
+                    formally = MUTABLE;
+                }
                 fieldMap.put(IMMUTABLE_FIELD, formally.max(imm));
             }
             Value.Independent ind = (Value.Independent) fieldMap.get(INDEPENDENT_FIELD);
             if (ind == null || !ind.isIndependent()) {
                 Value.Independent formally = analysisHelper.typeIndependent(fieldInfo.type());
+                if(formally == null) {
+                    LOGGER.warn("Have no @Independent value for {}", fieldInfo.type());
+                    formally = DEPENDENT;
+                }
                 fieldMap.put(INDEPENDENT_FIELD, formally.max(ind));
             }
             fieldMap.forEach(fieldInfo.analysis()::set);

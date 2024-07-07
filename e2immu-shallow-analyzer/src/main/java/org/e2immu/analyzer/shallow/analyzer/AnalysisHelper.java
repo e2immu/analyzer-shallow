@@ -71,14 +71,17 @@ public class AnalysisHelper {
 
 
     public Value.Independent typeIndependent(ParameterizedType parameterizedType) {
-        TypeInfo bestType = parameterizedType.bestTypeInfo();
         if (parameterizedType.arrays() > 0) {
             // because the "fields" of the array, i.e. the cells, can be mutated
             return ValueImpl.IndependentImpl.DEPENDENT;
         }
+        TypeInfo bestType = parameterizedType.bestTypeInfo();
         if (bestType == null) {
             // unbound type parameter, null constant
             return ValueImpl.IndependentImpl.INDEPENDENT_HC;
+        }
+        if(bestType.isPrimitiveExcludingVoid()) {
+            return ValueImpl.IndependentImpl.INDEPENDENT;
         }
         Value.Immutable immutable = bestType.analysis().getOrDefault(PropertyImpl.IMMUTABLE_TYPE,
                 ValueImpl.ImmutableImpl.MUTABLE);
