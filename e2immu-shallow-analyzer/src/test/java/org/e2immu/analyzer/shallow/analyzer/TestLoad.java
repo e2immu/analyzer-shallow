@@ -2,7 +2,9 @@ package org.e2immu.analyzer.shallow.analyzer;
 
 import ch.qos.logback.classic.Level;
 import org.e2immu.language.cst.api.analysis.Codec;
+import org.e2immu.language.cst.api.info.FieldInfo;
 import org.e2immu.language.cst.api.info.Info;
+import org.e2immu.language.cst.api.info.MethodInfo;
 import org.e2immu.language.cst.api.info.TypeInfo;
 import org.e2immu.language.cst.impl.analysis.ValueImpl;
 import org.e2immu.language.cst.io.CodecImpl;
@@ -26,8 +28,19 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertInstanceOf;
+import static org.e2immu.language.cst.impl.analysis.PropertyImpl.*;
+import static org.e2immu.language.cst.impl.analysis.PropertyImpl.INDEPENDENT_METHOD;
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.FALSE;
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.TRUE;
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.ImmutableImpl.IMMUTABLE;
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.ImmutableImpl.MUTABLE;
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.IndependentImpl.DEPENDENT;
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.IndependentImpl.INDEPENDENT;
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.NotNullImpl.NOT_NULL;
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.NotNullImpl.NULLABLE;
+import static org.e2immu.language.inspection.integration.JavaInspectorImpl.JAR_WITH_PATH_PREFIX;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 public class TestLoad {
     private static final Logger LOGGER = LoggerFactory.getLogger(TestLoad.class);
@@ -37,73 +50,28 @@ public class TestLoad {
         ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger(org.slf4j.Logger.ROOT_LOGGER_NAME)).setLevel(Level.INFO);
         ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger("org.e2immu.analyzer.shallow")).setLevel(Level.DEBUG);
 
+        List<String> classPath = List.of(
+                "jmods/java.base.jmod", "jmods/java.xml.jmod", "jmods/java.net.http.jmod",
+                JAR_WITH_PATH_PREFIX + "org/e2immu/support",
+                JAR_WITH_PATH_PREFIX + "org/slf4j",
+                JAR_WITH_PATH_PREFIX + "ch/qos/logback/classic",
+                JAR_WITH_PATH_PREFIX + "org/junit/jupiter/api",
+                JAR_WITH_PATH_PREFIX + "ch/qos/logback/core/spi",
+                JAR_WITH_PATH_PREFIX + "org/apiguardian/api"
+        );
         JavaInspectorImpl javaInspector = new JavaInspectorImpl();
-        InputConfiguration inputConfiguration = new InputConfigurationImpl.Builder()
-                .addClassPath(InputConfigurationImpl.DEFAULT_CLASSPATH)
-                .addClassPath(JavaInspectorImpl.JAR_WITH_PATH_PREFIX + "org/junit/jupiter/api")
-                .addClassPath(JavaInspectorImpl.JAR_WITH_PATH_PREFIX + "org/apiguardian/api")
-                .addClassPath(JavaInspectorImpl.JAR_WITH_PATH_PREFIX + "org/junit/platform/commons")
-                .build();
-        javaInspector.initialize(inputConfiguration);
+        InputConfigurationImpl.Builder inputConfiguration = new InputConfigurationImpl.Builder();
+        classPath.forEach(inputConfiguration::addClassPath);
+        javaInspector.initialize(inputConfiguration.build());
+        new Load().go(javaInspector);
 
-        Codec.DecoderProvider decoderProvider = ValueImpl::decoder;
-        Codec codec = new CodecImpl(decoderProvider);
 
-        File[] jsonFiles = new File("/Users/bnaudts/git/analyzer-shallow/e2immu-shallow-aapi/src/main/resources/json")
-                .listFiles(fnf -> fnf.getName().endsWith(".json"));
-        assert jsonFiles != null;
-        for (File jsonFile : jsonFiles) {
-            LOGGER.info("Parsing {}", jsonFile);
-            String s = Files.readString(jsonFile.toPath());
-            JSONParser parser = new JSONParser(s);
-            parser.Root();
-            Node root = parser.rootNode();
-            assertInstanceOf(Root.class, root);
-            for (JSONObject jo : root.get(0).childrenOfType(JSONObject.class)) {
-                KeyValuePair fqn = (KeyValuePair) jo.get(1);
-                String fullyQualifiedWithType = CodecImpl.unquote(fqn.get(2).getSource());
-                KeyValuePair data = (KeyValuePair) jo.get(3);
-                JSONObject dataJo = (JSONObject) data.get(2);
-                char type = fullyQualifiedWithType.charAt(0);
-                String fullyQualifiedName = fullyQualifiedWithType.substring(1);
-
-                Info info;
-                if ('T' == type) {
-                    info = javaInspector.compiledTypesManager().getOrLoad(fullyQualifiedName);
-                } else if ('M' == type) {
-                    int open = fullyQualifiedWithType.indexOf('(');
-                    String tmp = fullyQualifiedWithType.substring(1, open);
-                    int dot = tmp.lastIndexOf('.');
-                    String typeFqn = tmp.substring(0, dot);
-                    TypeInfo typeInfo = javaInspector.compiledTypesManager().getOrLoad(typeFqn);
-                    info = findMethodByFqn(typeInfo, tmp.substring(dot + 1), fullyQualifiedWithType.substring(open));
-                } else if ('F' == type) {
-                    int dot = fullyQualifiedWithType.lastIndexOf('.');
-                    String typeFqn = fullyQualifiedWithType.substring(1, dot);
-                    TypeInfo typeInfo = javaInspector.compiledTypesManager().getOrLoad(typeFqn);
-                    String fieldName = fullyQualifiedWithType.substring(dot + 1);
-                    info = typeInfo.getFieldByName(fieldName, true);
-                } else throw new UnsupportedOperationException();
-
-                List<Codec.EncodedPropertyValue> epvs = new ArrayList<>();
-                for (int i = 1; i < dataJo.size(); i += 2) {
-                    if (dataJo.get(i) instanceof KeyValuePair kvp2) {
-                        String key = CodecImpl.unquote(kvp2.get(0).getSource());
-                        epvs.add(new Codec.EncodedPropertyValue(key, new CodecImpl.D(kvp2.get(2))));
-                    }
-                }
-                List<Codec.PropertyValue> pvs = codec.decode(info.analysis(), epvs.stream()).toList();
-                pvs.forEach(pv -> info.analysis().set(pv.property(), pv.value()));
-            }
-        }
-    }
-
-    private Info findMethodByFqn(TypeInfo typeInfo, String methodName, String argString) {
-        if ("<init>".equals(methodName)) {
-            return typeInfo.constructors().stream().findFirst().orElseThrow();
-        }
-        return typeInfo.methods().stream()
-                .filter(methodInfo -> methodName.equals(methodInfo.name()))
-                .findFirst().orElseThrow(() -> new RuntimeException("Cannot find method " + methodName + " in type " + typeInfo));
+        TypeInfo typeInfo = javaInspector.compiledTypesManager().get(Object.class);
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("toString", 0);
+        assertSame(TRUE, methodInfo.analysis().getOrDefault(CONTAINER_METHOD, FALSE));
+        assertSame(NOT_NULL, methodInfo.analysis().getOrDefault(NOT_NULL_METHOD, NULLABLE));
+        assertFalse(methodInfo.isModifying());
+        assertSame(IMMUTABLE, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
+        assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
     }
 }

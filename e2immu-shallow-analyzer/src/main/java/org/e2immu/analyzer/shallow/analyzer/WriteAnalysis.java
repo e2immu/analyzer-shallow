@@ -23,7 +23,7 @@ public class WriteAnalysis {
 
     public void write(String destinationDirectory, Trie<TypeInfo> typeTrie) {
         File directory = new File(destinationDirectory);
-        Codec codec = new CodecImpl(null); // we don't have to decode
+        Codec codec = new CodecImpl(null, null); // we don't have to decode
         typeTrie.visit(new String[]{}, (parts, list) -> write(directory, codec, parts, list));
     }
 
@@ -48,9 +48,9 @@ public class WriteAnalysis {
 
     private void write(OutputStreamWriter osw, Codec codec, AtomicBoolean first, TypeInfo typeInfo) throws IOException {
         writeInfo(osw, codec, first, typeInfo, -1);
-        for (TypeInfo subType : typeInfo.subTypes()) {
-            write(osw, codec, first, subType);
-        }
+       // for (TypeInfo subType : typeInfo.subTypes()) {
+           // write(osw, codec, first, subType);
+       // }
         int cc = 0;
         for (MethodInfo methodInfo : typeInfo.constructors()) {
             writeInfo(osw, codec, first, methodInfo, cc);
