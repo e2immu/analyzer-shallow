@@ -33,12 +33,12 @@ public class TestAnnotatedApiParser {
                 List.of(JavaInspectorImpl.JAR_WITH_PATH_PREFIX + "org/slf4j"),
                 List.of("src/test/java/org/e2immu/analyzer/shallow/analyzer"),
                 List.of("example."));
-        List<TypeInfo> types = annotatedApiParser.types();
+        List<TypeInfo> types = annotatedApiParser.typesParsed();
         assertEquals(2, types.size());
         TypeInfo t1 = types.get(0);
-        assertEquals("example.jdk.JavaLang", t1.fullyQualifiedName());
+        assertEquals("org.e2immu.analyzer.shallow.analyzer.example.jdk.JavaLang", t1.fullyQualifiedName());
         String uri = t1.compilationUnitOrEnclosingType().getLeft().uri().toString();
-        assertTrue(uri.endsWith("example/jdk/JavaLang.java"));
+        assertTrue(uri.endsWith("example/jdk/JavaLang.java"), "Have: "+uri);
 
         assertEquals(2, annotatedApiParser.getWarnings());
 

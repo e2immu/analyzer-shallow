@@ -24,7 +24,8 @@ public class AnnotatedApiParser implements AnnotationProvider {
     private record Data(List<AnnotationExpression> annotations) {
     }
 
-    private final Map<Info, Data> infoMap = new HashMap<>();
+    private final List<TypeInfo> typesParsed = new ArrayList<>();
+    private final Map<Info, Data> infoMap = new LinkedHashMap<>();
     private final JavaInspector javaInspector;
     private int warnings;
     private int annotatedTypes;
@@ -50,6 +51,7 @@ public class AnnotatedApiParser implements AnnotationProvider {
     private void load(URI uri) {
         Summary summary = javaInspector.parse(uri);
         TypeInfo typeInfo = summary.firstType();
+        typesParsed.add(typeInfo);
         FieldInfo packageName = typeInfo.getFieldByName("PACKAGE_NAME", false);
         if (packageName == null) {
             LOGGER.info("Ignoring class {}, has no PACKAGE_NAME field", typeInfo);
@@ -212,5 +214,9 @@ public class AnnotatedApiParser implements AnnotationProvider {
 
     public JavaInspector javaInspector() {
         return javaInspector;
+    }
+
+    public List<TypeInfo> typesParsed() {
+        return typesParsed;
     }
 }

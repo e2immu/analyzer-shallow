@@ -43,8 +43,9 @@ dependencies {
     implementation("org.e2immu:e2immu-inspection-resource:some.version")
     implementation("org.e2immu:e2immu-inspection-parser:some.version")
     implementation("org.slf4j:slf4j-api:2.0.7")
+    implementation("org.apiguardian:apiguardian-api:1.1.2")
+    implementation("ch.qos.logback:logback-classic:1.5.6")
 
-    testImplementation("ch.qos.logback:logback-classic:1.4.12")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.3")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.3")
 }

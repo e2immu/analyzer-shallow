@@ -1,0 +1,3 @@
+[{"fqn": "Tsun.nio.ch.Interruptible", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentField":1,"independentType":2,"shallowAnalyzer":1}},
+{"fqn": "Msun.nio.ch.Interruptible.interrupt(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}},
+{"fqn": "PMsun.nio.ch.Interruptible.interrupt(0):0", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":0,"independentParameter":2,"modifiedParameter":1,"notNullParameter":0}}]

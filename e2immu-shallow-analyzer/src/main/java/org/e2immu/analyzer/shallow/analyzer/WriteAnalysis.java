@@ -1,10 +1,7 @@
 package org.e2immu.analyzer.shallow.analyzer;
 
 import org.e2immu.language.cst.api.analysis.Codec;
-import org.e2immu.language.cst.api.info.FieldInfo;
-import org.e2immu.language.cst.api.info.Info;
-import org.e2immu.language.cst.api.info.MethodInfo;
-import org.e2immu.language.cst.api.info.TypeInfo;
+import org.e2immu.language.cst.api.info.*;
 import org.e2immu.language.cst.io.CodecImpl;
 import org.e2immu.util.internal.util.Trie;
 import org.slf4j.Logger;
@@ -50,25 +47,36 @@ public class WriteAnalysis {
     }
 
     private void write(OutputStreamWriter osw, Codec codec, AtomicBoolean first, TypeInfo typeInfo) throws IOException {
-        writeInfo(osw, codec, first, typeInfo);
+        writeInfo(osw, codec, first, typeInfo, -1);
         for (TypeInfo subType : typeInfo.subTypes()) {
             write(osw, codec, first, subType);
         }
+        int cc = 0;
         for (MethodInfo methodInfo : typeInfo.constructors()) {
-            writeInfo(osw, codec, first, methodInfo);
+            writeInfo(osw, codec, first, methodInfo, cc);
+            for (ParameterInfo pi : methodInfo.parameters()) {
+                writeInfo(osw, codec, first, pi, cc);
+            }
+            cc++;
         }
+        int mc = 0;
         for (MethodInfo methodInfo : typeInfo.methods()) {
-            writeInfo(osw, codec, first, methodInfo);
+            writeInfo(osw, codec, first, methodInfo, mc);
+            for (ParameterInfo pi : methodInfo.parameters()) {
+                writeInfo(osw, codec, first, pi, mc);
+            }
+            mc++;
         }
+        int fc = 0;
         for (FieldInfo fieldInfo : typeInfo.fields()) {
-            writeInfo(osw, codec, first, fieldInfo);
+            writeInfo(osw, codec, first, fieldInfo, fc++);
         }
     }
 
-    private static void writeInfo(OutputStreamWriter osw, Codec codec, AtomicBoolean first, Info info) throws IOException {
+    private static void writeInfo(OutputStreamWriter osw, Codec codec, AtomicBoolean first, Info info, int index) throws IOException {
         Stream<Codec.EncodedPropertyValue> stream = info.analysis().propertyValueStream()
                 .map(pv -> codec.encode(pv.property(), pv.value()));
-        Codec.EncodedValue ev = codec.encode(info, stream);
+        Codec.EncodedValue ev = codec.encode(info, index, stream);
         if (first.get()) first.set(false);
         else osw.write(",\n");
         osw.write(ev.toString());
