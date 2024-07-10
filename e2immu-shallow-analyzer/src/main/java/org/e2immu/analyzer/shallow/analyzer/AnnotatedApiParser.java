@@ -7,6 +7,7 @@ import org.e2immu.language.cst.api.runtime.Runtime;
 import org.e2immu.language.cst.api.type.ParameterizedType;
 import org.e2immu.language.inspection.api.integration.JavaInspector;
 import org.e2immu.language.inspection.api.parser.SourceTypes;
+import org.e2immu.language.inspection.api.parser.Summary;
 import org.e2immu.language.inspection.api.resource.InputConfiguration;
 import org.e2immu.language.inspection.integration.JavaInspectorImpl;
 import org.e2immu.language.inspection.resource.InputConfigurationImpl;
@@ -14,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.net.URI;
 import java.util.*;
 
 public class AnnotatedApiParser implements AnnotationProvider {
@@ -40,13 +42,14 @@ public class AnnotatedApiParser implements AnnotationProvider {
         addToClasspath.forEach(builder::addClassPath);
         InputConfiguration inputConfiguration = builder.build();
         javaInspector.initialize(inputConfiguration);
-        javaInspector.sourceTypes().visit(new String[]{}, (parts, list) -> list.forEach(this::load));
+        javaInspector.sourceURIs().forEach(this::load);
         LOGGER.info("Finished parsing, annotated {} types, counted {} annotations, issued {} warning(s)",
                 annotatedTypes, annotations, warnings);
     }
 
-    private void load(TypeInfo typeInfo) {
-        javaInspector.parse(typeInfo);
+    private void load(URI uri) {
+        Summary summary = javaInspector.parse(uri);
+        TypeInfo typeInfo = summary.firstType();
         FieldInfo packageName = typeInfo.getFieldByName("PACKAGE_NAME", false);
         if (packageName == null) {
             LOGGER.info("Ignoring class {}, has no PACKAGE_NAME field", typeInfo);
@@ -185,12 +188,6 @@ public class AnnotatedApiParser implements AnnotationProvider {
     private boolean sameType(ParameterizedType pt1, ParameterizedType pt2) {
         if (pt1.typeInfo() != null) return pt1.arrays() == pt2.arrays() && pt1.typeInfo() == pt2.typeInfo();
         return (pt1.typeParameter() == null) == (pt2.typeParameter() == null);
-    }
-
-
-    // for testing
-    public SourceTypes sourceTypes() {
-        return javaInspector.sourceTypes();
     }
 
     // for testing

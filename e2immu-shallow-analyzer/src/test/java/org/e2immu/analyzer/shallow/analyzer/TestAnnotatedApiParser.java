@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -32,11 +33,7 @@ public class TestAnnotatedApiParser {
                 List.of(JavaInspectorImpl.JAR_WITH_PATH_PREFIX + "org/slf4j"),
                 List.of("src/test/java/org/e2immu/analyzer/shallow/analyzer"),
                 List.of("example."));
-        SourceTypes sourceTypes = annotatedApiParser.sourceTypes();
-        List<TypeInfo> types = new ArrayList<>();
-        sourceTypes.visit(new String[]{}, (parts, list) -> {
-            types.addAll(list);
-        });
+        List<TypeInfo> types = annotatedApiParser.types();
         assertEquals(2, types.size());
         TypeInfo t1 = types.get(0);
         assertEquals("example.jdk.JavaLang", t1.fullyQualifiedName());
