@@ -3,13 +3,10 @@ package org.e2immu.analyzer.shallow.analyzer;
 import org.e2immu.language.cst.api.info.MethodInfo;
 import org.e2immu.language.cst.api.info.ParameterInfo;
 import org.e2immu.language.cst.api.info.TypeInfo;
+import org.e2immu.language.cst.api.type.ParameterizedType;
 import org.junit.jupiter.api.Test;
 
-import java.time.Duration;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 import static org.e2immu.language.cst.impl.analysis.PropertyImpl.*;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.FALSE;
@@ -97,6 +94,16 @@ public class TestJavaUtilFunction extends CommonTest {
         assertSame(IMMUTABLE_HC, p0.analysis().getOrDefault(IMMUTABLE_PARAMETER, MUTABLE));
         assertSame(NULLABLE, p0.analysis().getOrDefault(NOT_NULL_PARAMETER, NULLABLE));
         assertSame(TRUE, p0.analysis().getOrDefault(MODIFIED_PARAMETER, FALSE));
+    }
+
+    @Test
+    public void testBiConsumerAccept() {
+        TypeInfo typeInfo = compiledTypesManager.get(BiConsumer.class);
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("accept", 2);
+        assertEquals("java.util.function.BiConsumer.accept(T,U)", methodInfo.fullyQualifiedName());
+        ParameterizedType u = methodInfo.parameters().get(1).parameterizedType();
+        assertEquals("Type param U", u.toString());
+        assertEquals(0, u.arrays());
     }
 
 }
