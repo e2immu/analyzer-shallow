@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.Serializable;
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static org.e2immu.language.cst.impl.analysis.PropertyImpl.*;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.FALSE;
@@ -158,7 +159,7 @@ public class TestJavaUtil extends CommonTest {
     @Test
     public void testMapKeySetEntrySetValues() {
         TypeInfo typeInfo = compiledTypesManager.get(Map.class);
-        for(String name: new String[] { "keySet", "values", "entrySet" }) {
+        for (String name : new String[]{"keySet", "values", "entrySet"}) {
             MethodInfo methodInfo = typeInfo.findUniqueMethod(name, 0);
             assertTrue(methodInfo.overrides().isEmpty());
             assertFalse(methodInfo.isModifying());
@@ -377,6 +378,20 @@ public class TestJavaUtil extends CommonTest {
 
         assertSame(INDEPENDENT_HC, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
         assertSame(IMMUTABLE_HC, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
+    }
+
+
+    @Test
+    public void testTreeMap() {
+        TypeInfo typeInfo = compiledTypesManager.get(TreeMap.class);
+        assertSame(MUTABLE, typeInfo.analysis().getOrDefault(IMMUTABLE_TYPE, MUTABLE));
+        assertSame(DEPENDENT, typeInfo.analysis().getOrDefault(INDEPENDENT_TYPE, DEPENDENT));
+        assertSame(TRUE, typeInfo.analysis().getOrDefault(CONTAINER_TYPE, FALSE));
+
+        // IMPORTANT: SequencedMap will be added as soon as we switch to Java 21; currently at 17
+        assertEquals("AbstractMap,Cloneable,Map,NavigableMap,Serializable,SortedMap",
+                typeInfo.superTypesExcludingJavaLangObject().stream()
+                        .map(TypeInfo::simpleName).sorted().collect(Collectors.joining(",")));
     }
 
 }

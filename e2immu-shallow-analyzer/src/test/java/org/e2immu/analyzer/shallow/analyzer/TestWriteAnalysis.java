@@ -47,7 +47,7 @@ public class TestWriteAnalysis {
         String s = Files.readString(targetFile.toPath());
         assertEquals("""
                 [{"fqn": "Torg.e2immu.C", "data":{"commutableMethods":["p1","p2,p3","p4"],"immutableType":3,"shallowAnalyzer":1}},
-                {"fqn": "M?.?.m1", "data":{"shallowAnalyzer":0}}]\
+                {"fqn": "Morg.e2immu.C.m1(0)", "data":{"shallowAnalyzer":0}}]\
                 """, s);
     }
 }
