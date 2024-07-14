@@ -33,6 +33,8 @@ dependencies {
     implementation("org.e2immu:e2immu-cst-api:some.version")
     implementation("org.e2immu:e2immu-cst-impl:some.version")
     implementation("org.e2immu:e2immu-cst-io:some.version")
+    implementation("org.e2immu:e2immu-cst-io:some.version")
+    implementation("org.e2immu:e2immu-cst-print:some.version")
     implementation("org.e2immu:e2immu-internal-util:some.version")
     implementation("org.e2immu:e2immu-internal-graph:some.version")
     implementation("org.e2immu:e2immu-external-support:some.version")
@@ -42,6 +44,7 @@ dependencies {
     implementation("org.e2immu:e2immu-inspection-api:some.version")
     implementation("org.e2immu:e2immu-inspection-resource:some.version")
     implementation("org.e2immu:e2immu-inspection-parser:some.version")
+
     implementation("org.slf4j:slf4j-api:2.0.7")
     implementation("org.apiguardian:apiguardian-api:1.1.2")
     implementation("ch.qos.logback:logback-classic:1.5.6")
