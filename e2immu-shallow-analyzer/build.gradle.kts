@@ -33,7 +33,6 @@ dependencies {
     implementation("org.e2immu:e2immu-cst-api:some.version")
     implementation("org.e2immu:e2immu-cst-impl:some.version")
     implementation("org.e2immu:e2immu-cst-io:some.version")
-    implementation("org.e2immu:e2immu-cst-io:some.version")
     implementation("org.e2immu:e2immu-cst-print:some.version")
     implementation("org.e2immu:e2immu-internal-util:some.version")
     implementation("org.e2immu:e2immu-internal-graph:some.version")

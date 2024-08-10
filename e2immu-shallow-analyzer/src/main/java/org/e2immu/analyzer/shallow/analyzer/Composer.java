@@ -88,10 +88,12 @@ public class Composer {
     public Collection<TypeInfo> compose(Collection<TypeInfo> primaryTypes) {
         Map<String, TypeInfo> typesPerPackage = new HashMap<>();
         for (TypeInfo primaryType : primaryTypes) {
-            assert primaryType.isPrimaryType();
-            String packageName = primaryType.packageName();
-            TypeInfo ti = typesPerPackage.computeIfAbsent(packageName, this::newPackageType);
-            appendType(primaryType, ti, true);
+            if (acceptTypeOrAnySubType(primaryType)) {
+                assert primaryType.isPrimaryType();
+                String packageName = primaryType.packageName();
+                TypeInfo ti = typesPerPackage.computeIfAbsent(packageName, this::newPackageType);
+                appendType(primaryType, ti, true);
+            }
         }
         List<TypeInfo> allTypes = typesPerPackage.values().stream().toList();
         allTypes.forEach(t -> t.builder().commit());
