@@ -211,16 +211,17 @@ public class Composer {
     public void write(Collection<TypeInfo> apiTypes, String writeAnnotatedAPIsDir) throws IOException {
         File base = new File(writeAnnotatedAPIsDir);
         if (base.mkdirs()) {
-            LOGGER.info("Created annotated API destination folder {}", base);
+            LOGGER.info("Created annotated API destination folder '{}'", base.getAbsolutePath());
         }
         Formatter formatter = new FormatterImpl(runtime, FormattingOptionsImpl.DEFAULT);
+        int count = 0;
         for (TypeInfo apiType : apiTypes) {
             assert apiType.isPrimaryType() && apiType.hasBeenInspected();
 
             String convertedPackage = apiType.packageName().replace(".", "/");
             File directory = new File(base, convertedPackage);
             if (directory.mkdirs()) {
-                LOGGER.info("Created annotated API destination package folder {}", directory);
+                LOGGER.info("Created annotated API destination package folder '{}'", directory.getAbsolutePath());
             }
             File outputFile = new File(directory, apiType.simpleName() + ".java");
             try (OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(outputFile),
@@ -228,6 +229,9 @@ public class Composer {
                 OutputBuilder outputBuilder = apiType.print(null);
                 outputStreamWriter.write(formatter.write(outputBuilder));
             }
+            LOGGER.info("Wrote {}", apiType);
+            ++count;
         }
+        LOGGER.info("Wrote {} files", count);
     }
 }
