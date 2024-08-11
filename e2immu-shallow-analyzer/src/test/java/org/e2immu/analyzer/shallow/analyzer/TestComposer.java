@@ -62,5 +62,8 @@ public class TestComposer {
         }
 
         composer.write(apiTypes, TEST_DIR);
+
+        String ju = Files.readString(new File(TEST_DIR, "org/e2immu/testannotatedapi/JavaUtil.java").toPath());
+        assertTrue(ju.contains("public String toString()"));
     }
 }

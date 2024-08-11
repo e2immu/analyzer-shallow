@@ -24,6 +24,7 @@ import org.e2immu.language.cst.api.runtime.Runtime;
 import org.e2immu.language.cst.api.statement.Block;
 import org.e2immu.language.cst.api.statement.Statement;
 import org.e2immu.language.cst.api.type.ParameterizedType;
+import org.e2immu.language.cst.api.type.TypeParameter;
 import org.e2immu.language.cst.impl.info.TypePrinter;
 import org.e2immu.language.cst.print.FormatterImpl;
 import org.e2immu.language.cst.print.FormattingOptionsImpl;
@@ -169,6 +170,19 @@ public class Composer {
             ParameterInfo pi = newMethod.builder().addParameter(p.name(), p.parameterizedType());
             pi.builder().setVarArgs(p.isVarArgs()).commit();
         }
+        for (TypeParameter tp : methodInfo.typeParameters()) {
+            TypeParameter newTp = runtime.newTypeParameter(tp.getIndex(), tp.simpleName(), newMethod);
+            newMethod.builder().addTypeParameter(newTp);
+        }
+        if (methodInfo.isOverloadOfJLOMethod()) {
+            LOGGER.info("Method {} is overload", methodInfo);
+            if ("clone".equals(methodInfo.name()) || "finalize".equals(methodInfo.name())) {
+                newMethod.builder().addMethodModifier(runtime.methodModifierProtected()).setAccess(runtime.accessProtected());
+            } else {
+                newMethod.builder().addMethodModifier(runtime.methodModifierPublic()).setAccess(runtime.accessPublic());
+            }
+        }
+        newMethod.builder().commitParameters().commit();
         return newMethod;
     }
 
@@ -178,6 +192,10 @@ public class Composer {
         typeInfo.builder().setParentClass(runtime.objectParameterizedType())
                 .setTypeNature(runtime.typeNatureClass())
                 .setAccess(runtime.accessPackage());
+        for (TypeParameter tp : typeToCopy.typeParameters()) {
+            TypeParameter newTp = runtime.newTypeParameter(tp.getIndex(), tp.simpleName(), typeInfo);
+            typeInfo.builder().addTypeParameter(newTp);
+        }
         return typeInfo;
     }
 
