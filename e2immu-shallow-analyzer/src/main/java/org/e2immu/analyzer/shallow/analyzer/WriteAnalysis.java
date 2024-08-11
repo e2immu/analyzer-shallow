@@ -3,6 +3,7 @@ package org.e2immu.analyzer.shallow.analyzer;
 import org.e2immu.language.cst.api.analysis.Codec;
 import org.e2immu.language.cst.api.info.*;
 import org.e2immu.language.cst.io.CodecImpl;
+import org.e2immu.util.internal.util.ThrowingBiConsumer;
 import org.e2immu.util.internal.util.Trie;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,13 +22,23 @@ import java.util.stream.Stream;
 public class WriteAnalysis {
     private static final Logger LOGGER = LoggerFactory.getLogger(WriteAnalysis.class);
 
-    public void write(String destinationDirectory, Trie<TypeInfo> typeTrie) {
+    public void write(String destinationDirectory, Trie<TypeInfo> typeTrie) throws IOException {
         File directory = new File(destinationDirectory);
+        if (directory.mkdirs()) {
+            LOGGER.info("Created directory {}", directory.getAbsolutePath());
+        }
         Codec codec = new CodecImpl(null, null); // we don't have to decode
-        typeTrie.visit(new String[]{}, (parts, list) -> write(directory, codec, parts, list));
+        try {
+            typeTrie.visitThrowing(new String[]{}, (parts, list) -> write(directory, codec, parts, list));
+        } catch (RuntimeException re) {
+            if (re.getCause() instanceof IOException ioe) {
+                throw ioe;
+            }
+            throw re;
+        }
     }
 
-    private void write(File directory, Codec codec, String[] packageParts, List<TypeInfo> list) {
+    private void write(File directory, Codec codec, String[] packageParts, List<TypeInfo> list) throws IOException {
         if (list.isEmpty()) return;
         String compressedPackages = Arrays.stream(packageParts).map(WriteAnalysis::capitalize)
                 .collect(Collectors.joining());
@@ -40,17 +51,14 @@ public class WriteAnalysis {
                 write(osw, codec, first, typeInfo);
             }
             osw.write("]");
-        } catch (IOException ioe) {
-            LOGGER.error("Problem writing to file {}", outputFile);
-            throw new RuntimeException(ioe);
         }
     }
 
     private void write(OutputStreamWriter osw, Codec codec, AtomicBoolean first, TypeInfo typeInfo) throws IOException {
         writeInfo(osw, codec, first, typeInfo, -1);
-       // for (TypeInfo subType : typeInfo.subTypes()) {
-           // write(osw, codec, first, subType);
-       // }
+        // for (TypeInfo subType : typeInfo.subTypes()) {
+        // write(osw, codec, first, subType);
+        // }
         int cc = 0;
         for (MethodInfo methodInfo : typeInfo.constructors()) {
             writeInfo(osw, codec, first, methodInfo, cc);

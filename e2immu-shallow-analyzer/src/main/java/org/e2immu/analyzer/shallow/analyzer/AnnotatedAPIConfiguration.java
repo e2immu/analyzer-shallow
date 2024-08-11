@@ -10,8 +10,6 @@ public interface AnnotatedAPIConfiguration {
 
     // use case 2
 
-    List<String> annotatedApiSourcePackages();
-
     String analyzedAnnotatedApiTargetDirectory();
 
     // use case 3

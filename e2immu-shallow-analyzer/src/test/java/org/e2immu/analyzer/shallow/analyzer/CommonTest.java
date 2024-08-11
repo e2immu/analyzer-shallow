@@ -49,37 +49,11 @@ public class CommonTest {
                 List.of(JavaInspectorImpl.JAR_WITH_PATH_PREFIX + "org/slf4j"),
                 List.of("../e2immu-shallow-aapi/src/main/java/org/e2immu/analyzer/shallow/aapi"),
                 List.of("java"));
-
-        ShallowTypeAnalyzer shallowTypeAnalyzer = new ShallowTypeAnalyzer(annotatedApiParser);
-        ShallowMethodAnalyzer shallowMethodAnalyzer = new ShallowMethodAnalyzer(annotatedApiParser);
-        List<TypeInfo> types = annotatedApiParser.types();
-        allTypes = types.stream().flatMap(TypeInfo::recursiveSubTypeStream)
-                .filter(TypeInfo::isPublic)
-                .flatMap(t -> Stream.concat(Stream.of(t), t.recursiveSuperTypeStream()))
-                .distinct()
-                .toList();
-        G.Builder<TypeInfo> graphBuilder = new G.Builder<>(Long::sum);
-        for (TypeInfo typeInfo : allTypes) {
-            List<TypeInfo> allSuperTypes = typeInfo.recursiveSuperTypeStream()
-                    .filter(TypeInfo::isPublic)
-                    .toList();
-            graphBuilder.add(typeInfo, allSuperTypes);
-        }
-        graph = graphBuilder.build();
-        Linearize.Result<TypeInfo> linearize = Linearize.linearize(graph, Linearize.LinearizationMode.ALL);
-        sorted = linearize.asList(Comparator.comparing(TypeInfo::fullyQualifiedName));
-        for (TypeInfo typeInfo : sorted) {
-            shallowTypeAnalyzer.analyze(typeInfo);
-        }
-        for (TypeInfo typeInfo : sorted) {
-            shallowTypeAnalyzer.analyzeFields(typeInfo);
-            typeInfo.methodAndConstructorStream()
-                    .filter(MethodInfo::isPublic)
-                    .forEach(shallowMethodAnalyzer::analyze);
-        }
-        for (TypeInfo typeInfo : sorted) {
-            shallowTypeAnalyzer.check(typeInfo);
-        }
+        ShallowAnalyzer shallowAnalyzer = new ShallowAnalyzer(annotatedApiParser);
+        shallowAnalyzer.go();
+        sorted = shallowAnalyzer.getSorted();
+        graph = shallowAnalyzer.getGraph();
+        allTypes = shallowAnalyzer.getAllTypes();
         compiledTypesManager = annotatedApiParser.javaInspector().compiledTypesManager();
         runtime = annotatedApiParser.runtime();
     }

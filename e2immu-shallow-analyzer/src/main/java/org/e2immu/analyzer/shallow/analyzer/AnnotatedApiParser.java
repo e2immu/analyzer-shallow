@@ -14,6 +14,7 @@ import org.e2immu.language.inspection.resource.InputConfigurationImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.util.*;
@@ -35,6 +36,22 @@ public class AnnotatedApiParser implements AnnotationProvider {
         javaInspector = new JavaInspectorImpl();
     }
 
+    public void initialize(InputConfiguration inputConfiguration, AnnotatedAPIConfiguration annotatedAPIConfiguration) throws IOException {
+        javaInspector.initialize(inputConfiguration);
+        for (String dir : annotatedAPIConfiguration.analyzedAnnotatedApiDirs()) {
+            File directory = new File(dir);
+            if (directory.canRead()) {
+                new Load().go(javaInspector, directory);
+            } else {
+                LOGGER.warn("Path '{}' is not a directory containing analyzed annotated API files", directory);
+            }
+        }
+        javaInspector.sourceURIs().forEach(this::load);
+        javaInspector.testURIs().forEach(this::load);
+        LOGGER.info("Finished parsing, annotated {} types, counted {} annotations, issued {} warning(s)",
+                annotatedTypes, annotations, warnings);
+    }
+
     public void initialize(List<String> addToClasspath, List<String> sourceDirs, List<String> packageList) throws IOException {
         InputConfigurationImpl.Builder builder = new InputConfigurationImpl.Builder()
                 .addClassPath(InputConfigurationImpl.DEFAULT_CLASSPATH);
@@ -42,10 +59,7 @@ public class AnnotatedApiParser implements AnnotationProvider {
         packageList.forEach(builder::addRestrictSourceToPackages);
         addToClasspath.forEach(builder::addClassPath);
         InputConfiguration inputConfiguration = builder.build();
-        javaInspector.initialize(inputConfiguration);
-        javaInspector.sourceURIs().forEach(this::load);
-        LOGGER.info("Finished parsing, annotated {} types, counted {} annotations, issued {} warning(s)",
-                annotatedTypes, annotations, warnings);
+        initialize(inputConfiguration, new AnnotatedAPIConfigurationImpl.Builder().build());
     }
 
     private void load(URI uri) {

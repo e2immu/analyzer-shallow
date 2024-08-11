@@ -56,39 +56,7 @@ public class Run {
                 ),
                 List.of(args[0]),
                 List.of("java", "e2immu", "log", "test"));
-
-        ShallowTypeAnalyzer shallowTypeAnalyzer = new ShallowTypeAnalyzer(annotatedApiParser);
-        ShallowMethodAnalyzer shallowMethodAnalyzer = new ShallowMethodAnalyzer(annotatedApiParser);
-        List<TypeInfo> types = annotatedApiParser.types();
-        List<TypeInfo> allTypes = types.stream().flatMap(TypeInfo::recursiveSubTypeStream)
-                .filter(TypeInfo::isPublic)
-                .flatMap(t -> Stream.concat(Stream.of(t), t.recursiveSuperTypeStream()))
-                .distinct()
-                .toList();
-        G.Builder<TypeInfo> graphBuilder = new G.Builder<>(Long::sum);
-        for (TypeInfo typeInfo : allTypes) {
-            List<TypeInfo> allSuperTypes = typeInfo.recursiveSuperTypeStream()
-                    .filter(TypeInfo::isPublic)
-                    .toList();
-            graphBuilder.add(typeInfo, allSuperTypes);
-        }
-        G<TypeInfo> graph = graphBuilder.build();
-        Linearize.Result<TypeInfo> linearize = Linearize.linearize(graph, Linearize.LinearizationMode.ALL);
-        List<TypeInfo> sorted = linearize.asList(Comparator.comparing(TypeInfo::fullyQualifiedName));
-        for (TypeInfo typeInfo : sorted) {
-            shallowTypeAnalyzer.analyze(typeInfo);
-        }
-        for (TypeInfo typeInfo : sorted) {
-            shallowTypeAnalyzer.analyzeFields(typeInfo);
-            typeInfo.methodAndConstructorStream()
-                    .filter(MethodInfo::isPublic)
-                    .forEach(shallowMethodAnalyzer::analyze);
-        }
-        for (TypeInfo typeInfo : sorted) {
-            shallowTypeAnalyzer.check(typeInfo);
-        }
-        return sorted;
+        ShallowAnalyzer shallowAnalyzer = new ShallowAnalyzer(annotatedApiParser);
+        return shallowAnalyzer.go();
     }
-
-
 }

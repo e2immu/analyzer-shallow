@@ -63,8 +63,9 @@ public class TestLoad {
         InputConfigurationImpl.Builder inputConfiguration = new InputConfigurationImpl.Builder();
         classPath.forEach(inputConfiguration::addClassPath);
         javaInspector.initialize(inputConfiguration.build());
-        new Load().go(javaInspector);
-
+        File jsonDir = new File("../e2immu-shallow-aapi/src/main/resources/json");
+        assertTrue(jsonDir.isDirectory());
+        new Load().go(javaInspector, jsonDir);
 
         TypeInfo typeInfo = javaInspector.compiledTypesManager().get(Object.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("toString", 0);
