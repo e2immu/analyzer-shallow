@@ -65,20 +65,21 @@ public class Load {
         } else if ('F' == type) {
             info = processField(javaInspector, fullyQualifiedWithType);
         } else throw new UnsupportedOperationException();
-
-        List<Codec.EncodedPropertyValue> epvs = new ArrayList<>();
-        for (int i = 1; i < dataJo.size(); i += 2) {
-            if (dataJo.get(i) instanceof KeyValuePair kvp2) {
-                String key = CodecImpl.unquote(kvp2.get(0).getSource());
-                epvs.add(new Codec.EncodedPropertyValue(key, new CodecImpl.D(kvp2.get(2))));
+        if (info != null) {
+            List<Codec.EncodedPropertyValue> epvs = new ArrayList<>();
+            for (int i = 1; i < dataJo.size(); i += 2) {
+                if (dataJo.get(i) instanceof KeyValuePair kvp2) {
+                    String key = CodecImpl.unquote(kvp2.get(0).getSource());
+                    epvs.add(new Codec.EncodedPropertyValue(key, new CodecImpl.D(kvp2.get(2))));
+                }
             }
-        }
-        List<Codec.PropertyValue> pvs = codec.decode(info.analysis(), epvs.stream()).toList();
-        try {
-            pvs.forEach(pv -> info.analysis().set(pv.property(), pv.value()));
-        } catch (IllegalStateException ise) {
-            LOGGER.error("Problem while writing to {}", info);
-            throw new RuntimeException(ise);
+            List<Codec.PropertyValue> pvs = codec.decode(info.analysis(), epvs.stream()).toList();
+            try {
+                pvs.forEach(pv -> info.analysis().set(pv.property(), pv.value()));
+            } catch (IllegalStateException ise) {
+                LOGGER.error("Problem while writing to {}", info);
+                throw new RuntimeException(ise);
+            }
         }
     }
 
@@ -94,8 +95,8 @@ public class Load {
         }
         TypeInfo typeInfo = javaInspector.compiledTypesManager().getOrLoad(typeFqn);
         if (typeInfo == null) {
-            throw new UnsupportedOperationException("Cannot find type '" + typeFqn + "', extracted from '"
-                                                    + fullyQualifiedWithType + "'");
+            // we cannot load it, so ignore!
+            return null;
         }
         MethodInfo methodInfo;
         int close = fullyQualifiedWithType.lastIndexOf(')');
@@ -103,36 +104,40 @@ public class Load {
         if ('C' == type) {
             if (index >= typeInfo.constructors().size()) {
                 LOGGER.error("Have no constructor with index {} in {}", index, typeFqn);
+                methodInfo = null;
+            } else {
+                methodInfo = typeInfo.constructors().get(index);
             }
-            methodInfo = typeInfo.constructors().get(index);
         } else {
             assert 'M' == type;
             if (index >= typeInfo.methods().size()) {
                 LOGGER.error("Have no method with index {} in {}", index, typeFqn);
+                methodInfo = null;
+            } else {
+                methodInfo = typeInfo.methods().get(index);
             }
-            methodInfo = typeInfo.methods().get(index);
         }
         Info info;
-        if (isParameter) {
+        if (isParameter && methodInfo != null) {
             int colon = fullyQualifiedWithType.lastIndexOf(':');
             int paramIndex = Integer.parseInt(fullyQualifiedWithType.substring(colon + 1));
             if (paramIndex >= methodInfo.parameters().size()) {
                 LOGGER.error("Have no parameter with index {} in {}", paramIndex, methodInfo.fullyQualifiedName());
-                LOGGER.error("fqn value is {}, method index {}", fullyQualifiedWithType, index);
-                LOGGER.error("tmp {}", tmp);
-                LOGGER.error("TI {}, {}", typeInfo, typeInfo.compilationUnit().uri());
-                LOGGER.error("Type "+type);
-                int i=0;
-                for(MethodInfo mi: typeInfo.methods()) {
-                    LOGGER.error("m {}: {}", i, mi);
-                    i++;
-                }
+                info = null;
+            } else {
+                info = methodInfo.parameters().get(paramIndex);
             }
-            info = methodInfo.parameters().get(paramIndex);
         } else {
             info = methodInfo;
         }
         if (info == null) {
+            LOGGER.error("fqn value is {}, method index {}", fullyQualifiedWithType, index);
+            LOGGER.error("TypeInfo {}, URI {}", typeInfo, typeInfo.compilationUnit().uri());
+            int i = 0;
+            for (MethodInfo mi : typeInfo.methods()) {
+                LOGGER.error("m {}: {}", i, mi);
+                i++;
+            }
             throw new UnsupportedOperationException("Method " + fullyQualifiedWithType + " not found");
         }
         return info;
@@ -142,6 +147,7 @@ public class Load {
         int dot = fullyQualifiedWithType.lastIndexOf('.');
         String typeFqn = fullyQualifiedWithType.substring(1, dot);
         TypeInfo typeInfo = javaInspector.compiledTypesManager().getOrLoad(typeFqn);
+        if (typeInfo == null) return null;
         int open = fullyQualifiedWithType.indexOf('(');
         String fieldName = fullyQualifiedWithType.substring(dot + 1, open);
         int index = Integer.parseInt(fullyQualifiedWithType.substring(open + 1, fullyQualifiedWithType.length() - 1));
@@ -155,8 +161,6 @@ public class Load {
 
     private static Info processType(JavaInspector javaInspector, String fullyQualifiedWithType, boolean isParameter) {
         String fullyQualifiedName = fullyQualifiedWithType.substring(isParameter ? 2 : 1);
-        Info info = javaInspector.compiledTypesManager().getOrLoad(fullyQualifiedName);
-        if (info == null) throw new UnsupportedOperationException("Cannot load " + fullyQualifiedName);
-        return info;
+        return javaInspector.compiledTypesManager().getOrLoad(fullyQualifiedName);
     }
 }
