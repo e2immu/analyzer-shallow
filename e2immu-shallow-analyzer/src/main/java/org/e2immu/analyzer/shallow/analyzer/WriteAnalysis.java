@@ -56,9 +56,6 @@ public class WriteAnalysis {
 
     private void write(OutputStreamWriter osw, Codec codec, AtomicBoolean first, TypeInfo typeInfo) throws IOException {
         writeInfo(osw, codec, first, typeInfo, -1);
-        // for (TypeInfo subType : typeInfo.subTypes()) {
-        // write(osw, codec, first, subType);
-        // }
         int cc = 0;
         for (MethodInfo methodInfo : typeInfo.constructors()) {
             writeInfo(osw, codec, first, methodInfo, cc);
@@ -85,9 +82,11 @@ public class WriteAnalysis {
         Stream<Codec.EncodedPropertyValue> stream = info.analysis().propertyValueStream()
                 .map(pv -> codec.encode(pv.property(), pv.value()));
         Codec.EncodedValue ev = codec.encode(info, index, stream);
-        if (first.get()) first.set(false);
-        else osw.write(",\n");
-        osw.write(ev.toString());
+        if (ev != null) {
+            if (first.get()) first.set(false);
+            else osw.write(",\n");
+            osw.write(ev.toString());
+        } // else: no data, no need to write
     }
 
     private static String capitalize(String s) {

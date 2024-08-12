@@ -1,5 +1,4 @@
 [{"fqn": "Tjavax.xml.parsers.DocumentBuilderFactory", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":0,"shallowAnalyzer":1}},
-{"fqn": "Cjavax.xml.parsers.DocumentBuilderFactory(0)", "data":{}},
 {"fqn": "Mjavax.xml.parsers.DocumentBuilderFactory.newDefaultNSInstance(0)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
 {"fqn": "Mjavax.xml.parsers.DocumentBuilderFactory.newNSInstance(1)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
 {"fqn": "Mjavax.xml.parsers.DocumentBuilderFactory.newNSInstance(2)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
@@ -10,8 +9,6 @@
 {"fqn": "Mjavax.xml.parsers.DocumentBuilderFactory.newInstance(5)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
 {"fqn": "PMjavax.xml.parsers.DocumentBuilderFactory.newInstance(5):0", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}},
 {"fqn": "PMjavax.xml.parsers.DocumentBuilderFactory.newInstance(5):1", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":1,"modifiedParameter":0,"notNullParameter":0}},
-{"fqn": "Mjavax.xml.parsers.DocumentBuilderFactory.makeNSAware(6)", "data":{}},
-{"fqn": "PMjavax.xml.parsers.DocumentBuilderFactory.makeNSAware(6):0", "data":{}},
 {"fqn": "Mjavax.xml.parsers.DocumentBuilderFactory.newDocumentBuilder(7)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
 {"fqn": "Mjavax.xml.parsers.DocumentBuilderFactory.setNamespaceAware(8)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}},
 {"fqn": "PMjavax.xml.parsers.DocumentBuilderFactory.setNamespaceAware(8):0", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}},
@@ -46,11 +43,4 @@
 {"fqn": "PMjavax.xml.parsers.DocumentBuilderFactory.setSchema(25):0", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":0,"independentParameter":2,"modifiedParameter":1,"notNullParameter":0}},
 {"fqn": "Mjavax.xml.parsers.DocumentBuilderFactory.setXIncludeAware(26)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}},
 {"fqn": "PMjavax.xml.parsers.DocumentBuilderFactory.setXIncludeAware(26):0", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}},
-{"fqn": "Mjavax.xml.parsers.DocumentBuilderFactory.isXIncludeAware(27)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
-{"fqn": "Fjavax.xml.parsers.DocumentBuilderFactory.DEFAULT_IMPL(0)", "data":{}},
-{"fqn": "Fjavax.xml.parsers.DocumentBuilderFactory.validating(1)", "data":{}},
-{"fqn": "Fjavax.xml.parsers.DocumentBuilderFactory.namespaceAware(2)", "data":{}},
-{"fqn": "Fjavax.xml.parsers.DocumentBuilderFactory.whitespace(3)", "data":{}},
-{"fqn": "Fjavax.xml.parsers.DocumentBuilderFactory.expandEntityRef(4)", "data":{}},
-{"fqn": "Fjavax.xml.parsers.DocumentBuilderFactory.ignoreComments(5)", "data":{}},
-{"fqn": "Fjavax.xml.parsers.DocumentBuilderFactory.coalescing(6)", "data":{}}]
+{"fqn": "Mjavax.xml.parsers.DocumentBuilderFactory.isXIncludeAware(27)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}}]

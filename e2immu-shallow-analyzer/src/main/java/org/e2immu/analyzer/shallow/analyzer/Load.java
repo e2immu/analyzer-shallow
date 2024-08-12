@@ -45,73 +45,118 @@ public class Load {
         parser.Root();
         Node root = parser.rootNode();
         for (JSONObject jo : root.get(0).childrenOfType(JSONObject.class)) {
-            KeyValuePair fqn = (KeyValuePair) jo.get(1);
-            String fullyQualifiedWithType = CodecImpl.unquote(fqn.get(2).getSource());
-            KeyValuePair data = (KeyValuePair) jo.get(3);
-            JSONObject dataJo = (JSONObject) data.get(2);
-            boolean isParameter = fullyQualifiedWithType.charAt(0) == 'P';
-            char type = fullyQualifiedWithType.charAt(isParameter ? 1 : 0);
+            processLine(javaInspector, codec, jo);
+        }
+    }
 
-            Info info;
-            if ('T' == type) {
-                String fullyQualifiedName = fullyQualifiedWithType.substring(isParameter ? 2 : 1);
-                info = javaInspector.compiledTypesManager().getOrLoad(fullyQualifiedName);
-            } else if ('M' == type || 'C' == type || isParameter) {
-                int open = fullyQualifiedWithType.indexOf('(');
-                String tmp = fullyQualifiedWithType.substring(isParameter ? 2 : 1, open);
-                int dot = tmp.lastIndexOf('.');
-                String typeFqn;
-                if ('M' == type) {
-                    typeFqn = tmp.substring(0, dot);
-                } else {
-                    typeFqn = tmp;
-                }
-                TypeInfo typeInfo = javaInspector.compiledTypesManager().getOrLoad(typeFqn);
-                if (typeInfo == null) {
-                    throw new UnsupportedOperationException("Cannot find type '" + typeFqn + "', extracted from '"
-                                                            + fullyQualifiedWithType + "'");
-                }
-                MethodInfo methodInfo;
-                int close = fullyQualifiedWithType.lastIndexOf(')');
-                int index = Integer.parseInt(fullyQualifiedWithType.substring(open + 1, close));
-                if ('C' == type) {
-                    methodInfo = typeInfo.constructors().get(index);
-                } else {
-                    methodInfo = typeInfo.methods().get(index);
-                }
-                if (isParameter) {
-                    int colon = fullyQualifiedWithType.lastIndexOf(':');
-                    int paramIndex = Integer.parseInt(fullyQualifiedWithType.substring(colon + 1));
-                    info = methodInfo.parameters().get(paramIndex);
-                } else {
-                    info = methodInfo;
-                }
-            } else if ('F' == type) {
-                int dot = fullyQualifiedWithType.lastIndexOf('.');
-                String typeFqn = fullyQualifiedWithType.substring(1, dot);
-                TypeInfo typeInfo = javaInspector.compiledTypesManager().getOrLoad(typeFqn);
-                int open = fullyQualifiedWithType.indexOf('(');
-                String fieldName = fullyQualifiedWithType.substring(dot + 1, open);
-                int index = Integer.parseInt(fullyQualifiedWithType.substring(open + 1, fullyQualifiedWithType.length() - 1));
-                FieldInfo fieldInfo = typeInfo.fields().get(index);
-                assert fieldInfo.name().equals(fieldName);
-                info = fieldInfo;
-            } else throw new UnsupportedOperationException();
+    private static void processLine(JavaInspector javaInspector, Codec codec, JSONObject jo) {
+        KeyValuePair fqn = (KeyValuePair) jo.get(1);
+        String fullyQualifiedWithType = CodecImpl.unquote(fqn.get(2).getSource());
+        KeyValuePair data = (KeyValuePair) jo.get(3);
+        JSONObject dataJo = (JSONObject) data.get(2);
+        boolean isParameter = fullyQualifiedWithType.charAt(0) == 'P';
+        char type = fullyQualifiedWithType.charAt(isParameter ? 1 : 0);
 
-            List<Codec.EncodedPropertyValue> epvs = new ArrayList<>();
-            for (int i = 1; i < dataJo.size(); i += 2) {
-                if (dataJo.get(i) instanceof KeyValuePair kvp2) {
-                    String key = CodecImpl.unquote(kvp2.get(0).getSource());
-                    epvs.add(new Codec.EncodedPropertyValue(key, new CodecImpl.D(kvp2.get(2))));
-                }
-            }
-            List<Codec.PropertyValue> pvs = codec.decode(info.analysis(), epvs.stream()).toList();
-            try {
-                pvs.forEach(pv -> info.analysis().set(pv.property(), pv.value()));
-            } catch (IllegalStateException ise) {
-                LOGGER.error("Problem while writing to {}", info);
-                throw new RuntimeException(ise);
+        Info info;
+        if ('T' == type) {
+            info = processType(javaInspector, fullyQualifiedWithType, isParameter);
+        } else if ('M' == type || 'C' == type) {
+            info = processMethod(javaInspector, fullyQualifiedWithType, isParameter, type);
+        } else if ('F' == type) {
+            info = processField(javaInspector, fullyQualifiedWithType);
+        } else throw new UnsupportedOperationException();
+
+        List<Codec.EncodedPropertyValue> epvs = new ArrayList<>();
+        for (int i = 1; i < dataJo.size(); i += 2) {
+            if (dataJo.get(i) instanceof KeyValuePair kvp2) {
+                String key = CodecImpl.unquote(kvp2.get(0).getSource());
+                epvs.add(new Codec.EncodedPropertyValue(key, new CodecImpl.D(kvp2.get(2))));
             }
         }
+        List<Codec.PropertyValue> pvs = codec.decode(info.analysis(), epvs.stream()).toList();
+        try {
+            pvs.forEach(pv -> info.analysis().set(pv.property(), pv.value()));
+        } catch (IllegalStateException ise) {
+            LOGGER.error("Problem while writing to {}", info);
+            throw new RuntimeException(ise);
+        }
+    }
+
+    private static Info processMethod(JavaInspector javaInspector, String fullyQualifiedWithType, boolean isParameter, char type) {
+        int open = fullyQualifiedWithType.indexOf('(');
+        String tmp = fullyQualifiedWithType.substring(isParameter ? 2 : 1, open);
+        String typeFqn;
+        if ('M' == type) {
+            int dot = tmp.lastIndexOf('.');
+            typeFqn = tmp.substring(0, dot);
+        } else {
+            typeFqn = tmp;
+        }
+        TypeInfo typeInfo = javaInspector.compiledTypesManager().getOrLoad(typeFqn);
+        if (typeInfo == null) {
+            throw new UnsupportedOperationException("Cannot find type '" + typeFqn + "', extracted from '"
+                                                    + fullyQualifiedWithType + "'");
+        }
+        MethodInfo methodInfo;
+        int close = fullyQualifiedWithType.lastIndexOf(')');
+        int index = Integer.parseInt(fullyQualifiedWithType.substring(open + 1, close));
+        if ('C' == type) {
+            if (index >= typeInfo.constructors().size()) {
+                LOGGER.error("Have no constructor with index {} in {}", index, typeFqn);
+            }
+            methodInfo = typeInfo.constructors().get(index);
+        } else {
+            assert 'M' == type;
+            if (index >= typeInfo.methods().size()) {
+                LOGGER.error("Have no method with index {} in {}", index, typeFqn);
+            }
+            methodInfo = typeInfo.methods().get(index);
+        }
+        Info info;
+        if (isParameter) {
+            int colon = fullyQualifiedWithType.lastIndexOf(':');
+            int paramIndex = Integer.parseInt(fullyQualifiedWithType.substring(colon + 1));
+            if (paramIndex >= methodInfo.parameters().size()) {
+                LOGGER.error("Have no parameter with index {} in {}", paramIndex, methodInfo.fullyQualifiedName());
+                LOGGER.error("fqn value is {}, method index {}", fullyQualifiedWithType, index);
+                LOGGER.error("tmp {}", tmp);
+                LOGGER.error("TI {}, {}", typeInfo, typeInfo.compilationUnit().uri());
+                LOGGER.error("Type "+type);
+                int i=0;
+                for(MethodInfo mi: typeInfo.methods()) {
+                    LOGGER.error("m {}: {}", i, mi);
+                    i++;
+                }
+            }
+            info = methodInfo.parameters().get(paramIndex);
+        } else {
+            info = methodInfo;
+        }
+        if (info == null) {
+            throw new UnsupportedOperationException("Method " + fullyQualifiedWithType + " not found");
+        }
+        return info;
+    }
+
+    private static Info processField(JavaInspector javaInspector, String fullyQualifiedWithType) {
+        int dot = fullyQualifiedWithType.lastIndexOf('.');
+        String typeFqn = fullyQualifiedWithType.substring(1, dot);
+        TypeInfo typeInfo = javaInspector.compiledTypesManager().getOrLoad(typeFqn);
+        int open = fullyQualifiedWithType.indexOf('(');
+        String fieldName = fullyQualifiedWithType.substring(dot + 1, open);
+        int index = Integer.parseInt(fullyQualifiedWithType.substring(open + 1, fullyQualifiedWithType.length() - 1));
+        if (index >= typeInfo.fields().size()) {
+            LOGGER.error("Have no field with index {} in {}", index, typeFqn);
+        }
+        FieldInfo fieldInfo = typeInfo.fields().get(index);
+        assert fieldInfo.name().equals(fieldName);
+        return fieldInfo;
+    }
+
+    private static Info processType(JavaInspector javaInspector, String fullyQualifiedWithType, boolean isParameter) {
+        String fullyQualifiedName = fullyQualifiedWithType.substring(isParameter ? 2 : 1);
+        Info info = javaInspector.compiledTypesManager().getOrLoad(fullyQualifiedName);
+        if (info == null) throw new UnsupportedOperationException("Cannot load " + fullyQualifiedName);
+        return info;
     }
 }

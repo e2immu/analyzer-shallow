@@ -1,5 +1,4 @@
 [{"fqn": "Torg.junit.jupiter.api.Assertions", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentField":1,"independentType":2,"shallowAnalyzer":1}},
-{"fqn": "Corg.junit.jupiter.api.Assertions(0)", "data":{}},
 {"fqn": "Morg.junit.jupiter.api.Assertions.fail(0)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":2,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
 {"fqn": "Morg.junit.jupiter.api.Assertions.fail(1)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":2,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
 {"fqn": "PMorg.junit.jupiter.api.Assertions.fail(1):0", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}},
