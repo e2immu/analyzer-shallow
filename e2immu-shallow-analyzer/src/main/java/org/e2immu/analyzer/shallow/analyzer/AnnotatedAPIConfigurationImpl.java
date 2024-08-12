@@ -8,23 +8,21 @@ public class AnnotatedAPIConfigurationImpl implements AnnotatedAPIConfiguration 
 
     // use case 1
     private final List<String> analyzedAnnotatedApiDirs;
-
     // use case 2
-    private final String analyzedAnnotatedApiTargetDirectory;
-
+    private final String analyzedAnnotatedApiTargetDir;
     // use case 3
     private final List<String> annotatedApiPackages;
-    private final String annotatedApiTargetDirectory;
+    private final String annotatedApiTargetDir;
     private final String annotatedApiTargetPackage;
 
     private AnnotatedAPIConfigurationImpl(List<String> analyzedAnnotatedApiDirs,
-                                          String analyzedAnnotatedApiTargetDirectory,
+                                          String analyzedAnnotatedApiTargetDir,
                                           List<String> annotatedApiPackages,
-                                          String annotatedApiTargetDirectory,
+                                          String annotatedApiTargetDir,
                                           String annotatedApiTargetPackage) {
         this.analyzedAnnotatedApiDirs = analyzedAnnotatedApiDirs;
-        this.analyzedAnnotatedApiTargetDirectory = analyzedAnnotatedApiTargetDirectory;
-        this.annotatedApiTargetDirectory = annotatedApiTargetDirectory;
+        this.analyzedAnnotatedApiTargetDir = analyzedAnnotatedApiTargetDir;
+        this.annotatedApiTargetDir = annotatedApiTargetDir;
         this.annotatedApiTargetPackage = annotatedApiTargetPackage;
         this.annotatedApiPackages = annotatedApiPackages;
     }
@@ -35,13 +33,13 @@ public class AnnotatedAPIConfigurationImpl implements AnnotatedAPIConfiguration 
     }
 
     @Override
-    public String analyzedAnnotatedApiTargetDirectory() {
-        return analyzedAnnotatedApiTargetDirectory;
+    public String analyzedAnnotatedApiTargetDir() {
+        return analyzedAnnotatedApiTargetDir;
     }
 
     @Override
-    public String annotatedApiTargetDirectory() {
-        return annotatedApiTargetDirectory;
+    public String annotatedApiTargetDir() {
+        return annotatedApiTargetDir;
     }
 
     @Override
@@ -58,23 +56,25 @@ public class AnnotatedAPIConfigurationImpl implements AnnotatedAPIConfiguration 
     public String toString() {
         return "AnnotatedAPIConfigurationImpl{" +
                "analyzedAnnotatedApiDirs=" + analyzedAnnotatedApiDirs +
-               ", analyzedAnnotatedApiTargetDirectory='" + analyzedAnnotatedApiTargetDirectory + '\'' +
+               ", analyzedAnnotatedApiTargetDir='" + analyzedAnnotatedApiTargetDir + '\'' +
                ", annotatedApiPackages=" + annotatedApiPackages +
-               ", annotatedApiTargetDirectory='" + annotatedApiTargetDirectory + '\'' +
+               ", annotatedApiTargetDir='" + annotatedApiTargetDir + '\'' +
                ", annotatedApiTargetPackage='" + annotatedApiTargetPackage + '\'' +
                '}';
     }
 
     public static class Builder {
-
+        // use case 1
         private final List<String> analyzedAnnotatedApiDirs = new ArrayList<>();
+        // use case 2
+        private String analyzedAnnotatedApiTargetDir;
+        // use case 3
+        private String annotatedApiTargetDir;
         private final List<String> annotatedApiPackages = new ArrayList<>();
-        private String analyzedAnnotatedApiTargetDirectory;
-        private String annotatedApiTargetDirectory;
         private String annotatedApiTargetPackage;
 
-        public Builder setAnalyzedAnnotatedApiTargetDirectory(String analyzedAnnotatedApiTargetDirectory) {
-            this.analyzedAnnotatedApiTargetDirectory = analyzedAnnotatedApiTargetDirectory;
+        public Builder setAnalyzedAnnotatedApiTargetDir(String analyzedAnnotatedApiTargetDir) {
+            this.analyzedAnnotatedApiTargetDir = analyzedAnnotatedApiTargetDir;
             return this;
         }
 
@@ -88,8 +88,8 @@ public class AnnotatedAPIConfigurationImpl implements AnnotatedAPIConfiguration 
             return this;
         }
 
-        public Builder setAnnotatedApiTargetDirectory(String annotatedApiTargetDirectory) {
-            this.annotatedApiTargetDirectory = annotatedApiTargetDirectory;
+        public Builder setAnnotatedApiTargetDir(String annotatedApiTargetDir) {
+            this.annotatedApiTargetDir = annotatedApiTargetDir;
             return this;
         }
 
@@ -100,8 +100,8 @@ public class AnnotatedAPIConfigurationImpl implements AnnotatedAPIConfiguration 
 
         public AnnotatedAPIConfiguration build() {
             return new AnnotatedAPIConfigurationImpl(List.copyOf(analyzedAnnotatedApiDirs),
-                    analyzedAnnotatedApiTargetDirectory,
-                    List.copyOf(annotatedApiPackages), annotatedApiTargetDirectory, annotatedApiTargetPackage);
+                    analyzedAnnotatedApiTargetDir,
+                    List.copyOf(annotatedApiPackages), annotatedApiTargetDir, annotatedApiTargetPackage);
         }
     }
 }

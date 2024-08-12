@@ -4,19 +4,19 @@ import java.util.List;
 
 public interface AnnotatedAPIConfiguration {
 
-    // use case 1
+    // use case 1: input for normal analyzer, and for use cases 2, 3
 
     List<String> analyzedAnnotatedApiDirs();
 
-    // use case 2
+    // use case 2: read AAPI, write AAAPI
 
-    String analyzedAnnotatedApiTargetDirectory();
+    String analyzedAnnotatedApiTargetDir();
 
-    // use case 3
+    // use case 3: read source code or byte code, write AAPI skeleton
+
+    String annotatedApiTargetDir();
 
     List<String> annotatedApiPackages();
-
-    String annotatedApiTargetDirectory();
 
     String annotatedApiTargetPackage();
 }
