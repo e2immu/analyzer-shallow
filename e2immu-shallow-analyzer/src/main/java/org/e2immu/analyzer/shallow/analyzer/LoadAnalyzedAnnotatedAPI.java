@@ -21,8 +21,20 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Load {
-    private static final Logger LOGGER = LoggerFactory.getLogger(Load.class);
+public class LoadAnalyzedAnnotatedAPI {
+    private static final Logger LOGGER = LoggerFactory.getLogger(LoadAnalyzedAnnotatedAPI.class);
+
+    public void go(JavaInspector javaInspector, AnnotatedAPIConfiguration annotatedAPIConfiguration) throws IOException {
+        for (String dir : annotatedAPIConfiguration.analyzedAnnotatedApiDirs()) {
+            File directory = new File(dir);
+            if (directory.canRead()) {
+                new LoadAnalyzedAnnotatedAPI().go(javaInspector, directory);
+                LOGGER.info("Read json files in AAAPI {}", directory.getAbsolutePath());
+            } else {
+                LOGGER.warn("Path '{}' is not a directory containing analyzed annotated API files", directory);
+            }
+        }
+    }
 
     public void go(JavaInspector javaInspector, File directory) throws IOException {
         Codec codec = createCodec(javaInspector);

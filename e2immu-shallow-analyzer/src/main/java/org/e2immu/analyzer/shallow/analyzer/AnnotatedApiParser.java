@@ -6,7 +6,6 @@ import org.e2immu.language.cst.api.info.*;
 import org.e2immu.language.cst.api.runtime.Runtime;
 import org.e2immu.language.cst.api.type.ParameterizedType;
 import org.e2immu.language.inspection.api.integration.JavaInspector;
-import org.e2immu.language.inspection.api.parser.SourceTypes;
 import org.e2immu.language.inspection.api.parser.Summary;
 import org.e2immu.language.inspection.api.resource.InputConfiguration;
 import org.e2immu.language.inspection.integration.JavaInspectorImpl;
@@ -38,14 +37,7 @@ public class AnnotatedApiParser implements AnnotationProvider {
 
     public void initialize(InputConfiguration inputConfiguration, AnnotatedAPIConfiguration annotatedAPIConfiguration) throws IOException {
         javaInspector.initialize(inputConfiguration);
-        for (String dir : annotatedAPIConfiguration.analyzedAnnotatedApiDirs()) {
-            File directory = new File(dir);
-            if (directory.canRead()) {
-                new Load().go(javaInspector, directory);
-            } else {
-                LOGGER.warn("Path '{}' is not a directory containing analyzed annotated API files", directory);
-            }
-        }
+        new LoadAnalyzedAnnotatedAPI().go(javaInspector, annotatedAPIConfiguration);
         javaInspector.sourceURIs().forEach(this::load);
         javaInspector.testURIs().forEach(this::load);
         LOGGER.info("Finished parsing, annotated {} types, counted {} annotations, issued {} warning(s)",

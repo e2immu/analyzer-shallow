@@ -1,31 +1,16 @@
 package org.e2immu.analyzer.shallow.analyzer;
 
 import ch.qos.logback.classic.Level;
-import org.e2immu.language.cst.api.analysis.Codec;
-import org.e2immu.language.cst.api.info.FieldInfo;
-import org.e2immu.language.cst.api.info.Info;
 import org.e2immu.language.cst.api.info.MethodInfo;
 import org.e2immu.language.cst.api.info.TypeInfo;
-import org.e2immu.language.cst.impl.analysis.ValueImpl;
-import org.e2immu.language.cst.io.CodecImpl;
-import org.e2immu.language.inspection.api.resource.InputConfiguration;
 import org.e2immu.language.inspection.integration.JavaInspectorImpl;
 import org.e2immu.language.inspection.resource.InputConfigurationImpl;
 import org.junit.jupiter.api.Test;
-import org.parsers.json.JSONParser;
-import org.parsers.json.Node;
-import org.parsers.json.ast.JSONObject;
-import org.parsers.json.ast.KeyValuePair;
-import org.parsers.json.ast.Root;
-import org.parsers.json.ast.StringLiteral;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
-import java.nio.file.Files;
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.e2immu.language.cst.impl.analysis.PropertyImpl.*;
@@ -42,8 +27,8 @@ import static org.e2immu.language.inspection.integration.JavaInspectorImpl.JAR_W
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
-public class TestLoad {
-    private static final Logger LOGGER = LoggerFactory.getLogger(TestLoad.class);
+public class TestLoadAnalyzedAnnotatedAPI {
+    private static final Logger LOGGER = LoggerFactory.getLogger(TestLoadAnalyzedAnnotatedAPI.class);
 
     @Test
     public void test() throws IOException {
@@ -65,7 +50,7 @@ public class TestLoad {
         javaInspector.initialize(inputConfiguration.build());
         File jsonDir = new File("../e2immu-shallow-aapi/src/main/resources/json");
         assertTrue(jsonDir.isDirectory());
-        new Load().go(javaInspector, jsonDir);
+        new LoadAnalyzedAnnotatedAPI().go(javaInspector, jsonDir);
 
         TypeInfo typeInfo = javaInspector.compiledTypesManager().get(Object.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("toString", 0);
