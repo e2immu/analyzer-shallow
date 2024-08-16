@@ -48,6 +48,7 @@ class CommonAnalyzer {
         Value.FieldValue getSetField = null;
         Value.Bool allowInterrupt = null;
         Value.GetSetEquivalent getSetEquivalent = null;
+        Value.CommutableData commutableData = null;
 
         for (AnnotationExpression ae : annotations) {
             boolean isAbsent = ae.extractBoolean("absent");
@@ -131,6 +132,13 @@ class CommonAnalyzer {
                         }
                     }
                 }
+            } else if (Commutable.class.getCanonicalName().equalsIgnoreCase(fqn)) {
+                if (info instanceof MethodInfo methodInfo) {
+                    String seq = ae.extractString("seq", "");
+                    String par = ae.extractString("par", "");
+                    String multi = ae.extractString("multi", "");
+                    commutableData = new ValueImpl.CommutableDataImpl(seq, par, multi);
+                }
             } else if (UtilityClass.class.getCanonicalName().equals(fqn)) {
                 immutable = ValueImpl.ImmutableImpl.IMMUTABLE;
                 independent = ValueImpl.IndependentImpl.INDEPENDENT;
@@ -162,6 +170,7 @@ class CommonAnalyzer {
             if (modified != null) map.put(PropertyImpl.MODIFIED_METHOD, modified);
             if (allowInterrupt != null) map.put(PropertyImpl.METHOD_ALLOWS_INTERRUPTS, allowInterrupt);
             if (getSetEquivalent != null) map.put(PropertyImpl.GET_SET_EQUIVALENT, getSetEquivalent);
+            if (commutableData != null) map.put(PropertyImpl.COMMUTABLE_METHODS, commutableData);
             return map;
         }
         if (info instanceof FieldInfo) {
@@ -220,7 +229,7 @@ class CommonAnalyzer {
 
         boolean allMethodsOnlyPrimitives = stream.allMatch(m ->
                 (m.isConstructor() || m.isVoid() || m.returnType().isPrimitiveStringClass())
-                        && m.parameters().stream().allMatch(p -> p.parameterizedType().isPrimitiveStringClass()));
+                && m.parameters().stream().allMatch(p -> p.parameterizedType().isPrimitiveStringClass()));
         if (allMethodsOnlyPrimitives) {
             return leastOfHierarchy(typeInfo, PropertyImpl.INDEPENDENT_TYPE, ValueImpl.IndependentImpl.DEPENDENT,
                     ValueImpl.IndependentImpl.INDEPENDENT);
