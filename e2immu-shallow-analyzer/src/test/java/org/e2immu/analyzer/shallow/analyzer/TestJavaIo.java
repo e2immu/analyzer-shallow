@@ -75,6 +75,8 @@ public class TestJavaIo extends CommonTest {
         MethodInfo methodInfo = typeInfo.findUniqueMethod("append", charTypeInfo);
         assertEquals("java.io.Writer.append(char)", methodInfo.fullyQualifiedName());
         assertTrue(methodInfo.allowsInterrupts());
+        assertEquals(1, methodInfo.exceptionTypes().size());
+        assertEquals("java.io.IOException", methodInfo.exceptionTypes().get(0).fullyQualifiedName());
     }
 
     @Test

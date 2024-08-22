@@ -42,7 +42,8 @@ public class TestLoadAnalyzedAnnotatedAPI {
                 JAR_WITH_PATH_PREFIX + "ch/qos/logback/classic",
                 JAR_WITH_PATH_PREFIX + "org/junit/jupiter/api",
                 JAR_WITH_PATH_PREFIX + "ch/qos/logback/core/spi",
-                JAR_WITH_PATH_PREFIX + "org/apiguardian/api"
+                JAR_WITH_PATH_PREFIX + "org/apiguardian/api",
+                JAR_WITH_PATH_PREFIX + "org/opentest4j"
         );
         JavaInspectorImpl javaInspector = new JavaInspectorImpl();
         InputConfigurationImpl.Builder inputConfiguration = new InputConfigurationImpl.Builder();

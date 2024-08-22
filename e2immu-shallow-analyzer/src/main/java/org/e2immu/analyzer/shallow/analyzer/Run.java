@@ -52,7 +52,8 @@ public class Run {
                         JAR_WITH_PATH_PREFIX + "ch/qos/logback/classic",
                         JAR_WITH_PATH_PREFIX + "org/junit/jupiter/api",
                         JAR_WITH_PATH_PREFIX + "ch/qos/logback/core/spi",
-                        JAR_WITH_PATH_PREFIX + "org/apiguardian/api"
+                        JAR_WITH_PATH_PREFIX + "org/apiguardian/api",
+                        JAR_WITH_PATH_PREFIX + "org/opentest4j"
                 ),
                 List.of(args[0]),
                 List.of("java", "e2immu", "log", "test"));
