@@ -138,8 +138,7 @@ public class Composer {
         fieldInfo.modifiers()
                 .stream().filter(m -> !m.isPublic()).forEach(newField.builder()::addFieldModifier);
         if (fieldInfo.isFinal()) {
-            TypeInfo bestType = fieldInfo.type().bestTypeInfo();
-            newField.builder().setInitializer(bestType == null ? runtime.nullConstant() : runtime.nullValue(bestType));
+            newField.builder().setInitializer(runtime.nullValue(fieldInfo.type()));
         }
         newField.builder().setAccess(runtime.accessPackage()).commit();
         return newField;
@@ -159,7 +158,7 @@ public class Composer {
                 .setAccess(runtime.accessPackage())
                 .setReturnType(returnType);
         if (methodInfo.hasReturnValue()) {
-            Expression defaultReturnValue = runtime.nullValue(returnType.typeInfo());
+            Expression defaultReturnValue = runtime.nullValue(returnType);
             Statement returnStatement = runtime.newReturnStatement(defaultReturnValue);
             Block block = runtime.newBlockBuilder().addStatement(returnStatement).build();
             newMethod.builder().setMethodBody(block);
