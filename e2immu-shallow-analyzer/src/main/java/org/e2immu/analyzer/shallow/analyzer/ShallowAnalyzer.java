@@ -44,7 +44,7 @@ public class ShallowAnalyzer {
         }
         for (TypeInfo typeInfo : sorted) {
             shallowTypeAnalyzer.analyzeFields(typeInfo);
-            typeInfo.methodAndConstructorStream()
+            typeInfo.constructorAndMethodStream()
                     .filter(MethodInfo::isPublic)
                     .forEach(shallowMethodAnalyzer::analyze);
         }
