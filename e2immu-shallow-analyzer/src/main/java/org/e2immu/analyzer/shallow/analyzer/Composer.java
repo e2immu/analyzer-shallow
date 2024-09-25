@@ -243,7 +243,7 @@ public class Composer {
             File outputFile = new File(directory, apiType.simpleName() + ".java");
             try (OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(outputFile),
                     StandardCharsets.UTF_8)) {
-                OutputBuilder outputBuilder = apiType.print(null);
+                OutputBuilder outputBuilder = apiType.print(runtime.qualificationQualifyFromPrimaryType());
                 outputStreamWriter.write(formatter.write(outputBuilder));
             }
             LOGGER.info("Wrote {}", apiType);

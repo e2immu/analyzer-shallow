@@ -62,11 +62,14 @@ public class AnalysisHelper {
         return dynamicBaseValue;
     }
 
-    public Value.Immutable typeImmutable(TypeInfo currentType, ParameterizedType fieldType) {
-        if (currentType.primaryType().equals(fieldType.typeInfo().primaryType())) {
+    public Value.Immutable typeImmutable(TypeInfo currentType, ParameterizedType type) {
+        if (type.typeInfo() == null) {
+            return ValueImpl.ImmutableImpl.IMMUTABLE_HC;
+        }
+        if (currentType.primaryType().equals(type.typeInfo().primaryType())) {
             return ValueImpl.ImmutableImpl.MUTABLE; // self-ref; ALWAYS mutable
         }
-        return typeImmutable(fieldType, Map.of());
+        return typeImmutable(type, Map.of());
     }
 
 
@@ -80,7 +83,7 @@ public class AnalysisHelper {
             // unbound type parameter, null constant
             return ValueImpl.IndependentImpl.INDEPENDENT_HC;
         }
-        if(bestType.isPrimitiveExcludingVoid()) {
+        if (bestType.isPrimitiveExcludingVoid()) {
             return ValueImpl.IndependentImpl.INDEPENDENT;
         }
         Value.Immutable immutable = bestType.analysis().getOrDefault(PropertyImpl.IMMUTABLE_TYPE,

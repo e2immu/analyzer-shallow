@@ -94,6 +94,13 @@ public class TestJavaUtil extends CommonTest {
         assertSame(TRUE, add.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
     }
 
+    @Test
+    public void testListGet() {
+        TypeInfo typeInfo = compiledTypesManager.get(List.class);
+        MethodInfo get = typeInfo.findUniqueMethod("get", 1);
+        assertTrue(get.overrides().isEmpty());
+        assertSame(FALSE, get.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+    }
 
     @Test
     public void testMapPut() {
