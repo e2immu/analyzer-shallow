@@ -84,7 +84,17 @@ class CommonAnalyzer {
                     independent = ValueImpl.IndependentImpl.DEPENDENT;
                 } else {
                     boolean hc = ae.extractBoolean("hc");
-                    independent = hc ? ValueImpl.IndependentImpl.INDEPENDENT_HC : ValueImpl.IndependentImpl.INDEPENDENT;
+                    int[] dependentParameters = ae.extractIntArray("dependentParameters");
+                    int[] hcParameters = ae.extractIntArray("hcParameters");
+                    Boolean dependentReturnValue = ae.extractBoolean("dependentReturnValue");
+                    Boolean hcReturnValue = ae.extractBoolean("hcReturnValue");
+                    Map<Integer, Integer> map = ValueImpl.IndependentImpl.makeMap(dependentParameters, hcParameters,
+                            dependentReturnValue, hcReturnValue);
+                    if (map.isEmpty()) {
+                        independent = hc ? ValueImpl.IndependentImpl.INDEPENDENT_HC : ValueImpl.IndependentImpl.INDEPENDENT;
+                    } else {
+                        independent = new ValueImpl.IndependentImpl(hc ? 1 : 0, map);
+                    }
                 }
             } else if (NotModified.class.getCanonicalName().equals(fqn)) {
                 modified = ValueImpl.BoolImpl.from(isAbsent);
@@ -155,7 +165,10 @@ class CommonAnalyzer {
 
         if (info instanceof TypeInfo) {
             if (immutable != null) map.put(PropertyImpl.IMMUTABLE_TYPE, immutable);
-            if (independent != null) map.put(PropertyImpl.INDEPENDENT_TYPE, independent);
+            if (independent != null) {
+                assert independent.linkToParametersReturnValue().isEmpty();
+                map.put(PropertyImpl.INDEPENDENT_TYPE, independent);
+            }
             if (container != null) map.put(PropertyImpl.CONTAINER_TYPE, container);
             return map;
         }
@@ -164,7 +177,10 @@ class CommonAnalyzer {
             if (identity != null) map.put(PropertyImpl.IDENTITY_METHOD, identity);
             if (getSetField != null) map.put(PropertyImpl.GET_SET_FIELD, getSetField);
             if (immutable != null) map.put(PropertyImpl.IMMUTABLE_METHOD, immutable);
-            if (independent != null) map.put(PropertyImpl.INDEPENDENT_METHOD, independent);
+            if (independent != null) {
+                assert independent.linkToParametersReturnValue().isEmpty();
+                map.put(PropertyImpl.INDEPENDENT_METHOD, independent);
+            }
             if (container != null) map.put(PropertyImpl.CONTAINER_METHOD, container);
             if (notNull != null) map.put(PropertyImpl.NOT_NULL_METHOD, notNull);
             if (modified != null) map.put(PropertyImpl.MODIFIED_METHOD, modified);
@@ -175,7 +191,10 @@ class CommonAnalyzer {
         }
         if (info instanceof FieldInfo) {
             if (immutable != null) map.put(PropertyImpl.IMMUTABLE_FIELD, immutable);
-            if (independent != null) map.put(PropertyImpl.INDEPENDENT_FIELD, independent);
+            if (independent != null) {
+                assert independent.linkToParametersReturnValue().isEmpty();
+                map.put(PropertyImpl.INDEPENDENT_FIELD, independent);
+            }
             if (container != null) map.put(PropertyImpl.CONTAINER_FIELD, container);
             if (notNull != null) map.put(PropertyImpl.NOT_NULL_FIELD, notNull);
             if (modified != null) map.put(PropertyImpl.MODIFIED_FIELD, modified);

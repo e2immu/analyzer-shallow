@@ -1,10 +1,12 @@
 package org.e2immu.analyzer.shallow.analyzer;
 
+import org.e2immu.language.cst.api.analysis.Value;
 import org.e2immu.language.cst.api.info.FieldInfo;
 import org.e2immu.language.cst.api.info.MethodInfo;
 import org.e2immu.language.cst.api.info.ParameterInfo;
 import org.e2immu.language.cst.api.info.TypeInfo;
 import org.e2immu.language.cst.api.type.ParameterizedType;
+import org.e2immu.language.cst.impl.analysis.PropertyImpl;
 import org.e2immu.language.cst.impl.analysis.ValueImpl;
 import org.junit.jupiter.api.Test;
 
@@ -64,10 +66,26 @@ public class TestJavaUtil extends CommonTest {
     public void testCollections() {
         TypeInfo typeInfo = compiledTypesManager.get(Collections.class);
         assertFalse(typeInfo.isInterface());
-        // FIXME at the moment @UtilityClass does not enforce @Immutable
+        // NOTE at the moment: @UtilityClass does not enforce @Immutable
         assertSame(IMMUTABLE_HC, typeInfo.analysis().getOrDefault(IMMUTABLE_TYPE, MUTABLE));
         assertSame(INDEPENDENT, typeInfo.analysis().getOrDefault(INDEPENDENT_TYPE, DEPENDENT));
         assertSame(FALSE, typeInfo.analysis().getOrDefault(CONTAINER_TYPE, FALSE));
+    }
+
+    @Test
+    public void testCollectionsAddAll() {
+        TypeInfo typeInfo = compiledTypesManager.get(Collections.class);
+        MethodInfo addAll = typeInfo.findUniqueMethod("addAll", 2);
+        ParameterInfo p0 = addAll.parameters().get(0);
+        assertTrue(p0.analysis().getOrDefault(MODIFIED_PARAMETER, FALSE).isTrue());
+        Value.Independent independent0 = p0.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT);
+        Map<Integer, Integer> map = independent0.linkToParametersReturnValue();
+        assertEquals(1, map.size());
+        assertEquals(1, map.get(1)); // links at HC level (1) to parameter with index 1
+        ParameterInfo p1 = addAll.parameters().get(1);
+        assertTrue(p1.analysis().getOrDefault(MODIFIED_PARAMETER, FALSE).isFalse());
+        Value.Independent independent1 = p1.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT);
+        assertTrue(independent1.linkToParametersReturnValue().isEmpty());
     }
 
     @Test
