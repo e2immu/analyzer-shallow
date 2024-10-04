@@ -270,7 +270,8 @@ public class TestJavaLang extends CommonTest {
         ParameterInfo p2 = methodInfo.parameters().get(2);
         // name generated from Object
         assertEquals("object1", p2.name());
-        assertSame(INDEPENDENT, p2.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT));
+        Value.Independent independentP2 = p2.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT);
+        assertEquals("@Dependent(hcParameters={0})", independentP2.toString());
         assertSame(NOT_NULL, p2.analysis().getOrDefault(NOT_NULL_PARAMETER, NULLABLE));
         assertSame(TRUE, p2.analysis().getOrDefault(MODIFIED_PARAMETER, FALSE));
     }
