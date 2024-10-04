@@ -2,8 +2,8 @@ package org.e2immu.analyzer.shallow.analyzer;
 
 import org.e2immu.language.cst.api.analysis.Codec;
 import org.e2immu.language.cst.api.info.*;
+import org.e2immu.language.cst.impl.analysis.PropertyProviderImpl;
 import org.e2immu.language.cst.io.CodecImpl;
-import org.e2immu.util.internal.util.ThrowingBiConsumer;
 import org.e2immu.util.internal.util.Trie;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,7 +28,7 @@ public class WriteAnalysis {
         if (directory.mkdirs()) {
             LOGGER.info("Created directory {}", directory.getAbsolutePath());
         }
-        Codec codec = new CodecImpl(null, null); // we don't have to decode
+        Codec codec = new CodecImpl(PropertyProviderImpl::get, null, null); // we don't have to decode
         try {
             typeTrie.visitThrowing(new String[]{}, (parts, list) -> write(directory, codec, parts, list));
         } catch (RuntimeException re) {

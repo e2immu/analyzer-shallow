@@ -5,6 +5,7 @@ import org.e2immu.language.cst.api.info.FieldInfo;
 import org.e2immu.language.cst.api.info.Info;
 import org.e2immu.language.cst.api.info.MethodInfo;
 import org.e2immu.language.cst.api.info.TypeInfo;
+import org.e2immu.language.cst.impl.analysis.PropertyProviderImpl;
 import org.e2immu.language.cst.impl.analysis.ValueImpl;
 import org.e2immu.language.cst.io.CodecImpl;
 import org.e2immu.language.inspection.api.integration.JavaInspector;
@@ -25,10 +26,17 @@ public class LoadAnalyzedAnnotatedAPI {
     private static final Logger LOGGER = LoggerFactory.getLogger(LoadAnalyzedAnnotatedAPI.class);
 
     public void go(JavaInspector javaInspector, AnnotatedAPIConfiguration annotatedAPIConfiguration) throws IOException {
+        Codec codec = createCodec(javaInspector);
+        go(javaInspector, codec, annotatedAPIConfiguration);
+    }
+
+    public void go(JavaInspector javaInspector,
+                   Codec codec,
+                   AnnotatedAPIConfiguration annotatedAPIConfiguration) throws IOException {
         for (String dir : annotatedAPIConfiguration.analyzedAnnotatedApiDirs()) {
             File directory = new File(dir);
             if (directory.canRead()) {
-                new LoadAnalyzedAnnotatedAPI().go(javaInspector, directory);
+                new LoadAnalyzedAnnotatedAPI().goDir(javaInspector, codec, directory);
                 LOGGER.info("Read json files in AAAPI {}", directory.getAbsolutePath());
             } else {
                 LOGGER.warn("Path '{}' is not a directory containing analyzed annotated API files", directory);
@@ -36,8 +44,12 @@ public class LoadAnalyzedAnnotatedAPI {
         }
     }
 
-    public void go(JavaInspector javaInspector, File directory) throws IOException {
+    public void goDir(JavaInspector javaInspector, File directory) throws IOException {
         Codec codec = createCodec(javaInspector);
+        goDir(javaInspector, codec, directory);
+    }
+
+    public void goDir(JavaInspector javaInspector, Codec codec, File directory) throws IOException {
         File[] jsonFiles = directory.listFiles(fnf -> fnf.getName().endsWith(".json"));
         assert jsonFiles != null;
         for (File jsonFile : jsonFiles) {
@@ -46,8 +58,10 @@ public class LoadAnalyzedAnnotatedAPI {
     }
 
     public Codec createCodec(JavaInspector javaInspector) {
+        Codec.PropertyProvider propertyProvider = PropertyProviderImpl::get;
         Codec.DecoderProvider decoderProvider = ValueImpl::decoder;
-        return new CodecImpl(decoderProvider, fqn -> javaInspector.compiledTypesManager().getOrLoad(fqn));
+        Codec.TypeProvider typeProvider = fqn -> javaInspector.compiledTypesManager().getOrLoad(fqn);
+        return new CodecImpl(propertyProvider, decoderProvider, typeProvider);
     }
 
     public void go(JavaInspector javaInspector, Codec codec, File jsonFile) throws IOException {

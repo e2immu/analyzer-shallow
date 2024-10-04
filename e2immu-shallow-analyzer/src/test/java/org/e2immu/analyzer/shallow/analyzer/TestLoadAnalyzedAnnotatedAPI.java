@@ -51,7 +51,7 @@ public class TestLoadAnalyzedAnnotatedAPI {
         javaInspector.initialize(inputConfiguration.build());
         File jsonDir = new File("../e2immu-shallow-aapi/src/main/resources/json");
         assertTrue(jsonDir.isDirectory());
-        new LoadAnalyzedAnnotatedAPI().go(javaInspector, jsonDir);
+        new LoadAnalyzedAnnotatedAPI().goDir(javaInspector, jsonDir);
 
         TypeInfo typeInfo = javaInspector.compiledTypesManager().get(Object.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("toString", 0);
