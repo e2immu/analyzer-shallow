@@ -15,6 +15,7 @@ import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -56,6 +57,9 @@ public class WriteAnalysis {
 
     private void write(OutputStreamWriter osw, Codec codec, AtomicBoolean first, TypeInfo typeInfo) throws IOException {
         writeInfo(osw, codec, first, typeInfo, -1);
+        for(TypeInfo subType: typeInfo.subTypes()) {
+            write(osw, codec, first, subType);
+        }
         int cc = 0;
         for (MethodInfo methodInfo : typeInfo.constructors()) {
             writeInfo(osw, codec, first, methodInfo, cc);
@@ -80,7 +84,8 @@ public class WriteAnalysis {
 
     private static void writeInfo(OutputStreamWriter osw, Codec codec, AtomicBoolean first, Info info, int index) throws IOException {
         Stream<Codec.EncodedPropertyValue> stream = info.analysis().propertyValueStream()
-                .map(pv -> codec.encode(pv.property(), pv.value()));
+                .map(pv -> codec.encode(pv.property(), pv.value()))
+                .filter(Objects::nonNull); // some properties will (temporarily) not be streamed
         Codec.EncodedValue ev = codec.encode(info, index, stream);
         if (ev != null) {
             if (first.get()) first.set(false);
