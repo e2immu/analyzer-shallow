@@ -29,16 +29,14 @@ public class LoadAnalyzedAnnotatedAPI {
 
     public void go(JavaInspector javaInspector, AnnotatedAPIConfiguration annotatedAPIConfiguration) throws IOException {
         Codec codec = createCodec(javaInspector);
-        go(javaInspector, codec, annotatedAPIConfiguration);
+        go(codec, annotatedAPIConfiguration);
     }
 
-    public void go(JavaInspector javaInspector,
-                   Codec codec,
-                   AnnotatedAPIConfiguration annotatedAPIConfiguration) throws IOException {
+    public void go(Codec codec, AnnotatedAPIConfiguration annotatedAPIConfiguration) throws IOException {
         for (String dir : annotatedAPIConfiguration.analyzedAnnotatedApiDirs()) {
             File directory = new File(dir);
             if (directory.canRead()) {
-                new LoadAnalyzedAnnotatedAPI().goDir(javaInspector, codec, directory);
+                new LoadAnalyzedAnnotatedAPI().goDir(codec, directory);
                 LOGGER.info("Read json files in AAAPI {}", directory.getAbsolutePath());
             } else {
                 LOGGER.warn("Path '{}' is not a directory containing analyzed annotated API files", directory);
@@ -48,10 +46,10 @@ public class LoadAnalyzedAnnotatedAPI {
 
     public void goDir(JavaInspector javaInspector, File directory) throws IOException {
         Codec codec = createCodec(javaInspector);
-        goDir(javaInspector, codec, directory);
+        goDir(codec, directory);
     }
 
-    public void goDir(JavaInspector javaInspector, Codec codec, File directory) throws IOException {
+    public void goDir(Codec codec, File directory) throws IOException {
         File[] jsonFiles = directory.listFiles(fnf -> fnf.getName().endsWith(".json"));
         assert jsonFiles != null;
         for (File jsonFile : jsonFiles) {
