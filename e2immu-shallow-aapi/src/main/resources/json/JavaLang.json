@@ -302,7 +302,11 @@
  {"name": "MdescribeConstable(15)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":2,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}}]},
 
 {"name": "Tjava.lang.Character", "data":{"containerType":1,"immutableType":3,"immutableTypeDeterminedByParameters":0,"independentType":2,"shallowAnalyzer":1}, "subs":[
- {"name": "SUnicodeBlock(1)", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":0,"shallowAnalyzer":1}, "subs":[
+ {"name": "SSubset(1)", "data":{"containerType":1,"immutableType":2,"immutableTypeDeterminedByParameters":0,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Mequals(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
+  {"name": "MhashCode(1)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
+  {"name": "MtoString(2)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}}]},
+ {"name": "SUnicodeBlock(2)", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":0,"shallowAnalyzer":1}, "subs":[
   {"name": "FBASIC_LATIN(2)", "data":{"containerField":0,"finalField":1,"immutableField":0,"independentField":0,"notNullField":0,"shallowAnalyzer":1}},
   {"name": "FLATIN_1_SUPPLEMENT(3)", "data":{"containerField":0,"finalField":1,"immutableField":0,"independentField":0,"notNullField":0,"shallowAnalyzer":1}},
   {"name": "FLATIN_EXTENDED_A(4)", "data":{"containerField":0,"finalField":1,"immutableField":0,"independentField":0,"notNullField":0,"shallowAnalyzer":1}},
@@ -615,7 +619,7 @@
   {"name": "Mof(0)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
   {"name": "Mof(1)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
   {"name": "MforName(2)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}}]},
- {"name": "SUnicodeScript(2)", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":0,"shallowAnalyzer":1}, "subs":[
+ {"name": "SUnicodeScript(3)", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":0,"shallowAnalyzer":1}, "subs":[
   {"name": "FCOMMON(0)", "data":{"containerField":0,"finalField":1,"immutableField":0,"independentField":0,"notNullField":1,"shallowAnalyzer":1}},
   {"name": "FLATIN(1)", "data":{"containerField":0,"finalField":1,"immutableField":0,"independentField":0,"notNullField":1,"shallowAnalyzer":1}},
   {"name": "FGREEK(2)", "data":{"containerField":0,"finalField":1,"immutableField":0,"independentField":0,"notNullField":1,"shallowAnalyzer":1}},
@@ -777,10 +781,6 @@
   {"name": "MvalueOf(1)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
   {"name": "Mof(2)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
   {"name": "MforName(3)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}}]},
- {"name": "SSubset(3)", "data":{"containerType":1,"immutableType":2,"immutableTypeDeterminedByParameters":0,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
-  {"name": "Mequals(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
-  {"name": "MhashCode(1)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
-  {"name": "MtoString(2)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}}]},
  {"name": "FMIN_RADIX(0)", "data":{"containerField":0,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FMAX_RADIX(1)", "data":{"containerField":0,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FMIN_VALUE(2)", "data":{"containerField":0,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
@@ -1252,9 +1252,7 @@
  {"name": "MtoString(35)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}}]},
 
 {"name": "Tjava.lang.Thread", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":0,"shallowAnalyzer":1}, "subs":[
- {"name": "SUncaughtExceptionHandler(0)", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":0,"shallowAnalyzer":1}, "sub":
-  {"name": "MuncaughtException(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}}},
- {"name": "SState(3)", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":0,"shallowAnalyzer":1}, "subs":[
+ {"name": "SState(1)", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":0,"shallowAnalyzer":1}, "subs":[
   {"name": "FNEW(0)", "data":{"containerField":0,"finalField":1,"immutableField":0,"independentField":0,"notNullField":1,"shallowAnalyzer":1}},
   {"name": "FRUNNABLE(1)", "data":{"containerField":0,"finalField":1,"immutableField":0,"independentField":0,"notNullField":1,"shallowAnalyzer":1}},
   {"name": "FBLOCKED(2)", "data":{"containerField":0,"finalField":1,"immutableField":0,"independentField":0,"notNullField":1,"shallowAnalyzer":1}},
@@ -1263,6 +1261,8 @@
   {"name": "FTERMINATED(5)", "data":{"containerField":0,"finalField":1,"immutableField":0,"independentField":0,"notNullField":1,"shallowAnalyzer":1}},
   {"name": "Mvalues(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":1,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
   {"name": "MvalueOf(1)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}}]},
+ {"name": "SUncaughtExceptionHandler(2)", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":0,"shallowAnalyzer":1}, "sub":
+  {"name": "MuncaughtException(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}}},
  {"name": "FMIN_PRIORITY(20)", "data":{"containerField":0,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FNORM_PRIORITY(21)", "data":{"containerField":0,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FMAX_PRIORITY(22)", "data":{"containerField":0,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},

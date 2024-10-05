@@ -89,6 +89,7 @@ public class LoadAnalyzedAnnotatedAPI {
         char type = fullyQualifiedWithType.charAt(0);
         String name = fullyQualifiedWithType.substring(1);
         Info info = codec.decodeInfo(context, type, name);
+        assert info != null : "Cannot find " + name;
         context.push(info);
         processData(codec, context, info, dataJo);
         if (jo.size() > 5) {
