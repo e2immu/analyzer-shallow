@@ -1,30 +1,6 @@
 [
-{"name": "SName", "data":{"containerType":1,"immutableType":2,"immutableTypeDeterminedByParameters":0,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
- {"name": "FMANIFEST_VERSION(3)", "data":{"containerField":1,"finalField":1,"immutableField":2,"independentField":2,"notNullField":0,"shallowAnalyzer":1}},
- {"name": "FSIGNATURE_VERSION(4)", "data":{"containerField":1,"finalField":1,"immutableField":2,"independentField":2,"notNullField":0,"shallowAnalyzer":1}},
- {"name": "FCONTENT_TYPE(5)", "data":{"containerField":1,"finalField":1,"immutableField":2,"independentField":2,"notNullField":0,"shallowAnalyzer":1}},
- {"name": "FCLASS_PATH(6)", "data":{"containerField":1,"finalField":1,"immutableField":2,"independentField":2,"notNullField":0,"shallowAnalyzer":1}},
- {"name": "FMAIN_CLASS(7)", "data":{"containerField":1,"finalField":1,"immutableField":2,"independentField":2,"notNullField":0,"shallowAnalyzer":1}},
- {"name": "FSEALED(8)", "data":{"containerField":1,"finalField":1,"immutableField":2,"independentField":2,"notNullField":0,"shallowAnalyzer":1}},
- {"name": "FEXTENSION_LIST(9)", "data":{"containerField":1,"finalField":1,"immutableField":2,"independentField":2,"notNullField":0,"shallowAnalyzer":1}},
- {"name": "FEXTENSION_NAME(10)", "data":{"containerField":1,"finalField":1,"immutableField":2,"independentField":2,"notNullField":0,"shallowAnalyzer":1}},
- {"name": "FEXTENSION_INSTALLATION(11)", "data":{"containerField":1,"finalField":1,"immutableField":2,"independentField":2,"notNullField":0,"shallowAnalyzer":1}},
- {"name": "FIMPLEMENTATION_TITLE(12)", "data":{"containerField":1,"finalField":1,"immutableField":2,"independentField":2,"notNullField":0,"shallowAnalyzer":1}},
- {"name": "FIMPLEMENTATION_VERSION(13)", "data":{"containerField":1,"finalField":1,"immutableField":2,"independentField":2,"notNullField":0,"shallowAnalyzer":1}},
- {"name": "FIMPLEMENTATION_VENDOR(14)", "data":{"containerField":1,"finalField":1,"immutableField":2,"independentField":2,"notNullField":0,"shallowAnalyzer":1}},
- {"name": "FIMPLEMENTATION_VENDOR_ID(15)", "data":{"containerField":1,"finalField":1,"immutableField":2,"independentField":2,"notNullField":0,"shallowAnalyzer":1}},
- {"name": "FIMPLEMENTATION_URL(16)", "data":{"containerField":1,"finalField":1,"immutableField":2,"independentField":2,"notNullField":0,"shallowAnalyzer":1}},
- {"name": "FSPECIFICATION_TITLE(17)", "data":{"containerField":1,"finalField":1,"immutableField":2,"independentField":2,"notNullField":0,"shallowAnalyzer":1}},
- {"name": "FSPECIFICATION_VERSION(18)", "data":{"containerField":1,"finalField":1,"immutableField":2,"independentField":2,"notNullField":0,"shallowAnalyzer":1}},
- {"name": "FSPECIFICATION_VENDOR(19)", "data":{"containerField":1,"finalField":1,"immutableField":2,"independentField":2,"notNullField":0,"shallowAnalyzer":1}},
- {"name": "FMULTI_RELEASE(20)", "data":{"containerField":1,"finalField":1,"immutableField":2,"independentField":2,"notNullField":0,"shallowAnalyzer":1}},
- {"name": "C<init>(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}},
- {"name": "Mequals(2)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MhashCode(3)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MtoString(4)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}}]},
-
 {"name": "Tjava.util.jar.Attributes", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":0,"shallowAnalyzer":1}, "subs":[
- {"name": "SName", "data":{"containerType":1,"immutableType":2,"immutableTypeDeterminedByParameters":0,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "SName(0)", "data":{"containerType":1,"immutableType":2,"immutableTypeDeterminedByParameters":0,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
   {"name": "FMANIFEST_VERSION(3)", "data":{"containerField":1,"finalField":1,"immutableField":2,"independentField":2,"notNullField":0,"shallowAnalyzer":1}},
   {"name": "FSIGNATURE_VERSION(4)", "data":{"containerField":1,"finalField":1,"immutableField":2,"independentField":2,"notNullField":0,"shallowAnalyzer":1}},
   {"name": "FCONTENT_TYPE(5)", "data":{"containerField":1,"finalField":1,"immutableField":2,"independentField":2,"notNullField":0,"shallowAnalyzer":1}},

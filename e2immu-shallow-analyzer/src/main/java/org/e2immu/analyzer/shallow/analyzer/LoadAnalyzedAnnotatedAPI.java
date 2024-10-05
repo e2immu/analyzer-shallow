@@ -1,6 +1,7 @@
 package org.e2immu.analyzer.shallow.analyzer;
 
 import org.e2immu.language.cst.api.analysis.Codec;
+import org.e2immu.language.cst.api.analysis.PropertyValueMap;
 import org.e2immu.language.cst.api.info.FieldInfo;
 import org.e2immu.language.cst.api.info.Info;
 import org.e2immu.language.cst.api.info.MethodInfo;
@@ -11,6 +12,7 @@ import org.e2immu.language.cst.io.CodecImpl;
 import org.e2immu.language.inspection.api.integration.JavaInspector;
 import org.parsers.json.JSONParser;
 import org.parsers.json.Node;
+import org.parsers.json.ast.Array;
 import org.parsers.json.ast.JSONObject;
 import org.parsers.json.ast.KeyValuePair;
 import org.slf4j.Logger;
@@ -53,7 +55,7 @@ public class LoadAnalyzedAnnotatedAPI {
         File[] jsonFiles = directory.listFiles(fnf -> fnf.getName().endsWith(".json"));
         assert jsonFiles != null;
         for (File jsonFile : jsonFiles) {
-            go(javaInspector, codec, jsonFile);
+            go(codec, jsonFile);
         }
     }
 
@@ -64,14 +66,63 @@ public class LoadAnalyzedAnnotatedAPI {
         return new CodecImpl(propertyProvider, decoderProvider, typeProvider);
     }
 
-    public void go(JavaInspector javaInspector, Codec codec, File jsonFile) throws IOException {
+    public void go(Codec codec, File jsonFile) throws IOException {
         LOGGER.info("Parsing {}", jsonFile);
         String s = Files.readString(jsonFile.toPath());
         JSONParser parser = new JSONParser(s);
         parser.Root();
         Node root = parser.rootNode();
         for (JSONObject jo : root.get(0).childrenOfType(JSONObject.class)) {
-            processLine(javaInspector, codec, jo);
+            processPrimaryType(codec, jo);
+        }
+    }
+
+    private static void processPrimaryType(Codec codec, JSONObject jo) {
+        Codec.Context context = new CodecImpl.ContextImpl();
+        processSub(codec, context, jo);
+    }
+
+    private static void processSub(Codec codec, Codec.Context context, JSONObject jo) {
+        KeyValuePair nameKv = (KeyValuePair) jo.get(1);
+        String fullyQualifiedWithType = CodecImpl.unquote(nameKv.get(2).getSource());
+        KeyValuePair dataKv = (KeyValuePair) jo.get(3);
+        JSONObject dataJo = (JSONObject) dataKv.get(2);
+
+        char type = fullyQualifiedWithType.charAt(0);
+        String name = fullyQualifiedWithType.substring(1);
+        Info info = codec.decodeInfo(context, type, name);
+        context.push(info);
+        processData(codec, context, info, dataJo);
+        if (jo.size() > 5) {
+            KeyValuePair subs = (KeyValuePair) jo.get(5);
+            String subKey = subs.get(0).getSource();
+            if ("\"sub\"".equals(subKey)) {
+                processSub(codec, context, (JSONObject) subs.get(2));
+            } else {
+                assert "\"subs\"".equals(subKey);
+                Array array = (Array) subs.get(2);
+                for (int i = 1; i < array.size(); i += 2) {
+                    processSub(codec, context, (JSONObject) array.get(i));
+                }
+            }
+        }
+        context.pop();
+    }
+
+    private static void processData(Codec codec, Codec.Context context, Info info, JSONObject dataJo) {
+        List<Codec.EncodedPropertyValue> epvs = new ArrayList<>();
+        for (int i = 1; i < dataJo.size(); i += 2) {
+            if (dataJo.get(i) instanceof KeyValuePair kvp2) {
+                String key = CodecImpl.unquote(kvp2.get(0).getSource());
+                epvs.add(new Codec.EncodedPropertyValue(key, new CodecImpl.D(kvp2.get(2))));
+            }
+        }
+        List<Codec.PropertyValue> pvs = codec.decode(context, info.analysis(), epvs.stream()).toList();
+        try {
+            pvs.forEach(pv -> info.analysis().set(pv.property(), pv.value()));
+        } catch (IllegalStateException ise) {
+            LOGGER.error("Problem while writing to {}", info);
+            throw new RuntimeException(ise);
         }
     }
 

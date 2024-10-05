@@ -34,7 +34,9 @@ public class Run {
         WriteAnalysis wa = new WriteAnalysis();
         Trie<TypeInfo> trie = new Trie<>();
         for (TypeInfo ti : parsedTypes) {
-            trie.add(ti.packageName().split("\\."), ti);
+            if(ti.isPrimaryType()) {
+                trie.add(ti.packageName().split("\\."), ti);
+            }
         }
         File dir = new File("build");
         File targetFile = new File(dir, "OrgE2Immu.json");
