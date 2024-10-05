@@ -99,7 +99,7 @@ public class LoadAnalyzedAnnotatedAPI {
                     epvs.add(new Codec.EncodedPropertyValue(key, new CodecImpl.D(kvp2.get(2))));
                 }
             }
-            List<Codec.PropertyValue> pvs = codec.decode(info.analysis(), epvs.stream()).toList();
+            List<Codec.PropertyValue> pvs = null;//FIXME codec.decode(info.analysis(), epvs.stream()).toList();
             try {
                 pvs.forEach(pv -> info.analysis().set(pv.property(), pv.value()));
             } catch (IllegalStateException ise) {

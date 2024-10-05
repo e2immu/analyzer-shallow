@@ -8,6 +8,7 @@ import org.e2immu.language.cst.impl.analysis.PropertyImpl;
 import org.e2immu.language.cst.impl.analysis.ValueImpl;
 import org.e2immu.language.cst.impl.runtime.RuntimeImpl;
 import org.e2immu.util.internal.util.Trie;
+import org.intellij.lang.annotations.Language;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +23,14 @@ public class TestWriteAnalysis {
     private static final Logger LOGGER = LoggerFactory.getLogger(TestWriteAnalysis.class);
 
     private final Runtime runtime = new RuntimeImpl();
+
+    @Language("json")
+    private static final String EXPECT = """
+           [
+           {"name": "Torg.e2immu.C", "data":{"commutableMethods":["p1","p2,p3","p4"],"immutableType":3,"shallowAnalyzer":1}, "sub":
+            {"name": "Mm1(0)", "data":{"shallowAnalyzer":0}}}
+           ]
+           """;
 
     @Test
     public void test() throws IOException {
@@ -45,9 +54,7 @@ public class TestWriteAnalysis {
         if (targetFile.delete()) LOGGER.debug("Deleted {}", targetFile);
         wa.write(dir.getAbsolutePath(), trie);
         String s = Files.readString(targetFile.toPath());
-        assertEquals("""
-                [{"fqn": "Torg.e2immu.C", "data":{"commutableMethods":["p1","p2,p3","p4"],"immutableType":3,"shallowAnalyzer":1}},
-                {"fqn": "Morg.e2immu.C.m1(0)", "data":{"shallowAnalyzer":0}}]\
-                """, s);
+
+        assertEquals(EXPECT, s);
     }
 }

@@ -13,6 +13,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -49,48 +50,78 @@ public class WriteAnalysis {
             osw.write("[");
             AtomicBoolean first = new AtomicBoolean(true);
             for (TypeInfo typeInfo : list) {
-                write(osw, codec, first, typeInfo);
+                writePrimary(osw, codec, first, typeInfo);
             }
-            osw.write("]");
+            osw.write("\n]\n");
         }
     }
 
-    private void write(OutputStreamWriter osw, Codec codec, AtomicBoolean first, TypeInfo typeInfo) throws IOException {
-        writeInfo(osw, codec, first, typeInfo, -1);
-        for(TypeInfo subType: typeInfo.subTypes()) {
-            write(osw, codec, first, subType);
+    private static Codec.EncodedValue writeField(Codec codec, Codec.Context context, FieldInfo fieldInfo, int index) {
+        Stream<Codec.EncodedPropertyValue> stream = fieldInfo.analysis().propertyValueStream()
+                .map(pv -> codec.encode(context, pv.property(), pv.value()))
+                .filter(Objects::nonNull); // some properties will (temporarily) not be streamed
+        return codec.encode(context, fieldInfo, "" + index, stream, null);
+    }
+
+    private static Codec.EncodedValue writeMethod(Codec codec, Codec.Context context, MethodInfo methodInfo, int index) {
+        Stream<Codec.EncodedPropertyValue> stream = methodInfo.analysis().propertyValueStream()
+                .map(pv -> codec.encode(context, pv.property(), pv.value()))
+                .filter(Objects::nonNull); // some properties will (temporarily) not be streamed
+        return codec.encode(context, methodInfo, "" + index, stream, null);
+    }
+
+    private static Codec.EncodedValue writeType(Codec codec, Codec.Context context, TypeInfo typeInfo, int index) {
+        List<Codec.EncodedValue> subs = new ArrayList<>();
+
+        int sc = 0;
+        for (TypeInfo subType : typeInfo.subTypes()) {
+            context.push(subType);
+            Codec.EncodedValue sub = writeType(codec, context, subType, sc);
+            context.pop();
+            subs.add(sub);
+            sc++;
+        }
+
+        int fc = 0;
+        for (FieldInfo fieldInfo : typeInfo.fields()) {
+            context.push(fieldInfo);
+            subs.add(writeField(codec, context, fieldInfo, fc));
+            context.pop();
+            fc++;
         }
         int cc = 0;
         for (MethodInfo methodInfo : typeInfo.constructors()) {
-            writeInfo(osw, codec, first, methodInfo, cc);
-            for (ParameterInfo pi : methodInfo.parameters()) {
-                writeInfo(osw, codec, first, pi, cc);
-            }
+            context.push(methodInfo);
+            subs.add(writeMethod(codec, context, methodInfo, cc));
+            context.pop();
             cc++;
         }
         int mc = 0;
         for (MethodInfo methodInfo : typeInfo.methods()) {
-            writeInfo(osw, codec, first, methodInfo, mc);
-            for (ParameterInfo pi : methodInfo.parameters()) {
-                writeInfo(osw, codec, first, pi, mc);
-            }
+            context.push(methodInfo);
+            subs.add(writeMethod(codec, context, methodInfo, mc));
+            context.pop();
             mc++;
         }
-        int fc = 0;
-        for (FieldInfo fieldInfo : typeInfo.fields()) {
-            writeInfo(osw, codec, first, fieldInfo, fc++);
-        }
+        Stream<Codec.EncodedPropertyValue> stream = typeInfo.analysis().propertyValueStream()
+                .map(pv -> codec.encode(context, pv.property(), pv.value()))
+                .filter(Objects::nonNull); // some properties will (temporarily) not be streamed
+        return codec.encode(context, typeInfo, "" + index, stream, subs);
     }
 
-    private static void writeInfo(OutputStreamWriter osw, Codec codec, AtomicBoolean first, Info info, int index) throws IOException {
-        Stream<Codec.EncodedPropertyValue> stream = info.analysis().propertyValueStream()
-                .map(pv -> codec.encode(pv.property(), pv.value()))
-                .filter(Objects::nonNull); // some properties will (temporarily) not be streamed
-        Codec.EncodedValue ev = codec.encode(info, index, stream);
+    private static void writePrimary(OutputStreamWriter osw,
+                                     Codec codec,
+                                     AtomicBoolean first,
+                                     TypeInfo primaryType) throws IOException {
+        Codec.Context context = new CodecImpl.ContextImpl();
+        context.push(primaryType);
+        Codec.EncodedValue ev = writeType(codec, context, primaryType, 0);
+        context.pop();
+
         if (ev != null) {
             if (first.get()) first.set(false);
             else osw.write(",\n");
-            osw.write(ev.toString());
+            ((CodecImpl.E)ev).write(osw, 0, true);
         } // else: no data, no need to write
     }
 
