@@ -38,7 +38,7 @@ public class LoadAnalyzedAnnotatedAPI {
             File directory = new File(dir);
             if (directory.canRead()) {
                 new LoadAnalyzedAnnotatedAPI().goDir(codec, directory);
-                LOGGER.info("Read json files in AAAPI {}", directory.getAbsolutePath());
+                LOGGER.info("Finished reading all json files in AAAPI {}", directory.getAbsolutePath());
             } else {
                 LOGGER.warn("Path '{}' is not a directory containing analyzed annotated API files", directory);
             }

@@ -48,7 +48,8 @@ public class Run {
         ShallowAnalyzer shallowAnalyzer = new ShallowAnalyzer(annotatedApiParser);
         List<TypeInfo> parsedTypes = shallowAnalyzer.go();
         PrepAnalyzer prepAnalyzer = new PrepAnalyzer(annotatedApiParser.runtime());
-        parsedTypes.stream().filter(TypeInfo::isPrimaryType).forEach(ti -> prepAnalyzer.doPrimaryType(ti, true));
+        prepAnalyzer.initialize(annotatedApiParser.javaInspector().compiledTypesManager().typesLoaded());
+
         LOGGER.info("Parsed and analyzed {} types", parsedTypes.size());
 
         WriteAnalysis wa = new WriteAnalysis();

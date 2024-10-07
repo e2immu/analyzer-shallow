@@ -54,8 +54,9 @@ public class CommonTest {
         shallowAnalyzer.go();
 
         PrepAnalyzer prepAnalyzer = new PrepAnalyzer(annotatedApiParser.runtime());
+        prepAnalyzer.initialize(annotatedApiParser.javaInspector().compiledTypesManager().typesLoaded());
+
         sorted = shallowAnalyzer.getSorted();
-        sorted.stream().filter(TypeInfo::isPrimaryType).forEach(ti -> prepAnalyzer.doPrimaryType(ti, true));
         graph = shallowAnalyzer.getGraph();
         allTypes = shallowAnalyzer.getAllTypes();
         compiledTypesManager = annotatedApiParser.javaInspector().compiledTypesManager();

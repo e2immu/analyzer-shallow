@@ -43,15 +43,11 @@ public class AnalysisHelper {
         if (immutableOfCurrent != null) {
             dynamicBaseValue = immutableOfCurrent;
         } else {
-            dynamicBaseValue = bestType.analysis().getOrNull(PropertyImpl.IMMUTABLE_TYPE, ValueImpl.ImmutableImpl.class);
-            if (dynamicBaseValue == null) {
-                return null;
-            }
+            dynamicBaseValue = bestType.analysis().getOrDefault(PropertyImpl.IMMUTABLE_TYPE, ValueImpl.ImmutableImpl.MUTABLE);
         }
         if (dynamicBaseValue.isAtLeastImmutableHC() && !parameterizedType.parameters().isEmpty()) {
-            Value.Bool useBool = bestType.analysis().getOrNull(PropertyImpl.IMMUTABLE_TYPE_DETERMINED_BY_PARAMETERS,
-                    ValueImpl.BoolImpl.class);
-            if (useBool == null) return null;
+            Value.Bool useBool = bestType.analysis().getOrDefault(PropertyImpl.IMMUTABLE_TYPE_DETERMINED_BY_PARAMETERS,
+                    FALSE);
             boolean useTypeParameters = useBool.isTrue();
             if (useTypeParameters) {
                 return parameterizedType.parameters().stream()
@@ -98,7 +94,7 @@ public class AnalysisHelper {
                         .reduce(ValueImpl.IndependentImpl.INDEPENDENT, Value.Independent::min);
             }
         }
-        return bestType.analysis().getOrNull(PropertyImpl.INDEPENDENT_TYPE, ValueImpl.IndependentImpl.class);
+        return bestType.analysis().getOrDefault(PropertyImpl.INDEPENDENT_TYPE, ValueImpl.IndependentImpl.DEPENDENT);
     }
 
     public Value notNullOfType(ParameterizedType parameterizedType) {
