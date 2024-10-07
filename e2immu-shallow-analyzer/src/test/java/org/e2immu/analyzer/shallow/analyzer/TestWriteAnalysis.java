@@ -28,7 +28,7 @@ public class TestWriteAnalysis {
     private static final String EXPECT = """
            [
            {"name": "Torg.e2immu.C", "data":{"commutableMethods":["p1","p2,p3","p4"],"immutableType":3,"shallowAnalyzer":1}, "sub":
-            {"name": "Mm1(0)", "data":{"shallowAnalyzer":0}}}
+            {"name": "Mm1(0)", "data":{"shallowAnalyzer":1}}}
            ]
            """;
 
@@ -43,7 +43,7 @@ public class TestWriteAnalysis {
                 new ValueImpl.CommutableDataImpl("p1", "p2,p3", "p4"));
 
         MethodInfo methodInfo = runtime.newMethod(typeInfo, "m1", runtime.methodTypeMethod());
-        methodInfo.analysis().set(PropertyImpl.SHALLOW_ANALYZER, ValueImpl.BoolImpl.FALSE);
+        methodInfo.analysis().set(PropertyImpl.SHALLOW_ANALYZER, ValueImpl.BoolImpl.TRUE);
         typeInfo.builder().addMethod(methodInfo);
 
         WriteAnalysis wa = new WriteAnalysis();
