@@ -119,6 +119,27 @@ public class TestJavaUtil extends CommonTest {
     }
 
     @Test
+    public void testHashMap() {
+        TypeInfo typeInfo = compiledTypesManager.get(HashMap.class);
+        assertFalse(typeInfo.isInterface());
+        assertFalse(typeInfo.isAtLeastImmutableHC());
+
+        assertSame(MUTABLE, typeInfo.analysis().getOrDefault(IMMUTABLE_TYPE, MUTABLE));
+        assertSame(DEPENDENT, typeInfo.analysis().getOrDefault(INDEPENDENT_TYPE, DEPENDENT));
+        assertSame(TRUE, typeInfo.analysis().getOrDefault(CONTAINER_TYPE, FALSE));
+
+        assertEquals("HashMap:K, V", typeInfo.analysis().getOrNull(HIDDEN_CONTENT_TYPES, HiddenContentTypes.class).toString());
+    }
+
+
+    @Test
+    public void testHashMapEntryIterator() {
+        TypeInfo typeInfo = compiledTypesManager.get(HashMap.class);
+        TypeInfo sub = typeInfo.findSubType("EntryIterator");
+        assertEquals("EntryIterator:K, V", sub.analysis().getOrNull(HIDDEN_CONTENT_TYPES, HiddenContentTypes.class).toString());
+    }
+
+    @Test
     public void testMapPut() {
         TypeInfo typeInfo = compiledTypesManager.get(Map.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("put", 2);
