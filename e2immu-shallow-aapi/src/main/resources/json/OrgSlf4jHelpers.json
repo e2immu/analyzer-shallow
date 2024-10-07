@@ -1,6 +1,6 @@
 [
-{"name": "Torg.slf4j.helpers.NOPLoggerFactory", "data":{"containerType":1,"hc":{"E":true},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
- {"name": "C<init>(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}},
- {"name": "MgetLogger(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":2,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pname(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}}]}
+{"name": "Torg.slf4j.helpers.NOPLoggerFactory", "data":{"containerType":1,"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetLogger(0)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}}]}
 ]

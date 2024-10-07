@@ -1,48 +1,48 @@
 [
-{"name": "Tjavax.xml.parsers.DocumentBuilderFactory", "data":{"containerType":0,"hc":{"E":true},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":0,"shallowAnalyzer":1}, "subs":[
- {"name": "MnewDefaultNSInstance(0)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "MnewNSInstance(1)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "MnewNSInstance(2)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "subs":[
-  {"name": "PfactoryClassName(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}},
-  {"name": "PclassLoader(1)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":1,"modifiedParameter":0,"notNullParameter":0}}]},
- {"name": "MnewDefaultInstance(3)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "MnewInstance(4)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MnewInstance(5)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "subs":[
-  {"name": "PfactoryClassName(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}},
-  {"name": "PclassLoader(1)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":1,"modifiedParameter":0,"notNullParameter":0}}]},
- {"name": "MnewDocumentBuilder(7)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MsetNamespaceAware(8)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pawareness(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}},
- {"name": "MsetValidating(9)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pvalidating(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}},
- {"name": "MsetIgnoringElementContentWhitespace(10)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pwhitespace(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}},
- {"name": "MsetExpandEntityReferences(11)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}, "sub":
-  {"name": "PexpandEntityRef(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}},
- {"name": "MsetIgnoringComments(12)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}, "sub":
-  {"name": "PignoreComments(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}},
- {"name": "MsetCoalescing(13)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pcoalescing(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}},
- {"name": "MisNamespaceAware(14)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MisValidating(15)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MisIgnoringElementContentWhitespace(16)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MisExpandEntityReferences(17)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MisIgnoringComments(18)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MisCoalescing(19)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MsetAttribute(20)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}, "subs":[
-  {"name": "Pstring(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}},
-  {"name": "Pobject(1)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}]},
- {"name": "MgetAttribute(21)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":2,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "sub":
-  {"name": "Pstring(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}},
- {"name": "MsetFeature(22)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}, "subs":[
-  {"name": "Pstring(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}},
-  {"name": "Pb(1)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}]},
- {"name": "MgetFeature(23)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pstring(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}},
- {"name": "MgetSchema(24)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "MsetSchema(25)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pschema(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":0,"independentParameter":2,"modifiedParameter":1,"notNullParameter":0}}},
- {"name": "MsetXIncludeAware(26)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pstate(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}},
- {"name": "MisXIncludeAware(27)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}}]}
+{"name": "Tjavax.xml.parsers.DocumentBuilderFactory", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "MnewDefaultNSInstance(0)", "data":{"shallowAnalyzer":1}},
+ {"name": "MnewNSInstance(1)", "data":{"shallowAnalyzer":1}},
+ {"name": "MnewNSInstance(2)", "data":{"shallowAnalyzer":1}, "subs":[
+  {"name": "PfactoryClassName(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "PclassLoader(1)", "data":{"containerParameter":1,"immutableParameter":2,"independentParameter":1}}]},
+ {"name": "MnewDefaultInstance(3)", "data":{"shallowAnalyzer":1}},
+ {"name": "MnewInstance(4)", "data":{"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MnewInstance(5)", "data":{"shallowAnalyzer":1}, "subs":[
+  {"name": "PfactoryClassName(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "PclassLoader(1)", "data":{"containerParameter":1,"immutableParameter":2,"independentParameter":1}}]},
+ {"name": "MnewDocumentBuilder(7)", "data":{"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetNamespaceAware(8)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Pawareness(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MsetValidating(9)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Pvalidating(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MsetIgnoringElementContentWhitespace(10)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Pwhitespace(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MsetExpandEntityReferences(11)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "PexpandEntityRef(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MsetIgnoringComments(12)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "PignoreComments(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MsetCoalescing(13)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcoalescing(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MisNamespaceAware(14)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisValidating(15)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisIgnoringElementContentWhitespace(16)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisExpandEntityReferences(17)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisIgnoringComments(18)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisCoalescing(19)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetAttribute(20)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pobject(1)", "data":{"containerParameter":1,"immutableParameter":2,"independentParameter":2}}]},
+ {"name": "MgetAttribute(21)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MsetFeature(22)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pb(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MgetFeature(23)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MgetSchema(24)", "data":{"shallowAnalyzer":1}},
+ {"name": "MsetSchema(25)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Pschema(0)", "data":{"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MsetXIncludeAware(26)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Pstate(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MisXIncludeAware(27)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}}]}
 ]

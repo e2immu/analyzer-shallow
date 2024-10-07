@@ -29,7 +29,7 @@ public class LoadAnalyzedAnnotatedAPI {
     private static final Logger LOGGER = LoggerFactory.getLogger(LoadAnalyzedAnnotatedAPI.class);
 
     public void go(JavaInspector javaInspector, AnnotatedAPIConfiguration annotatedAPIConfiguration) throws IOException {
-        Codec codec = createCodec(javaInspector);
+        Codec codec =new PrepWorkCodec(javaInspector.runtime()).codec();
         go(codec, annotatedAPIConfiguration);
     }
 
@@ -56,13 +56,6 @@ public class LoadAnalyzedAnnotatedAPI {
         for (File jsonFile : jsonFiles) {
             go(codec, jsonFile);
         }
-    }
-
-    public Codec createCodec(JavaInspector javaInspector) {
-        Codec.PropertyProvider propertyProvider = PropertyProviderImpl::get;
-        Codec.DecoderProvider decoderProvider = ValueImpl::decoder;
-        Codec.TypeProvider typeProvider = fqn -> javaInspector.compiledTypesManager().getOrLoad(fqn);
-        return new CodecImpl(propertyProvider, decoderProvider, typeProvider);
     }
 
     public void go(Codec codec, File jsonFile) throws IOException {
@@ -120,10 +113,9 @@ public class LoadAnalyzedAnnotatedAPI {
         List<Codec.PropertyValue> pvs = codec.decode(context, info.analysis(), epvs.stream()).toList();
         try {
             pvs.forEach(pv -> {
-                if("hct".equals(pv.property().key())) {
-                    LOGGER.info("Writing hct of {}: {}", info, pv.value());
+                if(!info.analysis().haveAnalyzedValueFor(pv.property())) {
+                    info.analysis().set(pv.property(), pv.value());
                 }
-                info.analysis().set(pv.property(), pv.value());
             });
         } catch (IllegalStateException ise) {
             LOGGER.error("Problem while writing to {}", info);
