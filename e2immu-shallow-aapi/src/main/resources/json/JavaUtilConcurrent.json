@@ -1,29 +1,38 @@
 [
-{"name": "Tjava.util.concurrent.Executor", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":0,"shallowAnalyzer":1}, "sub":
- {"name": "Mexecute(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}}},
+{"name": "Tjava.util.concurrent.Executor", "data":{"containerType":0,"hc":{"E":true},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":0,"shallowAnalyzer":1}, "sub":
+ {"name": "Mexecute(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}, "sub":
+  {"name": "Prunnable(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":0,"independentParameter":0,"modifiedParameter":0,"notNullParameter":0}}}},
 
 {"name": "Tjava.util.concurrent.Flow", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":2,"shallowAnalyzer":1}, "subs":[
- {"name": "SProcessor(0)", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentField":1,"independentType":2,"shallowAnalyzer":1}},
- {"name": "SPublisher(1)", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "sub":
-  {"name": "Msubscribe(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}}},
- {"name": "SSubscriber(2)", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
-  {"name": "MonSubscribe(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}},
-  {"name": "MonNext(1)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}},
-  {"name": "MonError(2)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}},
+ {"name": "SProcessor(0)", "data":{"containerType":0,"hc":{"0":"PT:0","1":"PR:1","E":true,"M":2},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentField":1,"independentType":2,"shallowAnalyzer":1}},
+ {"name": "SPublisher(1)", "data":{"containerType":0,"hc":{"0":"PT:0","E":true,"M":1},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Msubscribe(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}, "sub":
+   {"name": "Psubscriber(0)", "data":{"containerParameter":0,"hcsParameter":{"0":[[0]]},"ignoreModsParameter":0,"immutableParameter":0,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}}},
+ {"name": "SSubscriber(2)", "data":{"containerType":0,"hc":{"0":"PT:0","E":true,"M":1},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "MonSubscribe(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}, "sub":
+   {"name": "Psubscription(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":0,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}},
+  {"name": "MonNext(1)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}, "sub":
+   {"name": "Pt(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":2,"modifiedParameter":1,"notNullParameter":0}}},
+  {"name": "MonError(2)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}, "sub":
+   {"name": "Pthrowable(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":0,"independentParameter":2,"modifiedParameter":1,"notNullParameter":0}}},
   {"name": "MonComplete(3)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}}]},
- {"name": "SSubscription(3)", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
-  {"name": "Mrequest(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}},
+ {"name": "SSubscription(3)", "data":{"containerType":0,"hc":{"E":true},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Mrequest(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}, "sub":
+   {"name": "Pl(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}},
   {"name": "Mcancel(1)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}}]},
  {"name": "MdefaultBufferSize(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}}]},
 
-{"name": "Tjava.util.concurrent.Future", "data":{"containerType":1,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "subs":[
- {"name": "Mcancel(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
+{"name": "Tjava.util.concurrent.Future", "data":{"containerType":1,"hc":{"0":"PV:0","E":true,"M":1},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "subs":[
+ {"name": "Mcancel(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}},
  {"name": "MisCancelled(1)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MisDone(2)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "Mget(3)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":2,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "Mget(4)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":2,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}}]},
+ {"name": "Mget(3)", "data":{"containerMethod":0,"fluentMethod":0,"hcsMethod":{"0":[[-1]]},"identityMethod":0,"immutableMethod":2,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":0,"shallowAnalyzer":1}},
+ {"name": "Mget(4)", "data":{"containerMethod":0,"fluentMethod":0,"hcsMethod":{"0":[[-1]]},"identityMethod":0,"immutableMethod":2,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pl(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}},
+  {"name": "PtimeUnit(1)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}]}]},
 
-{"name": "Tjava.util.concurrent.RunnableFuture", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
+{"name": "Tjava.util.concurrent.RunnableFuture", "data":{"containerType":0,"hc":{"0":"PV:0","E":true,"M":1},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
  {"name": "Mrun(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}}},
 
 {"name": "Tjava.util.concurrent.TimeUnit", "data":{"containerType":1,"immutableType":3,"immutableTypeDeterminedByParameters":0,"independentType":2,"shallowAnalyzer":1}, "subs":[
@@ -35,19 +44,36 @@
  {"name": "FHOURS(5)", "data":{"containerField":1,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FDAYS(6)", "data":{"containerField":1,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "Mvalues(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "MvalueOf(1)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "Mconvert(3)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "Mconvert(4)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MtoNanos(5)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MtoMicros(6)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MtoMillis(7)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MtoSeconds(8)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MtoMinutes(9)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MtoHours(10)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MtoDays(11)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MtimedWait(13)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}},
- {"name": "MtimedJoin(14)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}},
- {"name": "Msleep(15)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}},
+ {"name": "MvalueOf(1)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "sub":
+  {"name": "Pname(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}},
+ {"name": "Mconvert(3)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PsourceDuration(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}},
+  {"name": "PtimeUnit(1)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}]},
+ {"name": "Mconvert(4)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pduration(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}},
+ {"name": "MtoNanos(5)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pduration(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}},
+ {"name": "MtoMicros(6)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pduration(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}},
+ {"name": "MtoMillis(7)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pduration(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}},
+ {"name": "MtoSeconds(8)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pduration(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}},
+ {"name": "MtoMinutes(9)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pduration(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}},
+ {"name": "MtoHours(10)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pduration(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}},
+ {"name": "MtoDays(11)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pduration(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}},
+ {"name": "MtimedWait(13)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pobj(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}},
+  {"name": "Ptimeout(1)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}]},
+ {"name": "MtimedJoin(14)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pthread(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":0,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}},
+  {"name": "Ptimeout(1)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}]},
+ {"name": "Msleep(15)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}, "sub":
+  {"name": "Ptimeout(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}},
  {"name": "MtoChronoUnit(16)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "Mof(17)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}}]}
+ {"name": "Mof(17)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "sub":
+  {"name": "PchronoUnit(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":0,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}}]}
 ]

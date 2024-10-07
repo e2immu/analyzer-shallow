@@ -1,5 +1,6 @@
 package org.e2immu.analyzer.shallow.analyzer;
 
+import org.e2immu.analyzer.modification.prepwork.PrepWorkCodec;
 import org.e2immu.language.cst.api.analysis.Codec;
 import org.e2immu.language.cst.api.analysis.PropertyValueMap;
 import org.e2immu.language.cst.api.info.FieldInfo;
@@ -45,7 +46,7 @@ public class LoadAnalyzedAnnotatedAPI {
     }
 
     public void goDir(JavaInspector javaInspector, File directory) throws IOException {
-        Codec codec = createCodec(javaInspector);
+        Codec codec = new PrepWorkCodec(javaInspector.runtime()).codec();
         goDir(codec, directory);
     }
 
@@ -118,7 +119,12 @@ public class LoadAnalyzedAnnotatedAPI {
         }
         List<Codec.PropertyValue> pvs = codec.decode(context, info.analysis(), epvs.stream()).toList();
         try {
-            pvs.forEach(pv -> info.analysis().set(pv.property(), pv.value()));
+            pvs.forEach(pv -> {
+                if("hct".equals(pv.property().key())) {
+                    LOGGER.info("Writing hct of {}: {}", info, pv.value());
+                }
+                info.analysis().set(pv.property(), pv.value());
+            });
         } catch (IllegalStateException ise) {
             LOGGER.error("Problem while writing to {}", info);
             throw new RuntimeException(ise);

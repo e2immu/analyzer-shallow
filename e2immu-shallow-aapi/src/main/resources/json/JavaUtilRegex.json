@@ -1,5 +1,27 @@
 [
 {"name": "Tjava.util.regex.Pattern", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":0,"shallowAnalyzer":1}, "subs":[
+ {"name": "SBackRef(0)", "data":{"hc":{"E":true}}},
+ {"name": "SBehind(2)", "data":{"hc":{"E":true}}},
+ {"name": "SBmpCharPredicate(5)", "data":{"hc":{"E":true}}},
+ {"name": "SBmpCharProperty(6)", "data":{"hc":{"E":true}}},
+ {"name": "SBnM(8)", "data":{"hc":{"E":true}}},
+ {"name": "SCIBackRef(13)", "data":{"hc":{"E":true}}},
+ {"name": "SCharPredicate(15)", "data":{"hc":{"E":true}}},
+ {"name": "SCharProperty(16)", "data":{"hc":{"E":true}}},
+ {"name": "SCharPropertyGreedy(17)", "data":{"hc":{"E":true}}},
+ {"name": "SGraphemeBound(22)", "data":{"hc":{"E":true}}},
+ {"name": "SLastNode(27)", "data":{"hc":{"E":true}}},
+ {"name": "SLookBehindEndNode(30)", "data":{"hc":{"E":true}}},
+ {"name": "SLoop(31)", "data":{"hc":{"E":true}}},
+ {"name": "SNFCCharProperty(32)", "data":{"hc":{"E":true}}},
+ {"name": "SNode(34)", "data":{"hc":{"E":true}}},
+ {"name": "SNotBehind(35)", "data":{"hc":{"E":true}}},
+ {"name": "SSlice(41)", "data":{"hc":{"E":true}}},
+ {"name": "SSliceI(42)", "data":{"hc":{"E":true}}},
+ {"name": "SSliceIS(43)", "data":{"hc":{"E":true}}},
+ {"name": "SSliceNode(44)", "data":{"hc":{"E":true}}},
+ {"name": "SStart(48)", "data":{"hc":{"E":true}}},
+ {"name": "SXGrapheme(53)", "data":{"hc":{"E":true}}},
  {"name": "FUNIX_LINES(0)", "data":{"containerField":0,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FCASE_INSENSITIVE(1)", "data":{"containerField":0,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FCOMMENTS(2)", "data":{"containerField":0,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
@@ -9,17 +31,28 @@
  {"name": "FUNICODE_CASE(6)", "data":{"containerField":0,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FCANON_EQ(7)", "data":{"containerField":0,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FUNICODE_CHARACTER_CLASS(8)", "data":{"containerField":0,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
- {"name": "Mcompile(0)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "Mcompile(1)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
+ {"name": "Mcompile(0)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "sub":
+  {"name": "Pregex(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}},
+ {"name": "Mcompile(1)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pregex(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}},
+  {"name": "Pflags(1)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}]},
  {"name": "Mpattern(2)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
  {"name": "MtoString(3)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "Mmatcher(4)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mmatcher(4)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pinput(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}},
  {"name": "Mflags(5)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "Mmatches(6)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "Msplit(7)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":1,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "Msplit(8)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":1,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "Mquote(9)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
+ {"name": "Mmatches(6)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pregex(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}},
+  {"name": "Pinput(1)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}]},
+ {"name": "Msplit(7)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":1,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pinput(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}},
+  {"name": "Plimit(1)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}]},
+ {"name": "Msplit(8)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":1,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "sub":
+  {"name": "Pinput(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}},
+ {"name": "Mquote(9)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "sub":
+  {"name": "Ps(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}},
  {"name": "MasPredicate(84)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
  {"name": "MasMatchPredicate(85)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "MsplitAsStream(86)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}}]}
+ {"name": "MsplitAsStream(86)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "sub":
+  {"name": "Pinput(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}}]}
 ]

@@ -2,6 +2,7 @@ package org.e2immu.analyzer.shallow.analyzer;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
+import org.e2immu.analyzer.modification.prepwork.PrepAnalyzer;
 import org.e2immu.language.cst.api.analysis.Value;
 import org.e2immu.language.cst.api.info.MethodInfo;
 import org.e2immu.language.cst.api.info.TypeInfo;
@@ -51,7 +52,10 @@ public class CommonTest {
                 List.of("java"));
         ShallowAnalyzer shallowAnalyzer = new ShallowAnalyzer(annotatedApiParser);
         shallowAnalyzer.go();
+
+        PrepAnalyzer prepAnalyzer = new PrepAnalyzer(annotatedApiParser.runtime());
         sorted = shallowAnalyzer.getSorted();
+        sorted.stream().filter(TypeInfo::isPrimaryType).forEach(ti -> prepAnalyzer.doPrimaryType(ti, true));
         graph = shallowAnalyzer.getGraph();
         allTypes = shallowAnalyzer.getAllTypes();
         compiledTypesManager = annotatedApiParser.javaInspector().compiledTypesManager();

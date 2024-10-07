@@ -1,7 +1,8 @@
 [
-{"name": "Tjava.security.Guard", "data":{"containerType":1,"immutableType":2,"immutableTypeDeterminedByParameters":0,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "sub":
- {"name": "McheckGuard(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}}},
+{"name": "Tjava.security.Guard", "data":{"containerType":1,"hc":{"E":true},"immutableType":2,"immutableTypeDeterminedByParameters":0,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "sub":
+ {"name": "McheckGuard(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pobject(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}}},
 
-{"name": "Tjava.security.PrivilegedAction", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
- {"name": "Mrun(0)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":2,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}}}
+{"name": "Tjava.security.PrivilegedAction", "data":{"containerType":0,"hc":{"0":"PT:0","E":true,"M":1},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
+ {"name": "Mrun(0)", "data":{"containerMethod":0,"fluentMethod":0,"hcsMethod":{"0":[[-1]]},"identityMethod":0,"immutableMethod":2,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}}}
 ]

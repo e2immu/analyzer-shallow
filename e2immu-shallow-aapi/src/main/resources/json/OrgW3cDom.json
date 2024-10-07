@@ -1,5 +1,5 @@
 [
-{"name": "Torg.w3c.dom.Node", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":0,"shallowAnalyzer":1}, "subs":[
+{"name": "Torg.w3c.dom.Node", "data":{"containerType":0,"hc":{"E":true},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":0,"shallowAnalyzer":1}, "subs":[
  {"name": "FELEMENT_NODE(0)", "data":{"containerField":0,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FATTRIBUTE_NODE(1)", "data":{"containerField":0,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FTEXT_NODE(2)", "data":{"containerField":0,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
@@ -20,7 +20,8 @@
  {"name": "FDOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC(17)", "data":{"containerField":0,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "MgetNodeName(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
  {"name": "MgetNodeValue(1)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "MsetNodeValue(2)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}},
+ {"name": "MsetNodeValue(2)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}},
  {"name": "MgetNodeType(3)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MgetParentNode(4)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
  {"name": "MgetChildNodes(5)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
@@ -30,29 +31,52 @@
  {"name": "MgetNextSibling(9)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
  {"name": "MgetAttributes(10)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
  {"name": "MgetOwnerDocument(11)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "MinsertBefore(12)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "MreplaceChild(13)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "MremoveChild(14)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "MappendChild(15)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":0,"shallowAnalyzer":1}},
+ {"name": "MinsertBefore(12)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pnode(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":0,"independentParameter":2,"modifiedParameter":1,"notNullParameter":0}},
+  {"name": "Pnode1(1)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":0,"independentParameter":2,"modifiedParameter":1,"notNullParameter":0}}]},
+ {"name": "MreplaceChild(13)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pnode(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":0,"independentParameter":2,"modifiedParameter":1,"notNullParameter":0}},
+  {"name": "Pnode1(1)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":0,"independentParameter":2,"modifiedParameter":1,"notNullParameter":0}}]},
+ {"name": "MremoveChild(14)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":0,"shallowAnalyzer":1}, "sub":
+  {"name": "Pnode(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":0,"independentParameter":0,"modifiedParameter":1,"notNullParameter":0}}},
+ {"name": "MappendChild(15)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":0,"shallowAnalyzer":1}, "sub":
+  {"name": "Pnode(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":0,"independentParameter":0,"modifiedParameter":1,"notNullParameter":0}}},
  {"name": "MhasChildNodes(16)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "McloneNode(17)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
+ {"name": "McloneNode(17)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}},
  {"name": "Mnormalize(18)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}},
- {"name": "MisSupported(19)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisSupported(19)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}},
+  {"name": "Pstring1(1)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}]},
  {"name": "MgetNamespaceURI(20)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
  {"name": "MgetPrefix(21)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "MsetPrefix(22)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}},
+ {"name": "MsetPrefix(22)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}},
  {"name": "MgetLocalName(23)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
  {"name": "MhasAttributes(24)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MgetBaseURI(25)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "McompareDocumentPosition(26)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "McompareDocumentPosition(26)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pnode(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":0,"independentParameter":2,"modifiedParameter":1,"notNullParameter":0}}},
  {"name": "MgetTextContent(27)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "MsetTextContent(28)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}},
- {"name": "MisSameNode(29)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MlookupPrefix(30)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "MisDefaultNamespace(31)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MlookupNamespaceURI(32)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "MisEqualNode(33)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MgetFeature(34)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":2,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "MsetUserData(35)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":2,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "MgetUserData(36)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":2,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}}]}
+ {"name": "MsetTextContent(28)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}},
+ {"name": "MisSameNode(29)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pnode(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":0,"independentParameter":2,"modifiedParameter":1,"notNullParameter":0}}},
+ {"name": "MlookupPrefix(30)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "sub":
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}},
+ {"name": "MisDefaultNamespace(31)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}},
+ {"name": "MlookupNamespaceURI(32)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "sub":
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}},
+ {"name": "MisEqualNode(33)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pnode(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":0,"independentParameter":2,"modifiedParameter":1,"notNullParameter":0}}},
+ {"name": "MgetFeature(34)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":2,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}},
+  {"name": "Pstring1(1)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}]},
+ {"name": "MsetUserData(35)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":2,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}},
+  {"name": "Pobject(1)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}},
+  {"name": "PuserDataHandler(2)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":0,"independentParameter":2,"modifiedParameter":1,"notNullParameter":0}}]},
+ {"name": "MgetUserData(36)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":2,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "sub":
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}}]}
 ]

@@ -1,24 +1,20 @@
 package org.e2immu.analyzer.shallow.analyzer;
 
+import org.e2immu.analyzer.modification.prepwork.hct.HiddenContentTypes;
 import org.e2immu.language.cst.api.analysis.Value;
-import org.e2immu.language.cst.api.info.FieldInfo;
 import org.e2immu.language.cst.api.info.MethodInfo;
 import org.e2immu.language.cst.api.info.ParameterInfo;
 import org.e2immu.language.cst.api.info.TypeInfo;
 import org.e2immu.language.cst.api.type.ParameterizedType;
-import org.e2immu.language.cst.impl.analysis.PropertyImpl;
-import org.e2immu.language.cst.impl.analysis.ValueImpl;
 import org.junit.jupiter.api.Test;
 
-import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static org.e2immu.analyzer.modification.prepwork.hct.HiddenContentTypes.HIDDEN_CONTENT_TYPES;
 import static org.e2immu.language.cst.impl.analysis.PropertyImpl.*;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.FALSE;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.TRUE;
-import static org.e2immu.language.cst.impl.analysis.ValueImpl.ImmutableImpl.Immutable;
-import static org.e2immu.language.cst.impl.analysis.ValueImpl.ImmutableImpl.Independent;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.ImmutableImpl.*;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.ImmutableImpl.NO_VALUE;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.IndependentImpl.*;
@@ -100,6 +96,8 @@ public class TestJavaUtil extends CommonTest {
         assertSame(MUTABLE, typeInfo.analysis().getOrDefault(IMMUTABLE_TYPE, MUTABLE));
         assertSame(DEPENDENT, typeInfo.analysis().getOrDefault(INDEPENDENT_TYPE, DEPENDENT));
         assertSame(TRUE, typeInfo.analysis().getOrDefault(CONTAINER_TYPE, FALSE));
+
+        assertEquals("List:E", typeInfo.analysis().getOrNull(HIDDEN_CONTENT_TYPES, HiddenContentTypes.class).toString());
     }
 
     @Test

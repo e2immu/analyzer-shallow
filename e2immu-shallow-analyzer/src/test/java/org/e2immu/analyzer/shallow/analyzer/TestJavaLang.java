@@ -5,8 +5,6 @@ import org.e2immu.language.cst.api.info.FieldInfo;
 import org.e2immu.language.cst.api.info.MethodInfo;
 import org.e2immu.language.cst.api.info.ParameterInfo;
 import org.e2immu.language.cst.api.info.TypeInfo;
-import org.e2immu.language.cst.api.type.ParameterizedType;
-import org.e2immu.language.cst.impl.analysis.ValueImpl;
 import org.junit.jupiter.api.Test;
 
 import java.io.Serializable;

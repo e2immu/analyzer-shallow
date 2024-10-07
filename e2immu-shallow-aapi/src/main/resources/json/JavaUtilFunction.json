@@ -1,91 +1,136 @@
 [
-{"name": "Tjava.util.function.BiConsumer", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "subs":[
- {"name": "Maccept(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}},
- {"name": "MandThen(1)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}}]},
+{"name": "Tjava.util.function.BiConsumer", "data":{"containerType":0,"hc":{"0":"PT:0","1":"PU:1","E":true,"M":2},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "subs":[
+ {"name": "Maccept(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pt(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":1,"modifiedParameter":1,"notNullParameter":0}},
+  {"name": "Pu(1)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":1,"modifiedParameter":1,"notNullParameter":0}}]},
+ {"name": "MandThen(1)", "data":{"containerMethod":0,"fluentMethod":0,"hcsMethod":{"0":[[0]],"1":[[1]]},"identityMethod":0,"immutableMethod":0,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pafter(0)", "data":{"containerParameter":0,"hcsParameter":{"0":[[0]],"1":[[1]]},"ignoreModsParameter":1,"immutableParameter":0,"independentParameter":2,"modifiedParameter":1,"notNullParameter":1}}}]},
 
-{"name": "Tjava.util.function.BiFunction", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "subs":[
- {"name": "Mapply(0)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":2,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "MandThen(1)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}}]},
+{"name": "Tjava.util.function.BiFunction", "data":{"containerType":0,"hc":{"0":"PT:0","1":"PU:1","2":"PR:2","E":true,"M":3},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "subs":[
+ {"name": "Mapply(0)", "data":{"containerMethod":0,"fluentMethod":0,"hcsMethod":{"2":[[-1]]},"identityMethod":0,"immutableMethod":2,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":0,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pt(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":1,"modifiedParameter":1,"notNullParameter":0}},
+  {"name": "Pu(1)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":1,"modifiedParameter":1,"notNullParameter":0}}]},
+ {"name": "MandThen(1)", "data":{"containerMethod":0,"fluentMethod":0,"hc":{"3":"PV:3","M":3},"hcsMethod":{"0":[[0]],"1":[[1]],"3":[[2]]},"identityMethod":0,"immutableMethod":0,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pafter(0)", "data":{"containerParameter":0,"hcsParameter":{"2":[[0]],"3":[[1]]},"ignoreModsParameter":1,"immutableParameter":0,"independentParameter":2,"modifiedParameter":1,"notNullParameter":1}}}]},
 
-{"name": "Tjava.util.function.Consumer", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "subs":[
- {"name": "Maccept(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}},
- {"name": "MandThen(1)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}}]},
+{"name": "Tjava.util.function.Consumer", "data":{"containerType":0,"hc":{"0":"PT:0","E":true,"M":1},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "subs":[
+ {"name": "Maccept(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pt(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":1,"modifiedParameter":1,"notNullParameter":0}}},
+ {"name": "MandThen(1)", "data":{"containerMethod":0,"fluentMethod":0,"hcsMethod":{"0":[[0]]},"identityMethod":0,"immutableMethod":0,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pafter(0)", "data":{"containerParameter":0,"hcsParameter":{"0":[[0]]},"ignoreModsParameter":1,"immutableParameter":0,"independentParameter":2,"modifiedParameter":1,"notNullParameter":1}}}]},
 
-{"name": "Tjava.util.function.DoubleConsumer", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":0,"shallowAnalyzer":1}, "subs":[
- {"name": "Maccept(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}},
- {"name": "MandThen(1)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}}]},
+{"name": "Tjava.util.function.DoubleConsumer", "data":{"containerType":0,"hc":{"E":true},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":0,"shallowAnalyzer":1}, "subs":[
+ {"name": "Maccept(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pd(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}},
+ {"name": "MandThen(1)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "sub":
+  {"name": "Pafter(0)", "data":{"containerParameter":0,"ignoreModsParameter":1,"immutableParameter":0,"independentParameter":2,"modifiedParameter":1,"notNullParameter":0}}}]},
 
-{"name": "Tjava.util.function.DoubleFunction", "data":{"containerType":1,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
- {"name": "Mapply(0)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":2,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":0,"shallowAnalyzer":1}}},
+{"name": "Tjava.util.function.DoubleFunction", "data":{"containerType":1,"hc":{"0":"PR:0","E":true,"M":1},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
+ {"name": "Mapply(0)", "data":{"containerMethod":0,"fluentMethod":0,"hcsMethod":{"0":[[-1]]},"identityMethod":0,"immutableMethod":2,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":0,"shallowAnalyzer":1}, "sub":
+  {"name": "Pd(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}}},
 
-{"name": "Tjava.util.function.Function", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "subs":[
- {"name": "Mapply(0)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":2,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "Mcompose(1)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MandThen(2)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "Midentity(3)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}}]},
+{"name": "Tjava.util.function.Function", "data":{"containerType":0,"hc":{"0":"PT:0","1":"PR:1","E":true,"M":2},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "subs":[
+ {"name": "Mapply(0)", "data":{"containerMethod":0,"fluentMethod":0,"hcsMethod":{"1":[[-1]]},"identityMethod":0,"immutableMethod":2,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":0,"shallowAnalyzer":1}, "sub":
+  {"name": "Pt(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":1,"modifiedParameter":1,"notNullParameter":0}}},
+ {"name": "Mcompose(1)", "data":{"containerMethod":0,"fluentMethod":0,"hc":{"2":"PV:2","M":2},"hcsMethod":{"1":[[1]],"2":[[0]]},"identityMethod":0,"immutableMethod":0,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pbefore(0)", "data":{"containerParameter":0,"hcsParameter":{"0":[[1]],"2":[[0]]},"ignoreModsParameter":1,"immutableParameter":0,"independentParameter":2,"modifiedParameter":1,"notNullParameter":1}}},
+ {"name": "MandThen(2)", "data":{"containerMethod":0,"fluentMethod":0,"hc":{"2":"PV:2","M":2},"hcsMethod":{"0":[[0]],"2":[[1]]},"identityMethod":0,"immutableMethod":0,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pafter(0)", "data":{"containerParameter":0,"hcsParameter":{"1":[[0]],"2":[[1]]},"ignoreModsParameter":1,"immutableParameter":0,"independentParameter":2,"modifiedParameter":1,"notNullParameter":1}}},
+ {"name": "Midentity(3)", "data":{"containerMethod":1,"fluentMethod":0,"hc":{"2":"PT:2","M":2},"hcsMethod":{"2":[[0],[1]]},"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}}]},
 
-{"name": "Tjava.util.function.IntConsumer", "data":{"containerType":1,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
- {"name": "Maccept(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}},
- {"name": "MandThen(1)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}}]},
+{"name": "Tjava.util.function.IntConsumer", "data":{"containerType":1,"hc":{"E":true},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "Maccept(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}},
+ {"name": "MandThen(1)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "sub":
+  {"name": "Pafter(0)", "data":{"containerParameter":1,"ignoreModsParameter":1,"immutableParameter":0,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}}]},
 
-{"name": "Tjava.util.function.IntFunction", "data":{"containerType":1,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
- {"name": "Mapply(0)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":2,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":0,"shallowAnalyzer":1}}},
+{"name": "Tjava.util.function.IntFunction", "data":{"containerType":1,"hc":{"0":"PR:0","E":true,"M":1},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
+ {"name": "Mapply(0)", "data":{"containerMethod":0,"fluentMethod":0,"hcsMethod":{"0":[[-1]]},"identityMethod":0,"immutableMethod":2,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":0,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}}},
 
-{"name": "Tjava.util.function.IntPredicate", "data":{"containerType":1,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
- {"name": "Mtest(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "Mand(1)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
+{"name": "Tjava.util.function.IntPredicate", "data":{"containerType":1,"hc":{"E":true},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "Mtest(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}},
+ {"name": "Mand(1)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "sub":
+  {"name": "Pother(0)", "data":{"containerParameter":1,"ignoreModsParameter":1,"immutableParameter":0,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}},
  {"name": "Mnegate(2)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "Mor(3)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}}]},
+ {"name": "Mor(3)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "sub":
+  {"name": "Pother(0)", "data":{"containerParameter":1,"ignoreModsParameter":1,"immutableParameter":0,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}}]},
 
-{"name": "Tjava.util.function.LongConsumer", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":0,"shallowAnalyzer":1}, "subs":[
- {"name": "Maccept(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}},
- {"name": "MandThen(1)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}}]},
+{"name": "Tjava.util.function.LongConsumer", "data":{"containerType":0,"hc":{"E":true},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":0,"shallowAnalyzer":1}, "subs":[
+ {"name": "Maccept(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}},
+ {"name": "MandThen(1)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":0,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "sub":
+  {"name": "Pafter(0)", "data":{"containerParameter":0,"ignoreModsParameter":1,"immutableParameter":0,"independentParameter":2,"modifiedParameter":1,"notNullParameter":0}}}]},
 
-{"name": "Tjava.util.function.LongFunction", "data":{"containerType":1,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
- {"name": "Mapply(0)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":2,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":0,"shallowAnalyzer":1}}},
+{"name": "Tjava.util.function.LongFunction", "data":{"containerType":1,"hc":{"0":"PR:0","E":true,"M":1},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
+ {"name": "Mapply(0)", "data":{"containerMethod":0,"fluentMethod":0,"hcsMethod":{"0":[[-1]]},"identityMethod":0,"immutableMethod":2,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":0,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}}},
 
-{"name": "Tjava.util.function.ObjDoubleConsumer", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
- {"name": "Maccept(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}}},
+{"name": "Tjava.util.function.ObjDoubleConsumer", "data":{"containerType":0,"hc":{"0":"PT:0","E":true,"M":1},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
+ {"name": "Maccept(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pt(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":1,"modifiedParameter":1,"notNullParameter":0}},
+  {"name": "Pd(1)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}]}},
 
-{"name": "Tjava.util.function.ObjIntConsumer", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
- {"name": "Maccept(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}}},
+{"name": "Tjava.util.function.ObjIntConsumer", "data":{"containerType":0,"hc":{"0":"PT:0","E":true,"M":1},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
+ {"name": "Maccept(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pt(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":1,"modifiedParameter":1,"notNullParameter":0}},
+  {"name": "Pi(1)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}]}},
 
-{"name": "Tjava.util.function.ObjLongConsumer", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
- {"name": "Maccept(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}}},
+{"name": "Tjava.util.function.ObjLongConsumer", "data":{"containerType":0,"hc":{"0":"PT:0","E":true,"M":1},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
+ {"name": "Maccept(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pt(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":1,"modifiedParameter":1,"notNullParameter":0}},
+  {"name": "Pl(1)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}}]}},
 
-{"name": "Tjava.util.function.Predicate", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "subs":[
- {"name": "Mtest(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "Mand(1)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "Mnegate(2)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "Mor(3)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "MisEqual(4)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
- {"name": "Mnot(5)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}}]},
+{"name": "Tjava.util.function.Predicate", "data":{"containerType":0,"hc":{"0":"PT:0","E":true,"M":1},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "subs":[
+ {"name": "Mtest(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pt(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":1,"modifiedParameter":1,"notNullParameter":0}}},
+ {"name": "Mand(1)", "data":{"containerMethod":0,"fluentMethod":0,"hcsMethod":{"0":[[0]]},"identityMethod":0,"immutableMethod":0,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "sub":
+  {"name": "Pother(0)", "data":{"containerParameter":0,"hcsParameter":{"0":[[0]]},"ignoreModsParameter":1,"immutableParameter":0,"independentParameter":2,"modifiedParameter":1,"notNullParameter":0}}},
+ {"name": "Mnegate(2)", "data":{"containerMethod":0,"fluentMethod":0,"hcsMethod":{"0":[[0]]},"identityMethod":0,"immutableMethod":0,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}},
+ {"name": "Mor(3)", "data":{"containerMethod":0,"fluentMethod":0,"hcsMethod":{"0":[[0]]},"identityMethod":0,"immutableMethod":0,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "sub":
+  {"name": "Pother(0)", "data":{"containerParameter":0,"hcsParameter":{"0":[[0]]},"ignoreModsParameter":1,"immutableParameter":0,"independentParameter":2,"modifiedParameter":1,"notNullParameter":0}}},
+ {"name": "MisEqual(4)", "data":{"containerMethod":0,"fluentMethod":0,"hc":{"1":"PT:1","M":1},"hcsMethod":{"1":[[0]]},"identityMethod":0,"immutableMethod":0,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "sub":
+  {"name": "PtargetRef(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":1,"modifiedParameter":0,"notNullParameter":0}}},
+ {"name": "Mnot(5)", "data":{"containerMethod":0,"fluentMethod":0,"hc":{"1":"PT:1","M":1},"hcsMethod":{"1":[[0]]},"identityMethod":0,"immutableMethod":0,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":0,"shallowAnalyzer":1}, "sub":
+  {"name": "Ptarget(0)", "data":{"containerParameter":0,"hcsParameter":{"1":[[0]]},"ignoreModsParameter":1,"immutableParameter":0,"independentParameter":1,"modifiedParameter":1,"notNullParameter":0}}}]},
 
-{"name": "Tjava.util.function.Supplier", "data":{"containerType":1,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
- {"name": "Mget(0)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":2,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":0,"shallowAnalyzer":1}}},
+{"name": "Tjava.util.function.Supplier", "data":{"containerType":1,"hc":{"0":"PT:0","E":true,"M":1},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
+ {"name": "Mget(0)", "data":{"containerMethod":0,"fluentMethod":0,"hcsMethod":{"0":[[-1]]},"identityMethod":0,"immutableMethod":2,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":0,"shallowAnalyzer":1}}},
 
-{"name": "Tjava.util.function.ToDoubleBiFunction", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
- {"name": "MapplyAsDouble(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}}},
+{"name": "Tjava.util.function.ToDoubleBiFunction", "data":{"containerType":0,"hc":{"0":"PT:0","1":"PU:1","E":true,"M":2},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
+ {"name": "MapplyAsDouble(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pt(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":1,"modifiedParameter":1,"notNullParameter":0}},
+  {"name": "Pu(1)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":1,"modifiedParameter":1,"notNullParameter":0}}]}},
 
-{"name": "Tjava.util.function.ToDoubleFunction", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
- {"name": "MapplyAsDouble(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}}},
+{"name": "Tjava.util.function.ToDoubleFunction", "data":{"containerType":0,"hc":{"0":"PT:0","E":true,"M":1},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
+ {"name": "MapplyAsDouble(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pt(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":1,"modifiedParameter":1,"notNullParameter":0}}}},
 
-{"name": "Tjava.util.function.ToIntBiFunction", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
- {"name": "MapplyAsInt(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}}},
+{"name": "Tjava.util.function.ToIntBiFunction", "data":{"containerType":0,"hc":{"0":"PT:0","1":"PU:1","E":true,"M":2},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
+ {"name": "MapplyAsInt(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pt(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":1,"modifiedParameter":1,"notNullParameter":0}},
+  {"name": "Pu(1)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":1,"modifiedParameter":1,"notNullParameter":0}}]}},
 
-{"name": "Tjava.util.function.ToIntFunction", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
- {"name": "MapplyAsInt(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}}},
+{"name": "Tjava.util.function.ToIntFunction", "data":{"containerType":0,"hc":{"0":"PT:0","E":true,"M":1},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
+ {"name": "MapplyAsInt(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pt(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":1,"modifiedParameter":1,"notNullParameter":0}}}},
 
-{"name": "Tjava.util.function.ToLongBiFunction", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
- {"name": "MapplyAsLong(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}}},
+{"name": "Tjava.util.function.ToLongBiFunction", "data":{"containerType":0,"hc":{"0":"PT:0","1":"PU:1","E":true,"M":2},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
+ {"name": "MapplyAsLong(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pt(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":1,"modifiedParameter":1,"notNullParameter":0}},
+  {"name": "Pu(1)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":1,"modifiedParameter":1,"notNullParameter":0}}]}},
 
-{"name": "Tjava.util.function.ToLongFunction", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
- {"name": "MapplyAsLong(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}}},
+{"name": "Tjava.util.function.ToLongFunction", "data":{"containerType":0,"hc":{"0":"PT:0","E":true,"M":1},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
+ {"name": "MapplyAsLong(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pt(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":1,"modifiedParameter":1,"notNullParameter":0}}}},
 
-{"name": "Tjava.util.function.BinaryOperator", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "subs":[
- {"name": "MminBy(0)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MmaxBy(1)", "data":{"containerMethod":0,"fluentMethod":0,"identityMethod":0,"immutableMethod":0,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}}]},
+{"name": "Tjava.util.function.BinaryOperator", "data":{"containerType":0,"hc":{"0":"PT:0","E":true,"M":1},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "subs":[
+ {"name": "MminBy(0)", "data":{"containerMethod":0,"fluentMethod":0,"hc":{"1":"PT:1","M":1},"hcsMethod":{"1":[[0]]},"identityMethod":0,"immutableMethod":0,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcomparator(0)", "data":{"containerParameter":1,"hcsParameter":{"1":[[0]]},"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":1,"modifiedParameter":0,"notNullParameter":1}}},
+ {"name": "MmaxBy(1)", "data":{"containerMethod":0,"fluentMethod":0,"hc":{"1":"PT:1","M":1},"hcsMethod":{"1":[[0]]},"identityMethod":0,"immutableMethod":0,"independentMethod":1,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcomparator(0)", "data":{"containerParameter":1,"hcsParameter":{"1":[[0]]},"ignoreModsParameter":0,"immutableParameter":2,"independentParameter":1,"modifiedParameter":0,"notNullParameter":1}}}]},
 
-{"name": "Tjava.util.function.UnaryOperator", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
- {"name": "Midentity(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}}}
+{"name": "Tjava.util.function.UnaryOperator", "data":{"containerType":0,"hc":{"0":"PT:0","E":true,"M":1},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":1,"shallowAnalyzer":1}, "sub":
+ {"name": "Midentity(0)", "data":{"containerMethod":1,"fluentMethod":0,"hc":{"1":"PT:1","M":1},"hcsMethod":{"1":[[0]]},"identityMethod":0,"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":1,"shallowAnalyzer":1}}}
 ]

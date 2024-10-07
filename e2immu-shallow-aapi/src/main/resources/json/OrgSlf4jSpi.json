@@ -1,12 +1,19 @@
 [
-{"name": "Torg.slf4j.spi.LoggingEventAware", "data":{"containerType":0,"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":0,"shallowAnalyzer":1}, "sub":
- {"name": "Mlog(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}}},
+{"name": "Torg.slf4j.spi.LoggingEventAware", "data":{"containerType":0,"hc":{"E":true},"immutableType":0,"immutableTypeDeterminedByParameters":0,"independentType":0,"shallowAnalyzer":1}, "sub":
+ {"name": "Mlog(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":0,"notNullMethod":-1,"shallowAnalyzer":1}, "sub":
+  {"name": "PloggingEvent(0)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":0,"independentParameter":2,"modifiedParameter":1,"notNullParameter":0}}}},
 
-{"name": "Torg.slf4j.spi.LocationAwareLogger", "data":{"containerType":1,"immutableType":2,"immutableTypeDeterminedByParameters":0,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Torg.slf4j.spi.LocationAwareLogger", "data":{"containerType":1,"hc":{"E":true},"immutableType":2,"immutableTypeDeterminedByParameters":0,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "FTRACE_INT(0)", "data":{"containerField":0,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FDEBUG_INT(1)", "data":{"containerField":0,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FINFO_INT(2)", "data":{"containerField":0,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FWARN_INT(3)", "data":{"containerField":0,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FERROR_INT(4)", "data":{"containerField":0,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
- {"name": "Mlog(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}}]}
+ {"name": "Mlog(0)", "data":{"containerMethod":1,"fluentMethod":0,"identityMethod":0,"immutableMethod":-1,"independentMethod":2,"methodAllowsInterrupts":0,"modifiedMethod":1,"notNullMethod":-1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pmarker(0)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":0,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}},
+  {"name": "Pstring(1)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}},
+  {"name": "Pi(2)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":1}},
+  {"name": "Pstring1(3)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":3,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}},
+  {"name": "Pobject(4)", "data":{"containerParameter":1,"ignoreModsParameter":0,"immutableParameter":1,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}},
+  {"name": "Pthrowable(5)", "data":{"containerParameter":0,"ignoreModsParameter":0,"immutableParameter":0,"independentParameter":2,"modifiedParameter":0,"notNullParameter":0}}]}]}
 ]

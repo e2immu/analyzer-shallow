@@ -56,7 +56,7 @@ public class WriteAnalysis {
         }
     }
 
-    private static Codec.EncodedValue writeField(Codec codec, Codec.Context context, FieldInfo fieldInfo, int index) {
+    private static Codec.EncodedValue write(Codec codec, Codec.Context context, Info fieldInfo, int index) {
         Stream<Codec.EncodedPropertyValue> stream = fieldInfo.analysis().propertyValueStream()
                 .map(pv -> codec.encode(context, pv.property(), pv.value()))
                 .filter(Objects::nonNull); // some properties will (temporarily) not be streamed
@@ -64,10 +64,18 @@ public class WriteAnalysis {
     }
 
     private static Codec.EncodedValue writeMethod(Codec codec, Codec.Context context, MethodInfo methodInfo, int index) {
+        List<Codec.EncodedValue> subs = new ArrayList<>(methodInfo.parameters().size());
+        int p = 0;
+        for (ParameterInfo parameterInfo : methodInfo.parameters()) {
+            context.push(parameterInfo);
+            subs.add(write(codec, context, parameterInfo, p));
+            context.pop();
+            p++;
+        }
         Stream<Codec.EncodedPropertyValue> stream = methodInfo.analysis().propertyValueStream()
                 .map(pv -> codec.encode(context, pv.property(), pv.value()))
                 .filter(Objects::nonNull); // some properties will (temporarily) not be streamed
-        return codec.encode(context, methodInfo, "" + index, stream, null);
+        return codec.encode(context, methodInfo, "" + index, stream, subs);
     }
 
     private static Codec.EncodedValue writeType(Codec codec, Codec.Context context, TypeInfo typeInfo, int index) {
@@ -85,7 +93,7 @@ public class WriteAnalysis {
         int fc = 0;
         for (FieldInfo fieldInfo : typeInfo.fields()) {
             context.push(fieldInfo);
-            subs.add(writeField(codec, context, fieldInfo, fc));
+            subs.add(write(codec, context, fieldInfo, fc));
             context.pop();
             fc++;
         }
@@ -121,7 +129,7 @@ public class WriteAnalysis {
         if (ev != null) {
             if (first.get()) first.set(false);
             else osw.write(",\n");
-            ((CodecImpl.E)ev).write(osw, 0, true);
+            ((CodecImpl.E) ev).write(osw, 0, true);
         } // else: no data, no need to write
     }
 

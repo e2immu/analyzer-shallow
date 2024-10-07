@@ -242,7 +242,7 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
             Value.Immutable imm = (Value.Immutable) map.get(IMMUTABLE_PARAMETER);
             if (imm == null) {
                 Immutable value = analysisHelper.typeImmutable(parameterInfo.parameterizedType());
-                if(value == null) {
+                if (value == null) {
                     LOGGER.warn("Have no @Immutable value for {}", parameterInfo.parameterizedType());
                     value = ValueImpl.ImmutableImpl.MUTABLE;
                 }
@@ -316,7 +316,7 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
             return FALSE;
         }
         Value.Independent typeIndependent = analysisHelper.typeIndependent(type);
-        if(typeIndependent == null) {
+        if (typeIndependent == null) {
             LOGGER.warn("Have no @Independent value for {}", type);
             typeIndependent = DEPENDENT;
         }

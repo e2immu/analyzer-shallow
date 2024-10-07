@@ -6,7 +6,6 @@ import org.e2immu.language.cst.api.analysis.Value;
 import org.e2immu.language.cst.api.expression.AnnotationExpression;
 import org.e2immu.language.cst.api.info.*;
 import org.e2immu.language.cst.api.type.ParameterizedType;
-import org.e2immu.language.cst.impl.analysis.PropertyImpl;
 import org.e2immu.language.cst.impl.analysis.ValueImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -106,7 +105,7 @@ public class ShallowTypeAnalyzer extends CommonAnalyzer {
             Value.Immutable imm = (Value.Immutable) fieldMap.get(IMMUTABLE_FIELD);
             if (imm == null || !imm.isImmutable()) {
                 Value.Immutable formally = analysisHelper.typeImmutable(fieldInfo.type());
-                if(formally == null) {
+                if (formally == null) {
                     LOGGER.warn("Have no @Immutable value for {}", fieldInfo.type());
                     formally = MUTABLE;
                 }
@@ -115,7 +114,7 @@ public class ShallowTypeAnalyzer extends CommonAnalyzer {
             Value.Independent ind = (Value.Independent) fieldMap.get(INDEPENDENT_FIELD);
             if (ind == null || !ind.isIndependent()) {
                 Value.Independent formally = analysisHelper.typeIndependent(fieldInfo.type());
-                if(formally == null) {
+                if (formally == null) {
                     LOGGER.warn("Have no @Independent value for {}", fieldInfo.type());
                     formally = DEPENDENT;
                 }

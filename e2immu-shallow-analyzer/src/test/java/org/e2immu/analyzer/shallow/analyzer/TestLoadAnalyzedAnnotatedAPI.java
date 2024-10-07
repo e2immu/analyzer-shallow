@@ -34,6 +34,7 @@ public class TestLoadAnalyzedAnnotatedAPI {
     public void test() throws IOException {
         ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger(org.slf4j.Logger.ROOT_LOGGER_NAME)).setLevel(Level.INFO);
         ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger("org.e2immu.analyzer.shallow")).setLevel(Level.DEBUG);
+        ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger("org.e2immu.analyzer.modification")).setLevel(Level.DEBUG);
 
         List<String> classPath = List.of(
                 "jmods/java.base.jmod", "jmods/java.xml.jmod", "jmods/java.net.http.jmod",

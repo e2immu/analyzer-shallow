@@ -2,6 +2,7 @@ package org.e2immu.analyzer.shallow.analyzer;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
+import org.e2immu.analyzer.modification.prepwork.PrepAnalyzer;
 import org.e2immu.language.cst.api.info.MethodInfo;
 import org.e2immu.language.cst.api.info.TypeInfo;
 import org.e2immu.util.internal.graph.G;
@@ -23,28 +24,13 @@ public class Run {
     public static void main(String[] args) throws IOException {
         ((Logger) LoggerFactory.getLogger(org.slf4j.Logger.ROOT_LOGGER_NAME)).setLevel(Level.INFO);
         ((Logger) LoggerFactory.getLogger("org.e2immu.analyzer.shallow")).setLevel(Level.DEBUG);
+        ((Logger) LoggerFactory.getLogger("org.e2immu.analyzer.modification.prepwork")).setLevel(Level.DEBUG);
 
         Run run = new Run();
         run.go(new String[]{"../analyzer-shallow/e2immu-shallow-aapi/src/main/java/org/e2immu/analyzer/shallow/aapi"});
     }
 
     public void go(String[] args) throws IOException {
-        List<TypeInfo> parsedTypes = parse(args);
-        LOGGER.info("Parsed {} types", parsedTypes.size());
-        WriteAnalysis wa = new WriteAnalysis();
-        Trie<TypeInfo> trie = new Trie<>();
-        for (TypeInfo ti : parsedTypes) {
-            if(ti.isPrimaryType()) {
-                trie.add(ti.packageName().split("\\."), ti);
-            }
-        }
-        File dir = new File("build");
-        File targetFile = new File(dir, "OrgE2Immu.json");
-        if (targetFile.delete()) LOGGER.debug("Deleted {}", targetFile);
-        wa.write(dir.getAbsolutePath(), trie);
-    }
-
-    private List<TypeInfo> parse(String[] args) throws IOException {
         LOGGER.info("I'm at {}", new File(".").getAbsolutePath());
         AnnotatedApiParser annotatedApiParser = new AnnotatedApiParser();
         annotatedApiParser.initialize(
@@ -60,6 +46,21 @@ public class Run {
                 List.of(args[0]),
                 List.of("java", "e2immu", "log", "test"));
         ShallowAnalyzer shallowAnalyzer = new ShallowAnalyzer(annotatedApiParser);
-        return shallowAnalyzer.go();
+        List<TypeInfo> parsedTypes = shallowAnalyzer.go();
+        PrepAnalyzer prepAnalyzer = new PrepAnalyzer(annotatedApiParser.runtime());
+        parsedTypes.stream().filter(TypeInfo::isPrimaryType).forEach(ti -> prepAnalyzer.doPrimaryType(ti, true));
+        LOGGER.info("Parsed and analyzed {} types", parsedTypes.size());
+
+        WriteAnalysis wa = new WriteAnalysis();
+        Trie<TypeInfo> trie = new Trie<>();
+        for (TypeInfo ti : parsedTypes) {
+            if (ti.isPrimaryType()) {
+                trie.add(ti.packageName().split("\\."), ti);
+            }
+        }
+        File dir = new File("build");
+        File targetFile = new File(dir, "OrgE2Immu.json");
+        if (targetFile.delete()) LOGGER.debug("Deleted {}", targetFile);
+        wa.write(dir.getAbsolutePath(), trie);
     }
 }
