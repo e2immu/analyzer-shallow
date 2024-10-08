@@ -25,7 +25,6 @@ import org.e2immu.language.cst.api.statement.Block;
 import org.e2immu.language.cst.api.statement.Statement;
 import org.e2immu.language.cst.api.type.ParameterizedType;
 import org.e2immu.language.cst.api.type.TypeParameter;
-import org.e2immu.language.cst.impl.info.TypePrinter;
 import org.e2immu.language.cst.print.FormatterImpl;
 import org.e2immu.language.cst.print.FormattingOptionsImpl;
 import org.e2immu.util.internal.util.StringUtil;
@@ -193,7 +192,7 @@ public class Composer {
                 .setAccess(runtime.accessPackage());
         for (TypeParameter tp : typeToCopy.typeParameters()) {
             TypeParameter newTp = runtime.newTypeParameter(tp.getIndex(), tp.simpleName(), typeInfo);
-            typeInfo.builder().addTypeParameter(newTp);
+            typeInfo.builder().addOrSetTypeParameter(newTp);
         }
         return typeInfo;
     }
