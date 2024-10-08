@@ -50,7 +50,11 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
 
         methodPropertiesAfterParameters(methodInfo, map);
 
-        map.forEach(methodInfo.analysis()::set);
+        map.forEach((p,v)-> {
+            if(!methodInfo.analysis().haveAnalyzedValueFor(p)) {
+                methodInfo.analysis().set(p, v);
+            }
+        });
     }
 
     private Value.Bool computeMethodContainer(MethodInfo methodInfo) {
