@@ -117,7 +117,8 @@ class CommonAnalyzer {
                 ignoreModifications = valueForTrue;
             } else if (GetSet.class.getCanonicalName().equals(fqn)) {
                 if (info instanceof MethodInfo methodInfo) {
-                    if (methodInfo.isConstructor() || methodInfo.isFactoryMethod()) {
+                    boolean equivalent = ae.extractBoolean("equivalent");
+                    if (methodInfo.isConstructor() || methodInfo.isFactoryMethod() || equivalent) {
                         /*
                          @GetSet on a constructor or factory method has a well-defined meaning.
                          We search for the smallest constructor or factory method with the same name which

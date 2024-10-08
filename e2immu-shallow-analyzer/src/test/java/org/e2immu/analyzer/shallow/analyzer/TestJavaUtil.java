@@ -128,7 +128,8 @@ public class TestJavaUtil extends CommonTest {
         assertSame(DEPENDENT, typeInfo.analysis().getOrDefault(INDEPENDENT_TYPE, DEPENDENT));
         assertSame(TRUE, typeInfo.analysis().getOrDefault(CONTAINER_TYPE, FALSE));
 
-        assertEquals("HashMap:K, V", typeInfo.analysis().getOrNull(HIDDEN_CONTENT_TYPES, HiddenContentTypes.class).toString());
+        assertEquals("HashMap:K, V",
+                typeInfo.analysis().getOrNull(HIDDEN_CONTENT_TYPES, HiddenContentTypes.class).toString());
     }
 
 
@@ -136,7 +137,8 @@ public class TestJavaUtil extends CommonTest {
     public void testHashMapEntryIterator() {
         TypeInfo typeInfo = compiledTypesManager.get(HashMap.class);
         TypeInfo sub = typeInfo.findSubType("EntryIterator");
-        assertEquals("EntryIterator:K, V", sub.analysis().getOrNull(HIDDEN_CONTENT_TYPES, HiddenContentTypes.class).toString());
+        assertEquals("0=K, 1=V, 2=Entry",
+                sub.analysis().getOrNull(HIDDEN_CONTENT_TYPES, HiddenContentTypes.class).detailedSortedTypes());
     }
 
     @Test

@@ -40,7 +40,7 @@ public class JavaNetHttp {
         Builder newBuilder();
 
         @Independent
-        @GetSet // indicating that we can convert to newBuilder().uri(uri)
+        @GetSet(equivalent = true) // indicating that we can convert to newBuilder().uri(uri)
         @NotNull
         Builder newBuilder(URI uri);
 
