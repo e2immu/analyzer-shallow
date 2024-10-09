@@ -137,7 +137,7 @@ public class TestJavaUtil extends CommonTest {
     public void testHashMapEntryIterator() {
         TypeInfo typeInfo = compiledTypesManager.get(HashMap.class);
         TypeInfo sub = typeInfo.findSubType("EntryIterator");
-        assertEquals("0=K, 1=V, 2=Entry",
+        assertEquals("0=K, 1=V",
                 sub.analysis().getOrNull(HIDDEN_CONTENT_TYPES, HiddenContentTypes.class).detailedSortedTypes());
     }
 
