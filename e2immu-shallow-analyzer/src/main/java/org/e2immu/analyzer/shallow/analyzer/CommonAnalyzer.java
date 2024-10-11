@@ -9,8 +9,10 @@ import org.e2immu.language.cst.api.analysis.Property;
 import org.e2immu.language.cst.api.analysis.Value;
 import org.e2immu.language.cst.api.expression.AnnotationExpression;
 import org.e2immu.language.cst.api.info.*;
+import org.e2immu.language.cst.api.variable.FieldReference;
 import org.e2immu.language.cst.impl.analysis.PropertyImpl;
 import org.e2immu.language.cst.impl.analysis.ValueImpl;
+import org.e2immu.language.cst.impl.variable.FieldReferenceImpl;
 import org.e2immu.language.inspection.api.util.GetSetUtil;
 import org.e2immu.util.internal.util.GetSetHelper;
 import org.slf4j.Logger;
@@ -50,6 +52,7 @@ class CommonAnalyzer {
         Value.Bool allowInterrupt = null;
         Value.GetSetEquivalent getSetEquivalent = null;
         Value.CommutableData commutableData = null;
+        Value.VariableBooleanMap modifiedComponents = null;
 
         for (AnnotationExpression ae : annotations) {
             boolean isAbsent = ae.extractBoolean("absent");
@@ -101,6 +104,16 @@ class CommonAnalyzer {
                 modified = ValueImpl.BoolImpl.from(isAbsent);
             } else if (Modified.class.getCanonicalName().equals(fqn)) {
                 modified = valueForTrue;
+                String value = ae.extractString("value", "");
+                if (!value.isBlank()) {
+                    FieldInfo fieldInfo = info.typeInfo().getFieldByName(value, false);
+                    if (fieldInfo == null) {
+                        LOGGER.warn("Cannot find field {} in {}", value, info.typeInfo());
+                    } else {
+                        FieldReference fr = new FieldReferenceImpl(fieldInfo);
+                        modifiedComponents = new ValueImpl.VariableBooleanMapImpl(Map.of(fr, true));
+                    }
+                }
             } else if (Identity.class.getCanonicalName().equals(fqn)) {
                 identity = valueForTrue;
             } else if (Fluent.class.getCanonicalName().equals(fqn)) {
@@ -191,6 +204,7 @@ class CommonAnalyzer {
             if (allowInterrupt != null) map.put(PropertyImpl.METHOD_ALLOWS_INTERRUPTS, allowInterrupt);
             if (getSetEquivalent != null) map.put(PropertyImpl.GET_SET_EQUIVALENT, getSetEquivalent);
             if (commutableData != null) map.put(PropertyImpl.COMMUTABLE_METHODS, commutableData);
+            if (modifiedComponents != null) map.put(PropertyImpl.MODIFIED_COMPONENTS_METHOD, modifiedComponents);
             return map;
         }
         if (info instanceof FieldInfo) {
@@ -213,6 +227,7 @@ class CommonAnalyzer {
             if (notNull != null) map.put(PropertyImpl.NOT_NULL_PARAMETER, notNull);
             if (modified != null) map.put(PropertyImpl.MODIFIED_PARAMETER, modified);
             if (ignoreModifications != null) map.put(PropertyImpl.IGNORE_MODIFICATIONS_PARAMETER, ignoreModifications);
+            if (modifiedComponents != null) map.put(PropertyImpl.MODIFIED_COMPONENTS_PARAMETER, modifiedComponents);
             return map;
         }
         throw new UnsupportedOperationException();
