@@ -11,6 +11,7 @@ import org.e2immu.language.cst.api.expression.AnnotationExpression;
 import org.e2immu.language.cst.api.info.*;
 import org.e2immu.language.cst.impl.analysis.PropertyImpl;
 import org.e2immu.language.cst.impl.analysis.ValueImpl;
+import org.e2immu.language.inspection.api.util.GetSetUtil;
 import org.e2immu.util.internal.util.GetSetHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -139,7 +140,9 @@ class CommonAnalyzer {
                         if (field == null) {
                             LOGGER.warn("Cannot find field {} in {}", name, methodInfo.typeInfo());
                         } else {
-                            getSetField = new ValueImpl.FieldValueImpl(field);
+                            boolean setter = methodInfo.isVoid() || GetSetUtil.isComputeFluent(methodInfo);
+                            int parameterIndexOfIndex = GetSetUtil.parameterIndexOfIndex(methodInfo, setter);
+                            getSetField = new ValueImpl.GetSetValueImpl(field, setter, parameterIndexOfIndex);
                         }
                     }
                 }

@@ -81,32 +81,42 @@
  {"name": "MclearAssertionStatus(73)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}}]},
 
 {"name": "Tjava.lang.ClassValue", "data":{"containerType":1,"hc":{"0":"PT:0","E":true,"M":1},"independentType":1,"shallowAnalyzer":1}, "subs":[
- {"name": "SClassValueMap(0)", "data":{"hc":{"E":true}}, "subs":[
-  {"name": "MstartEntry(1)", "data":{"hc":{"0":"PT:0"},"hcsMethod":{"0":[[0]]}}, "sub":
-   {"name": "PclassValue(0)", "data":{"hcsParameter":{"0":[[0]]}}}},
-  {"name": "MfinishEntry(2)", "data":{"hc":{"0":"PT:0"},"hcsMethod":{"0":[[0]]}}, "subs":[
-   {"name": "PclassValue(0)", "data":{"hcsParameter":{"0":[[0]]}}},
-   {"name": "Pe(1)", "data":{"hcsParameter":{"0":[[0]]}}}]},
-  {"name": "MchangeEntry(4)", "data":{"hc":{"0":"PT:0"}}, "subs":[
-   {"name": "PclassValue(0)", "data":{"hcsParameter":{"0":[[0]]}}},
-   {"name": "Pvalue(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
-  {"name": "MprobeHomeLocation(6)", "data":{"hc":{"0":"PT:0"},"hcsMethod":{"0":[[0]]}}, "subs":[
-   {"name": "PclassValue(1)", "data":{"hcsParameter":{"0":[[0]]}}}]},
-  {"name": "MprobeBackupLocations(7)", "data":{"hc":{"0":"PT:0"},"hcsMethod":{"0":[[0]]}}, "subs":[
-   {"name": "PclassValue(1)", "data":{"hcsParameter":{"0":[[0]]}}}]},
-  {"name": "MaddToCache(16)", "data":{"hc":{"0":"PT:0"}}, "sub":
-   {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[0]]}}}},
-  {"name": "MaddToCache(17)", "data":{"hc":{"0":"PT:0"}}, "subs":[
-   {"name": "PclassValue(0)", "data":{"hcsParameter":{"0":[[0]]}}},
-   {"name": "Pe(1)", "data":{"hcsParameter":{"0":[[0]]}}}]},
-  {"name": "MoverwrittenEntry(19)", "data":{"hc":{"0":"PT:0"},"hcsMethod":{"0":[[0]]}}, "sub":
-   {"name": "Pe2(0)", "data":{"hcsParameter":{"0":[[0]]}}}}]},
- {"name": "SEntry(1)", "data":{"hc":{"0":"PT:0","E":true,"M":1}}, "subs":[
+ {"name": "SClassValueMap(0)", "data":{"hc":{"0":"Tjava.lang.ClassValue.Identity","1":"Tjava.lang.ClassValue.Entry","E":true,"M":2}}, "subs":[
+  {"name": "MgetCache(0)", "data":{"hcsMethod":{"1":[[1]]}}},
+  {"name": "MstartEntry(1)", "data":{"hc":{"2":"PT:2","M":2},"hcsMethod":{"1":[[-1]],"2":[[0]]}}, "sub":
+   {"name": "PclassValue(0)", "data":{"hcsParameter":{"2":[[0]]}}}},
+  {"name": "MfinishEntry(2)", "data":{"hc":{"2":"PT:2","M":2},"hcsMethod":{"1":[[-1]],"2":[[0]]}}, "subs":[
+   {"name": "PclassValue(0)", "data":{"hcsParameter":{"2":[[0]]}}},
+   {"name": "Pe(1)", "data":{"hcsParameter":{"1":[[-1]],"2":[[0]]}}}]},
+  {"name": "MchangeEntry(4)", "data":{"hc":{"2":"PT:2","M":2}}, "subs":[
+   {"name": "PclassValue(0)", "data":{"hcsParameter":{"2":[[0]]}}},
+   {"name": "Pvalue(1)", "data":{"hcsParameter":{"2":[[-1]]}}}]},
+  {"name": "MloadFromCache(5)", "data":{"hcsMethod":{"1":[[-1]]}}, "subs":[
+   {"name": "Pcache(0)", "data":{"hcsParameter":{"1":[[1]]}}}]},
+  {"name": "MprobeHomeLocation(6)", "data":{"hc":{"2":"PT:2","M":2},"hcsMethod":{"1":[[-1]],"2":[[0]]}}, "subs":[
+   {"name": "Pcache(0)", "data":{"hcsParameter":{"1":[[1]]}}},
+   {"name": "PclassValue(1)", "data":{"hcsParameter":{"2":[[0]]}}}]},
+  {"name": "MprobeBackupLocations(7)", "data":{"hc":{"2":"PT:2","M":2},"hcsMethod":{"1":[[-1]],"2":[[0]]}}, "subs":[
+   {"name": "Pcache(0)", "data":{"hcsParameter":{"1":[[1]]}}},
+   {"name": "PclassValue(1)", "data":{"hcsParameter":{"2":[[0]]}}}]},
+  {"name": "MfindReplacement(13)", "data":{"hcsMethod":{"1":[[-1]]}}, "subs":[
+   {"name": "Pcache(0)", "data":{"hcsParameter":{"1":[[1]]}}}]},
+  {"name": "MaddToCache(16)", "data":{"hc":{"2":"PT:2","M":2}}, "sub":
+   {"name": "Pe(0)", "data":{"hcsParameter":{"1":[[-1]],"2":[[0]]}}}},
+  {"name": "MaddToCache(17)", "data":{"hc":{"2":"PT:2","M":2}}, "subs":[
+   {"name": "PclassValue(0)", "data":{"hcsParameter":{"2":[[0]]}}},
+   {"name": "Pe(1)", "data":{"hcsParameter":{"1":[[-1]],"2":[[0]]}}}]},
+  {"name": "MplaceInCache(18)", "data":{"hcsMethod":{"1":[[-1]]}}, "subs":[
+   {"name": "Pcache(0)", "data":{"hcsParameter":{"1":[[1]]}}},
+   {"name": "Pe(2)", "data":{"hcsParameter":{"1":[[-1]]}}}]},
+  {"name": "MoverwrittenEntry(19)", "data":{"hc":{"2":"PT:2","M":2},"hcsMethod":{"1":[[-1]],"2":[[0]]}}, "sub":
+   {"name": "Pe2(0)", "data":{"hcsParameter":{"1":[[-1]],"2":[[0]]}}}}]},
+ {"name": "SEntry(1)", "data":{"hc":{"0":"PT:0","1":"Tjava.lang.ClassValue.Version","E":true,"M":2}}, "subs":[
   {"name": "Mvalue(1)", "data":{"hcsMethod":{"0":[[-1]]}}},
-  {"name": "Mversion(3)", "data":{"hcsMethod":{"0":[[0]]}}},
+  {"name": "Mversion(3)", "data":{"hcsMethod":{"0":[[0]],"1":[[-1]]}}},
   {"name": "MclassValueOrNull(4)", "data":{"hcsMethod":{"0":[[0]]}}},
-  {"name": "MrefreshVersion(6)", "data":{"hcsMethod":{"0":[[0]]}}, "sub":
-   {"name": "Pv2(0)", "data":{"hcsParameter":{"0":[[0]]}}}}]},
+  {"name": "MrefreshVersion(6)", "data":{"hcsMethod":{"0":[[0]],"1":[[-2]]}}, "sub":
+   {"name": "Pv2(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]}}}}]},
  {"name": "SIdentity(2)", "data":{"hc":{"E":true}}},
  {"name": "SVersion(3)", "data":{"hc":{"0":"PT:0","E":true,"M":1}}, "subs":[
   {"name": "MclassValue(0)", "data":{"hcsMethod":{"0":[[0]]}}},
@@ -1509,7 +1519,7 @@
   {"name": "PannotationClass(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[0]]},"immutableParameter":3,"independentParameter":2}}},
  {"name": "MgetDeclaredAnnotations(21)", "data":{"containerMethod":1,"immutableMethod":1,"independentMethod":2,"shallowAnalyzer":1}}]},
 
-{"name": "Tjava.lang.ProcessHandle", "data":{"containerType":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.lang.ProcessHandle", "data":{"containerType":1,"hc":{"0":"Tjava.lang.ProcessHandle","E":true,"M":1},"shallowAnalyzer":1}, "subs":[
  {"name": "SInfo(0)", "data":{"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Mcommand(0)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
   {"name": "McommandLine(1)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
@@ -1518,15 +1528,15 @@
   {"name": "MtotalCpuDuration(4)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
   {"name": "Muser(5)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}}]},
  {"name": "Mpid(0)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "Mof(1)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "Mof(1)", "data":{"containerMethod":1,"hcsMethod":{"0":[[0]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Ppid(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
- {"name": "Mcurrent(2)", "data":{"containerMethod":1,"shallowAnalyzer":1}},
- {"name": "Mparent(3)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
- {"name": "Mchildren(4)", "data":{"containerMethod":1,"shallowAnalyzer":1}},
- {"name": "Mdescendants(5)", "data":{"containerMethod":1,"shallowAnalyzer":1}},
- {"name": "MallProcesses(6)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "Mcurrent(2)", "data":{"containerMethod":1,"hcsMethod":{"0":[[-2]]},"shallowAnalyzer":1}},
+ {"name": "Mparent(3)", "data":{"containerMethod":1,"hcsMethod":{"0":[[0]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mchildren(4)", "data":{"containerMethod":1,"hcsMethod":{"0":[[0]]},"shallowAnalyzer":1}},
+ {"name": "Mdescendants(5)", "data":{"containerMethod":1,"hcsMethod":{"0":[[0]]},"shallowAnalyzer":1}},
+ {"name": "MallProcesses(6)", "data":{"containerMethod":1,"hcsMethod":{"0":[[0]]},"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "Minfo(7)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
- {"name": "MonExit(8)", "data":{"shallowAnalyzer":1}},
+ {"name": "MonExit(8)", "data":{"hcsMethod":{"0":[[0]]},"shallowAnalyzer":1}},
  {"name": "MsupportsNormalTermination(9)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "Mdestroy(10)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MdestroyForcibly(11)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
@@ -1535,7 +1545,7 @@
  {"name": "Mequals(14)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pobject(0)", "data":{"containerParameter":1,"immutableParameter":2,"independentParameter":2}}},
  {"name": "McompareTo(15)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "PprocessHandle(0)", "data":{"containerParameter":1,"independentParameter":2,"notNullParameter":1}}}]},
+  {"name": "PprocessHandle(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-2]]},"independentParameter":2,"notNullParameter":1}}}]},
 
 {"name": "Tjava.lang.StackTraceElement", "data":{"containerType":1,"immutableType":3,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "SHashedModules(0)", "data":{"hc":{"E":true}}},
@@ -2254,7 +2264,7 @@
  {"name": "MgetName(16)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MgetClassLoader(18)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MgetModule(20)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "MgetTypeParameters(22)", "data":{"containerMethod":1,"hcsMethod":{"0":[[0,0]]},"immutableMethod":1,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MgetTypeParameters(22)", "data":{"containerMethod":1,"immutableMethod":1,"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "MgetSuperclass(23)", "data":{"containerMethod":1,"hcsMethod":{"0":[[0]]},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "MgetGenericSuperclass(24)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "MgetPackage(25)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
@@ -2305,11 +2315,8 @@
  {"name": "MreflectionData(84)", "data":{"hcsMethod":{"0":[[0]]}}},
  {"name": "MnewReflectionData(85)", "data":{"hcsMethod":{"0":[[0]]}}, "subs":[
   {"name": "PoldReflectionData(0)", "data":{"hcsParameter":{"0":[[0,0]]}}}]},
- {"name": "MprivateGetDeclaredConstructors(95)", "data":{"hcsMethod":{"0":[[0]]}}},
  {"name": "MgetConstructor0(103)", "data":{"hcsMethod":{"0":[[0]]}}},
- {"name": "McopyConstructors(107)", "data":{"hc":{"1":"PU:1","M":1},"hcsMethod":{"1":[[0]]}}, "sub":
-  {"name": "Parg(0)", "data":{"hcsParameter":{"1":[[0]]}}}},
- {"name": "MgetDeclaredConstructors0(110)", "data":{"hcsMethod":{"0":[[0]]}}},
+ {"name": "McopyConstructors(107)", "data":{"hc":{"1":"PU:1","M":1}}},
  {"name": "MdesiredAssertionStatus(115)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MisEnum(117)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MisRecord(118)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},

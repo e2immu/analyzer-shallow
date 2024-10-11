@@ -1274,7 +1274,7 @@
   {"name": "MlistIterator(12)", "data":{"hcsMethod":{"0":[[0]]}}},
   {"name": "MsubList(13)", "data":{"hcsMethod":{"0":[[0]]}}}]},
  {"name": "SUnmodifiableMap(35)", "data":{"hc":{"0":"PK:0","1":"PV:1","E":true,"M":2}}, "subs":[
-  {"name": "SUnmodifiableEntrySet(0)", "data":{"hc":{"0":"PK:0","1":"PV:1","E":true,"M":2}}, "subs":[
+  {"name": "SUnmodifiableEntrySet(0)", "data":{"hc":{"0":"PK:0","1":"PV:1","2":"Tjava.util.Map.Entry","E":true,"M":3}}, "subs":[
    {"name": "SUnmodifiableEntry(0)", "data":{"hc":{"0":"PK:0","1":"PV:1","E":true,"M":2}}, "subs":[
     {"name": "MgetKey(0)", "data":{"hcsMethod":{"0":[[-1]]}}},
     {"name": "MgetValue(1)", "data":{"hcsMethod":{"1":[[-1]]}}},
@@ -1283,14 +1283,14 @@
    {"name": "SUnmodifiableEntrySetSpliterator(1)", "data":{"hc":{"0":"PK:0","1":"PV:1","M":2}}, "subs":[
     {"name": "MtrySplit(2)", "data":{"hcsMethod":{"0":[[0,0]],"1":[[0,1]]}}},
     {"name": "MgetComparator(7)", "data":{"hcsMethod":{"0":[[0,0]],"1":[[0,1]]}}}]},
-   {"name": "MentryConsumer(0)", "data":{"hc":{"2":"PK:2","3":"PV:3","M":2},"hcsMethod":{"2":[[0,0]],"3":[[0,1]]}}, "sub":
-    {"name": "Paction(0)", "data":{"hcsParameter":{"2":[[0,0]],"3":[[0,1]]}}}},
+   {"name": "MentryConsumer(0)", "data":{"hc":{"3":"PK:3","4":"PV:4","M":3},"hcsMethod":{"3":[[0,0]],"4":[[0,1]]}}, "sub":
+    {"name": "Paction(0)", "data":{"hcsParameter":{"3":[[0,0]],"4":[[0,1]]}}}},
    {"name": "Mspliterator(2)", "data":{"hcsMethod":{"0":[[0,0]],"1":[[0,1]]}}},
    {"name": "Mstream(3)", "data":{"hcsMethod":{"0":[[0,0]],"1":[[0,1]]}}},
    {"name": "MparallelStream(4)", "data":{"hcsMethod":{"0":[[0,0]],"1":[[0,1]]}}},
    {"name": "Miterator(5)", "data":{"hcsMethod":{"0":[[0,0]],"1":[[0,1]]}}},
-   {"name": "MtoArray(7)", "data":{"hc":{"2":"PT:2","M":2},"hcsMethod":{"2":[[2]]}}, "sub":
-    {"name": "Pa(0)", "data":{"hcsParameter":{"2":[[2]]}}}}]},
+   {"name": "MtoArray(7)", "data":{"hc":{"3":"PT:3","M":3},"hcsMethod":{"3":[[3]]}}, "sub":
+    {"name": "Pa(0)", "data":{"hcsParameter":{"3":[[3]]}}}}]},
   {"name": "Mget(4)", "data":{"hcsMethod":{"1":[[-1]]}}},
   {"name": "Mput(5)", "data":{"hcsMethod":{"1":[[-1]]}}, "subs":[
    {"name": "Pkey(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
@@ -1826,7 +1826,7 @@
   {"name": "Pk10(18)", "data":{"containerParameter":1,"hcsParameter":{"2":[[-1]]},"immutableParameter":2,"independentParameter":1}},
   {"name": "Pv10(19)", "data":{"containerParameter":1,"hcsParameter":{"3":[[-1]]},"immutableParameter":2,"independentParameter":1}}]},
  {"name": "MofEntries(36)", "data":{"containerMethod":1,"hc":{"2":"PK:2","3":"PV:3","M":2},"hcsMethod":{"2":[[0]],"3":[[1]]},"shallowAnalyzer":1}, "sub":
-  {"name": "Pentries(0)", "data":{"containerParameter":1,"hcsParameter":{"2":[[0]],"3":[[1]]},"immutableParameter":1}}},
+  {"name": "Pentries(0)", "data":{"containerParameter":1,"immutableParameter":1}}},
  {"name": "Mentry(37)", "data":{"containerMethod":1,"hc":{"2":"PK:2","3":"PV:3","M":2},"hcsMethod":{"2":[[0]],"3":[[1]]},"shallowAnalyzer":1}, "subs":[
   {"name": "Pk(0)", "data":{"containerParameter":1,"hcsParameter":{"2":[[-1]]},"immutableParameter":2,"independentParameter":1}},
   {"name": "Pv(1)", "data":{"containerParameter":1,"hcsParameter":{"3":[[-1]]},"immutableParameter":2,"independentParameter":1}}]},
@@ -1932,32 +1932,32 @@
 {"name": "Tjava.util.RandomAccess", "data":{"containerType":1,"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}},
 
 {"name": "Tjava.util.Spliterator", "data":{"hc":{"0":"PT:0","E":true,"M":1},"shallowAnalyzer":1}, "subs":[
- {"name": "SOfDouble(0)", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
-  {"name": "MtrySplit(0)", "data":{"shallowAnalyzer":1}},
+ {"name": "SOfDouble(0)", "data":{"hc":{"0":"Tjava.util.function.DoubleConsumer","1":"Tjava.util.Spliterator.OfDouble","E":true,"M":2},"shallowAnalyzer":1}, "subs":[
+  {"name": "MtrySplit(0)", "data":{"hcsMethod":{"0":[[-2]],"1":[[-2]]},"shallowAnalyzer":1}},
   {"name": "MtryAdvance(1)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
-   {"name": "PdoubleConsumer(0)", "data":{"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}},
+   {"name": "PdoubleConsumer(0)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}},
   {"name": "MforEachRemaining(2)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
-   {"name": "Paction(0)", "data":{"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}},
+   {"name": "Paction(0)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}},
   {"name": "MtryAdvance(3)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
    {"name": "Paction(0)", "data":{"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}},
   {"name": "MforEachRemaining(4)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "Paction(0)", "data":{"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}}]},
- {"name": "SOfInt(1)", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
-  {"name": "MtrySplit(0)", "data":{"shallowAnalyzer":1}},
+ {"name": "SOfInt(1)", "data":{"hc":{"0":"Tjava.util.function.IntConsumer","1":"Tjava.util.Spliterator.OfInt","E":true,"M":2},"shallowAnalyzer":1}, "subs":[
+  {"name": "MtrySplit(0)", "data":{"hcsMethod":{"0":[[-2]],"1":[[-2]]},"shallowAnalyzer":1}},
   {"name": "MtryAdvance(1)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
-   {"name": "PintConsumer(0)", "data":{"containerParameter":1,"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}},
+   {"name": "PintConsumer(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}},
   {"name": "MforEachRemaining(2)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
-   {"name": "Paction(0)", "data":{"containerParameter":1,"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}},
+   {"name": "Paction(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}},
   {"name": "MtryAdvance(3)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
    {"name": "Paction(0)", "data":{"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}},
   {"name": "MforEachRemaining(4)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "Paction(0)", "data":{"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}}]},
- {"name": "SOfLong(2)", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
-  {"name": "MtrySplit(0)", "data":{"shallowAnalyzer":1}},
+ {"name": "SOfLong(2)", "data":{"hc":{"0":"Tjava.util.function.LongConsumer","1":"Tjava.util.Spliterator.OfLong","E":true,"M":2},"shallowAnalyzer":1}, "subs":[
+  {"name": "MtrySplit(0)", "data":{"hcsMethod":{"0":[[-2]],"1":[[-2]]},"shallowAnalyzer":1}},
   {"name": "MtryAdvance(1)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
-   {"name": "PlongConsumer(0)", "data":{"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}},
+   {"name": "PlongConsumer(0)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}},
   {"name": "MforEachRemaining(2)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
-   {"name": "Paction(0)", "data":{"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}},
+   {"name": "Paction(0)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}},
   {"name": "MtryAdvance(3)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
    {"name": "Paction(0)", "data":{"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}},
   {"name": "MforEachRemaining(4)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
@@ -2010,7 +2010,10 @@
   {"name": "MtrySplit(0)", "data":{"hcsMethod":{"0":[[0]]}}},
   {"name": "MgetComparator(5)", "data":{"hcsMethod":{"0":[[0]]}}}]},
  {"name": "SEmptySpliterator(7)", "data":{"hc":{"0":"PT:0","1":"PS:1","2":"PC:2","E":true,"M":3}}, "subs":[
-  {"name": "SOfRef(3)", "data":{"hc":{"0":"PT:0","M":1}}},
+  {"name": "SOfDouble(0)", "data":{"hc":{"0":"Tjava.util.function.DoubleConsumer","1":"Tjava.util.Spliterator.OfDouble","M":2}}},
+  {"name": "SOfInt(1)", "data":{"hc":{"0":"Tjava.util.function.IntConsumer","1":"Tjava.util.Spliterator.OfInt","M":2}}},
+  {"name": "SOfLong(2)", "data":{"hc":{"0":"Tjava.util.function.LongConsumer","1":"Tjava.util.Spliterator.OfLong","M":2}}},
+  {"name": "SOfRef(3)", "data":{"hc":{"0":"PT:0","1":"Tjava.util.function.Consumer","2":"Tjava.util.Spliterator","M":3}}},
   {"name": "MtrySplit(0)", "data":{"hcsMethod":{"1":[[-1]]}}}]},
  {"name": "SIteratorSpliterator(10)", "data":{"hc":{"0":"PT:0","E":true,"M":1}}, "subs":[
   {"name": "MtrySplit(0)", "data":{"hcsMethod":{"0":[[0]]}}},
@@ -2209,24 +2212,24 @@
   {"name": "Pe(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}}}]},
 
 {"name": "Tjava.util.PrimitiveIterator", "data":{"containerType":1,"hc":{"0":"PT:0","1":"PT_CONS:1","E":true,"M":2},"independentType":1,"shallowAnalyzer":1}, "subs":[
- {"name": "SOfDouble(0)", "data":{"containerType":1,"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "SOfDouble(0)", "data":{"containerType":1,"hc":{"0":"Tjava.util.function.DoubleConsumer","E":true,"M":1},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
   {"name": "MnextDouble(0)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
   {"name": "MforEachRemaining(1)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-   {"name": "Paction(0)", "data":{"ignoreModsParameter":1,"independentParameter":2}}},
+   {"name": "Paction(0)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}},
   {"name": "Mnext(2)", "data":{"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
   {"name": "MforEachRemaining(3)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
    {"name": "Paction(0)", "data":{"ignoreModsParameter":1,"independentParameter":2,"notNullParameter":1}}}]},
- {"name": "SOfInt(1)", "data":{"containerType":1,"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "SOfInt(1)", "data":{"containerType":1,"hc":{"0":"Tjava.util.function.IntConsumer","E":true,"M":1},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
   {"name": "MnextInt(0)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
   {"name": "MforEachRemaining(1)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-   {"name": "Paction(0)", "data":{"containerParameter":1,"ignoreModsParameter":1,"independentParameter":2}}},
+   {"name": "Paction(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}},
   {"name": "Mnext(2)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
   {"name": "MforEachRemaining(3)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
    {"name": "Paction(0)", "data":{"ignoreModsParameter":1,"independentParameter":2,"notNullParameter":1}}}]},
- {"name": "SOfLong(2)", "data":{"containerType":1,"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "SOfLong(2)", "data":{"containerType":1,"hc":{"0":"Tjava.util.function.LongConsumer","E":true,"M":1},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
   {"name": "MnextLong(0)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
   {"name": "MforEachRemaining(1)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-   {"name": "Paction(0)", "data":{"ignoreModsParameter":1,"independentParameter":2}}},
+   {"name": "Paction(0)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}},
   {"name": "Mnext(2)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
   {"name": "MforEachRemaining(3)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
    {"name": "Paction(0)", "data":{"ignoreModsParameter":1,"independentParameter":2,"notNullParameter":1}}}]},
@@ -2324,7 +2327,7 @@
 {"name": "Tjava.util.HashMap", "data":{"containerType":1,"hc":{"0":"PK:0","1":"PV:1","E":true,"M":2},"shallowAnalyzer":1}, "subs":[
  {"name": "SEntryIterator(0)", "data":{"hc":{"0":"PK:*0","1":"PV:*1","M":2}}, "subs":[
   {"name": "Mnext(0)", "data":{"hcsMethod":{"0":[[0]],"1":[[1]]}}}]},
- {"name": "SEntrySet(1)", "data":{"hc":{"0":"PK:*0","1":"PV:*1","M":2}}, "subs":[
+ {"name": "SEntrySet(1)", "data":{"hc":{"0":"PK:*0","1":"PV:*1","2":"Tjava.util.Map.Entry","M":3}}, "subs":[
   {"name": "Miterator(2)", "data":{"hcsMethod":{"0":[[0,0]],"1":[[0,1]]}}},
   {"name": "Mspliterator(5)", "data":{"hcsMethod":{"0":[[0,0]],"1":[[0,1]]}}}]},
  {"name": "SEntrySpliterator(2)", "data":{"hc":{"0":"PK:0","1":"PV:1","M":2}}, "subs":[
@@ -2348,7 +2351,6 @@
  {"name": "STreeNode(9)", "data":{"hc":{"0":"PK:0","1":"PV:1","M":2}}, "subs":[
   {"name": "Mroot(0)", "data":{"hcsMethod":{"0":[[0]],"1":[[1]]}}},
   {"name": "MmoveRootToFront(1)", "data":{"hc":{"2":"PK:2","3":"PV:3","M":2}}, "subs":[
-   {"name": "Ptab(0)", "data":{"hcsParameter":{"2":[[0]],"3":[[1]]}}},
    {"name": "Proot(1)", "data":{"hcsParameter":{"2":[[0]],"3":[[1]]}}}]},
   {"name": "Mfind(2)", "data":{"hcsMethod":{"0":[[0]],"1":[[1]]}}},
   {"name": "MgetTreeNode(3)", "data":{"hcsMethod":{"0":[[0]],"1":[[1]]}}},
@@ -2356,7 +2358,6 @@
    {"name": "Pmap(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[1]]}}}},
   {"name": "MputTreeVal(7)", "data":{"hcsMethod":{"0":[[0]],"1":[[1]]}}, "subs":[
    {"name": "Pmap(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[1]]}}},
-   {"name": "Ptab(1)", "data":{"hcsParameter":{"0":[[0]],"1":[[1]]}}},
    {"name": "Pk(3)", "data":{"hcsParameter":{"0":[[-1]]}}},
    {"name": "Pv(4)", "data":{"hcsParameter":{"1":[[-1]]}}}]},
   {"name": "MrotateLeft(10)", "data":{"hc":{"2":"PK:2","3":"PV:3","M":2},"hcsMethod":{"2":[[0]],"3":[[1]]}}, "subs":[
@@ -2403,7 +2404,6 @@
  {"name": "MputVal(11)", "data":{"hcsMethod":{"1":[[-1]]}}, "subs":[
   {"name": "Pkey(1)", "data":{"hcsParameter":{"0":[[-1]]}}},
   {"name": "Pvalue(2)", "data":{"hcsParameter":{"1":[[-1]]}}}]},
- {"name": "Mresize(12)", "data":{"hcsMethod":{"0":[[0]],"1":[[1]]}}},
  {"name": "MputAll(14)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pm(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[0]],"1":[[1]]}}}},
  {"name": "Mremove(15)", "data":{"hcsMethod":{"1":[[-1]]},"immutableMethod":2,"independentMethod":1,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
@@ -2745,18 +2745,18 @@
   {"name": "Pcoll(0)", "data":{"containerParameter":1,"hcsParameter":{"1":[[0]]},"independentParameter":1,"notNullParameter":2}}}]},
 
 {"name": "Tjava.util.WeakHashMap", "data":{"containerType":1,"hc":{"0":"PK:0","1":"PV:1","E":true,"M":2},"shallowAnalyzer":1}, "subs":[
- {"name": "SEntry(0)", "data":{"hc":{"0":"PK:0","1":"PV:1","E":true,"M":2}}, "subs":[
+ {"name": "SEntry(0)", "data":{"hc":{"0":"PK:0","1":"PV:1","2":"Tjava.lang.Object","E":true,"M":3}}, "subs":[
   {"name": "MgetKey(0)", "data":{"hcsMethod":{"0":[[-1]]}}},
   {"name": "MgetValue(1)", "data":{"hcsMethod":{"1":[[-1]]}}},
   {"name": "MsetValue(2)", "data":{"hcsMethod":{"1":[[-1]]}}, "sub":
    {"name": "PnewValue(0)", "data":{"hcsParameter":{"1":[[-1]]}}}}]},
  {"name": "SEntryIterator(1)", "data":{"hc":{"0":"PK:*0","1":"PV:*1","E":true,"M":2}}, "subs":[
   {"name": "Mnext(0)", "data":{"hcsMethod":{"0":[[0]],"1":[[1]]}}}]},
- {"name": "SEntrySet(2)", "data":{"hc":{"0":"PK:*0","1":"PV:*1","E":true,"M":2}}, "subs":[
+ {"name": "SEntrySet(2)", "data":{"hc":{"0":"PK:*0","1":"PV:*1","2":"Tjava.util.Map.Entry","E":true,"M":3}}, "subs":[
   {"name": "Miterator(0)", "data":{"hcsMethod":{"0":[[0,0]],"1":[[0,1]]}}},
   {"name": "MdeepCopy(5)", "data":{"hcsMethod":{"0":[[0,0]],"1":[[0,1]]}}},
-  {"name": "MtoArray(7)", "data":{"hc":{"2":"PT:2","M":2},"hcsMethod":{"2":[[2]]}}, "sub":
-   {"name": "Pa(0)", "data":{"hcsParameter":{"2":[[2]]}}}},
+  {"name": "MtoArray(7)", "data":{"hc":{"3":"PT:3","M":3},"hcsMethod":{"3":[[3]]}}, "sub":
+   {"name": "Pa(0)", "data":{"hcsParameter":{"3":[[3]]}}}},
   {"name": "Mspliterator(8)", "data":{"hcsMethod":{"0":[[0,0]],"1":[[0,1]]}}}]},
  {"name": "SEntrySpliterator(3)", "data":{"hc":{"0":"PK:0","1":"PV:1","M":2}}, "subs":[
   {"name": "MtrySplit(0)", "data":{"hcsMethod":{"0":[[0]],"1":[[1]]}}}]},
@@ -2784,8 +2784,6 @@
  {"name": "C<init>(2)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
  {"name": "C<init>(3)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pm(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[0]],"1":[[1]]}}}},
- {"name": "MnewTable(0)", "data":{"hcsMethod":{"0":[[0]],"1":[[1]]}}},
- {"name": "MgetTable(7)", "data":{"hcsMethod":{"0":[[0]],"1":[[1]]}}},
  {"name": "Msize(8)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MisEmpty(9)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "Mget(10)", "data":{"hcsMethod":{"1":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}, "sub":
@@ -2914,7 +2912,7 @@
  {"name": "SEntry(0)", "data":{"hc":{"0":"PK:0","1":"PV:1","E":true,"M":2}}},
  {"name": "SLinkedEntryIterator(1)", "data":{"hc":{"0":"PK:*0","1":"PV:*1","M":2}}, "subs":[
   {"name": "Mnext(0)", "data":{"hcsMethod":{"0":[[0]],"1":[[1]]}}}]},
- {"name": "SLinkedEntrySet(2)", "data":{"hc":{"0":"PK:*0","1":"PV:*1","M":2}}, "subs":[
+ {"name": "SLinkedEntrySet(2)", "data":{"hc":{"0":"PK:*0","1":"PV:*1","2":"Tjava.util.Map.Entry","M":3}}, "subs":[
   {"name": "Miterator(2)", "data":{"hcsMethod":{"0":[[0,0]],"1":[[0,1]]}}},
   {"name": "Mspliterator(5)", "data":{"hcsMethod":{"0":[[0,0]],"1":[[0,1]]}}}]},
  {"name": "SLinkedHashIterator(3)", "data":{"hc":{"0":"PK:*0","1":"PV:*1","E":true,"M":2}}},
@@ -3042,7 +3040,7 @@
    {"name": "Pvalue(0)", "data":{"hcsParameter":{"1":[[-1]]}}}}]},
  {"name": "SEntryIterator(5)", "data":{"hc":{"0":"PK:*0","1":"PV:*1","M":2}}, "subs":[
   {"name": "Mnext(0)", "data":{"hcsMethod":{"0":[[0]],"1":[[1]]}}}]},
- {"name": "SEntrySet(6)", "data":{"hc":{"0":"PK:*0","1":"PV:*1","E":true,"M":2}}, "subs":[
+ {"name": "SEntrySet(6)", "data":{"hc":{"0":"PK:*0","1":"PV:*1","2":"Tjava.util.Map.Entry","E":true,"M":3}}, "subs":[
   {"name": "Miterator(0)", "data":{"hcsMethod":{"0":[[0,0]],"1":[[0,1]]}}},
   {"name": "Mspliterator(5)", "data":{"hcsMethod":{"0":[[0,0]],"1":[[0,1]]}}}]},
  {"name": "SEntrySpliterator(7)", "data":{"hc":{"0":"PK:0","1":"PV:1","M":2}}, "subs":[
@@ -3091,7 +3089,7 @@
   {"name": "SDescendingSubMapKeyIterator(1)", "data":{"hc":{"0":"PK:*0","1":"PV:*1","M":2}}, "subs":[
    {"name": "Mnext(0)", "data":{"hcsMethod":{"0":[[-1]]}}},
    {"name": "MtrySplit(2)", "data":{"hcsMethod":{"0":[[0]]}}}]},
-  {"name": "SEntrySetView(2)", "data":{"hc":{"0":"PK:*0","1":"PV:*1","E":true,"M":2}}},
+  {"name": "SEntrySetView(2)", "data":{"hc":{"0":"PK:*0","1":"PV:*1","2":"Tjava.util.Map.Entry","E":true,"M":3}}},
   {"name": "SSubMapEntryIterator(3)", "data":{"hc":{"0":"PK:*0","1":"PV:*1","M":2}}, "subs":[
    {"name": "Mnext(0)", "data":{"hcsMethod":{"0":[[0]],"1":[[1]]}}}]},
   {"name": "SSubMapIterator(4)", "data":{"hc":{"0":"PK:*0","1":"PV:*1","2":"PT:0","E":true,"M":3}}},
