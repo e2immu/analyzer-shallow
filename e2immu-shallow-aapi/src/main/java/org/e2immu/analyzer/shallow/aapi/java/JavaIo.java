@@ -264,6 +264,10 @@ public class JavaIo {
         byte[] readAllBytes();
     }
 
+    class FileInputStream$ {
+        FileInputStream$(@NotModified @Independent File file) {}
+    }
+
     @Independent
     interface FilterInputStream$ {
 

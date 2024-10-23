@@ -1,5 +1,6 @@
 package org.e2immu.analyzer.shallow.analyzer;
 
+import org.e2immu.annotation.Final;
 import org.e2immu.annotation.Immutable;
 import org.e2immu.annotation.Independent;
 import org.e2immu.annotation.Modified;
@@ -30,10 +31,13 @@ public class DecoratorImpl implements Qualification.Decorator {
     private final TypeInfo modifiedTi;
     private final TypeInfo immutableTi;
     private final TypeInfo independentTi;
+    private final TypeInfo finalTi;
+    private final AnnotationExpression finalAnnotation;
 
     private boolean needModifiedImport;
     private boolean needImmutableImport;
     private boolean needIndependentImport;
+    private boolean needFinalImport;
 
     public DecoratorImpl(Runtime runtime) {
         this.runtime = runtime;
@@ -42,6 +46,8 @@ public class DecoratorImpl implements Qualification.Decorator {
         modifiedAnnotation = runtime.newAnnotationExpressionBuilder().setTypeInfo(modifiedTi).build();
         independentTi = runtime.getFullyQualified(Independent.class, true);
         immutableTi = runtime.getFullyQualified(Immutable.class, true);
+        finalTi = runtime.getFullyQualified(Final.class, true);
+        finalAnnotation = runtime.newAnnotationExpressionBuilder().setTypeInfo(finalTi).build();
     }
 
     @Override
@@ -59,26 +65,31 @@ public class DecoratorImpl implements Qualification.Decorator {
         boolean modified;
         Value.Immutable immutable;
         Value.Independent independent;
+        boolean isFinal;
         PropertyValueMap analysis = info.analysis();
         if (info instanceof MethodInfo methodInfo) {
             modified = analysis.getOrDefault(MODIFIED_METHOD, FALSE).isTrue();
             immutable = null;
             independent = nonTrivialIndependent(analysis.getOrDefault(INDEPENDENT_METHOD, DEPENDENT), methodInfo.typeInfo(),
                     methodInfo.returnType());
+            isFinal = false;
         } else if (info instanceof FieldInfo fieldInfo) {
             modified = analysis.getOrDefault(MODIFIED_FIELD, FALSE).isTrue();
             immutable = null;
             independent = nonTrivialIndependent(analysis.getOrDefault(INDEPENDENT_FIELD, DEPENDENT),
                     fieldInfo.owner(), fieldInfo.type());
+            isFinal = !fieldInfo.isFinal() && fieldInfo.isPropertyFinal();
         } else if (info instanceof ParameterInfo pi) {
             modified = analysis.getOrDefault(MODIFIED_PARAMETER, FALSE).isTrue();
             immutable = null;
             independent = nonTrivialIndependent(analysis.getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT), pi.typeInfo(),
                     pi.parameterizedType());
+            isFinal = false;
         } else if (info instanceof TypeInfo) {
             modified = false;
             immutable = analysis.getOrDefault(IMMUTABLE_TYPE, MUTABLE);
             independent = nonTrivialIndependentType(analysis.getOrDefault(INDEPENDENT_TYPE, DEPENDENT), immutable);
+            isFinal = false;
         } else throw new UnsupportedOperationException();
 
         if (modified) {
@@ -101,6 +112,10 @@ public class DecoratorImpl implements Qualification.Decorator {
                 b.addKeyValuePair("hc", runtime.constantTrue());
             }
             list.add(b.build());
+        }
+        if (isFinal) {
+            needFinalImport = true;
+            list.add(finalAnnotation);
         }
         return list;
     }
@@ -132,6 +147,9 @@ public class DecoratorImpl implements Qualification.Decorator {
         }
         if (needImmutableImport) {
             list.add(runtime.newImportStatement(immutableTi.fullyQualifiedName(), false));
+        }
+        if (needFinalImport) {
+            list.add(runtime.newImportStatement(finalTi.fullyQualifiedName(), false));
         }
         return list;
     }
