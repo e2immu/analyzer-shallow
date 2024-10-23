@@ -250,6 +250,18 @@ public class JavaIo {
     interface InputStream$ {
         @Modified
         long transferTo(@Modified OutputStream out);
+
+        @Modified
+        int read();
+
+        @Modified
+        int read(@Modified byte[] bytes);
+
+        @Modified
+        int read(@Modified byte[] bytes, int offset, int len);
+
+        @Modified
+        byte[] readAllBytes();
     }
 
     @Independent

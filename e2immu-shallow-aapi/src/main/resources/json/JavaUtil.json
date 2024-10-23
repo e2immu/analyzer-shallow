@@ -1933,7 +1933,7 @@
 
 {"name": "Tjava.util.Spliterator", "data":{"hc":{"0":"PT:0","E":true,"M":1},"shallowAnalyzer":1}, "subs":[
  {"name": "SOfDouble(0)", "data":{"hc":{"0":"Tjava.util.function.DoubleConsumer","1":"Tjava.util.Spliterator.OfDouble","E":true,"M":2},"shallowAnalyzer":1}, "subs":[
-  {"name": "MtrySplit(0)", "data":{"hcsMethod":{"0":[[-2]],"1":[[-2]]},"shallowAnalyzer":1}},
+  {"name": "MtrySplit(0)", "data":{"hcsMethod":{"0":[[0]],"1":[[-1]]},"shallowAnalyzer":1}},
   {"name": "MtryAdvance(1)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
    {"name": "PdoubleConsumer(0)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}},
   {"name": "MforEachRemaining(2)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
@@ -1943,7 +1943,7 @@
   {"name": "MforEachRemaining(4)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "Paction(0)", "data":{"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}}]},
  {"name": "SOfInt(1)", "data":{"hc":{"0":"Tjava.util.function.IntConsumer","1":"Tjava.util.Spliterator.OfInt","E":true,"M":2},"shallowAnalyzer":1}, "subs":[
-  {"name": "MtrySplit(0)", "data":{"hcsMethod":{"0":[[-2]],"1":[[-2]]},"shallowAnalyzer":1}},
+  {"name": "MtrySplit(0)", "data":{"hcsMethod":{"0":[[0]],"1":[[-1]]},"shallowAnalyzer":1}},
   {"name": "MtryAdvance(1)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
    {"name": "PintConsumer(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}},
   {"name": "MforEachRemaining(2)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
@@ -1953,7 +1953,7 @@
   {"name": "MforEachRemaining(4)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "Paction(0)", "data":{"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}}]},
  {"name": "SOfLong(2)", "data":{"hc":{"0":"Tjava.util.function.LongConsumer","1":"Tjava.util.Spliterator.OfLong","E":true,"M":2},"shallowAnalyzer":1}, "subs":[
-  {"name": "MtrySplit(0)", "data":{"hcsMethod":{"0":[[-2]],"1":[[-2]]},"shallowAnalyzer":1}},
+  {"name": "MtrySplit(0)", "data":{"hcsMethod":{"0":[[0]],"1":[[-1]]},"shallowAnalyzer":1}},
   {"name": "MtryAdvance(1)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
    {"name": "PlongConsumer(0)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}},
   {"name": "MforEachRemaining(2)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":

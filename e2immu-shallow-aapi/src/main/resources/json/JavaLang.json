@@ -115,7 +115,7 @@
   {"name": "Mvalue(1)", "data":{"hcsMethod":{"0":[[-1]]}}},
   {"name": "Mversion(3)", "data":{"hcsMethod":{"0":[[0]],"1":[[-1]]}}},
   {"name": "MclassValueOrNull(4)", "data":{"hcsMethod":{"0":[[0]]}}},
-  {"name": "MrefreshVersion(6)", "data":{"hcsMethod":{"0":[[0]],"1":[[-2]]}}, "sub":
+  {"name": "MrefreshVersion(6)", "data":{"hcsMethod":{"0":[[0]],"1":[[1]]}}, "sub":
    {"name": "Pv2(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]}}}}]},
  {"name": "SIdentity(2)", "data":{"hc":{"E":true}}},
  {"name": "SVersion(3)", "data":{"hc":{"0":"PT:0","E":true,"M":1}}, "subs":[
@@ -1530,7 +1530,7 @@
  {"name": "Mpid(0)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "Mof(1)", "data":{"containerMethod":1,"hcsMethod":{"0":[[0]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Ppid(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
- {"name": "Mcurrent(2)", "data":{"containerMethod":1,"hcsMethod":{"0":[[-2]]},"shallowAnalyzer":1}},
+ {"name": "Mcurrent(2)", "data":{"containerMethod":1,"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
  {"name": "Mparent(3)", "data":{"containerMethod":1,"hcsMethod":{"0":[[0]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
  {"name": "Mchildren(4)", "data":{"containerMethod":1,"hcsMethod":{"0":[[0]]},"shallowAnalyzer":1}},
  {"name": "Mdescendants(5)", "data":{"containerMethod":1,"hcsMethod":{"0":[[0]]},"shallowAnalyzer":1}},
@@ -1545,7 +1545,7 @@
  {"name": "Mequals(14)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pobject(0)", "data":{"containerParameter":1,"immutableParameter":2,"independentParameter":2}}},
  {"name": "McompareTo(15)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "PprocessHandle(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-2]]},"independentParameter":2,"notNullParameter":1}}}]},
+  {"name": "PprocessHandle(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"notNullParameter":1}}}]},
 
 {"name": "Tjava.lang.StackTraceElement", "data":{"containerType":1,"immutableType":3,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "SHashedModules(0)", "data":{"hc":{"E":true}}},

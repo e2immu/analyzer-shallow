@@ -126,14 +126,14 @@
 {"name": "Tjava.io.InputStream", "data":{"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "C<init>(0)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
  {"name": "MnullInputStream(0)", "data":{"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "Mread(1)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "Mread(2)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+ {"name": "Mread(1)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mread(2)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}},
- {"name": "Mread(3)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+ {"name": "Mread(3)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}},
   {"name": "Poff(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
   {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
- {"name": "MreadAllBytes(4)", "data":{"containerMethod":1,"immutableMethod":1,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MreadAllBytes(4)", "data":{"containerMethod":1,"immutableMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
  {"name": "MreadNBytes(5)", "data":{"containerMethod":1,"immutableMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Plen(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "MreadNBytes(6)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
@@ -285,10 +285,10 @@
  {"name": "Mclose(12)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}}]},
 
 {"name": "Tjava.io.FilterInputStream", "data":{"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
- {"name": "Mread(0)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "Mread(1)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+ {"name": "Mread(0)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mread(1)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}},
- {"name": "Mread(2)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+ {"name": "Mread(2)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}},
   {"name": "Poff(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
   {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
@@ -399,8 +399,8 @@
  {"name": "C<init>(1)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Pin(0)", "data":{"independentParameter":2}},
   {"name": "Psize(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
- {"name": "Mread(3)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "Mread(5)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+ {"name": "Mread(3)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mread(5)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}},
   {"name": "Poff(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
   {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
