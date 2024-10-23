@@ -50,8 +50,8 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
 
         methodPropertiesAfterParameters(methodInfo, map);
 
-        map.forEach((p,v)-> {
-            if(!methodInfo.analysis().haveAnalyzedValueFor(p)) {
+        map.forEach((p, v) -> {
+            if (!methodInfo.analysis().haveAnalyzedValueFor(p)) {
                 methodInfo.analysis().set(p, v);
             }
         });
@@ -368,9 +368,8 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
     private Value computeMethodModified(MethodInfo methodInfo, Map<Property, Value> map) {
         if (methodInfo.isConstructor()) return TRUE;
         Value.Bool fluent = (Value.Bool) map.get(FLUENT_METHOD);
-        Value.Bool containerType = methodInfo.typeInfo().analysis().getOrDefault(CONTAINER_TYPE, FALSE);
-        boolean voidMethod = methodInfo.noReturnValue();
-        Value.Bool addToModified = ValueImpl.BoolImpl.from(containerType.isTrue() && (fluent.isTrue() || voidMethod));
+        boolean nonStaticVoid = !methodInfo.isStatic() && methodInfo.noReturnValue();
+        Value.Bool addToModified = ValueImpl.BoolImpl.from(fluent.isTrue() || nonStaticVoid);
         return methodInfo.overrides().stream()
                 .filter(MethodInfo::isPublic)
                 .filter(m -> m.analysis().haveAnalyzedValueFor(MODIFIED_METHOD, () -> {
