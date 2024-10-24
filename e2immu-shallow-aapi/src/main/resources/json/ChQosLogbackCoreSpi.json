@@ -1,15 +1,15 @@
 [
 {"name": "Tch.qos.logback.core.spi.AppenderAttachable", "data":{"hc":{"0":"PE:0","E":true,"M":1},"shallowAnalyzer":1}, "subs":[
- {"name": "MaddAppender(0)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
-  {"name": "Pappender(0)", "data":{"hcsParameter":{"0":[[0]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MaddAppender(0)", "data":{"containerMethod":1,"hc":{"1":"Tch.qos.logback.core.Appender","M":1},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pappender(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]},"modifiedParameter":1}}},
  {"name": "MiteratorForAppenders(1)", "data":{"containerMethod":1,"hcsMethod":{"0":[[0,0]]},"shallowAnalyzer":1}},
  {"name": "MgetAppender(2)", "data":{"hcsMethod":{"0":[[0]]},"shallowAnalyzer":1}, "sub":
   {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
- {"name": "MisAttached(3)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pappender(0)", "data":{"hcsParameter":{"0":[[0]]},"independentParameter":2,"modifiedParameter":1}}},
- {"name": "MdetachAndStopAllAppenders(4)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "MdetachAppender(5)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pappender(0)", "data":{"hcsParameter":{"0":[[0]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MisAttached(3)", "data":{"containerMethod":1,"hc":{"1":"Tch.qos.logback.core.Appender","M":1},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pappender(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MdetachAndStopAllAppenders(4)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MdetachAppender(5)", "data":{"containerMethod":1,"hc":{"1":"Tch.qos.logback.core.Appender","M":1},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pappender(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
  {"name": "MdetachAppender(6)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}}]}
 ]

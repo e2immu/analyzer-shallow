@@ -14,15 +14,17 @@
 
 package org.e2immu.analyzer.shallow.aapi.java;
 
-import org.e2immu.annotation.ImmutableContainer;
-import org.e2immu.annotation.Independent;
+import org.e2immu.annotation.*;
+
+import javax.crypto.SecretKey;
+import java.nio.ByteBuffer;
+import java.security.*;
 
 public class JavaSecurity {
     final static String PACKAGE_NAME = "java.security";
 
     @Independent(hc = true)
     interface PrivilegedAction$<T> {
-
     }
 
     @ImmutableContainer
@@ -30,5 +32,73 @@ public class JavaSecurity {
     interface Guard$ {
         // non-modifying, throws security exception
         void checkGuard(Object object);
+    }
+
+    @Independent
+    class MessageDigest$ {
+        static MessageDigest getInstance(String algorithm) { return null; }
+        static MessageDigest getInstance(String algorithm, String provider) { return null; }
+        static MessageDigest getInstance(String algorithm, @NotModified Provider provider) { return null; }
+        Provider getProvider() { return null; }
+        @Modified
+        void update(byte input) { }
+        @Modified
+        void update(@NotModified byte[] input, int offset, int len) { }
+        @Modified
+        void update(@NotModified byte[] input) { }
+        @Modified
+        void update(@Modified ByteBuffer input) { }
+        @Modified
+        byte[] digest() { return null; }
+        @Modified
+        int digest(@NotModified byte[] buf, int offset, int len) { return 0; }
+        @Modified
+        byte[] digest(@NotModified byte[] input) { return null; }
+        static boolean isEqual(@NotModified byte[] digesta, @NotModified byte[] digestb) { return false; }
+        @Modified
+        void reset() { }
+        String getAlgorithm() { return null; }
+        int getDigestLength() { return 0; }
+    }
+
+    @Immutable(hc = true)
+    interface SecureRandomParameters$ {}
+
+    @Independent
+    class SecureRandom$ {
+        SecureRandom$() { }
+        SecureRandom$(@NotModified byte[] seed) { }
+        static SecureRandom getInstance(String algorithm) { return null; }
+        static SecureRandom getInstance(String algorithm, String provider) { return null; }
+        static SecureRandom getInstance(String algorithm, Provider provider) { return null; }
+        static SecureRandom getInstance(String algorithm, SecureRandomParameters params) { return null; }
+
+        static SecureRandom getInstance(String algorithm, SecureRandomParameters params, String provider) {
+            return null;
+        }
+
+        static SecureRandom getInstance(String algorithm, SecureRandomParameters params, Provider provider) {
+            return null;
+        }
+
+        Provider getProvider() { return null; }
+        String getAlgorithm() { return null; }
+        public String toString() { return null; }
+        SecureRandomParameters getParameters() { return null; }
+        @Modified
+        void setSeed(@NotModified byte[] seed) { }
+        @Modified
+        void setSeed(long seed) { }
+        @Modified
+        void nextBytes(byte[] bytes) { }
+        @Modified
+        void nextBytes(byte[] bytes, SecureRandomParameters params) { }
+        static byte[] getSeed(int numBytes) { return null; }
+        byte[] generateSeed(int numBytes) { return null; }
+        static SecureRandom getInstanceStrong() { return null; }
+        @Modified
+        void reseed() { }
+        @Modified
+        void reseed(SecureRandomParameters params) { }
     }
 }

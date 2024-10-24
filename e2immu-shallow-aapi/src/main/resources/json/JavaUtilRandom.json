@@ -4,24 +4,24 @@
   {"name": "Mof(0)", "data":{"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
   {"name": "Mcopy(1)", "data":{"independentMethod":2,"shallowAnalyzer":1}},
-  {"name": "MjumpPowerOfTwo(2)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "MjumpPowerOfTwo(2)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
    {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
-  {"name": "Mjump(3)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Mjump(3)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
    {"name": "Pd(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
-  {"name": "Mjump(4)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}},
+  {"name": "Mjump(4)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
   {"name": "Mjumps(5)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "Pdistance(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
   {"name": "Mjumps(6)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "subs":[
    {"name": "PstreamSize(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
    {"name": "Pd(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
-  {"name": "Mleap(7)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}},
+  {"name": "Mleap(7)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
   {"name": "McopyAndJump(8)", "data":{"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "Pdistance(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}}]},
  {"name": "SJumpableGenerator(1)", "data":{"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Mof(0)", "data":{"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
   {"name": "Mcopy(1)", "data":{"independentMethod":2,"shallowAnalyzer":1}},
-  {"name": "Mjump(2)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}},
+  {"name": "Mjump(2)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
   {"name": "MjumpDistance(3)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
   {"name": "Mjumps(4)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}},
   {"name": "Mjumps(5)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
@@ -34,7 +34,7 @@
   {"name": "Mof(0)", "data":{"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
   {"name": "Mcopy(1)", "data":{"independentMethod":2,"shallowAnalyzer":1}},
-  {"name": "Mleap(2)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}},
+  {"name": "Mleap(2)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
   {"name": "MleapDistance(3)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
   {"name": "Mleaps(4)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}},
   {"name": "Mleaps(5)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
@@ -44,16 +44,16 @@
   {"name": "Mof(0)", "data":{"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
   {"name": "Msplit(1)", "data":{"independentMethod":2,"shallowAnalyzer":1}},
-  {"name": "Msplit(2)", "data":{"independentMethod":2,"shallowAnalyzer":1}, "sub":
-   {"name": "PsplittableGenerator(0)", "data":{"independentParameter":2}}},
+  {"name": "Msplit(2)", "data":{"hc":{"0":"Tjava.util.random.RandomGenerator.SplittableGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+   {"name": "PsplittableGenerator(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
   {"name": "Msplits(3)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}},
   {"name": "Msplits(4)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "Pl(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
-  {"name": "Msplits(5)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
-   {"name": "PsplittableGenerator(0)", "data":{"independentParameter":2}}},
-  {"name": "Msplits(6)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Msplits(5)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.random.RandomGenerator.SplittableGenerator"},"hcsMethod":{"0":[[0]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+   {"name": "PsplittableGenerator(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+  {"name": "Msplits(6)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.random.RandomGenerator.SplittableGenerator"},"hcsMethod":{"0":[[0]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
    {"name": "Pl(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
-   {"name": "PsplittableGenerator(1)", "data":{"independentParameter":2}}]},
+   {"name": "PsplittableGenerator(1)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}]},
   {"name": "Mrngs(7)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}},
   {"name": "Mrngs(8)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "PstreamSize(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}}]},
@@ -98,7 +98,7 @@
   {"name": "Pl(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
   {"name": "PrandomNumberOrigin(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
  {"name": "MnextBoolean(15)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MnextBytes(16)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "MnextBytes(16)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pbytes(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}},
  {"name": "MnextFloat(17)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MnextFloat(18)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":

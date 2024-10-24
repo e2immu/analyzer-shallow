@@ -68,16 +68,16 @@
   {"name": "PnewValue(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}]},
  {"name": "MgetAndSet(6)", "data":{"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "PnewValue(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
- {"name": "MgetAndUpdate(7)", "data":{"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
-  {"name": "PupdateFunction(0)", "data":{"hcsParameter":{"0":[[0]]},"ignoreModsParameter":1,"independentParameter":2}}},
- {"name": "MupdateAndGet(8)", "data":{"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
-  {"name": "PupdateFunction(0)", "data":{"hcsParameter":{"0":[[0]]},"ignoreModsParameter":1,"independentParameter":2}}},
- {"name": "MgetAndAccumulate(9)", "data":{"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "MgetAndUpdate(7)", "data":{"hc":{"1":"Tjava.util.function.UnaryOperator","M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "PupdateFunction(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}},
+ {"name": "MupdateAndGet(8)", "data":{"hc":{"1":"Tjava.util.function.UnaryOperator","M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "PupdateFunction(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}},
+ {"name": "MgetAndAccumulate(9)", "data":{"hc":{"1":"Tjava.util.function.BinaryOperator","M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Px(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
-  {"name": "PaccumulatorFunction(1)", "data":{"hcsParameter":{"0":[[0]]},"ignoreModsParameter":1,"independentParameter":2}}]},
- {"name": "MaccumulateAndGet(10)", "data":{"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "PaccumulatorFunction(1)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}]},
+ {"name": "MaccumulateAndGet(10)", "data":{"hc":{"1":"Tjava.util.function.BinaryOperator","M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Px(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
-  {"name": "PaccumulatorFunction(1)", "data":{"hcsParameter":{"0":[[0]]},"ignoreModsParameter":1,"independentParameter":2}}]},
+  {"name": "PaccumulatorFunction(1)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}]},
  {"name": "MtoString(11)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MgetPlain(12)", "data":{"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "MsetPlain(13)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
@@ -135,16 +135,16 @@
  {"name": "MdecrementAndGet(11)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MaddAndGet(12)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pdelta(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
- {"name": "MgetAndUpdate(13)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "PupdateFunction(0)", "data":{"ignoreModsParameter":1,"independentParameter":2}}},
- {"name": "MupdateAndGet(14)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "PupdateFunction(0)", "data":{"ignoreModsParameter":1,"independentParameter":2}}},
- {"name": "MgetAndAccumulate(15)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+ {"name": "MgetAndUpdate(13)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.function.IntUnaryOperator"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PupdateFunction(0)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}},
+ {"name": "MupdateAndGet(14)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.function.IntUnaryOperator"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PupdateFunction(0)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}},
+ {"name": "MgetAndAccumulate(15)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.function.IntBinaryOperator"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
-  {"name": "PaccumulatorFunction(1)", "data":{"ignoreModsParameter":1,"independentParameter":2}}]},
- {"name": "MaccumulateAndGet(16)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PaccumulatorFunction(1)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}]},
+ {"name": "MaccumulateAndGet(16)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.function.IntBinaryOperator"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
-  {"name": "PaccumulatorFunction(1)", "data":{"ignoreModsParameter":1,"independentParameter":2}}]},
+  {"name": "PaccumulatorFunction(1)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}]},
  {"name": "MtoString(17)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MintValue(18)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MlongValue(19)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
@@ -206,16 +206,16 @@
  {"name": "MdecrementAndGet(12)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MaddAndGet(13)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pdelta(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
- {"name": "MgetAndUpdate(14)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "PupdateFunction(0)", "data":{"ignoreModsParameter":1,"independentParameter":2}}},
- {"name": "MupdateAndGet(15)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "PupdateFunction(0)", "data":{"ignoreModsParameter":1,"independentParameter":2}}},
- {"name": "MgetAndAccumulate(16)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+ {"name": "MgetAndUpdate(14)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.function.LongUnaryOperator"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PupdateFunction(0)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}},
+ {"name": "MupdateAndGet(15)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.function.LongUnaryOperator"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PupdateFunction(0)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}},
+ {"name": "MgetAndAccumulate(16)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.function.LongBinaryOperator"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
-  {"name": "PlongBinaryOperator(1)", "data":{"ignoreModsParameter":1,"independentParameter":2}}]},
- {"name": "MaccumulateAndGet(17)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PlongBinaryOperator(1)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}]},
+ {"name": "MaccumulateAndGet(17)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.function.LongBinaryOperator"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
-  {"name": "PlongBinaryOperator(1)", "data":{"ignoreModsParameter":1,"independentParameter":2}}]},
+  {"name": "PlongBinaryOperator(1)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}]},
  {"name": "MtoString(18)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MintValue(19)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MlongValue(20)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},

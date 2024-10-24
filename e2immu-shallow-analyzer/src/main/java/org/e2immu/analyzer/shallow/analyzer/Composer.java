@@ -91,8 +91,8 @@ public class Composer {
             if (acceptTypeOrAnySubType(primaryType)) {
                 assert primaryType.isPrimaryType();
                 String packageName = primaryType.packageName();
-                TypeInfo ti = typesPerPackage.computeIfAbsent(packageName, this::newPackageType);
-                appendType(primaryType, ti, true);
+                TypeInfo packageType = typesPerPackage.computeIfAbsent(packageName, this::newPackageType);
+                appendType(packageType, primaryType, true);
             }
         }
         List<TypeInfo> allTypes = typesPerPackage.values().stream().toList();
@@ -100,31 +100,30 @@ public class Composer {
         return allTypes;
     }
 
-    private void appendType(TypeInfo primaryType, TypeInfo packageType, boolean topLevel) {
-        packageType.builder().setSingleAbstractMethod(null);
-        if (!acceptTypeOrAnySubType(primaryType)) return;
-        TypeInfo newType = createType(packageType, primaryType, topLevel);
-        newType.builder().setAccess(runtime.accessPackage()).setSingleAbstractMethod(null);
+    private void appendType(TypeInfo parentType, TypeInfo typeInfo, boolean topLevel) {
+        if (!acceptTypeOrAnySubType(typeInfo)) return;
+        TypeInfo newType = createType(parentType, typeInfo, topLevel);
 
-        for (TypeInfo subType : primaryType.subTypes()) {
-            appendType(subType, packageType, false);
+        for (TypeInfo subType : typeInfo.subTypes()) {
+            appendType(newType, subType, false);
         }
-        for (FieldInfo fieldInfo : primaryType.fields()) {
+        for (FieldInfo fieldInfo : typeInfo.fields()) {
             if (fieldInfo.access().isPublic() && predicate.test(fieldInfo)) {
                 newType.builder().addField(createField(fieldInfo, newType));
             }
         }
-        for (MethodInfo constructor : primaryType.constructors()) {
+        for (MethodInfo constructor : typeInfo.constructors()) {
             if (predicate.test(constructor)) {
                 newType.builder().addMethod(createMethod(constructor, newType));
             }
         }
-        for (MethodInfo methodInfo : primaryType.methods()) {
+        for (MethodInfo methodInfo : typeInfo.methods()) {
             if (predicate.test(methodInfo)) {
                 newType.builder().addMethod(createMethod(methodInfo, newType));
             }
         }
-        packageType.builder().addSubType(newType);
+        newType.builder().commit();
+        parentType.builder().addSubType(newType);
     }
 
     private boolean acceptTypeOrAnySubType(TypeInfo typeInfo) {
@@ -184,12 +183,13 @@ public class Composer {
         return newMethod;
     }
 
-    private TypeInfo createType(TypeInfo packageType, TypeInfo typeToCopy, boolean topLevel) {
+    private TypeInfo createType(TypeInfo parent, TypeInfo typeToCopy, boolean topLevel) {
         String typeName = typeToCopy.simpleName();
-        TypeInfo typeInfo = runtime.newTypeInfo(packageType, topLevel ? typeName + "$" : typeName);
+        TypeInfo typeInfo = runtime.newTypeInfo(parent, topLevel ? typeName + "$" : typeName);
         typeInfo.builder().setParentClass(runtime.objectParameterizedType())
                 .setTypeNature(runtime.typeNatureClass())
-                .setAccess(runtime.accessPackage());
+                .setAccess(runtime.accessPackage())
+                .setSingleAbstractMethod(null);
         for (TypeParameter tp : typeToCopy.typeParameters()) {
             TypeParameter newTp = runtime.newTypeParameter(tp.getIndex(), tp.simpleName(), typeInfo);
             typeInfo.builder().addOrSetTypeParameter(newTp);
@@ -205,7 +205,8 @@ public class Composer {
         builder.setTypeNature(runtime.typeNatureClass())
                 .setParentClass(runtime.objectParameterizedType())
                 .addTypeModifier(runtime.typeModifierPublic())
-                .setAccess(runtime.accessPublic());
+                .setAccess(runtime.accessPublic())
+                .setSingleAbstractMethod(null);
         FieldInfo packageField = runtime.newFieldInfo("PACKAGE_NAME", true,
                 runtime.stringParameterizedType(), typeInfo);
         packageField.builder()
