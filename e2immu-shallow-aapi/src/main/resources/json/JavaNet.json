@@ -1,5 +1,5 @@
 [
-{"name": "Tjava.net.ContentHandler", "data":{"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":1,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.net.ContentHandler", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":1,"shallowAnalyzer":1}, "subs":[
  {"name": "C<init>(0)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
  {"name": "MgetContent(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.net.URLConnection"},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "PuRLConnection(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
@@ -7,15 +7,15 @@
   {"name": "Purlc(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
   {"name": "Pclasses(1)", "data":{"containerParameter":1,"hcsParameter":{"1":[[1]]},"immutableParameter":1,"independentParameter":2}}]}]},
 
-{"name": "Tjava.net.ContentHandlerFactory", "data":{"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "sub":
+{"name": "Tjava.net.ContentHandlerFactory", "data":{"annotatedApi":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "sub":
  {"name": "McreateContentHandler(0)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}}},
 
-{"name": "Tjava.net.URLConnection", "data":{"containerType":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.net.URLConnection", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "MgetFileNameMap(0)", "data":{"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "MsetFileNameMap(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.net.FileNameMap"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Pmap(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
- {"name": "Mconnect(2)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mconnect(2)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
  {"name": "MsetConnectTimeout(3)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Ptimeout(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "MgetConnectTimeout(4)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
@@ -51,7 +51,7 @@
   {"name": "Pclasses(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[0]]},"immutableParameter":1,"independentParameter":2}}},
  {"name": "MgetPermission(24)", "data":{"shallowAnalyzer":1}},
  {"name": "MgetInputStream(25)", "data":{"shallowAnalyzer":1}},
- {"name": "MgetOutputStream(26)", "data":{"containerMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetOutputStream(26)", "data":{"annotatedApi":1,"containerMethod":1,"shallowAnalyzer":1}},
  {"name": "MtoString(27)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MsetDoInput(28)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pdoinput(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
@@ -82,9 +82,9 @@
  {"name": "MsetRequestProperty(44)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Pkey(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "Pvalue(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
- {"name": "MaddRequestProperty(45)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
-  {"name": "Pkey(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
-  {"name": "Pvalue(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
+ {"name": "MaddRequestProperty(45)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pkey(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pvalue(1)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
  {"name": "MgetRequestProperty(46)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Pkey(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
  {"name": "MgetRequestProperties(47)", "data":{"containerMethod":1,"shallowAnalyzer":1}},
@@ -106,17 +106,17 @@
  {"name": "MskipForward(61)", "data":{"hc":{"0":"Tjava.io.InputStream"}}, "subs":[
   {"name": "Pis(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]}]},
 
-{"name": "Tjava.net.JarURLConnection", "data":{"containerType":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.net.JarURLConnection", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "MgetJarFileURL(1)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "MgetEntryName(2)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "MgetJarFile(3)", "data":{"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetEntryName(2)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MgetJarFile(3)", "data":{"annotatedApi":1,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MgetManifest(4)", "data":{"shallowAnalyzer":1}},
  {"name": "MgetJarEntry(5)", "data":{"shallowAnalyzer":1}},
  {"name": "MgetAttributes(6)", "data":{"shallowAnalyzer":1}},
  {"name": "MgetMainAttributes(7)", "data":{"shallowAnalyzer":1}},
  {"name": "MgetCertificates(8)", "data":{"containerMethod":1,"immutableMethod":1,"shallowAnalyzer":1}}]},
 
-{"name": "Tjava.net.URI", "data":{"containerType":1,"immutableType":3,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.net.URI", "data":{"annotatedApi":1,"containerType":1,"immutableType":3,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "SParser(0)", "data":{"hc":{"E":true}}},
  {"name": "C<init>(1)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pstr(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
@@ -153,7 +153,7 @@
   {"name": "Pstr(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
  {"name": "Mrelativize(6)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Puri(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
- {"name": "MtoURL(7)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MtoURL(7)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MgetScheme(8)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "MisAbsolute(9)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MisOpaque(10)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
@@ -185,7 +185,7 @@
  {"name": "MappendEncoded(60)", "data":{"hc":{"0":"Tjava.nio.charset.CharsetEncoder"}}, "subs":[
   {"name": "Pencoder(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]}]},
 
-{"name": "Tjava.net.URL", "data":{"containerType":1,"immutableType":3,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.net.URL", "data":{"annotatedApi":1,"containerType":1,"immutableType":3,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "SDefaultFactory(0)", "data":{"hc":{"E":true}}},
  {"name": "C<init>(0)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Pprotocol(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
@@ -230,16 +230,16 @@
   {"name": "Pother(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
  {"name": "MtoString(18)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MtoExternalForm(19)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "MtoURI(20)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MopenConnection(21)", "data":{"containerMethod":1,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MtoURI(20)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MopenConnection(21)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MopenConnection(22)", "data":{"containerMethod":1,"hc":{"0":"Tjava.net.Proxy"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Pproxy(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
- {"name": "MopenStream(23)", "data":{"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MopenStream(23)", "data":{"annotatedApi":1,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MgetContent(24)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "MgetContent(25)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"hcsMethod":{"1":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Pclasses(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[0]]},"immutableParameter":1,"independentParameter":2}}},
- {"name": "MsetURLStreamHandlerFactory(26)", "data":{"containerMethod":1,"hc":{"0":"Tjava.net.URLStreamHandlerFactory"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
-  {"name": "Pfac(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "MsetURLStreamHandlerFactory(26)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.net.URLStreamHandlerFactory"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Pfac(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
  {"name": "MwriteObject(33)", "data":{"hc":{"0":"Tjava.io.ObjectOutputStream"}}, "sub":
   {"name": "Ps(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
  {"name": "MreadObject(34)", "data":{"hc":{"0":"Tjava.io.ObjectInputStream"}}, "sub":

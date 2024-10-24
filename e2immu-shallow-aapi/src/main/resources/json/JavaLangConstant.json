@@ -1,10 +1,10 @@
 [
-{"name": "Tjava.lang.constant.Constable", "data":{"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "sub":
- {"name": "MdescribeConstable(0)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}}},
+{"name": "Tjava.lang.constant.Constable", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "sub":
+ {"name": "MdescribeConstable(0)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":2,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}}},
 
-{"name": "Tjava.lang.constant.ConstantDesc", "data":{"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "sub":
- {"name": "MresolveConstantDesc(0)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Plookup(0)", "data":{"independentParameter":2}}}},
+{"name": "Tjava.lang.constant.ConstantDesc", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "sub":
+ {"name": "MresolveConstantDesc(0)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":2,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Plookup(0)", "data":{"annotatedApi":1,"independentParameter":2}}}},
 
 {"name": "Tjava.lang.constant.DynamicConstantDesc", "data":{"hc":{"0":"PT:0","E":true,"M":1},"shallowAnalyzer":1}, "subs":[
  {"name": "SAnonymousDynamicConstantDesc(0)", "data":{"hc":{"0":"PT:0","E":true,"M":1}}, "sub":

@@ -1,5 +1,5 @@
 [
-{"name": "Tjava.lang.invoke.MethodHandles", "data":{"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.lang.invoke.MethodHandles", "data":{"annotatedApi":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "SLookup(0)", "data":{"shallowAnalyzer":1}, "subs":[
   {"name": "SClassDefiner(0)", "data":{"hc":{"E":true}}, "subs":[
    {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandles.Lookup.ClassFile"}}, "subs":[
@@ -444,8 +444,8 @@
   {"name": "PdefaultCase(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
   {"name": "PcaseActions(1)", "data":{"hcsParameter":{"0":[[0]]}}}]}]},
 
-{"name": "Tjava.lang.invoke.TypeDescriptor", "data":{"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
- {"name": "SOfField(0)", "data":{"containerType":1,"hc":{"0":"PF:0","E":true,"M":1},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.lang.invoke.TypeDescriptor", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "SOfField(0)", "data":{"annotatedApi":1,"containerType":1,"hc":{"0":"PF:0","E":true,"M":1},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
   {"name": "MisArray(0)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
   {"name": "MisPrimitive(1)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
   {"name": "McomponentType(2)", "data":{"containerMethod":1,"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},

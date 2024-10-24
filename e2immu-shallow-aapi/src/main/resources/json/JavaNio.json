@@ -1,5 +1,5 @@
 [
-{"name": "Tjava.nio.Buffer", "data":{"containerType":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.nio.Buffer", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "Mcapacity(2)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "Mposition(3)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "Mposition(4)", "data":{"containerMethod":1,"shallowAnalyzer":1}, "sub":
@@ -8,7 +8,7 @@
  {"name": "Mlimit(7)", "data":{"containerMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "PnewLimit(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "Mmark(9)", "data":{"containerMethod":1,"shallowAnalyzer":1}},
- {"name": "Mreset(10)", "data":{"containerMethod":1,"fluentMethod":1,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mreset(10)", "data":{"annotatedApi":1,"containerMethod":1,"fluentMethod":1,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "Mclear(11)", "data":{"containerMethod":1,"shallowAnalyzer":1}},
  {"name": "Mflip(12)", "data":{"containerMethod":1,"shallowAnalyzer":1}},
  {"name": "Mrewind(13)", "data":{"containerMethod":1,"shallowAnalyzer":1}},
@@ -19,13 +19,13 @@
  {"name": "Marray(18)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
  {"name": "MarrayOffset(19)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MisDirect(20)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "Mslice(21)", "data":{"containerMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mslice(21)", "data":{"annotatedApi":1,"containerMethod":1,"shallowAnalyzer":1}},
  {"name": "Mslice(22)", "data":{"containerMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
   {"name": "Pi1(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
  {"name": "Mduplicate(23)", "data":{"containerMethod":1,"shallowAnalyzer":1}}]},
 
-{"name": "Tjava.nio.ByteBuffer", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.nio.ByteBuffer", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "MallocateDirect(1)", "data":{"shallowAnalyzer":1}, "sub":
   {"name": "Pcapacity(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "Mallocate(2)", "data":{"shallowAnalyzer":1}, "sub":
@@ -172,7 +172,7 @@
   {"name": "Pd(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
  {"name": "MasDoubleBuffer(77)", "data":{"shallowAnalyzer":1}}]},
 
-{"name": "Tjava.nio.CharBuffer", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.nio.CharBuffer", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "Mallocate(1)", "data":{"shallowAnalyzer":1}, "sub":
   {"name": "Pcapacity(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "Mwrap(2)", "data":{"shallowAnalyzer":1}, "subs":[
@@ -207,8 +207,8 @@
   {"name": "Pdst(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}},
   {"name": "Poffset(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
   {"name": "Plength(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
- {"name": "Mget(17)", "data":{"fluentMethod":1,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pdst(0)", "data":{"containerParameter":1,"immutableParameter":1,"modifiedParameter":1}}},
+ {"name": "Mget(17)", "data":{"annotatedApi":1,"fluentMethod":1,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pdst(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"modifiedParameter":1}}},
  {"name": "Mget(18)", "data":{"shallowAnalyzer":1}, "subs":[
   {"name": "Pindex(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
   {"name": "Pdst(1)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}},

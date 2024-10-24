@@ -3,8 +3,11 @@ package org.e2immu.analyzer.shallow.analyzer;
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
 import org.e2immu.analyzer.modification.prepwork.PrepAnalyzer;
+import org.e2immu.language.cst.api.info.Info;
 import org.e2immu.language.cst.api.info.MethodInfo;
 import org.e2immu.language.cst.api.info.TypeInfo;
+import org.e2immu.language.cst.impl.analysis.PropertyImpl;
+import org.e2immu.language.cst.impl.analysis.ValueImpl;
 import org.e2immu.util.internal.graph.G;
 import org.e2immu.util.internal.graph.op.Linearize;
 import org.e2immu.util.internal.util.Trie;
@@ -14,6 +17,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Stream;
 
 import static org.e2immu.language.inspection.integration.JavaInspectorImpl.JAR_WITH_PATH_PREFIX;
@@ -50,7 +54,13 @@ public class Run {
         PrepAnalyzer prepAnalyzer = new PrepAnalyzer(annotatedApiParser.runtime());
         prepAnalyzer.initialize(annotatedApiParser.javaInspector().compiledTypesManager().typesLoaded());
 
-        LOGGER.info("Parsed and analyzed {} types", parsedTypes.size());
+        Set<Info> infos = annotatedApiParser.infos();
+        LOGGER.info("Parsed and analyzed {} types; {} info objects", parsedTypes.size(), infos.size());
+        infos.forEach(i -> {
+            if(!i.analysis().haveAnalyzedValueFor(PropertyImpl.ANNOTATED_API)) {
+                i.analysis().set(PropertyImpl.ANNOTATED_API, ValueImpl.BoolImpl.TRUE);
+            }
+        });
 
         WriteAnalysis wa = new WriteAnalysis();
         Trie<TypeInfo> trie = new Trie<>();

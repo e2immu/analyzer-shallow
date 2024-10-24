@@ -1,5 +1,5 @@
 [
-{"name": "Tch.qos.logback.classic.Level", "data":{"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tch.qos.logback.classic.Level", "data":{"annotatedApi":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "FOFF_INT(1)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FERROR_INT(2)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FWARN_INT(3)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
@@ -18,7 +18,7 @@
  {"name": "FERROR(16)", "data":{"finalField":1,"independentField":2,"shallowAnalyzer":1}},
  {"name": "FWARN(17)", "data":{"finalField":1,"independentField":2,"shallowAnalyzer":1}},
  {"name": "FINFO(18)", "data":{"finalField":1,"independentField":2,"shallowAnalyzer":1}},
- {"name": "FDEBUG(19)", "data":{"finalField":1,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
+ {"name": "FDEBUG(19)", "data":{"annotatedApi":1,"finalField":1,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FTRACE(20)", "data":{"finalField":1,"independentField":2,"shallowAnalyzer":1}},
  {"name": "FALL(21)", "data":{"finalField":1,"independentField":2,"shallowAnalyzer":1}},
  {"name": "FlevelInt(22)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
@@ -47,7 +47,7 @@
  {"name": "MtoLocationAwareLoggerInteger(12)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Plevel(0)", "data":{"independentParameter":2}}}]},
 
-{"name": "Tch.qos.logback.classic.Logger", "data":{"shallowAnalyzer":1}, "subs":[
+{"name": "Tch.qos.logback.classic.Logger", "data":{"annotatedApi":1,"shallowAnalyzer":1}, "subs":[
  {"name": "FFQCN(1)", "data":{"containerField":1,"finalField":1,"immutableField":3,"independentField":2,"shallowAnalyzer":1}},
  {"name": "C<init>(0)", "data":{"hc":{"0":"Tch.qos.logback.classic.LoggerContext"}}, "subs":[
   {"name": "Pparent(1)", "data":{"hcsParameter":{"0":[[0]]}}},
@@ -55,8 +55,8 @@
  {"name": "MgetEffectiveLevel(0)", "data":{"shallowAnalyzer":1}},
  {"name": "MgetLevel(2)", "data":{"shallowAnalyzer":1}},
  {"name": "MgetName(3)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "MsetLevel(6)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "PnewLevel(0)", "data":{"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MsetLevel(6)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewLevel(0)", "data":{"annotatedApi":1,"independentParameter":2,"notNullParameter":1}}},
  {"name": "MdetachAndStopAllAppenders(8)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
  {"name": "MdetachAppender(9)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},

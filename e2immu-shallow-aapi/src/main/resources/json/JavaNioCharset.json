@@ -1,17 +1,17 @@
 [
-{"name": "Tjava.nio.charset.Charset", "data":{"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.nio.charset.Charset", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "SExtendedProviderHolder(0)", "data":{"hc":{"E":true}}},
  {"name": "Mcache(1)", "data":{"hc":{"0":"Tjava.nio.charset.Charset"}}, "subs":[
   {"name": "Pcs(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
  {"name": "MisSupported(7)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "PcharsetName(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
- {"name": "MforName(8)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "PcharsetName(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MforName(8)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PcharsetName(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
  {"name": "Mput(9)", "data":{"hc":{"0":"Tjava.util.Iterator","1":"Tjava.nio.charset.Charset","2":"Tjava.util.Map"}}, "subs":[
   {"name": "Pi(0)", "data":{"hcsParameter":{"0":[[-1]],"1":[[0]]}}},
   {"name": "Pm(1)", "data":{"hcsParameter":{"1":[[1]],"2":[[-1]]}}}]},
  {"name": "MavailableCharsets(10)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "MdefaultCharset(11)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MdefaultCharset(11)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "Mname(12)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "Maliases(13)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "MdisplayName(14)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},

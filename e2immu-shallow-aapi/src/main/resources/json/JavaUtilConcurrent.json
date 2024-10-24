@@ -1,14 +1,14 @@
 [
-{"name": "Tjava.util.concurrent.Executor", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "sub":
- {"name": "Mexecute(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Runnable"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Prunnable(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}},
+{"name": "Tjava.util.concurrent.Executor", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "sub":
+ {"name": "Mexecute(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.lang.Runnable"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Prunnable(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]}}}}},
 
-{"name": "Tjava.util.concurrent.Flow", "data":{"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.util.concurrent.Flow", "data":{"annotatedApi":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "SProcessor(0)", "data":{"hc":{"0":"PT:0","1":"PR:1","E":true,"M":2},"independentField":1,"independentType":2,"shallowAnalyzer":1}},
- {"name": "SPublisher(1)", "data":{"hc":{"0":"PT:0","E":true,"M":1},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "sub":
+ {"name": "SPublisher(1)", "data":{"annotatedApi":1,"hc":{"0":"PT:0","E":true,"M":1},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "sub":
   {"name": "Msubscribe(0)", "data":{"containerMethod":1,"hc":{"1":"Tjava.util.concurrent.Flow.Subscriber","M":1},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
    {"name": "Psubscriber(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]},"independentParameter":2}}}},
- {"name": "SSubscriber(2)", "data":{"hc":{"0":"PT:0","E":true,"M":1},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "SSubscriber(2)", "data":{"annotatedApi":1,"hc":{"0":"PT:0","E":true,"M":1},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
   {"name": "MonSubscribe(0)", "data":{"containerMethod":1,"hc":{"1":"Tjava.util.concurrent.Flow.Subscription","M":1},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
    {"name": "Psubscription(0)", "data":{"hcsParameter":{"1":[[-1]]},"independentParameter":2}}},
   {"name": "MonNext(1)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
@@ -22,20 +22,20 @@
   {"name": "Mcancel(1)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}}]},
  {"name": "MdefaultBufferSize(0)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}}]},
 
-{"name": "Tjava.util.concurrent.Future", "data":{"containerType":1,"hc":{"0":"PV:0","E":true,"M":1},"independentType":1,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.util.concurrent.Future", "data":{"annotatedApi":1,"containerType":1,"hc":{"0":"PV:0","E":true,"M":1},"independentType":1,"shallowAnalyzer":1}, "subs":[
  {"name": "Mcancel(0)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pb(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "MisCancelled(1)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MisDone(2)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "Mget(3)", "data":{"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mget(3)", "data":{"annotatedApi":1,"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"modifiedMethod":1,"shallowAnalyzer":1}},
  {"name": "Mget(4)", "data":{"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Pl(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
   {"name": "PtimeUnit(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]}]},
 
-{"name": "Tjava.util.concurrent.RunnableFuture", "data":{"hc":{"0":"PV:0","E":true,"M":1},"independentType":1,"shallowAnalyzer":1}, "sub":
+{"name": "Tjava.util.concurrent.RunnableFuture", "data":{"annotatedApi":1,"hc":{"0":"PV:0","E":true,"M":1},"independentType":1,"shallowAnalyzer":1}, "sub":
  {"name": "Mrun(0)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}}},
 
-{"name": "Tjava.util.concurrent.TimeUnit", "data":{"containerType":1,"immutableType":3,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.util.concurrent.TimeUnit", "data":{"annotatedApi":1,"containerType":1,"immutableType":3,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "FNANOSECONDS(0)", "data":{"containerField":1,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FMICROSECONDS(1)", "data":{"containerField":1,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FMILLISECONDS(2)", "data":{"containerField":1,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},

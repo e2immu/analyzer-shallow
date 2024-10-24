@@ -218,6 +218,10 @@ public class AnnotatedApiParser implements AnnotationProvider {
         return infoMap.keySet().stream().filter(i -> i instanceof TypeInfo).map(t -> (TypeInfo) t).toList();
     }
 
+    public Set<Info> infos() {
+        return infoMap.keySet();
+    }
+
     public JavaInspector javaInspector() {
         return javaInspector;
     }

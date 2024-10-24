@@ -1,8 +1,8 @@
 [
-{"name": "Torg.xml.sax.ContentHandler", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+{"name": "Torg.xml.sax.ContentHandler", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "MsetDocumentLocator(0)", "data":{"containerMethod":1,"hc":{"0":"Torg.xml.sax.Locator"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Plocator(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
- {"name": "MstartDocument(1)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MstartDocument(1)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
  {"name": "Mdeclaration(2)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Pversion(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "Pencoding(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
@@ -18,10 +18,10 @@
   {"name": "Pstring1(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "Pstring2(2)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "Pattributes(3)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}]},
- {"name": "MendElement(7)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
-  {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
-  {"name": "Pstring1(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
-  {"name": "Pstring2(2)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
+ {"name": "MendElement(7)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pstring(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pstring1(1)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pstring2(2)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
  {"name": "Mcharacters(8)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Pc(0)", "data":{"containerParameter":1,"immutableParameter":1,"modifiedParameter":1}},
   {"name": "Pi(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
@@ -64,8 +64,8 @@
  {"name": "Mparse(13)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}}]},
 
-{"name": "Torg.xml.sax.XMLFilter", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
- {"name": "MsetParent(0)", "data":{"containerMethod":1,"hc":{"0":"Torg.xml.sax.XMLReader"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "PxMLReader(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
- {"name": "MgetParent(1)", "data":{"shallowAnalyzer":1}}]}
+{"name": "Torg.xml.sax.XMLFilter", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "MsetParent(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Torg.xml.sax.XMLReader"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PxMLReader(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MgetParent(1)", "data":{"annotatedApi":1,"shallowAnalyzer":1}}]}
 ]

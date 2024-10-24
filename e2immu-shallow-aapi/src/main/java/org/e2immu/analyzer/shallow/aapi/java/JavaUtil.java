@@ -1094,6 +1094,9 @@ public class JavaUtil extends AnnotatedAPI {
 
         @Modified
         int nextInt();
+
+        @Modified
+        int nextInt(int i);
     }
 
     @Container
@@ -1150,8 +1153,10 @@ public class JavaUtil extends AnnotatedAPI {
 
     }
     @Container
-    interface Vector$ {
+    interface Vector$<E> {
 
+        @Modified
+        void addElement(@Independent(hc = true) @NotNull E e);
     }
 
 }

@@ -1,5 +1,5 @@
 [
-{"name": "Torg.w3c.dom.Node", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+{"name": "Torg.w3c.dom.Node", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "FELEMENT_NODE(0)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FATTRIBUTE_NODE(1)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FTEXT_NODE(2)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
@@ -37,10 +37,10 @@
  {"name": "MreplaceChild(13)", "data":{"hc":{"0":"Torg.w3c.dom.Node"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
   {"name": "Pnode(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
   {"name": "Pnode1(1)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}]},
- {"name": "MremoveChild(14)", "data":{"hc":{"0":"Torg.w3c.dom.Node"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pnode(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
- {"name": "MappendChild(15)", "data":{"hc":{"0":"Torg.w3c.dom.Node"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pnode(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MremoveChild(14)", "data":{"annotatedApi":1,"hc":{"0":"Torg.w3c.dom.Node"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pnode(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MappendChild(15)", "data":{"annotatedApi":1,"hc":{"0":"Torg.w3c.dom.Node"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pnode(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
  {"name": "MhasChildNodes(16)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "McloneNode(17)", "data":{"shallowAnalyzer":1}, "sub":
   {"name": "Pb(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},

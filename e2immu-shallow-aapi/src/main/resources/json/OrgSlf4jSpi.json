@@ -3,7 +3,7 @@
  {"name": "Mlog(0)", "data":{"containerMethod":1,"hc":{"0":"Torg.slf4j.event.LoggingEvent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "PloggingEvent(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}}},
 
-{"name": "Torg.slf4j.spi.LocationAwareLogger", "data":{"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Torg.slf4j.spi.LocationAwareLogger", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "FTRACE_INT(0)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FDEBUG_INT(1)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FINFO_INT(2)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},

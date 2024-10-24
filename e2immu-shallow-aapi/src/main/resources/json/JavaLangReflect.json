@@ -1,5 +1,5 @@
 [
-{"name": "Tjava.lang.reflect.AnnotatedElement", "data":{"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.lang.reflect.AnnotatedElement", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "MisAnnotationPresent(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.annotation.Annotation"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "PannotationClass(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]],"1":[[0]]},"immutableParameter":3,"independentParameter":2}}},
  {"name": "MgetAnnotation(1)", "data":{"hc":{"0":"Tjava.lang.Class"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
@@ -13,10 +13,10 @@
   {"name": "PannotationClass(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}}},
  {"name": "MgetDeclaredAnnotations(6)", "data":{"containerMethod":1,"immutableMethod":1,"independentMethod":2,"shallowAnalyzer":1}}]},
 
-{"name": "Tjava.lang.reflect.Type", "data":{"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "sub":
+{"name": "Tjava.lang.reflect.Type", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "sub":
  {"name": "MgetTypeName(0)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}}},
 
-{"name": "Tjava.lang.reflect.AccessibleObject", "data":{"hc":{"E":true},"independentType":1,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.lang.reflect.AccessibleObject", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":1,"shallowAnalyzer":1}, "subs":[
  {"name": "SCache(0)", "data":{"hc":{"E":true}}, "subs":[
   {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "subs":[
    {"name": "Pcaller(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
@@ -77,7 +77,7 @@
   {"name": "PmemberClass(1)", "data":{"hcsParameter":{"0":[[-1]]}}},
   {"name": "PtargetClass(2)", "data":{"hcsParameter":{"0":[[-1]]}}}]}]},
 
-{"name": "Tjava.lang.reflect.AnnotatedType", "data":{"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.lang.reflect.AnnotatedType", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "MgetAnnotatedOwnerType(0)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "MgetType(1)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "MgetAnnotation(2)", "data":{"hc":{"0":"Tjava.lang.Class"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
@@ -85,6 +85,6 @@
  {"name": "MgetAnnotations(3)", "data":{"containerMethod":1,"immutableMethod":1,"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "MgetDeclaredAnnotations(4)", "data":{"containerMethod":1,"immutableMethod":1,"independentMethod":2,"shallowAnalyzer":1}}]},
 
-{"name": "Tjava.lang.reflect.GenericDeclaration", "data":{"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "sub":
+{"name": "Tjava.lang.reflect.GenericDeclaration", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "sub":
  {"name": "MgetTypeParameters(0)", "data":{"containerMethod":1,"immutableMethod":1,"independentMethod":2,"shallowAnalyzer":1}}}
 ]

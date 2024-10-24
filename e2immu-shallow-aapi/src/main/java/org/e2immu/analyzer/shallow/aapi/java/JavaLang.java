@@ -17,6 +17,7 @@ package org.e2immu.analyzer.shallow.aapi.java;
 import org.e2immu.annotation.*;
 import org.e2immu.annotation.Commutable;
 import org.e2immu.annotation.rare.IgnoreModifications;
+import org.e2immu.annotation.rare.StaticSideEffects;
 import org.e2immu.annotation.type.UtilityClass;
 
 import java.io.PrintStream;
@@ -129,6 +130,9 @@ class JavaLang {
 
         @Modified
         void setStackTrace(@NotNull StackTraceElement[] stackTrace);
+
+        @StaticSideEffects
+        void printStackTrace();
 
         void printStackTrace(@Modified PrintStream s);
     }
@@ -295,6 +299,12 @@ class JavaLang {
         int indexOf(int ch) {
             return 0;
         }
+
+        int indexOf(String s) { return 0; }
+
+        int indexOf(String s, int pos) { return 0; }
+
+        int indexOf(int ch, int pos) { return 0; }
 
         int intern$Transfer$Len(int len) {
             return len;
@@ -525,6 +535,8 @@ class JavaLang {
     @Container
     static abstract class StringBuffer$ implements CharSequence {
 
+        @Fluent
+        StringBuffer append(String s) { return null; }
     }
 
     /*
@@ -535,6 +547,11 @@ class JavaLang {
 
         @NotNull
         String toString(int i);
+
+        Integer parseInt(String s);
+
+        @NotNull
+        String toHexString(int i);
     }
 
     /*
@@ -625,6 +642,10 @@ class JavaLang {
         static int min(@Commutable long a, @Commutable long b) {
             return 0;
         }
+
+        static double sqrt(double d) { return 0.0; }
+
+        static double pow(double base, double exp) { return 0.0; }
     }
 
     /*

@@ -183,6 +183,10 @@ public class JavaIo {
         @Modified
         @AllowsInterrupt
         void write(char[] cbuf, int off, int len);
+
+        @Modified
+        @AllowsInterrupt
+        void write(String s);
     }
 
     @Independent
@@ -194,6 +198,9 @@ public class JavaIo {
     @Independent // because of Closeable, we can't do less
     interface BufferedWriter$ {
 
+        @AllowsInterrupt
+        @Modified
+        void newLine();
     }
 
     /*
@@ -284,6 +291,7 @@ public class JavaIo {
     which has implications for .exists(), .delete()
      */
     @Container
+    @Independent
     interface File$ {
         boolean canRead();
 
@@ -296,6 +304,12 @@ public class JavaIo {
 
         @NotNull
         String getPath();
+
+        boolean isDirectory();
+
+        File[] listFiles();
+
+        String[] list();
 
         @NotNull
         URI toURI();

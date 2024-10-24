@@ -1,18 +1,18 @@
 [
-{"name": "Tjavax.xml.parsers.DocumentBuilderFactory", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+{"name": "Tjavax.xml.parsers.DocumentBuilderFactory", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "MnewDefaultNSInstance(0)", "data":{"shallowAnalyzer":1}},
  {"name": "MnewNSInstance(1)", "data":{"shallowAnalyzer":1}},
  {"name": "MnewNSInstance(2)", "data":{"hc":{"0":"Tjava.lang.ClassLoader"},"hcsMethod":{"0":[[0]]},"shallowAnalyzer":1}, "subs":[
   {"name": "PfactoryClassName(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "PclassLoader(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}}]},
  {"name": "MnewDefaultInstance(3)", "data":{"shallowAnalyzer":1}},
- {"name": "MnewInstance(4)", "data":{"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MnewInstance(4)", "data":{"annotatedApi":1,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MnewInstance(5)", "data":{"hc":{"0":"Tjava.lang.ClassLoader"},"hcsMethod":{"0":[[0]]},"shallowAnalyzer":1}, "subs":[
   {"name": "PfactoryClassName(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "PclassLoader(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}}]},
  {"name": "MmakeNSAware(6)", "data":{"hc":{"0":"Tjavax.xml.parsers.DocumentBuilderFactory"},"hcsMethod":{"0":[[-1]]}}, "sub":
   {"name": "Pdbf(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
- {"name": "MnewDocumentBuilder(7)", "data":{"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MnewDocumentBuilder(7)", "data":{"annotatedApi":1,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MsetNamespaceAware(8)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pawareness(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "MsetValidating(9)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":

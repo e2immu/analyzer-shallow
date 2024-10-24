@@ -1,5 +1,5 @@
 [
-{"name": "Tjava.util.regex.Pattern", "data":{"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.util.regex.Pattern", "data":{"annotatedApi":1,"shallowAnalyzer":1}, "subs":[
  {"name": "SBackRef(0)", "data":{"hc":{"E":true}}, "subs":[
   {"name": "Mmatch(0)", "data":{"hc":{"0":"Tjava.lang.CharSequence"}}, "subs":[
    {"name": "Pseq(2)", "data":{"hcsParameter":{"0":[[-1]]}}}]}]},
@@ -109,8 +109,8 @@
   {"name": "Pflags(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
  {"name": "Mpattern(2)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "MtoString(3)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "Mmatcher(4)", "data":{"hc":{"0":"Tjava.lang.CharSequence"},"notNullMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pinput(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "Mmatcher(4)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.lang.CharSequence"},"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pinput(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
  {"name": "Mflags(5)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "Mmatches(6)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.CharSequence"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Pregex(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},

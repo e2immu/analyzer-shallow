@@ -1,5 +1,5 @@
 [
-{"name": "Tjava.util.concurrent.locks.Condition", "data":{"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.util.concurrent.locks.Condition", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "Mawait(0)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
  {"name": "MawaitUninterruptibly(1)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
  {"name": "MawaitNanos(2)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
@@ -12,7 +12,7 @@
  {"name": "Msignal(5)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
  {"name": "MsignalAll(6)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}}]},
 
-{"name": "Tjava.util.concurrent.locks.Lock", "data":{"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.util.concurrent.locks.Lock", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "Mlock(0)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
  {"name": "MlockInterruptibly(1)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
  {"name": "MtryLock(2)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
@@ -22,11 +22,11 @@
  {"name": "Munlock(4)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
  {"name": "MnewCondition(5)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}}]},
 
-{"name": "Tjava.util.concurrent.locks.ReadWriteLock", "data":{"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.util.concurrent.locks.ReadWriteLock", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "MreadLock(0)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "MwriteLock(1)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}}]},
 
-{"name": "Tjava.util.concurrent.locks.ReentrantLock", "data":{"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.util.concurrent.locks.ReentrantLock", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "SSync(2)", "data":{"hc":{"E":true}}, "subs":[
   {"name": "MreadObject(11)", "data":{"hc":{"0":"Tjava.io.ObjectInputStream"}}, "sub":
    {"name": "Ps(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}]},
@@ -57,8 +57,8 @@
   {"name": "Pcondition(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
  {"name": "MtoString(18)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}}]},
 
-{"name": "Tjava.util.concurrent.locks.ReentrantReadWriteLock", "data":{"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
- {"name": "SReadLock(2)", "data":{"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.util.concurrent.locks.ReentrantReadWriteLock", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "SReadLock(2)", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
   {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.util.concurrent.locks.ReentrantReadWriteLock"}}, "sub":
    {"name": "Plock(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
   {"name": "Mlock(0)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
@@ -75,7 +75,7 @@
    {"name": "Pcurrent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
   {"name": "MreadObject(19)", "data":{"hc":{"0":"Tjava.io.ObjectInputStream"}}, "sub":
    {"name": "Ps(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}]},
- {"name": "SWriteLock(4)", "data":{"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "SWriteLock(4)", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
   {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.util.concurrent.locks.ReentrantReadWriteLock"}}, "sub":
    {"name": "Plock(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
   {"name": "Mlock(0)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
