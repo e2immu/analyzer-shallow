@@ -7,6 +7,7 @@ import org.e2immu.language.cst.api.analysis.Value;
 import org.e2immu.language.cst.api.info.MethodInfo;
 import org.e2immu.language.cst.api.info.TypeInfo;
 import org.e2immu.language.cst.api.runtime.Runtime;
+import org.e2immu.language.cst.impl.analysis.PropertyImpl;
 import org.e2immu.language.cst.impl.analysis.ValueImpl;
 import org.e2immu.language.inspection.api.resource.CompiledTypesManager;
 import org.e2immu.language.inspection.integration.JavaInspectorImpl;

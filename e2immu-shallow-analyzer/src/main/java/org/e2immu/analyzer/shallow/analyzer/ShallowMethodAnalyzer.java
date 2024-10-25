@@ -308,16 +308,20 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
         if (typeContainer.isTrue()) {
             return FALSE;
         }
+        ParameterizedType type = parameterInfo.parameterizedType();
+        if (type.isPrimitiveStringClass()) {
+            return FALSE;
+        }
+        Value.Immutable typeImmutable = analysisHelper.typeImmutable(type);
+        if (typeImmutable != null && typeImmutable.isAtLeastImmutableHC()) {
+            return FALSE;
+        }
         Value.Bool override = methodInfo.overrides().stream()
                 .map(mi -> mi.parameters().get(parameterInfo.index()))
                 .map(pi -> pi.analysis().getOrDefault(MODIFIED_PARAMETER, FALSE))
                 .reduce(ValueImpl.BoolImpl.NO_VALUE, Value.Bool::or);
         if (override.hasAValue()) {
             return override;
-        }
-        ParameterizedType type = parameterInfo.parameterizedType();
-        if (type.isPrimitiveStringClass()) {
-            return FALSE;
         }
         Value.Independent typeIndependent = analysisHelper.typeIndependent(type);
         if (typeIndependent == null) {

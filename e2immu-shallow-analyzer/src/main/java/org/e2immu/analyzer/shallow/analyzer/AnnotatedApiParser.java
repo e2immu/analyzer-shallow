@@ -108,18 +108,16 @@ public class AnnotatedApiParser implements AnnotationProvider {
             }
         }
         for (MethodInfo sourceMethod : sourceType.methods()) {
-            if (!sourceMethod.name().contains("$")) {
-                MethodInfo targetMethod = findTargetMethod(targetType, sourceMethod);
-                if (targetMethod != null) {
-                    annotations += sourceMethod.annotations().size();
-                    Data methodData = new Data(sourceMethod.annotations());
-                    infoMap.put(targetMethod, methodData);
-                    doParameters(sourceMethod, targetMethod);
-                } else {
-                    LOGGER.warn("Ignoring method '{}', not found in target type '{}'", sourceMethod, targetType);
-                    ++warnings;
-                }
-            } // else companion method, not implemented at the moment
+            MethodInfo targetMethod = findTargetMethod(targetType, sourceMethod);
+            if (targetMethod != null) {
+                annotations += sourceMethod.annotations().size();
+                Data methodData = new Data(sourceMethod.annotations());
+                infoMap.put(targetMethod, methodData);
+                doParameters(sourceMethod, targetMethod);
+            } else {
+                LOGGER.warn("Ignoring method '{}', not found in target type '{}'", sourceMethod, targetType);
+                ++warnings;
+            }
         }
         for (MethodInfo sourceMethod : sourceType.constructors()) {
             MethodInfo targetMethod = findTargetConstructor(targetType, sourceMethod);
@@ -169,14 +167,22 @@ public class AnnotatedApiParser implements AnnotationProvider {
 
     private MethodInfo findTargetMethod(TypeInfo targetType, MethodInfo sourceMethod) {
         int n = sourceMethod.parameters().size();
+        String sourceMethodName = trimDollar(sourceMethod.name());
         for (MethodInfo candidate : targetType.methods()) {
             if (candidate.parameters().size() == n
-                && candidate.name().equals(sourceMethod.name())
+                && candidate.name().equals(sourceMethodName)
                 && sameParameterTypes(candidate, sourceMethod)) {
                 return candidate;
             }
         }
         return null; // cannot find the method, we'll NOT be looking at a supertype, since we cannot add a copy
+    }
+
+    private String trimDollar(String name) {
+        if (name.endsWith("$")) {
+            return name.substring(0, name.length() - 1);
+        }
+        return name;
     }
 
     private FieldInfo findTargetField(TypeInfo targetType, FieldInfo sourceField) {

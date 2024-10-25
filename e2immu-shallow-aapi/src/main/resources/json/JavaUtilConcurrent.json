@@ -12,7 +12,7 @@
   {"name": "MonSubscribe(0)", "data":{"containerMethod":1,"hc":{"1":"Tjava.util.concurrent.Flow.Subscription","M":1},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
    {"name": "Psubscription(0)", "data":{"hcsParameter":{"1":[[-1]]},"independentParameter":2}}},
   {"name": "MonNext(1)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-   {"name": "Pt(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2,"modifiedParameter":1}}},
+   {"name": "Pt(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
   {"name": "MonError(2)", "data":{"containerMethod":1,"hc":{"1":"Tjava.lang.Throwable","M":1},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
    {"name": "Pthrowable(0)", "data":{"hcsParameter":{"1":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
   {"name": "MonComplete(3)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}}]},

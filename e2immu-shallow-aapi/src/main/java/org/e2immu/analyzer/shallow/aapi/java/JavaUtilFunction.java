@@ -37,7 +37,7 @@ public class JavaUtilFunction {
         t is @Modified implicitly
          */
         @Modified
-        void accept(T t);
+        void accept(@Modified T t);
 
         // default method, calling accept first, then "after"
         @NotNull
@@ -50,7 +50,7 @@ public class JavaUtilFunction {
          t is @Modified implicitly
          */
         @Modified
-        boolean test(T t);
+        boolean test(@Modified T t);
     }
 
     @Independent(hc = true)
@@ -59,7 +59,7 @@ public class JavaUtilFunction {
          t is @Modified implicitly
          */
         @Modified
-        R apply(T t);
+        R apply(@Modified T t);
 
         @NotNull
         <V> java.util.function.Function<T, V> andThen(@NotNull java.util.function.Function<? super R, ? extends V> after);
@@ -76,7 +76,7 @@ public class JavaUtilFunction {
     interface BiFunction$<T, U, R> {
 
         @Modified
-        R apply(T t, U u);
+        R apply(@Modified T t, @Modified U u);
 
         @NotNull
         <V> java.util.function.BiFunction<T, U, V> andThen(@NotNull java.util.function.Function<? super R, ? extends V> after);
@@ -95,7 +95,7 @@ public class JavaUtilFunction {
     @Independent(hc = true)
     interface BiConsumer$<T, U> {
         @Modified
-        void accept(T t, U u);
+        void accept(@Modified T t, @Modified U u);
 
         @NotNull
         java.util.function.BiConsumer<T, U> andThen(@NotNull java.util.function.BiConsumer<? super T, ? super U> after);
@@ -104,37 +104,37 @@ public class JavaUtilFunction {
     @Independent(hc = true)
     interface ToIntFunction$<R> {
         @Modified
-        int applyAsInt(R value);
+        int applyAsInt(@Modified R value);
     }
 
     @Independent(hc = true)
     interface ToIntBiFunction$<T, U> {
         @Modified
-        int applyAsInt(T t, U u);
+        int applyAsInt(@Modified T t, @Modified U u);
     }
 
     @Independent(hc = true)
     interface ToLongBiFunction$<T, U> {
         @Modified
-        long applyAsLong(T t, U u);
+        long applyAsLong(@Modified T t, @Modified U u);
     }
 
     @Independent(hc = true)
     interface ToDoubleBiFunction$<T, U> {
         @Modified
-        double applyAsDouble(T t, U u);
+        double applyAsDouble(@Modified T t, @Modified U u);
     }
 
     @Independent(hc = true)
     interface ToLongFunction$<R> {
         @Modified
-        long applyAsLong(R value);
+        long applyAsLong(@Modified R value);
     }
 
     @Independent(hc = true)
     interface ToDoubleFunction$<R> {
         @Modified
-        double applyAsDouble(R value);
+        double applyAsDouble(@Modified R value);
     }
 
     @Container
@@ -169,19 +169,19 @@ public class JavaUtilFunction {
     @Independent(hc = true)
     interface ObjIntConsumer$<T> {
         @Modified
-        void accept(T t, int i);
+        void accept(@Modified T t, int i);
     }
 
     @Independent(hc = true)
     interface ObjLongConsumer$<T> {
         @Modified
-        void accept(T t, long i);
+        void accept(@Modified T t, long i);
     }
 
     @Independent(hc = true)
     interface ObjDoubleConsumer$<T> {
         @Modified
-        void accept(T t, double i);
+        void accept(@Modified T t, double i);
     }
 
     @Container
