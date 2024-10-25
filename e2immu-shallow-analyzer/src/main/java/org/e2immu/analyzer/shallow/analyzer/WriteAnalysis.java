@@ -30,6 +30,10 @@ public class WriteAnalysis {
             LOGGER.info("Created directory {}", directory.getAbsolutePath());
         }
         Codec codec = new CodecImpl(PropertyProviderImpl::get, null, null); // we don't have to decode
+        write(directory, typeTrie, codec);
+    }
+
+    public void write(File directory, Trie<TypeInfo> typeTrie, Codec codec) throws IOException {
         try {
             typeTrie.visitThrowing(new String[]{}, (parts, list) -> write(directory, codec, parts, list));
         } catch (RuntimeException re) {

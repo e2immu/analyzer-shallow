@@ -82,7 +82,7 @@ public class AnnotatedApiParser implements AnnotationProvider {
             if (targetType != null) {
                 annotatedTypes++;
                 transferAnnotations(typeInfo, targetType);
-            } else {
+            } else if (typeInfo.isPubliclyAccessible()) {
                 warnings++;
                 LOGGER.warn("Ignoring type '{}', cannot load it.", fqn);
             }
@@ -101,10 +101,10 @@ public class AnnotatedApiParser implements AnnotationProvider {
             TypeInfo targetSubType = targetType.findSubType(subType.simpleName(), false);
             if (targetSubType != null) {
                 transferAnnotations(subType, targetSubType);
-            } else {
+            } else if (subType.isPubliclyAccessible()) {
+                warnings++;
                 LOGGER.warn("Ignoring subtype '{}', cannot find it in the target type '{}'",
                         subType.simpleName(), targetType);
-                warnings++;
             }
         }
         for (MethodInfo sourceMethod : sourceType.methods()) {
