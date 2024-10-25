@@ -39,6 +39,7 @@ public class Run {
         AnnotatedApiParser annotatedApiParser = new AnnotatedApiParser();
         annotatedApiParser.initialize(
                 List.of("jmods/java.base.jmod", "jmods/java.xml.jmod", "jmods/java.net.http.jmod",
+                        "jmods/java.datatransfer.jmod", "jmods/java.desktop.jmod",
                         JAR_WITH_PATH_PREFIX + "org/e2immu/support",
                         JAR_WITH_PATH_PREFIX + "org/slf4j",
                         JAR_WITH_PATH_PREFIX + "ch/qos/logback/classic",
@@ -48,7 +49,7 @@ public class Run {
                         JAR_WITH_PATH_PREFIX + "org/opentest4j"
                 ),
                 List.of(args[0]),
-                List.of("java", "e2immu", "log", "test"));
+                List.of("java", "javax", "e2immu", "log", "test"));
         ShallowAnalyzer shallowAnalyzer = new ShallowAnalyzer(annotatedApiParser);
         List<TypeInfo> parsedTypes = shallowAnalyzer.go();
         PrepAnalyzer prepAnalyzer = new PrepAnalyzer(annotatedApiParser.runtime());
@@ -57,7 +58,7 @@ public class Run {
         Set<Info> infos = annotatedApiParser.infos();
         LOGGER.info("Parsed and analyzed {} types; {} info objects", parsedTypes.size(), infos.size());
         infos.forEach(i -> {
-            if(!i.analysis().haveAnalyzedValueFor(PropertyImpl.ANNOTATED_API)) {
+            if (!i.analysis().haveAnalyzedValueFor(PropertyImpl.ANNOTATED_API)) {
                 i.analysis().set(PropertyImpl.ANNOTATED_API, ValueImpl.BoolImpl.TRUE);
             }
         });

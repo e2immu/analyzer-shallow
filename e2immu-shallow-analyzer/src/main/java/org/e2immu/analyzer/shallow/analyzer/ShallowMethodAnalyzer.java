@@ -374,6 +374,7 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
         Value.Bool fluent = (Value.Bool) map.get(FLUENT_METHOD);
         boolean nonStaticVoid = !methodInfo.isStatic() && methodInfo.noReturnValue();
         Value.Bool addToModified = ValueImpl.BoolImpl.from(fluent.isTrue() || nonStaticVoid);
+        if(addToModified.isTrue()) return addToModified;
         return methodInfo.overrides().stream()
                 .filter(MethodInfo::isPublic)
                 .filter(m -> m.analysis().haveAnalyzedValueFor(MODIFIED_METHOD, () -> {
@@ -382,8 +383,7 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
                     }
                 }))
                 .map(m -> m.analysis().getOrDefault(MODIFIED_METHOD, FALSE))
-                .reduce(FALSE, Value.Bool::or)
-                .or(addToModified);
+                .reduce(FALSE, Value.Bool::or);
     }
 
     private Value computeMethodFluent(MethodInfo methodInfo) {

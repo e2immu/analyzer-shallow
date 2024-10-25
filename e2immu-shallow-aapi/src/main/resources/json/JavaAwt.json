@@ -1,0 +1,816 @@
+[
+{"name": "Tjava.awt.MenuContainer", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "MgetFont(0)", "data":{"shallowAnalyzer":1}},
+ {"name": "Mremove(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.MenuComponent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PmenuComponent(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MpostEvent(2)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Event"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pevent(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}}]},
+
+{"name": "Tjava.awt.Component", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "SAWTTreeLock(0)", "data":{"hc":{"E":true}}},
+ {"name": "SAccessibleAWTComponent(1)", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+  {"name": "SAccessibleAWTComponentHandler(0)", "data":{"hc":{"E":true}}, "subs":[
+   {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.awt.Component.AccessibleAWTComponent"}}, "sub":
+    {"name": "Pthis$1(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+   {"name": "McomponentHidden(0)", "data":{"hc":{"0":"Tjava.awt.event.ComponentEvent"}}, "sub":
+    {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+   {"name": "McomponentShown(1)", "data":{"hc":{"0":"Tjava.awt.event.ComponentEvent"}}, "sub":
+    {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+   {"name": "McomponentMoved(2)", "data":{"hc":{"0":"Tjava.awt.event.ComponentEvent"}}, "sub":
+    {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+   {"name": "McomponentResized(3)", "data":{"hc":{"0":"Tjava.awt.event.ComponentEvent"}}, "sub":
+    {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}]},
+  {"name": "SAccessibleAWTFocusHandler(1)", "data":{"hc":{"E":true}}, "subs":[
+   {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.awt.Component.AccessibleAWTComponent"}}, "sub":
+    {"name": "Pthis$1(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+   {"name": "MfocusGained(0)", "data":{"hc":{"0":"Tjava.awt.event.FocusEvent"}}, "sub":
+    {"name": "Pevent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+   {"name": "MfocusLost(1)", "data":{"hc":{"0":"Tjava.awt.event.FocusEvent"}}, "sub":
+    {"name": "Pevent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}]},
+  {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.awt.Component"}}, "sub":
+   {"name": "Pthis$0(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+  {"name": "MaddPropertyChangeListener(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.beans.PropertyChangeListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+   {"name": "Plistener(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+  {"name": "MremovePropertyChangeListener(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.beans.PropertyChangeListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+   {"name": "Plistener(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+  {"name": "MgetAccessibleName(2)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
+  {"name": "MgetAccessibleDescription(3)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
+  {"name": "MgetAccessibleRole(4)", "data":{"shallowAnalyzer":1}},
+  {"name": "MgetAccessibleStateSet(5)", "data":{"shallowAnalyzer":1}},
+  {"name": "MgetAccessibleParent(6)", "data":{"shallowAnalyzer":1}},
+  {"name": "MgetAccessibleIndexInParent(7)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+  {"name": "MgetAccessibleChildrenCount(8)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+  {"name": "MgetAccessibleChild(9)", "data":{"shallowAnalyzer":1}, "sub":
+   {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+  {"name": "MgetLocale(10)", "data":{"shallowAnalyzer":1}},
+  {"name": "MgetAccessibleComponent(11)", "data":{"shallowAnalyzer":1}},
+  {"name": "MgetBackground(12)", "data":{"shallowAnalyzer":1}},
+  {"name": "MsetBackground(13)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Color"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+   {"name": "Pc(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+  {"name": "MgetForeground(14)", "data":{"shallowAnalyzer":1}},
+  {"name": "MsetForeground(15)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Color"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+   {"name": "Pc(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+  {"name": "MgetCursor(16)", "data":{"shallowAnalyzer":1}},
+  {"name": "MsetCursor(17)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Cursor"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+   {"name": "Pcursor(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+  {"name": "MgetFont(18)", "data":{"shallowAnalyzer":1}},
+  {"name": "MsetFont(19)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Font"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+   {"name": "Pf(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+  {"name": "MgetFontMetrics(20)", "data":{"hc":{"0":"Tjava.awt.Font"},"shallowAnalyzer":1}, "sub":
+   {"name": "Pf(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+  {"name": "MisEnabled(21)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+  {"name": "MsetEnabled(22)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+   {"name": "Pb(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+  {"name": "MisVisible(23)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+  {"name": "MsetVisible(24)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+   {"name": "Pb(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+  {"name": "MisShowing(25)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+  {"name": "Mcontains(26)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Point"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+   {"name": "Pp(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+  {"name": "MgetLocationOnScreen(27)", "data":{"shallowAnalyzer":1}},
+  {"name": "MgetLocation(28)", "data":{"shallowAnalyzer":1}},
+  {"name": "MsetLocation(29)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Point"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+   {"name": "Pp(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+  {"name": "MgetBounds(30)", "data":{"shallowAnalyzer":1}},
+  {"name": "MsetBounds(31)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Rectangle"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+   {"name": "Pr(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+  {"name": "MgetSize(32)", "data":{"shallowAnalyzer":1}},
+  {"name": "MsetSize(33)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Dimension"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+   {"name": "Pd(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+  {"name": "MgetAccessibleAt(34)", "data":{"hc":{"0":"Tjava.awt.Point"},"shallowAnalyzer":1}, "sub":
+   {"name": "Pp(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+  {"name": "MisFocusTraversable(35)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+  {"name": "MrequestFocus(36)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+  {"name": "MaddFocusListener(37)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.FocusListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+   {"name": "Pl(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+  {"name": "MremoveFocusListener(38)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.FocusListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+   {"name": "Pl(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}}]},
+ {"name": "SBltBufferStrategy(3)", "data":{"hc":{"E":true}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.awt.Component","1":"Tjava.awt.BufferCapabilities"}}, "subs":[
+   {"name": "Pthis$0(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+   {"name": "Pcaps(2)", "data":{"hcsParameter":{"1":[[-1]]}}}]}]},
+ {"name": "SBltSubRegionBufferStrategy(4)", "data":{"hc":{"E":true}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.awt.Component","1":"Tjava.awt.BufferCapabilities"}}, "subs":[
+   {"name": "Pcomponent(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+   {"name": "Pcaps(2)", "data":{"hcsParameter":{"1":[[-1]]}}}]}]},
+ {"name": "SDummyRequestFocusController(5)", "data":{"hc":{"E":true}}, "subs":[
+  {"name": "MacceptRequestFocus(0)", "data":{"hc":{"0":"Tjava.awt.Component"}}, "subs":[
+   {"name": "Pfrom(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+   {"name": "Pto(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]}]},
+ {"name": "SFlipBufferStrategy(6)", "data":{"hc":{"E":true}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.awt.Component","1":"Tjava.awt.BufferCapabilities"}}, "subs":[
+   {"name": "Pthis$0(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+   {"name": "Pcaps(2)", "data":{"hcsParameter":{"1":[[-1]]}}}]},
+  {"name": "McreateBuffers(0)", "data":{"hc":{"0":"Tjava.awt.BufferCapabilities"}}, "subs":[
+   {"name": "Pcaps(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]}]},
+ {"name": "SFlipSubRegionBufferStrategy(7)", "data":{"hc":{"E":true}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.awt.Component","1":"Tjava.awt.BufferCapabilities"}}, "subs":[
+   {"name": "Pcomponent(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+   {"name": "Pcaps(2)", "data":{"hcsParameter":{"1":[[-1]]}}}]}]},
+ {"name": "SProxyCapabilities(8)", "data":{"hc":{"E":true}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.awt.Component","1":"Tjava.awt.BufferCapabilities"}}, "subs":[
+   {"name": "Pcomponent(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+   {"name": "Porig(1)", "data":{"hcsParameter":{"1":[[-1]]}}}]}]},
+ {"name": "SSingleBufferStrategy(9)", "data":{"hc":{"E":true}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.awt.Component","1":"Tjava.awt.BufferCapabilities"}}, "subs":[
+   {"name": "Pcomponent(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+   {"name": "Pcaps(1)", "data":{"hcsParameter":{"1":[[-1]]}}}]}]},
+ {"name": "FTOP_ALIGNMENT(75)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
+ {"name": "FCENTER_ALIGNMENT(76)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
+ {"name": "FBOTTOM_ALIGNMENT(77)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
+ {"name": "FLEFT_ALIGNMENT(78)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
+ {"name": "FRIGHT_ALIGNMENT(79)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
+ {"name": "MgetName(6)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MsetName(7)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MgetParent(8)", "data":{"shallowAnalyzer":1}},
+ {"name": "MsetDropTarget(11)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.dnd.DropTarget"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pdt(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MgetDropTarget(12)", "data":{"shallowAnalyzer":1}},
+ {"name": "MgetGraphicsConfiguration(13)", "data":{"shallowAnalyzer":1}},
+ {"name": "MsetGraphicsConfiguration(15)", "data":{"hc":{"0":"Tjava.awt.GraphicsConfiguration"}}, "sub":
+  {"name": "Pgc(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MupdateGraphicsData(16)", "data":{"hc":{"0":"Tjava.awt.GraphicsConfiguration"}}, "sub":
+  {"name": "Pgc(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MupdateSelfGraphicsData(17)", "data":{"hc":{"0":"Tjava.awt.GraphicsConfiguration"}}, "sub":
+  {"name": "Pgc(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MupdateChildGraphicsData(18)", "data":{"hc":{"0":"Tjava.awt.GraphicsConfiguration"}}, "sub":
+  {"name": "Pgc(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MgetTreeLock(20)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetToolkit(22)", "data":{"shallowAnalyzer":1}},
+ {"name": "MisValid(25)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisDisplayable(26)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisVisible(27)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MpointRelativeToComponent(31)", "data":{"hc":{"0":"Tjava.awt.Point"},"hcsMethod":{"0":[[-1]]}}, "sub":
+  {"name": "Pabsolute(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MfindUnderMouseInWindow(32)", "data":{"hc":{"0":"Tjava.awt.PointerInfo"},"hcsMethod":{"0":[[0]]}}, "sub":
+  {"name": "Ppi(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MgetMousePosition(33)", "data":{"shallowAnalyzer":1}},
+ {"name": "MisSameOrAncestorOf(34)", "data":{"hc":{"0":"Tjava.awt.Component"}}, "subs":[
+  {"name": "Pcomp(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "MisShowing(35)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisEnabled(36)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetEnabled(38)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Menable(39)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Menable(40)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mdisable(41)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisDoubleBuffered(42)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MenableInputMethods(43)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Penable(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MsetVisible(44)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mshow(45)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mshow(46)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mhide(50)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetForeground(51)", "data":{"shallowAnalyzer":1}},
+ {"name": "MsetForeground(52)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Color"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pc(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MisForegroundSet(53)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetBackground(54)", "data":{"shallowAnalyzer":1}},
+ {"name": "MsetBackground(55)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Color"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pc(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MisBackgroundSet(56)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetFont(57)", "data":{"shallowAnalyzer":1}},
+ {"name": "MsetFont(59)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Font"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pf(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MisFontSet(60)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetLocale(61)", "data":{"shallowAnalyzer":1}},
+ {"name": "MsetLocale(62)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"modifiedParameter":1}}},
+ {"name": "MgetColorModel(63)", "data":{"shallowAnalyzer":1}},
+ {"name": "MgetLocation(64)", "data":{"shallowAnalyzer":1}},
+ {"name": "MgetLocationOnScreen(65)", "data":{"shallowAnalyzer":1}},
+ {"name": "Mlocation(67)", "data":{"shallowAnalyzer":1}},
+ {"name": "MsetLocation(69)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mmove(70)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MsetLocation(71)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Point"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pp(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MgetSize(72)", "data":{"shallowAnalyzer":1}},
+ {"name": "Msize(73)", "data":{"shallowAnalyzer":1}},
+ {"name": "MsetSize(74)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pwidth(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pheight(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mresize(75)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pwidth(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pheight(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MsetSize(76)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Dimension"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pd(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "Mresize(77)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Dimension"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pd(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MgetBounds(78)", "data":{"shallowAnalyzer":1}},
+ {"name": "Mbounds(79)", "data":{"shallowAnalyzer":1}},
+ {"name": "MsetBounds(80)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pwidth(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pheight(3)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mreshape(81)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pwidth(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pheight(3)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MsetBounds(85)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Rectangle"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pr(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MgetX(86)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetY(87)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetWidth(88)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetHeight(89)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetBounds(90)", "data":{"hc":{"0":"Tjava.awt.Rectangle"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Prv(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MgetSize(91)", "data":{"hc":{"0":"Tjava.awt.Dimension"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Prv(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MgetLocation(92)", "data":{"hc":{"0":"Tjava.awt.Point"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Prv(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MisOpaque(93)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisLightweight(94)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetPreferredSize(95)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Dimension"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PpreferredSize(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MisPreferredSizeSet(96)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetPreferredSize(97)", "data":{"shallowAnalyzer":1}},
+ {"name": "MpreferredSize(98)", "data":{"shallowAnalyzer":1}},
+ {"name": "MsetMinimumSize(99)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Dimension"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PminimumSize(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MisMinimumSizeSet(100)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetMinimumSize(101)", "data":{"shallowAnalyzer":1}},
+ {"name": "MminimumSize(102)", "data":{"shallowAnalyzer":1}},
+ {"name": "MsetMaximumSize(103)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Dimension"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PmaximumSize(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MisMaximumSizeSet(104)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetMaximumSize(105)", "data":{"shallowAnalyzer":1}},
+ {"name": "MgetAlignmentX(106)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetAlignmentY(107)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetBaseline(108)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pwidth(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pheight(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MgetBaselineResizeBehavior(109)", "data":{"shallowAnalyzer":1}},
+ {"name": "MdoLayout(110)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mlayout(111)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mvalidate(112)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Minvalidate(113)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mrevalidate(116)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetGraphics(118)", "data":{"shallowAnalyzer":1}},
+ {"name": "MgetFontMetrics(120)", "data":{"hc":{"0":"Tjava.awt.Font"},"shallowAnalyzer":1}, "sub":
+  {"name": "Pfont(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MsetCursor(121)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Cursor"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcursor(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MgetCursor(123)", "data":{"shallowAnalyzer":1}},
+ {"name": "MisCursorSet(125)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mpaint(126)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Graphics"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pg(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "Mupdate(127)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Graphics"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pg(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MpaintAll(128)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Graphics"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pg(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MlightweightPaint(129)", "data":{"hc":{"0":"Tjava.awt.Graphics"}}, "sub":
+  {"name": "Pg(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MpaintHeavyweightComponents(130)", "data":{"hc":{"0":"Tjava.awt.Graphics"}}, "sub":
+  {"name": "Pg(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "Mrepaint(131)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mrepaint(132)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Ptm(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mrepaint(133)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pwidth(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pheight(3)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mrepaint(134)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Ptm(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Px(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(3)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pwidth(4)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mprint(135)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Graphics"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pg(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MprintAll(136)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Graphics"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pg(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MlightweightPrint(137)", "data":{"hc":{"0":"Tjava.awt.Graphics"}}, "sub":
+  {"name": "Pg(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MprintHeavyweightComponents(138)", "data":{"hc":{"0":"Tjava.awt.Graphics"}}, "sub":
+  {"name": "Pg(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MimageUpdate(140)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Image"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pimg(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Pinfoflags(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Px(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(3)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pw(4)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Ph(5)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "McreateImage(141)", "data":{"hc":{"0":"Tjava.awt.image.ImageProducer"},"shallowAnalyzer":1}, "sub":
+  {"name": "Pproducer(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "McreateImage(142)", "data":{"shallowAnalyzer":1}, "subs":[
+  {"name": "Pwidth(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pheight(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "McreateVolatileImage(143)", "data":{"shallowAnalyzer":1}, "subs":[
+  {"name": "Pwidth(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pheight(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "McreateVolatileImage(144)", "data":{"hc":{"0":"Tjava.awt.ImageCapabilities"},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pwidth(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pheight(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pcaps(2)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}]},
+ {"name": "MprepareImage(145)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Image","1":"Tjava.awt.image.ImageObserver"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pimage(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Pobserver(1)", "data":{"hcsParameter":{"1":[[-1]]},"independentParameter":2,"modifiedParameter":1}}]},
+ {"name": "MprepareImage(146)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Image","1":"Tjava.awt.image.ImageObserver"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pimage(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Pwidth(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pheight(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pobserver(3)", "data":{"hcsParameter":{"1":[[-1]]},"independentParameter":2,"modifiedParameter":1}}]},
+ {"name": "McheckImage(147)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Image","1":"Tjava.awt.image.ImageObserver"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pimage(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Pobserver(1)", "data":{"hcsParameter":{"1":[[-1]]},"independentParameter":2,"modifiedParameter":1}}]},
+ {"name": "McheckImage(148)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Image","1":"Tjava.awt.image.ImageObserver"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pimage(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Pwidth(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pheight(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pobserver(3)", "data":{"hcsParameter":{"1":[[-1]]},"independentParameter":2,"modifiedParameter":1}}]},
+ {"name": "McreateBufferStrategy(150)", "data":{"hc":{"0":"Tjava.awt.BufferCapabilities"}}, "subs":[
+  {"name": "Pcaps(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "MsetIgnoreRepaint(153)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PignoreRepaint(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetIgnoreRepaint(154)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mcontains(155)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Minside(156)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mcontains(157)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Point"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pp(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MgetComponentAt(158)", "data":{"shallowAnalyzer":1}, "subs":[
+  {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mlocate(159)", "data":{"shallowAnalyzer":1}, "subs":[
+  {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MgetComponentAt(160)", "data":{"hc":{"0":"Tjava.awt.Point"},"hcsMethod":{"0":[[0]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Pp(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MdeliverEvent(161)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Event"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MdispatchEvent(162)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.AWTEvent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MdispatchEventImpl(163)", "data":{"hc":{"0":"Tjava.awt.AWTEvent"}}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MautoProcessMouseWheel(164)", "data":{"hc":{"0":"Tjava.awt.event.MouseWheelEvent"}}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MdispatchMouseWheelToAncestor(165)", "data":{"hc":{"0":"Tjava.awt.event.MouseWheelEvent"}}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MeventEnabled(167)", "data":{"hc":{"0":"Tjava.awt.AWTEvent"}}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MpostEvent(169)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Event"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MaddComponentListener(170)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.ComponentListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MremoveComponentListener(171)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.ComponentListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MgetComponentListeners(172)", "data":{"containerMethod":1,"immutableMethod":1,"shallowAnalyzer":1}},
+ {"name": "MaddFocusListener(173)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.FocusListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MremoveFocusListener(174)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.FocusListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MgetFocusListeners(175)", "data":{"containerMethod":1,"immutableMethod":1,"shallowAnalyzer":1}},
+ {"name": "MaddHierarchyListener(176)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.HierarchyListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MremoveHierarchyListener(177)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.HierarchyListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MgetHierarchyListeners(178)", "data":{"containerMethod":1,"immutableMethod":1,"shallowAnalyzer":1}},
+ {"name": "MaddHierarchyBoundsListener(179)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.HierarchyBoundsListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MremoveHierarchyBoundsListener(180)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.HierarchyBoundsListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "McreateHierarchyEvents(183)", "data":{"hc":{"0":"Tjava.awt.Component","1":"Tjava.awt.Container"}}, "subs":[
+  {"name": "Pchanged(1)", "data":{"hcsParameter":{"0":[[-1]],"1":[[1]]}}},
+  {"name": "PchangedParent(2)", "data":{"hcsParameter":{"1":[[-1]]}}}]},
+ {"name": "MgetHierarchyBoundsListeners(184)", "data":{"containerMethod":1,"immutableMethod":1,"shallowAnalyzer":1}},
+ {"name": "MaddKeyListener(186)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.KeyListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MremoveKeyListener(187)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.KeyListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MgetKeyListeners(188)", "data":{"containerMethod":1,"immutableMethod":1,"shallowAnalyzer":1}},
+ {"name": "MaddMouseListener(189)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.MouseListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MremoveMouseListener(190)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.MouseListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MgetMouseListeners(191)", "data":{"containerMethod":1,"immutableMethod":1,"shallowAnalyzer":1}},
+ {"name": "MaddMouseMotionListener(192)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.MouseMotionListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MremoveMouseMotionListener(193)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.MouseMotionListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MgetMouseMotionListeners(194)", "data":{"containerMethod":1,"immutableMethod":1,"shallowAnalyzer":1}},
+ {"name": "MaddMouseWheelListener(195)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.MouseWheelListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MremoveMouseWheelListener(196)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.MouseWheelListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MgetMouseWheelListeners(197)", "data":{"containerMethod":1,"immutableMethod":1,"shallowAnalyzer":1}},
+ {"name": "MaddInputMethodListener(198)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.InputMethodListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MremoveInputMethodListener(199)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.InputMethodListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MgetInputMethodListeners(200)", "data":{"containerMethod":1,"immutableMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetListeners(201)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Class"},"immutableMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PlistenerType(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MgetInputMethodRequests(202)", "data":{"shallowAnalyzer":1}},
+ {"name": "MgetInputContext(203)", "data":{"shallowAnalyzer":1}},
+ {"name": "MisCoalesceEventsOverriden(207)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "sub":
+  {"name": "Pclazz(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "McoalesceEvents(209)", "data":{"hc":{"0":"Tjava.awt.AWTEvent"},"hcsMethod":{"0":[[-1]]}}, "subs":[
+  {"name": "PexistingEvent(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+  {"name": "PnewEvent(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "MprocessEvent(210)", "data":{"hc":{"0":"Tjava.awt.AWTEvent"}}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MprocessComponentEvent(211)", "data":{"hc":{"0":"Tjava.awt.event.ComponentEvent"}}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MprocessFocusEvent(212)", "data":{"hc":{"0":"Tjava.awt.event.FocusEvent"}}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MprocessKeyEvent(213)", "data":{"hc":{"0":"Tjava.awt.event.KeyEvent"}}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MprocessMouseEvent(214)", "data":{"hc":{"0":"Tjava.awt.event.MouseEvent"}}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MprocessMouseMotionEvent(215)", "data":{"hc":{"0":"Tjava.awt.event.MouseEvent"}}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MprocessMouseWheelEvent(216)", "data":{"hc":{"0":"Tjava.awt.event.MouseWheelEvent"}}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MprocessInputMethodEvent(218)", "data":{"hc":{"0":"Tjava.awt.event.InputMethodEvent"}}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MprocessHierarchyEvent(219)", "data":{"hc":{"0":"Tjava.awt.event.HierarchyEvent"}}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MprocessHierarchyBoundsEvent(220)", "data":{"hc":{"0":"Tjava.awt.event.HierarchyEvent"}}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MhandleEvent(221)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Event"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pevt(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MmouseDown(222)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Event"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pevt(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Px(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MmouseDrag(223)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Event"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pevt(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Px(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MmouseUp(224)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Event"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pevt(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Px(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MmouseMove(225)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Event"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pevt(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Px(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MmouseEnter(226)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Event"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pevt(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Px(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MmouseExit(227)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Event"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pevt(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Px(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MkeyDown(228)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Event"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pevt(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Pkey(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MkeyUp(229)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Event"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pevt(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Pkey(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Maction(230)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Event","1":"Tjava.lang.Object"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pevt(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Pwhat(1)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":2}}]},
+ {"name": "MaddNotify(231)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MremoveNotify(232)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgotFocus(233)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Event","1":"Tjava.lang.Object"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pevt(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Pwhat(1)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":2}}]},
+ {"name": "MlostFocus(234)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Event","1":"Tjava.lang.Object"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pevt(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Pwhat(1)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":2}}]},
+ {"name": "MisFocusTraversable(235)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisFocusable(236)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetFocusable(237)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pfocusable(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MsetFocusTraversalKeys(239)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.Set","1":"Tjava.awt.AWTKeyStroke"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pid(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pkeystrokes(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]],"1":[[0]]},"modifiedParameter":1}}]},
+ {"name": "MgetFocusTraversalKeys(240)", "data":{"containerMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pid(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MsetFocusTraversalKeys_NoIDCheck(241)", "data":{"hc":{"0":"Tjava.util.Set","1":"Tjava.awt.AWTKeyStroke"}}, "subs":[
+  {"name": "Pkeystrokes(1)", "data":{"hcsParameter":{"0":[[-1]],"1":[[0]]}}}]},
+ {"name": "MareFocusTraversalKeysSet(243)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pid(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MsetFocusTraversalKeysEnabled(244)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PfocusTraversalKeysEnabled(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetFocusTraversalKeysEnabled(245)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MrequestFocus(246)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MrequestFocus(247)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcause(0)", "data":{"modifiedParameter":1}}},
+ {"name": "MrequestFocusInWindow(250)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MrequestFocusInWindow(251)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcause(0)", "data":{"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MsetRequestFocusController(257)", "data":{"hc":{"0":"Tsun.awt.RequestFocusController"}}, "sub":
+  {"name": "PrequestController(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MgetFocusCycleRootAncestor(258)", "data":{"shallowAnalyzer":1}},
+ {"name": "MisFocusCycleRoot(259)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Container"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcontainer(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MtransferFocus(261)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MnextFocus(262)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MtransferFocusBackward(265)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MtransferFocusUpCycle(267)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MhasFocus(268)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisFocusOwner(269)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Madd(272)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.PopupMenu"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Ppopup(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "Mremove(273)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.MenuComponent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Ppopup(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MtoString(275)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mlist(276)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mlist(277)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.PrintStream"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pout(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "Mlist(278)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.PrintStream"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pout(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}},
+  {"name": "Pindent(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mlist(279)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.PrintWriter"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pout(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "Mlist(280)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.PrintWriter"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pout(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}},
+  {"name": "Pindent(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MaddPropertyChangeListener(282)", "data":{"containerMethod":1,"hc":{"0":"Tjava.beans.PropertyChangeListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Plistener(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MremovePropertyChangeListener(283)", "data":{"containerMethod":1,"hc":{"0":"Tjava.beans.PropertyChangeListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Plistener(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MgetPropertyChangeListeners(284)", "data":{"containerMethod":1,"immutableMethod":1,"shallowAnalyzer":1}},
+ {"name": "MaddPropertyChangeListener(285)", "data":{"containerMethod":1,"hc":{"0":"Tjava.beans.PropertyChangeListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PpropertyName(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Plistener(1)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}]},
+ {"name": "MremovePropertyChangeListener(286)", "data":{"containerMethod":1,"hc":{"0":"Tjava.beans.PropertyChangeListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PpropertyName(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Plistener(1)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}]},
+ {"name": "MgetPropertyChangeListeners(287)", "data":{"containerMethod":1,"immutableMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PpropertyName(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MfirePropertyChange(288)", "data":{"hc":{"0":"Tjava.lang.Object"}}, "subs":[
+  {"name": "PoldValue(1)", "data":{"hcsParameter":{"0":[[-1]]}}},
+  {"name": "PnewValue(2)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "MfirePropertyChange(291)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PpropertyName(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "PoldValue(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PnewValue(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MfirePropertyChange(292)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PpropertyName(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "PoldValue(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PnewValue(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MfirePropertyChange(293)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PpropertyName(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "PoldValue(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PnewValue(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MfirePropertyChange(294)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PpropertyName(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "PoldValue(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pl(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MfirePropertyChange(295)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PpropertyName(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "PoldValue(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PnewValue(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MfirePropertyChange(296)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PpropertyName(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "PoldValue(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pd(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MwriteObject(298)", "data":{"hc":{"0":"Tjava.io.ObjectOutputStream"}}, "sub":
+  {"name": "Ps(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MreadObject(299)", "data":{"hc":{"0":"Tjava.io.ObjectInputStream"}}, "sub":
+  {"name": "Ps(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MsetComponentOrientation(300)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Po(0)", "data":{"modifiedParameter":1}}},
+ {"name": "MgetComponentOrientation(301)", "data":{"shallowAnalyzer":1}},
+ {"name": "MapplyComponentOrientation(302)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Porientation(0)", "data":{"modifiedParameter":1}}},
+ {"name": "MgetAccessibleContext(308)", "data":{"shallowAnalyzer":1}},
+ {"name": "MisInstanceOf(311)", "data":{"hc":{"0":"Tjava.lang.Object"}}, "subs":[
+  {"name": "Pobj(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "MsetMixingCutoutShape(333)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Shape"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pshape(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}}]},
+
+{"name": "Tjava.awt.Container", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "SAccessibleAWTContainer(0)", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+  {"name": "SAccessibleContainerHandler(0)", "data":{"hc":{"E":true}}, "subs":[
+   {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.awt.Container.AccessibleAWTContainer"}}, "sub":
+    {"name": "Pthis$1(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+   {"name": "McomponentAdded(0)", "data":{"hc":{"0":"Tjava.awt.event.ContainerEvent"}}, "sub":
+    {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+   {"name": "McomponentRemoved(1)", "data":{"hc":{"0":"Tjava.awt.event.ContainerEvent"}}, "sub":
+    {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}]},
+  {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.awt.Container"}}, "sub":
+   {"name": "Pthis$0(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+  {"name": "MgetAccessibleChildrenCount(0)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+  {"name": "MgetAccessibleChild(1)", "data":{"shallowAnalyzer":1}, "sub":
+   {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+  {"name": "MgetAccessibleAt(2)", "data":{"hc":{"0":"Tjava.awt.Point"},"shallowAnalyzer":1}, "sub":
+   {"name": "Pp(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+  {"name": "MaddPropertyChangeListener(3)", "data":{"containerMethod":1,"hc":{"0":"Tjava.beans.PropertyChangeListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+   {"name": "Plistener(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+  {"name": "MremovePropertyChangeListener(4)", "data":{"containerMethod":1,"hc":{"0":"Tjava.beans.PropertyChangeListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+   {"name": "Plistener(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}}]},
+ {"name": "SDropTargetEventTargetFilter(1)", "data":{"hc":{"E":true}}, "subs":[
+  {"name": "Maccept(0)", "data":{"hc":{"0":"Tjava.awt.Component"}}, "sub":
+   {"name": "Pcomp(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}]},
+ {"name": "SEventTargetFilter(2)", "data":{"hc":{"E":true}}, "sub":
+  {"name": "Maccept(0)", "data":{"hc":{"0":"Tjava.awt.Component"}}, "sub":
+   {"name": "Pcomponent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}},
+ {"name": "SMouseEventTargetFilter(3)", "data":{"hc":{"E":true}}, "subs":[
+  {"name": "Maccept(0)", "data":{"hc":{"0":"Tjava.awt.Component"}}, "sub":
+   {"name": "Pcomp(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}]},
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetComponentCount(2)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "McountComponents(3)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetComponent(4)", "data":{"shallowAnalyzer":1}, "sub":
+  {"name": "Pn(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetComponents(5)", "data":{"containerMethod":1,"immutableMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetInsets(8)", "data":{"shallowAnalyzer":1}},
+ {"name": "Minsets(9)", "data":{"shallowAnalyzer":1}},
+ {"name": "Madd(10)", "data":{"hc":{"0":"Tjava.awt.Component"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Pcomp(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "Madd(11)", "data":{"hc":{"0":"Tjava.awt.Component"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pcomp(1)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}]},
+ {"name": "Madd(12)", "data":{"hc":{"0":"Tjava.awt.Component"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pcomp(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Pindex(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "McheckAddToSelf(13)", "data":{"hc":{"0":"Tjava.awt.Component"}}, "sub":
+  {"name": "Pcomp(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "McheckNotAWindow(14)", "data":{"hc":{"0":"Tjava.awt.Component"}}, "sub":
+  {"name": "Pcomp(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "McheckAdding(15)", "data":{"hc":{"0":"Tjava.awt.Component"}}, "subs":[
+  {"name": "Pcomp(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "MremoveDelicately(16)", "data":{"hc":{"0":"Tjava.awt.Component","1":"Tjava.awt.Container"}}, "subs":[
+  {"name": "Pcomp(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+  {"name": "PnewParent(1)", "data":{"hcsParameter":{"0":[[-1]],"1":[[-1]]}}}]},
+ {"name": "McanContainFocusOwner(17)", "data":{"hc":{"0":"Tjava.awt.Component"}}, "sub":
+  {"name": "PfocusOwnerCandidate(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MisRemoveNotifyNeeded(21)", "data":{"hc":{"0":"Tjava.awt.Component","1":"Tjava.awt.Container"}}, "subs":[
+  {"name": "Pcomp(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+  {"name": "PoldContainer(1)", "data":{"hcsParameter":{"0":[[-1]],"1":[[-1]]}}},
+  {"name": "PnewContainer(2)", "data":{"hcsParameter":{"0":[[-1]],"1":[[-1]]}}}]},
+ {"name": "MsetComponentZOrder(22)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Component"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pcomp(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}},
+  {"name": "Pindex(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MreparentTraverse(23)", "data":{"hc":{"0":"Tjava.awt.peer.ContainerPeer","1":"Tjava.awt.Container"}}, "subs":[
+  {"name": "PparentPeer(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+  {"name": "Pchild(1)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]}}}]},
+ {"name": "MreparentChild(24)", "data":{"hc":{"0":"Tjava.awt.Component"}}, "sub":
+  {"name": "Pcomp(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MaddDelicately(25)", "data":{"hc":{"0":"Tjava.awt.Component","1":"Tjava.awt.Container"}}, "subs":[
+  {"name": "Pcomp(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+  {"name": "PcurParent(1)", "data":{"hcsParameter":{"0":[[-1]],"1":[[-1]]}}}]},
+ {"name": "MgetComponentZOrder(26)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Component"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcomp(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "Madd(27)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Component","1":"Tjava.lang.Object"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pcomp(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}},
+  {"name": "Pconstraints(1)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":1}}]},
+ {"name": "Madd(28)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Component","1":"Tjava.lang.Object"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pcomp(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}},
+  {"name": "Pconstraints(1)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":1}},
+  {"name": "Pindex(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MaddImpl(29)", "data":{"hc":{"0":"Tjava.awt.Component","1":"Tjava.lang.Object"}}, "subs":[
+  {"name": "Pcomp(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+  {"name": "Pconstraints(1)", "data":{"hcsParameter":{"1":[[-1]]}}}]},
+ {"name": "MupdateChildGraphicsData(30)", "data":{"hc":{"0":"Tjava.awt.GraphicsConfiguration"}}, "sub":
+  {"name": "Pgc(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "Mremove(32)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pindex(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mremove(33)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Component"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcomp(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MremoveAll(34)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "McreateHierarchyEvents(41)", "data":{"hc":{"0":"Tjava.awt.Component","1":"Tjava.awt.Container"}}, "subs":[
+  {"name": "Pchanged(1)", "data":{"hcsParameter":{"0":[[-1]]}}},
+  {"name": "PchangedParent(2)", "data":{"hcsParameter":{"0":[[-1]],"1":[[-1]]}}}]},
+ {"name": "MgetLayout(43)", "data":{"shallowAnalyzer":1}},
+ {"name": "MsetLayout(44)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.LayoutManager"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pmgr(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MdoLayout(45)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mlayout(46)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisValidateRoot(47)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Minvalidate(49)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mvalidate(50)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetFont(54)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Font"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pf(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MgetPreferredSize(55)", "data":{"shallowAnalyzer":1}},
+ {"name": "MpreferredSize(56)", "data":{"shallowAnalyzer":1}},
+ {"name": "MgetMinimumSize(57)", "data":{"shallowAnalyzer":1}},
+ {"name": "MminimumSize(58)", "data":{"shallowAnalyzer":1}},
+ {"name": "MgetMaximumSize(59)", "data":{"shallowAnalyzer":1}},
+ {"name": "MgetAlignmentX(60)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetAlignmentY(61)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mpaint(62)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Graphics"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pg(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "Mupdate(63)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Graphics"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pg(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "Mprint(64)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Graphics"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pg(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MpaintComponents(65)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Graphics"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pg(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MlightweightPaint(66)", "data":{"hc":{"0":"Tjava.awt.Graphics"}}, "sub":
+  {"name": "Pg(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MpaintHeavyweightComponents(67)", "data":{"hc":{"0":"Tjava.awt.Graphics"}}, "sub":
+  {"name": "Pg(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MprintComponents(68)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Graphics"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pg(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MlightweightPrint(69)", "data":{"hc":{"0":"Tjava.awt.Graphics"}}, "sub":
+  {"name": "Pg(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MprintHeavyweightComponents(70)", "data":{"hc":{"0":"Tjava.awt.Graphics"}}, "sub":
+  {"name": "Pg(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MaddContainerListener(71)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.ContainerListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MremoveContainerListener(72)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.ContainerListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MgetContainerListeners(73)", "data":{"containerMethod":1,"immutableMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetListeners(74)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Class"},"immutableMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PlistenerType(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MeventEnabled(75)", "data":{"hc":{"0":"Tjava.awt.AWTEvent"}}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MprocessEvent(76)", "data":{"hc":{"0":"Tjava.awt.AWTEvent"}}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MprocessContainerEvent(77)", "data":{"hc":{"0":"Tjava.awt.event.ContainerEvent"}}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MdispatchEventImpl(78)", "data":{"hc":{"0":"Tjava.awt.AWTEvent"}}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MdispatchEventToSelf(79)", "data":{"hc":{"0":"Tjava.awt.AWTEvent"}}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MgetMouseEventTarget(82)", "data":{"hc":{"0":"Tjava.awt.Container.EventTargetFilter"}}, "subs":[
+  {"name": "Pfilter(3)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "MgetMouseEventTargetImpl(83)", "data":{"hc":{"0":"Tjava.awt.Container.EventTargetFilter"}}, "subs":[
+  {"name": "Pfilter(3)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "MdeliverEvent(85)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Event"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MgetComponentAt(86)", "data":{"shallowAnalyzer":1}, "subs":[
+  {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mlocate(87)", "data":{"shallowAnalyzer":1}, "subs":[
+  {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MgetComponentAt(88)", "data":{"hc":{"0":"Tjava.awt.Point"},"shallowAnalyzer":1}, "sub":
+  {"name": "Pp(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MgetMousePosition(89)", "data":{"shallowAnalyzer":1}, "sub":
+  {"name": "PallowChildren(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MisSameOrAncestorOf(90)", "data":{"hc":{"0":"Tjava.awt.Component"}}, "subs":[
+  {"name": "Pcomp(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "MfindComponentAt(91)", "data":{"shallowAnalyzer":1}, "subs":[
+  {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MgetChildAt(94)", "data":{"hc":{"0":"Tjava.awt.Component"},"hcsMethod":{"0":[[-1]]}}, "subs":[
+  {"name": "Pcomp(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "MfindComponentAt(95)", "data":{"hc":{"0":"Tjava.awt.Point"},"shallowAnalyzer":1}, "sub":
+  {"name": "Pp(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MaddNotify(96)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MremoveNotify(97)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisAncestorOf(98)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Component"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pc(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "Mlist(102)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.PrintStream"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pout(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}},
+  {"name": "Pindent(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mlist(103)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.PrintWriter"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pout(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}},
+  {"name": "Pindent(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MsetFocusTraversalKeys(104)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.Set","1":"Tjava.awt.AWTKeyStroke"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pid(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pkeystrokes(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]],"1":[[0]]},"modifiedParameter":1}}]},
+ {"name": "MgetFocusTraversalKeys(105)", "data":{"containerMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pid(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MareFocusTraversalKeysSet(106)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pid(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MisFocusCycleRoot(107)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Container"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcontainer(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MisParentOf(110)", "data":{"hc":{"0":"Tjava.awt.Component"}}, "sub":
+  {"name": "Pcomp(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MsetFocusTraversalPolicy(114)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.FocusTraversalPolicy"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Ppolicy(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MgetFocusTraversalPolicy(115)", "data":{"shallowAnalyzer":1}},
+ {"name": "MisFocusTraversalPolicySet(116)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetFocusCycleRoot(117)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PfocusCycleRoot(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MisFocusCycleRoot(118)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetFocusTraversalPolicyProvider(119)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pprovider(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MisFocusTraversalPolicyProvider(120)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MtransferFocusDownCycle(121)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MpreProcessKeyEvent(122)", "data":{"hc":{"0":"Tjava.awt.event.KeyEvent"}}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MpostProcessKeyEvent(123)", "data":{"hc":{"0":"Tjava.awt.event.KeyEvent"}}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MapplyComponentOrientation(125)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Po(0)", "data":{"modifiedParameter":1}}},
+ {"name": "MaddPropertyChangeListener(126)", "data":{"containerMethod":1,"hc":{"0":"Tjava.beans.PropertyChangeListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Plistener(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MaddPropertyChangeListener(127)", "data":{"containerMethod":1,"hc":{"0":"Tjava.beans.PropertyChangeListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PpropertyName(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Plistener(1)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}]},
+ {"name": "MwriteObject(128)", "data":{"hc":{"0":"Tjava.io.ObjectOutputStream"}}, "sub":
+  {"name": "Ps(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MreadObject(129)", "data":{"hc":{"0":"Tjava.io.ObjectInputStream"}}, "sub":
+  {"name": "Ps(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MgetAccessibleAt(130)", "data":{"hc":{"0":"Tjava.awt.Point"}}, "sub":
+  {"name": "Pp(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MincreaseComponentCount(133)", "data":{"hc":{"0":"Tjava.awt.Component"}}, "sub":
+  {"name": "Pc(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MdecreaseComponentCount(134)", "data":{"hc":{"0":"Tjava.awt.Component"}}, "sub":
+  {"name": "Pc(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MrecursiveRelocateHeavyweightChildren(146)", "data":{"hc":{"0":"Tjava.awt.Point"}}, "sub":
+  {"name": "Porigin(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}]}
+]

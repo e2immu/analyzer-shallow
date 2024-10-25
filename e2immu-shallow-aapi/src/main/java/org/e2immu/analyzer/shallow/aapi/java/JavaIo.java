@@ -18,6 +18,7 @@ import org.e2immu.annotation.*;
 import org.e2immu.annotation.rare.AllowsInterrupt;
 
 import java.io.File;
+import java.io.FilenameFilter;
 import java.io.OutputStream;
 import java.io.Writer;
 import java.net.URI;
@@ -291,13 +292,20 @@ public class JavaIo {
     which has implications for .exists(), .delete()
      */
     @Container
-    @Independent
     interface File$ {
         boolean canRead();
 
+        boolean canWrite();
+
         boolean exists();
 
+        File getAbsoluteFile();
+
+        String getAbsolutePath();
+
         File getCanonicalFile();
+
+        String getCanonicalPath();
 
         @NotNull
         String getName();
@@ -305,11 +313,29 @@ public class JavaIo {
         @NotNull
         String getPath();
 
+        String getParent();
+
+        File getParentFile();
+
         boolean isDirectory();
+
+        boolean isFile();
+
+        long lastModified();
+
+        long length();
 
         File[] listFiles();
 
+        File[] listFiles(FilenameFilter fnf);
+
         String[] list();
+
+        @Modified
+        boolean mkdir();
+
+        @Modified
+        boolean mkdirs();
 
         @NotNull
         URI toURI();
@@ -325,6 +351,9 @@ public class JavaIo {
 
         @Modified
         void deleteOnExit();
+
+        @NotNull
+        String toString();
     }
 
     @Container

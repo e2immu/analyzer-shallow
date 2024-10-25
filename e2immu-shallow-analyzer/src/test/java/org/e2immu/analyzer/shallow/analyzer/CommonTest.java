@@ -48,9 +48,11 @@ public class CommonTest {
 
         AnnotatedApiParser annotatedApiParser = new AnnotatedApiParser();
         annotatedApiParser.initialize(
-                List.of(JavaInspectorImpl.JAR_WITH_PATH_PREFIX + "org/slf4j"),
+                List.of(JavaInspectorImpl.JAR_WITH_PATH_PREFIX + "org/slf4j",
+                        "jmods/java.datatransfer.jmod",
+                        "jmods/java.desktop.jmod"),
                 List.of("../e2immu-shallow-aapi/src/main/java/org/e2immu/analyzer/shallow/aapi"),
-                List.of("java"));
+                List.of("java", "javax"));
         ShallowAnalyzer shallowAnalyzer = new ShallowAnalyzer(annotatedApiParser);
         shallowAnalyzer.go();
 

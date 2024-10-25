@@ -21,6 +21,7 @@ import org.e2immu.annotation.rare.StaticSideEffects;
 import org.e2immu.annotation.type.UtilityClass;
 
 import java.io.PrintStream;
+import java.lang.reflect.Method;
 import java.nio.CharBuffer;
 import java.util.Iterator;
 import java.util.Spliterator;
@@ -142,8 +143,30 @@ class JavaLang {
      */
     @ImmutableContainer
     interface Class$ {
+
+        Class<?> forName(String name);
+
         @NotNull
         String getCanonicalName();
+
+        Class<?>[] getClasses();
+
+        /*
+            Technically, a class loader cannot be immutable: the load method changes its content.
+            Semantically, to the application, this does not matter.
+         */
+        @NotNull
+        ClassLoader getClassLoader();
+
+        Class<?> getComponentType();
+
+        Method getDeclaredMethod(String name, Class<?>... parameterTypes);
+
+        Class<?> getDeclaringClass();
+
+        Method[] getMethods();
+
+        int getModifiers();
 
         @NotNull
         String getName();
@@ -151,12 +174,9 @@ class JavaLang {
         @NotNull
         String getSimpleName();
 
-        /*
-         Technically, a class loader cannot be immutable: the load method changes its content.
-         Semantically, to the application, this does not matter.
-         */
-        @NotNull
-        ClassLoader getClassLoader();
+        boolean isArray();
+
+        boolean isAssignableFrom(Class<?> other);
     }
 
     @ImmutableContainer
@@ -282,6 +302,10 @@ class JavaLang {
             return false;
         }
 
+        boolean equalsIgnoreCase(String other) { return false; }
+
+        String format(String s, @NotModified  Object... objects) { return null; }
+
         @NotNull
             // could have been @NN1
         byte[] getBytes() {
@@ -325,6 +349,8 @@ class JavaLang {
             return 0;
         }
 
+        boolean regionMatches(int toffset, String other, int ioffset, int len) { return false; }
+
         int repeat$Transfer$Len(int len, int count) {
             return len * count;
         }
@@ -333,6 +359,12 @@ class JavaLang {
         String repeat(int count) {
             return null;
         }
+
+        @NotNull
+        String replace(char c, char d) { return null; }
+
+        @NotNull
+        String replace(CharSequence target, CharSequence by) { return null; }
 
         @NotNull
         String replaceAll(String regex, String replacement) {
@@ -431,6 +463,9 @@ class JavaLang {
         // IMPORTANT: violates @Container
         @NotModified
         void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin) {}
+
+        @NotNull
+        String valueOf(int i) { return null; }
     }
 
     /*
@@ -643,9 +678,29 @@ class JavaLang {
             return 0;
         }
 
+        static double abs(int  i) { return 0.0; }
+        static double abs(double d) { return 0.0; }
+
         static double sqrt(double d) { return 0.0; }
 
         static double pow(double base, double exp) { return 0.0; }
+
+        static double cos(double d) { return 0.0; }
+
+        static double sin(double d) { return 0.0; }
+
+        static double tan(double d) { return 0.0; }
+
+        static double log(double d) { return 0.0; }
+
+        static double log10(double d) { return 0.0; }
+
+        static double exp(double d) { return 0.0; }
+
+        static double round(double d) { return 0.0; }
+
+        @Modified
+        static double random() { return 0.0; }
     }
 
     /*

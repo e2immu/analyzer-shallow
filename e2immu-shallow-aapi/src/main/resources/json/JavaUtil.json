@@ -2060,6 +2060,8 @@
  {"name": "McomparingDouble(17)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"1":"Tjava.util.function.ToDoubleFunction","M":1},"hcsMethod":{"1":[[1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "PkeyExtractor(0)", "data":{"annotatedApi":1,"hcsParameter":{"1":[[-1]]},"ignoreModsParameter":1,"independentParameter":1,"notNullParameter":1}}}]},
 
+{"name": "Tjava.util.EventListener", "data":{"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}},
+
 {"name": "Tjava.util.Iterator", "data":{"annotatedApi":1,"containerType":1,"hc":{"0":"PE:0","E":true,"M":1},"independentType":1,"shallowAnalyzer":1}, "subs":[
  {"name": "MhasNext(0)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "Mnext(1)", "data":{"annotatedApi":1,"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"modifiedMethod":1,"shallowAnalyzer":1}},
