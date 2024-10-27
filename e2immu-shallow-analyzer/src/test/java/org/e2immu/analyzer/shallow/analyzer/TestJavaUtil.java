@@ -1,5 +1,6 @@
 package org.e2immu.analyzer.shallow.analyzer;
 
+import org.e2immu.analyzer.modification.prepwork.hcs.HiddenContentSelector;
 import org.e2immu.analyzer.modification.prepwork.hct.HiddenContentTypes;
 import org.e2immu.language.cst.api.analysis.Value;
 import org.e2immu.language.cst.api.info.MethodInfo;
@@ -11,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static org.e2immu.analyzer.modification.prepwork.hcs.HiddenContentSelector.HCS_PARAMETER;
 import static org.e2immu.analyzer.modification.prepwork.hct.HiddenContentTypes.HIDDEN_CONTENT_TYPES;
 import static org.e2immu.language.cst.impl.analysis.PropertyImpl.*;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.FALSE;
@@ -23,6 +25,33 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TestJavaUtil extends CommonTest {
 
+    @Test
+    public void testArrayList() {
+        TypeInfo typeInfo = compiledTypesManager.get(ArrayList.class);
+        assertFalse(typeInfo.isInterface());
+        assertFalse(typeInfo.isAtLeastImmutableHC());
+        assertSame(MUTABLE, typeInfo.analysis().getOrDefault(IMMUTABLE_TYPE, MUTABLE));
+        assertSame(DEPENDENT, typeInfo.analysis().getOrDefault(INDEPENDENT_TYPE, DEPENDENT));
+        assertSame(TRUE, typeInfo.analysis().getOrDefault(CONTAINER_TYPE, FALSE));
+
+        HiddenContentTypes hct = typeInfo.analysis().getOrDefault(HIDDEN_CONTENT_TYPES, HiddenContentTypes.NO_VALUE);
+        assertEquals("0=E", hct.detailedSortedTypes());
+    }
+
+    @Test
+    public void testArrayListCollectionConstructor() {
+        TypeInfo typeInfo = compiledTypesManager.get(ArrayList.class);
+        TypeInfo collectionTypeInfo = compiledTypesManager.get(Collection.class);
+        MethodInfo methodInfo = typeInfo.findConstructor(collectionTypeInfo);
+        assertEquals("java.util.ArrayList.<init>(java.util.Collection<? extends E>)", methodInfo.fullyQualifiedName());
+        HiddenContentTypes methodHct = methodInfo.analysis().getOrDefault(HIDDEN_CONTENT_TYPES, HiddenContentTypes.NO_VALUE);
+        assertEquals("0=E - 1=Collection", methodHct.detailedSortedTypes());
+        assertEquals("ArrayList:E - <init>:Collection", methodHct.toString());
+
+        ParameterInfo p0 = methodInfo.parameters().get(0);
+        HiddenContentSelector paramHcs = p0.analysis().getOrDefault(HCS_PARAMETER, HiddenContentSelector.NONE);
+        assertEquals("0=0,1=*", paramHcs.detailed());
+    }
 
     @Test
     public void testCollection() {
