@@ -412,8 +412,8 @@
  {"name": "MremoveInputMethodListener(199)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.InputMethodListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pl(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
  {"name": "MgetInputMethodListeners(200)", "data":{"containerMethod":1,"immutableMethod":1,"shallowAnalyzer":1}},
- {"name": "MgetListeners(201)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Class"},"immutableMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "PlistenerType(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MgetListeners(201)", "data":{"containerMethod":1,"hc":{"0":"PT:0","1":"Tjava.lang.Class"},"hcsMethod":{"0":[[0]]},"immutableMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PlistenerType(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[0]],"1":[[-1]]},"immutableParameter":3,"independentParameter":2}}},
  {"name": "MgetInputMethodRequests(202)", "data":{"shallowAnalyzer":1}},
  {"name": "MgetInputContext(203)", "data":{"shallowAnalyzer":1}},
  {"name": "MisCoalesceEventsOverriden(207)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "sub":
@@ -721,8 +721,8 @@
  {"name": "MremoveContainerListener(72)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.ContainerListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pl(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
  {"name": "MgetContainerListeners(73)", "data":{"containerMethod":1,"immutableMethod":1,"shallowAnalyzer":1}},
- {"name": "MgetListeners(74)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Class"},"immutableMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "PlistenerType(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MgetListeners(74)", "data":{"containerMethod":1,"hc":{"0":"PT:0","1":"Tjava.lang.Class"},"hcsMethod":{"0":[[0]]},"immutableMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PlistenerType(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[0]],"1":[[-1]]},"immutableParameter":3,"independentParameter":2}}},
  {"name": "MeventEnabled(75)", "data":{"hc":{"0":"Tjava.awt.AWTEvent"}}, "sub":
   {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
  {"name": "MprocessEvent(76)", "data":{"hc":{"0":"Tjava.awt.AWTEvent"}}, "sub":

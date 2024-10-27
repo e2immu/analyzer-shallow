@@ -318,8 +318,8 @@
  {"name": "MremoveAncestorListener(157)", "data":{"containerMethod":1,"hc":{"0":"Tjavax.swing.event.AncestorListener"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Plistener(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
  {"name": "MgetAncestorListeners(158)", "data":{"containerMethod":1,"immutableMethod":1,"shallowAnalyzer":1}},
- {"name": "MgetListeners(159)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Class"},"immutableMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "PlistenerType(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MgetListeners(159)", "data":{"containerMethod":1,"hc":{"0":"PT:0","1":"Tjava.lang.Class"},"hcsMethod":{"0":[[0]]},"immutableMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PlistenerType(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[0]],"1":[[-1]]},"immutableParameter":3,"independentParameter":2}}},
  {"name": "MaddNotify(160)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
  {"name": "MremoveNotify(161)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
  {"name": "Mrepaint(162)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[

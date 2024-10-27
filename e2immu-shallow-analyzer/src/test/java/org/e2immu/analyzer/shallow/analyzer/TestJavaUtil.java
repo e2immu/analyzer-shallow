@@ -101,16 +101,22 @@ public class TestJavaUtil extends CommonTest {
     public void testCollectionsAddAll() {
         TypeInfo typeInfo = compiledTypesManager.get(Collections.class);
         MethodInfo addAll = typeInfo.findUniqueMethod("addAll", 2);
+        assertEquals(" - 0=T, 1=Collection", addAll.analysis().getOrDefault(HIDDEN_CONTENT_TYPES, HiddenContentTypes.NO_VALUE)
+                .detailedSortedTypes());
+
         ParameterInfo p0 = addAll.parameters().get(0);
         assertTrue(p0.analysis().getOrDefault(MODIFIED_PARAMETER, FALSE).isTrue());
         Value.Independent independent0 = p0.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT);
         Map<Integer, Integer> map = independent0.linkToParametersReturnValue();
         assertEquals(1, map.size());
         assertEquals(1, map.get(1)); // links at HC level (1) to parameter with index 1
+        assertEquals("0=0,1=*", p0.analysis().getOrDefault(HCS_PARAMETER, HiddenContentSelector.NONE).detailed());
+
         ParameterInfo p1 = addAll.parameters().get(1);
         assertTrue(p1.analysis().getOrDefault(MODIFIED_PARAMETER, FALSE).isFalse());
         Value.Independent independent1 = p1.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT);
         assertTrue(independent1.linkToParametersReturnValue().isEmpty());
+        assertEquals("0=0", p1.analysis().getOrDefault(HCS_PARAMETER, HiddenContentSelector.NONE).detailed());
     }
 
     @Test

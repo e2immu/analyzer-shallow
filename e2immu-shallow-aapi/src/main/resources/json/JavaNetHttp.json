@@ -47,16 +47,16 @@
  {"name": "Mauthenticator(8)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "Mversion(9)", "data":{"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "Mexecutor(10)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "Msend(11)", "data":{"hc":{"0":"Tjava.net.http.HttpRequest","1":"Tjava.net.http.HttpResponse.BodyHandler"},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
-  {"name": "PhttpRequest(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
-  {"name": "PbodyHandler(1)", "data":{"hcsParameter":{"1":[[-1]]},"independentParameter":2}}]},
- {"name": "MsendAsync(12)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.net.http.HttpRequest","1":"Tjava.net.http.HttpResponse.BodyHandler"},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
-  {"name": "PhttpRequest(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
-  {"name": "PbodyHandler(1)", "data":{"annotatedApi":1,"hcsParameter":{"1":[[-1]]},"independentParameter":2}}]},
- {"name": "MsendAsync(13)", "data":{"hc":{"0":"Tjava.net.http.HttpRequest","1":"Tjava.net.http.HttpResponse.BodyHandler","2":"Tjava.net.http.HttpResponse.PushPromiseHandler"},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
-  {"name": "PhttpRequest(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
-  {"name": "PbodyHandler(1)", "data":{"hcsParameter":{"1":[[-1]]},"independentParameter":2}},
-  {"name": "PpushPromiseHandler(2)", "data":{"hcsParameter":{"2":[[-1]]},"independentParameter":2}}]},
+ {"name": "Msend(11)", "data":{"hc":{"0":"PT:0","1":"Tjava.net.http.HttpRequest","2":"Tjava.net.http.HttpResponse.BodyHandler"},"hcsMethod":{"0":[[0]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "PhttpRequest(0)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":2}},
+  {"name": "PbodyHandler(1)", "data":{"hcsParameter":{"0":[[0]],"2":[[-1]]},"independentParameter":2}}]},
+ {"name": "MsendAsync(12)", "data":{"annotatedApi":1,"hc":{"0":"PT:0","1":"Tjava.net.http.HttpRequest","2":"Tjava.net.http.HttpResponse.BodyHandler"},"hcsMethod":{"0":[[0,0]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "PhttpRequest(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":2}},
+  {"name": "PbodyHandler(1)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[0]],"2":[[-1]]},"independentParameter":2}}]},
+ {"name": "MsendAsync(13)", "data":{"hc":{"0":"PT:0","1":"Tjava.net.http.HttpRequest","2":"Tjava.net.http.HttpResponse.BodyHandler","3":"Tjava.net.http.HttpResponse.PushPromiseHandler"},"hcsMethod":{"0":[[0,0]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "PhttpRequest(0)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":2}},
+  {"name": "PbodyHandler(1)", "data":{"hcsParameter":{"0":[[0]],"2":[[-1]]},"independentParameter":2}},
+  {"name": "PpushPromiseHandler(2)", "data":{"hcsParameter":{"0":[[0]],"3":[[-1]]},"independentParameter":2}}]},
  {"name": "MnewWebSocketBuilder(14)", "data":{"independentMethod":2,"shallowAnalyzer":1}}]},
 
 {"name": "Tjava.net.http.HttpRequest", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
@@ -140,18 +140,18 @@
  {"name": "SBodyHandlers(1)", "data":{"annotatedApi":1,"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
   {"name": "MfromSubscriber(0)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.util.concurrent.Flow.Subscriber","1":"Tjava.util.List","2":"Tjava.nio.ByteBuffer"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "Psubscriber(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]],"2":[[0,0]]},"independentParameter":2}}},
-  {"name": "MfromSubscriber(1)", "data":{"hc":{"0":"Tjava.util.function.Function"},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
-   {"name": "Psubscriber(0)", "data":{"independentParameter":2}},
-   {"name": "Pfinisher(1)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}]},
+  {"name": "MfromSubscriber(1)", "data":{"hc":{"0":"PS:0","1":"PT:1","2":"Tjava.util.function.Function"},"hcsMethod":{"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+   {"name": "Psubscriber(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
+   {"name": "Pfinisher(1)", "data":{"hcsParameter":{"0":[[0]],"1":[[1]],"2":[[-1]]},"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}]},
   {"name": "MfromLineSubscriber(2)", "data":{"hc":{"0":"Tjava.util.concurrent.Flow.Subscriber"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "Psubscriber(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
-  {"name": "MfromLineSubscriber(3)", "data":{"hc":{"0":"Tjava.util.function.Function"},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
-   {"name": "Psubscriber(0)", "data":{"independentParameter":2}},
-   {"name": "Pfinisher(1)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}},
+  {"name": "MfromLineSubscriber(3)", "data":{"hc":{"0":"PS:0","1":"PT:1","2":"Tjava.util.function.Function"},"hcsMethod":{"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+   {"name": "Psubscriber(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
+   {"name": "Pfinisher(1)", "data":{"hcsParameter":{"0":[[0]],"1":[[1]],"2":[[-1]]},"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}},
    {"name": "PlineSeparator(2)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
   {"name": "Mdiscarding(4)", "data":{"independentMethod":2,"shallowAnalyzer":1}},
-  {"name": "Mreplacing(5)", "data":{"independentMethod":2,"shallowAnalyzer":1}, "sub":
-   {"name": "Pvalue(0)", "data":{"containerParameter":1,"immutableParameter":2,"independentParameter":2}}},
+  {"name": "Mreplacing(5)", "data":{"hc":{"0":"PU:0"},"hcsMethod":{"0":[[0]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+   {"name": "Pvalue(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
   {"name": "MofString(6)", "data":{"hc":{"0":"Tjava.nio.charset.Charset"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "Pcharset(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
   {"name": "MofFile(7)", "data":{"hc":{"0":"Tjava.nio.file.Path","1":"Tjava.nio.file.OpenOption"},"hcsMethod":{"0":[[0]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
@@ -169,23 +169,23 @@
   {"name": "MofByteArray(13)", "data":{"independentMethod":2,"shallowAnalyzer":1}},
   {"name": "MofString(14)", "data":{"independentMethod":2,"shallowAnalyzer":1}},
   {"name": "MofPublisher(15)", "data":{"independentMethod":2,"shallowAnalyzer":1}},
-  {"name": "Mbuffering(16)", "data":{"hc":{"0":"Tjava.net.http.HttpResponse.BodyHandler"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
-   {"name": "PdownstreamHandler(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Mbuffering(16)", "data":{"hc":{"0":"PT:0","1":"Tjava.net.http.HttpResponse.BodyHandler"},"hcsMethod":{"0":[[0]],"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+   {"name": "PdownstreamHandler(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
    {"name": "PbufferSize(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]}]},
  {"name": "SBodySubscriber(2)", "data":{"hc":{"0":"PT:0","1":"Tjava.util.List","E":true,"M":2},"shallowAnalyzer":1}, "sub":
   {"name": "MgetBody(0)", "data":{"hcsMethod":{"0":[[0]]},"shallowAnalyzer":1}}},
  {"name": "SBodySubscribers(3)", "data":{"annotatedApi":1,"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
   {"name": "MfromSubscriber(0)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.util.concurrent.Flow.Subscriber","1":"Tjava.util.List","2":"Tjava.nio.ByteBuffer"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "Psubscriber(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]],"2":[[0,0]]},"independentParameter":2}}},
-  {"name": "MfromSubscriber(1)", "data":{"hc":{"0":"Tjava.util.function.Function"},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
-   {"name": "Psubscriber(0)", "data":{"independentParameter":2}},
-   {"name": "Pfinisher(1)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}]},
+  {"name": "MfromSubscriber(1)", "data":{"hc":{"0":"PS:0","1":"PT:1","2":"Tjava.util.function.Function"},"hcsMethod":{"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+   {"name": "Psubscriber(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
+   {"name": "Pfinisher(1)", "data":{"hcsParameter":{"0":[[0]],"1":[[1]],"2":[[-1]]},"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}]},
   {"name": "MfromLineSubscriber(2)", "data":{"hc":{"0":"Tjava.util.concurrent.Flow.Subscriber"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "Psubscriber(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
-  {"name": "MfromLineSubscriber(3)", "data":{"hc":{"0":"Tjava.util.function.Function","1":"Tjava.nio.charset.Charset"},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
-   {"name": "Psubscriber(0)", "data":{"independentParameter":2}},
-   {"name": "Pfinisher(1)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}},
-   {"name": "Pcharset(2)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":2}},
+  {"name": "MfromLineSubscriber(3)", "data":{"hc":{"0":"PS:0","1":"PT:1","2":"Tjava.util.function.Function","3":"Tjava.nio.charset.Charset"},"hcsMethod":{"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+   {"name": "Psubscriber(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
+   {"name": "Pfinisher(1)", "data":{"hcsParameter":{"0":[[0]],"1":[[1]],"2":[[-1]]},"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}},
+   {"name": "Pcharset(2)", "data":{"containerParameter":1,"hcsParameter":{"3":[[-1]]},"immutableParameter":2,"independentParameter":2}},
    {"name": "PlineSeparator(3)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
   {"name": "MofString(4)", "data":{"hc":{"0":"Tjava.nio.charset.Charset"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "Pcharset(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
@@ -201,23 +201,23 @@
   {"name": "MofLines(10)", "data":{"hc":{"0":"Tjava.nio.charset.Charset"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "Pcharset(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
   {"name": "MofPublisher(11)", "data":{"independentMethod":2,"shallowAnalyzer":1}},
-  {"name": "Mreplacing(12)", "data":{"independentMethod":2,"shallowAnalyzer":1}, "sub":
-   {"name": "Pvalue(0)", "data":{"containerParameter":1,"immutableParameter":2,"independentParameter":2}}},
+  {"name": "Mreplacing(12)", "data":{"hc":{"0":"PU:0"},"hcsMethod":{"0":[[0]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+   {"name": "Pvalue(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
   {"name": "Mdiscarding(13)", "data":{"independentMethod":2,"shallowAnalyzer":1}},
-  {"name": "Mbuffering(14)", "data":{"hc":{"0":"Tjava.net.http.HttpResponse.BodySubscriber"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
-   {"name": "Pdownstream(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Mbuffering(14)", "data":{"hc":{"0":"PT:0","1":"Tjava.net.http.HttpResponse.BodySubscriber"},"hcsMethod":{"0":[[0]],"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+   {"name": "Pdownstream(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
    {"name": "PbufferSize(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
-  {"name": "Mmapping(15)", "data":{"hc":{"0":"Tjava.net.http.HttpResponse.BodySubscriber","1":"Tjava.util.function.Function"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
-   {"name": "Pupstream(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
-   {"name": "Pmapper(1)", "data":{"hcsParameter":{"1":[[-1]]},"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}]}]},
+  {"name": "Mmapping(15)", "data":{"hc":{"0":"PT:0","1":"PU:1","2":"Tjava.net.http.HttpResponse.BodySubscriber","3":"Tjava.util.function.Function"},"hcsMethod":{"1":[[0]],"2":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+   {"name": "Pupstream(0)", "data":{"hcsParameter":{"0":[[0]],"2":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+   {"name": "Pmapper(1)", "data":{"hcsParameter":{"0":[[0]],"1":[[1]],"3":[[-1]]},"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}]}]},
  {"name": "SPushPromiseHandler(4)", "data":{"hc":{"0":"PT:0","E":true,"M":1},"shallowAnalyzer":1}, "subs":[
   {"name": "MapplyPushPromise(0)", "data":{"containerMethod":1,"hc":{"1":"Tjava.net.http.HttpRequest","2":"Tjava.util.function.Function","3":"Tjava.net.http.HttpResponse.BodyHandler","4":"Tjava.util.concurrent.CompletableFuture","5":"Tjava.net.http.HttpResponse","M":1},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
    {"name": "PhttpRequest(0)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":1}},
    {"name": "PhttpRequest1(1)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":1}},
    {"name": "Pfunction(2)", "data":{"hcsParameter":{"0":[[0,0],[1,0,0]],"2":[[-1]]},"ignoreModsParameter":1,"modifiedParameter":1}}]},
-  {"name": "Mof(1)", "data":{"hc":{"1":"Tjava.util.function.Function","2":"Tjava.net.http.HttpRequest","3":"Tjava.net.http.HttpResponse.BodyHandler","4":"Tjava.util.concurrent.ConcurrentMap","5":"Tjava.util.concurrent.CompletableFuture","6":"Tjava.net.http.HttpResponse","M":1},"hcsMethod":{"1":[[1]],"2":[[2]],"3":[[3]],"4":[[4]],"5":[[5]],"6":[[6]]},"shallowAnalyzer":1}, "subs":[
-   {"name": "PpushPromiseHandler(0)", "data":{"hcsParameter":{"1":[[-1]],"2":[[0]]},"ignoreModsParameter":1,"modifiedParameter":1}},
-   {"name": "PpushPromisesMap(1)", "data":{"hcsParameter":{"2":[[0]],"4":[[-1]]},"modifiedParameter":1}}]}]},
+  {"name": "Mof(1)", "data":{"hc":{"1":"PT:1","2":"Tjava.util.function.Function","3":"Tjava.net.http.HttpRequest","4":"Tjava.net.http.HttpResponse.BodyHandler","5":"Tjava.util.concurrent.ConcurrentMap","6":"Tjava.util.concurrent.CompletableFuture","7":"Tjava.net.http.HttpResponse","M":1},"hcsMethod":{"1":[[0]],"2":[[2]],"3":[[3]],"4":[[4]],"5":[[5]],"6":[[6]],"7":[[7]]},"shallowAnalyzer":1}, "subs":[
+   {"name": "PpushPromiseHandler(0)", "data":{"hcsParameter":{"1":[[1,0]],"2":[[-1]],"3":[[0]]},"ignoreModsParameter":1,"modifiedParameter":1}},
+   {"name": "PpushPromisesMap(1)", "data":{"hcsParameter":{"1":[[1,0,0]],"3":[[0]],"5":[[-1]]},"modifiedParameter":1}}]}]},
  {"name": "SResponseInfo(5)", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
   {"name": "MstatusCode(0)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
   {"name": "Mheaders(1)", "data":{"shallowAnalyzer":1}},

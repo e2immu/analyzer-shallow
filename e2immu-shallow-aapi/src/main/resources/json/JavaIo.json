@@ -509,6 +509,8 @@
  {"name": "C<init>(11)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.File","1":"Tjava.nio.charset.Charset"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Pfile(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}},
   {"name": "Pcharset(1)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":1}}]},
+ {"name": "MrequireNonNull(0)", "data":{"hc":{"0":"PT:0"},"hcsMethod":{"0":[[-1]]}}, "subs":[
+  {"name": "Pobj(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
  {"name": "Mflush(3)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
  {"name": "Mclose(4)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
  {"name": "McheckError(5)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
