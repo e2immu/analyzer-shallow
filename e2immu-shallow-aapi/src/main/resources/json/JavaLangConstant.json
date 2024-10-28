@@ -8,11 +8,11 @@
 
 {"name": "Tjava.lang.constant.DynamicConstantDesc", "data":{"hc":{"0":"PT:0","E":true,"M":1},"shallowAnalyzer":1}, "subs":[
  {"name": "SAnonymousDynamicConstantDesc(0)", "data":{"hc":{"0":"PT:0","E":true,"M":1}}, "sub":
-  {"name": "C<init>(0)", "data":{"hc":{"1":"Tjava.lang.constant.DirectMethodHandleDesc","2":"Tjava.lang.constant.ClassDesc","3":"Tjava.lang.constant.ConstantDesc","M":1}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{"1":"Tjava.lang.constant.DirectMethodHandleDesc","2":"Tjava.lang.constant.ClassDesc","3":"Tjava.lang.constant.ConstantDesc","M":1},"hcsMethod":{"0":[[0]]}}, "subs":[
    {"name": "PbootstrapMethod(0)", "data":{"hcsParameter":{"1":[[-1]]}}},
    {"name": "PconstantType(2)", "data":{"hcsParameter":{"2":[[-1]]}}},
    {"name": "PbootstrapArgs(3)", "data":{"hcsParameter":{"3":[[3]]}}}]}},
- {"name": "C<init>(0)", "data":{"hc":{"1":"Tjava.lang.constant.DirectMethodHandleDesc","2":"Tjava.lang.constant.ClassDesc","3":"Tjava.lang.constant.ConstantDesc","M":1}}, "subs":[
+ {"name": "C<init>(0)", "data":{"hc":{"1":"Tjava.lang.constant.DirectMethodHandleDesc","2":"Tjava.lang.constant.ClassDesc","3":"Tjava.lang.constant.ConstantDesc","M":1},"hcsMethod":{"0":[[0]]}}, "subs":[
   {"name": "PbootstrapMethod(0)", "data":{"hcsParameter":{"1":[[-1]]}}},
   {"name": "PconstantType(2)", "data":{"hcsParameter":{"2":[[-1]]}}},
   {"name": "PbootstrapArgs(3)", "data":{"hcsParameter":{"3":[[3]]}}}]},

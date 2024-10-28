@@ -26,13 +26,13 @@
 
 {"name": "Tjava.util.stream.Collectors", "data":{"annotatedApi":1,"containerType":1,"immutableType":3,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "SCollectorImpl(0)", "data":{"hc":{"0":"PT:0","1":"PA:1","2":"PR:2","E":true,"M":3}}, "subs":[
-  {"name": "C<init>(0)", "data":{"hc":{"3":"Tjava.util.function.Supplier","4":"Tjava.util.function.BiConsumer","5":"Tjava.util.function.BinaryOperator","6":"Tjava.util.function.Function","7":"Tjava.util.Set","M":3}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{"3":"Tjava.util.function.Supplier","4":"Tjava.util.function.BiConsumer","5":"Tjava.util.function.BinaryOperator","6":"Tjava.util.function.Function","7":"Tjava.util.Set","M":3},"hcsMethod":{"0":[[0]],"1":[[1]],"2":[[2]]}}, "subs":[
    {"name": "Psupplier(0)", "data":{"hcsParameter":{"1":[[0]],"3":[[-1]]}}},
    {"name": "Paccumulator(1)", "data":{"hcsParameter":{"0":[[1]],"1":[[0]],"4":[[-1]]}}},
    {"name": "Pcombiner(2)", "data":{"hcsParameter":{"1":[[0]],"5":[[-1]]}}},
    {"name": "Pfinisher(3)", "data":{"hcsParameter":{"1":[[0]],"2":[[1]],"6":[[-1]]}}},
    {"name": "Pcharacteristics(4)", "data":{"hcsParameter":{"7":[[-1]]}}}]},
-  {"name": "C<init>(1)", "data":{"hc":{"3":"Tjava.util.function.Supplier","4":"Tjava.util.function.BiConsumer","5":"Tjava.util.function.BinaryOperator","6":"Tjava.util.Set","M":3}}, "subs":[
+  {"name": "C<init>(1)", "data":{"hc":{"3":"Tjava.util.function.Supplier","4":"Tjava.util.function.BiConsumer","5":"Tjava.util.function.BinaryOperator","6":"Tjava.util.Set","M":3},"hcsMethod":{"0":[[0]],"1":[[1]],"2":[[2]]}}, "subs":[
    {"name": "Psupplier(0)", "data":{"hcsParameter":{"1":[[0]],"3":[[-1]]}}},
    {"name": "Paccumulator(1)", "data":{"hcsParameter":{"0":[[1]],"1":[[0]],"4":[[-1]]}}},
    {"name": "Pcombiner(2)", "data":{"hcsParameter":{"1":[[0]],"5":[[-1]]}}},
@@ -43,6 +43,9 @@
   {"name": "Mfinisher(3)", "data":{"hc":{"3":"Tjava.util.function.Function","M":3},"hcsMethod":{"1":[[0]],"2":[[1]],"3":[[-1]]}}},
   {"name": "Mcharacteristics(4)", "data":{"hc":{"3":"Tjava.util.Set","M":3},"hcsMethod":{"3":[[-1]]}}}]},
  {"name": "SPartition(1)", "data":{"hc":{"0":"PT:0","M":1}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hcsMethod":{"0":[[0]]}}, "subs":[
+   {"name": "PforTrue(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+   {"name": "PforFalse(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
   {"name": "MentrySet(0)", "data":{"hc":{"1":"Tjava.util.Set","2":"Tjava.util.Map.Entry","M":1},"hcsMethod":{"0":[[0,1]],"1":[[-1]]}}}]},
  {"name": "C<init>(0)", "data":{"annotatedApi":1}},
  {"name": "MduplicateKeyException(0)", "data":{"hc":{"0":"Tjava.lang.Object","1":"Tjava.lang.IllegalStateException"},"hcsMethod":{"1":[[-1]]}}, "subs":[

@@ -5,7 +5,9 @@
    {"name": "Pg(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
   {"name": "MensureClassInitialized(0)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "sub":
    {"name": "Pclazz(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}]},
- {"name": "C<init>(1)", "data":{"hc":{"1":"Tjava.lang.ref.ReferenceQueue","M":1}}, "subs":[
+ {"name": "C<init>(0)", "data":{"hcsMethod":{"0":[[0]]}}, "sub":
+  {"name": "Preferent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "C<init>(1)", "data":{"hc":{"1":"Tjava.lang.ref.ReferenceQueue","M":1},"hcsMethod":{"0":[[0]]}}, "subs":[
   {"name": "Preferent(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
   {"name": "Pqueue(1)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]}}}]},
  {"name": "MgetAndClearReferencePendingList(0)", "data":{"hc":{"1":"Tjava.lang.ref.Reference","2":"Tjava.lang.Object","M":1},"hcsMethod":{"1":[[-1]],"2":[[2]]}}},

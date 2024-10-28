@@ -57,7 +57,7 @@
   {"name": "MreleaseInflater(2)", "data":{"hc":{"0":"Tjava.util.zip.Inflater"}}, "sub":
    {"name": "Pinf(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}]},
  {"name": "SEntrySpliterator(1)", "data":{"hc":{"0":"PT:0","E":true,"M":1}}, "subs":[
-  {"name": "C<init>(0)", "data":{"hc":{"1":"Tjava.util.function.IntFunction","M":1}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{"1":"Tjava.util.function.IntFunction","M":1},"hcsMethod":{"0":[[0]]}}, "subs":[
    {"name": "Pfence(2)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]}}}]},
   {"name": "MtryAdvance(0)", "data":{"hc":{"1":"Tjava.util.function.Consumer","M":1}}, "sub":
    {"name": "Paction(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]}}}}]},
@@ -85,7 +85,7 @@
   {"name": "MfindEND(12)", "data":{"hc":{"0":"Tjava.util.zip.ZipFile.Source.End"},"hcsMethod":{"0":[[-1]]}}},
   {"name": "MzipCoderForPos(17)", "data":{"hc":{"0":"Tjava.util.zip.ZipCoder"},"hcsMethod":{"0":[[-1]]}}}]},
  {"name": "SZipEntryIterator(4)", "data":{"hc":{"0":"PT:0","E":true,"M":1}}, "subs":[
-  {"name": "C<init>(0)", "data":{"hc":{"1":"Tjava.util.zip.ZipFile","M":1}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{"1":"Tjava.util.zip.ZipFile","M":1},"hcsMethod":{"0":[[0]]}}, "subs":[
    {"name": "PzipFile(0)", "data":{"hcsParameter":{"1":[[-1]]}}}]},
   {"name": "MnextElement(2)", "data":{"hcsMethod":{"0":[[-1]]}}},
   {"name": "Mnext(3)", "data":{"hcsMethod":{"0":[[-1]]}}},
