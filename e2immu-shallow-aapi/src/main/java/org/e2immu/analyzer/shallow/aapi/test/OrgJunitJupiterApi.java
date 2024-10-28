@@ -15,6 +15,7 @@
 package org.e2immu.analyzer.shallow.aapi.test;
 
 import org.e2immu.annotation.Independent;
+import org.e2immu.annotation.NotModified;
 
 public class OrgJunitJupiterApi {
 
@@ -28,5 +29,8 @@ public class OrgJunitJupiterApi {
 
         @Independent
         <V> V fail(String msg);
+
+        @NotModified
+        void assertEquals(Object expected, Object actual);
     }
 }

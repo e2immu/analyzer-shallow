@@ -28,9 +28,12 @@
   {"name": "Pafter(2)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
   {"name": "Proots(3)", "data":{"containerParameter":1,"hcsParameter":{"2":[[-1]]},"independentParameter":2}}]},
  {"name": "Mempty(6)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "Mparents(7)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "Mmodules(8)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "MfindModule(9)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "Mparents(7)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.List"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "Mmodules(8)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.Set"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MfindModule(9)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.Optional"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "Mdescriptors(10)", "data":{"hc":{"0":"Tjava.util.Set","1":"Tjava.lang.module.ModuleDescriptor"},"hcsMethod":{"0":[[-1]],"1":[[0]]}}},
+ {"name": "Mreads(11)", "data":{"hc":{"0":"Tjava.util.Set"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "Mconfigurations(12)", "data":{"hc":{"0":"Tjava.util.stream.Stream"},"hcsMethod":{"0":[[-1]]}}},
  {"name": "MtoString(13)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}}]}
 ]

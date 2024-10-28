@@ -23,14 +23,14 @@
  {"name": "MsetNodeValue(2)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
  {"name": "MgetNodeType(3)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MgetParentNode(4)", "data":{"shallowAnalyzer":1}},
- {"name": "MgetChildNodes(5)", "data":{"shallowAnalyzer":1}},
- {"name": "MgetFirstChild(6)", "data":{"shallowAnalyzer":1}},
- {"name": "MgetLastChild(7)", "data":{"shallowAnalyzer":1}},
- {"name": "MgetPreviousSibling(8)", "data":{"shallowAnalyzer":1}},
- {"name": "MgetNextSibling(9)", "data":{"shallowAnalyzer":1}},
- {"name": "MgetAttributes(10)", "data":{"shallowAnalyzer":1}},
- {"name": "MgetOwnerDocument(11)", "data":{"shallowAnalyzer":1}},
+ {"name": "MgetParentNode(4)", "data":{"hc":{"0":"Torg.w3c.dom.Node"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MgetChildNodes(5)", "data":{"hc":{"0":"Torg.w3c.dom.NodeList"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MgetFirstChild(6)", "data":{"hc":{"0":"Torg.w3c.dom.Node"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MgetLastChild(7)", "data":{"hc":{"0":"Torg.w3c.dom.Node"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MgetPreviousSibling(8)", "data":{"hc":{"0":"Torg.w3c.dom.Node"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MgetNextSibling(9)", "data":{"hc":{"0":"Torg.w3c.dom.Node"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MgetAttributes(10)", "data":{"hc":{"0":"Torg.w3c.dom.NamedNodeMap"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MgetOwnerDocument(11)", "data":{"hc":{"0":"Torg.w3c.dom.Document"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
  {"name": "MinsertBefore(12)", "data":{"hc":{"0":"Torg.w3c.dom.Node"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
   {"name": "Pnode(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
   {"name": "Pnode1(1)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}]},
@@ -42,7 +42,7 @@
  {"name": "MappendChild(15)", "data":{"annotatedApi":1,"hc":{"0":"Torg.w3c.dom.Node"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pnode(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
  {"name": "MhasChildNodes(16)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "McloneNode(17)", "data":{"shallowAnalyzer":1}, "sub":
+ {"name": "McloneNode(17)", "data":{"hc":{"0":"Torg.w3c.dom.Node"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
   {"name": "Pb(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "Mnormalize(18)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
  {"name": "MisSupported(19)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
@@ -70,13 +70,13 @@
   {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
  {"name": "MisEqualNode(33)", "data":{"containerMethod":1,"hc":{"0":"Torg.w3c.dom.Node"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pnode(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
- {"name": "MgetFeature(34)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}, "subs":[
+ {"name": "MgetFeature(34)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "Pstring1(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
  {"name": "MsetUserData(35)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object","1":"Torg.w3c.dom.UserDataHandler"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "Pobject(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
   {"name": "PuserDataHandler(2)", "data":{"hcsParameter":{"1":[[-1]]},"independentParameter":2,"modifiedParameter":1}}]},
- {"name": "MgetUserData(36)", "data":{"containerMethod":1,"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}, "sub":
+ {"name": "MgetUserData(36)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}}]}
 ]

@@ -37,7 +37,8 @@
    {"name": "Pp(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
   {"name": "Munion(3)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.CharPredicate"},"hcsMethod":{"0":[[-1]]}}, "subs":[
    {"name": "Pp1(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
-   {"name": "Pp2(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]}]},
+   {"name": "Pp2(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+  {"name": "Mnegate(4)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.CharPredicate"},"hcsMethod":{"0":[[-1]]}}}]},
  {"name": "SCharProperty(16)", "data":{"hc":{"E":true}}, "subs":[
   {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.CharPredicate"}}, "sub":
    {"name": "Ppredicate(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
@@ -126,12 +127,23 @@
   {"name": "Ps(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
  {"name": "MproduceEquivalentAlternation(14)", "data":{"hc":{"0":"Tjava.util.Set"}}, "subs":[
   {"name": "Pdst(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "MnamedGroups(20)", "data":{"hc":{"0":"Tjava.util.Map"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "Merror(36)", "data":{"hc":{"0":"Tjava.util.regex.PatternSyntaxException"},"hcsMethod":{"0":[[-1]]}}},
  {"name": "Mexpr(39)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.Node"},"hcsMethod":{"0":[[-1]]}}, "sub":
   {"name": "Pend(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
  {"name": "Msequence(40)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.Node"},"hcsMethod":{"0":[[-1]]}}, "sub":
   {"name": "Pend(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
- {"name": "MnewCharProperty(50)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.CharPredicate"}}, "sub":
+ {"name": "Matom(41)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.Node"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "Mref(43)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.Node"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "Mclazz(45)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.CharPredicate"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MbitsOrSingle(46)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.CharPredicate"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "Msingle(47)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.CharPredicate"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "Mrange(48)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.CharPredicate"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "Mfamily(49)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.CharPredicate"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MnewCharProperty(50)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.CharPredicate","1":"Tjava.util.regex.Pattern.CharProperty"},"hcsMethod":{"1":[[-1]]}}, "sub":
   {"name": "Pp(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "Mgroup0(52)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.Node"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "McreateGroup(53)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.Node"},"hcsMethod":{"0":[[-1]]}}},
  {"name": "Mcurly(57)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.Node"},"hcsMethod":{"0":[[-1]]}}, "subs":[
   {"name": "Pprev(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
  {"name": "Mclosure(58)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.Node"},"hcsMethod":{"0":[[-1]]}}, "sub":
@@ -140,10 +152,23 @@
   {"name": "Pseq(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
  {"name": "McountCodePoints(68)", "data":{"hc":{"0":"Tjava.lang.CharSequence"}}, "sub":
   {"name": "Pseq(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MnewSlice(69)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.Node"},"hcsMethod":{"0":[[-1]]}}},
  {"name": "MhasBaseCharacter(70)", "data":{"hc":{"0":"Tjava.lang.CharSequence"}}, "subs":[
   {"name": "Pseq(2)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
- {"name": "MasPredicate(84)", "data":{"shallowAnalyzer":1}},
- {"name": "MasMatchPredicate(85)", "data":{"shallowAnalyzer":1}},
- {"name": "MsplitAsStream(86)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.CharSequence"},"shallowAnalyzer":1}, "sub":
+ {"name": "MVertWS(71)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.BmpCharPredicate"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MHorizWS(72)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.BmpCharPredicate"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MALL(73)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.CharPredicate"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MDOT(74)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.CharPredicate"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MUNIXDOT(75)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.CharPredicate"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MSingleS(76)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.CharPredicate"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MSingle(77)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.BmpCharPredicate"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MSingleI(78)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.BmpCharPredicate"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MSingleU(79)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.CharPredicate"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MRange(81)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.CharPredicate"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MCIRange(82)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.CharPredicate"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MCIRangeU(83)", "data":{"hc":{"0":"Tjava.util.regex.Pattern.CharPredicate"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MasPredicate(84)", "data":{"hc":{"0":"Tjava.util.function.Predicate"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MasMatchPredicate(85)", "data":{"hc":{"0":"Tjava.util.function.Predicate"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MsplitAsStream(86)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.CharSequence","1":"Tjava.util.stream.Stream"},"hcsMethod":{"1":[[-1]]},"shallowAnalyzer":1}, "sub":
   {"name": "Pinput(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}}]}
 ]

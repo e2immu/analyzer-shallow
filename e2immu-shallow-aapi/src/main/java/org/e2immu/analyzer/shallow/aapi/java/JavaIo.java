@@ -124,6 +124,22 @@ public class JavaIo {
         void println(/*@Independent(hc=true)*/ Object obj);
     }
 
+    @Independent
+    interface PrintWriter$ {
+        @Modified
+        void println(String s);
+        @Modified
+        void println();
+        @Modified
+        void print(String s);
+        @Modified
+        void print(char c);
+        @Modified
+        void print(int i);
+        @Modified
+        void printf(String s, @NotModified Object... objects);
+    }
+
     /*
      The @Independent annotation prevents the implementation from storing the byte arrays it receives in the
      write methods. The @Container annotation prevents the implementation from modifying them.

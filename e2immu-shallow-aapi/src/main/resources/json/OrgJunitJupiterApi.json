@@ -5,16 +5,16 @@
    {"name": "Pduration(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
    {"name": "Psupplier(1)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}},
    {"name": "Pthrowable(2)", "data":{"hcsParameter":{"2":[[-1]]},"independentParameter":2,"modifiedParameter":1}}]}},
- {"name": "Mfail(0)", "data":{"annotatedApi":1,"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "Mfail(1)", "data":{"annotatedApi":1,"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "Mfail(0)", "data":{"annotatedApi":1,"hc":{"0":"PV:0"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "Mfail(1)", "data":{"annotatedApi":1,"hc":{"0":"PV:0"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Pmessage(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
- {"name": "Mfail(2)", "data":{"hc":{"0":"Tjava.lang.Throwable"},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "Mfail(2)", "data":{"hc":{"0":"PV:0","1":"Tjava.lang.Throwable"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Pmessage(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
-  {"name": "Pcause(1)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}]},
- {"name": "Mfail(3)", "data":{"hc":{"0":"Tjava.lang.Throwable"},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
-  {"name": "Pcause(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
- {"name": "Mfail(4)", "data":{"hc":{"0":"Tjava.util.function.Supplier"},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
-  {"name": "PmessageSupplier(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}},
+  {"name": "Pcause(1)", "data":{"hcsParameter":{"1":[[-1]]},"independentParameter":2,"modifiedParameter":1}}]},
+ {"name": "Mfail(3)", "data":{"hc":{"0":"PV:0","1":"Tjava.lang.Throwable"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcause(0)", "data":{"hcsParameter":{"1":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "Mfail(4)", "data":{"hc":{"0":"PV:0","1":"Tjava.util.function.Supplier"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "PmessageSupplier(0)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}},
  {"name": "MassertTrue(5)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Pcondition(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "MassertTrue(6)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.function.Supplier"},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
@@ -399,9 +399,9 @@
   {"name": "Pexpected(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "Pactual(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "PmessageSupplier(2)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}]},
- {"name": "MassertEquals(113)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
-  {"name": "Pexpected(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
-  {"name": "Pactual(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}]},
+ {"name": "MassertEquals(113)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pexpected(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
+  {"name": "Pactual(1)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}]},
  {"name": "MassertEquals(114)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Pexpected(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
   {"name": "Pactual(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},

@@ -4,11 +4,14 @@
   {"name": "SClassDefiner(0)", "data":{"hc":{"E":true}}, "subs":[
    {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandles.Lookup.ClassFile"}}, "subs":[
     {"name": "Pcf(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
-   {"name": "MdefineClass(3)", "data":{"hc":{"0":"Tjava.lang.Object"}}, "subs":[
+   {"name": "MdefineClass(1)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]}}},
+   {"name": "MdefineClass(3)", "data":{"hc":{"0":"Tjava.lang.Object","1":"Tjava.lang.Class"},"hcsMethod":{"1":[[-1]]}}, "subs":[
     {"name": "PclassData(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
    {"name": "MdefineClassAsLookup(4)", "data":{"hc":{"0":"Tjava.lang.Object"}}, "subs":[
     {"name": "PclassData(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]}]},
-  {"name": "SClassFile(1)", "data":{"hc":{"E":true}}},
+  {"name": "SClassFile(1)", "data":{"hc":{"E":true}}, "subs":[
+   {"name": "MnewInstanceNoCheck(0)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandles.Lookup.ClassFile"},"hcsMethod":{"0":[[-1]]}}},
+   {"name": "MnewInstance(1)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandles.Lookup.ClassFile"},"hcsMethod":{"0":[[-1]]}}}]},
   {"name": "SClassOption(2)", "data":{"shallowAnalyzer":1}, "subs":[
    {"name": "FNESTMATE(0)", "data":{"finalField":1,"notNullField":1,"shallowAnalyzer":1}},
    {"name": "FSTRONG(1)", "data":{"finalField":1,"notNullField":1,"shallowAnalyzer":1}},
@@ -29,8 +32,9 @@
   {"name": "C<init>(1)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "subs":[
    {"name": "PlookupClass(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
    {"name": "PprevLookupClass(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
-  {"name": "MlookupClass(1)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
-  {"name": "MpreviousLookupClass(2)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
+  {"name": "MlookupClass(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
+  {"name": "MpreviousLookupClass(2)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
+  {"name": "MlookupClassOrNull(3)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]}}},
   {"name": "MlookupModes(4)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
   {"name": "MnewLookup(5)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"hcsMethod":{"0":[[0]],"1":[[1]]}}, "subs":[
    {"name": "PlookupClass(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
@@ -39,7 +43,7 @@
    {"name": "PrequestedLookupClass(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}}},
   {"name": "MdropLookupMode(7)", "data":{"shallowAnalyzer":1}, "sub":
    {"name": "PmodeToDrop(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
-  {"name": "MdefineClass(8)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "MdefineClass(8)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "Pbytes(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}},
   {"name": "MdefineHiddenClass(10)", "data":{"shallowAnalyzer":1}, "subs":[
    {"name": "Pbytes(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}},
@@ -50,80 +54,89 @@
    {"name": "PclassData(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
    {"name": "Pinitialize(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
    {"name": "Poptions(3)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}]},
-  {"name": "MmakeHiddenClassDefiner(14)", "data":{"hc":{"0":"Tjava.util.Set"}}, "subs":[
+  {"name": "MmakeClassDefiner(12)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandles.Lookup.ClassDefiner"},"hcsMethod":{"0":[[-1]]}}},
+  {"name": "MmakeHiddenClassDefiner(13)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandles.Lookup.ClassDefiner"},"hcsMethod":{"0":[[-1]]}}},
+  {"name": "MmakeHiddenClassDefiner(14)", "data":{"hc":{"0":"Tjava.util.Set","1":"Tjava.lang.invoke.MethodHandles.Lookup.ClassDefiner"},"hcsMethod":{"1":[[-1]]}}, "subs":[
    {"name": "Poptions(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
-  {"name": "MmakeHiddenClassDefiner(16)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandles.Lookup.ClassFile","1":"Tjava.util.Set"}}, "subs":[
+  {"name": "MmakeHiddenClassDefiner(15)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandles.Lookup.ClassDefiner"},"hcsMethod":{"0":[[-1]]}}},
+  {"name": "MmakeHiddenClassDefiner(16)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandles.Lookup.ClassFile","1":"Tjava.util.Set","2":"Tjava.lang.invoke.MethodHandles.Lookup.ClassDefiner"},"hcsMethod":{"2":[[-1]]}}, "subs":[
    {"name": "Pcf(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
    {"name": "Poptions(1)", "data":{"hcsParameter":{"1":[[-1]]}}}]},
+  {"name": "MlookupClassProtectionDomain(17)", "data":{"hc":{"0":"Tjava.security.ProtectionDomain"},"hcsMethod":{"0":[[-1]]}}},
   {"name": "McheckUnprivilegedlookupClass(18)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "sub":
    {"name": "PlookupClass(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
   {"name": "MtoString(19)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
-  {"name": "MfindStatic(20)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"shallowAnalyzer":1}, "subs":[
+  {"name": "MfindStatic(20)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]},"shallowAnalyzer":1}, "subs":[
    {"name": "Prefc(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}},
    {"name": "Pname(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
    {"name": "Ptype(2)", "data":{"independentParameter":2,"modifiedParameter":1}}]},
-  {"name": "MfindVirtual(21)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"shallowAnalyzer":1}, "subs":[
+  {"name": "MfindVirtual(21)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]},"shallowAnalyzer":1}, "subs":[
    {"name": "Prefc(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}},
    {"name": "Pname(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
    {"name": "Ptype(2)", "data":{"independentParameter":2,"modifiedParameter":1}}]},
-  {"name": "MfindConstructor(24)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"shallowAnalyzer":1}, "subs":[
+  {"name": "MfindVirtualForMH(22)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"0":[[-1]]}}},
+  {"name": "MfindVirtualForVH(23)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"0":[[-1]]}}},
+  {"name": "MfindConstructor(24)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]},"shallowAnalyzer":1}, "subs":[
    {"name": "Prefc(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}},
    {"name": "Ptype(1)", "data":{"independentParameter":2,"modifiedParameter":1}}]},
-  {"name": "MfindClass(25)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "MfindClass(25)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "PtargetName(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
   {"name": "MensureInitialized(26)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "PtargetClass(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}}},
-  {"name": "MmakeAccessException(27)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "sub":
+  {"name": "MmakeAccessException(27)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.IllegalAccessException"},"hcsMethod":{"2":[[-1]]}}, "sub":
    {"name": "PtargetClass(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
   {"name": "MaccessClass(28)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "PtargetClass(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}}},
-  {"name": "MfindSpecial(29)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"shallowAnalyzer":1}, "subs":[
+  {"name": "MfindSpecial(29)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]},"shallowAnalyzer":1}, "subs":[
    {"name": "Prefc(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}},
    {"name": "Pname(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
    {"name": "Ptype(2)", "data":{"independentParameter":2,"modifiedParameter":1}},
    {"name": "PspecialCaller(3)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}}]},
-  {"name": "MfindGetter(30)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"shallowAnalyzer":1}, "subs":[
+  {"name": "MfindGetter(30)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]},"shallowAnalyzer":1}, "subs":[
    {"name": "Prefc(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}},
    {"name": "Pname(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
    {"name": "Ptype(2)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}}]},
-  {"name": "MfindSetter(31)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"shallowAnalyzer":1}, "subs":[
+  {"name": "MfindSetter(31)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]},"shallowAnalyzer":1}, "subs":[
    {"name": "Prefc(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}},
    {"name": "Pname(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
    {"name": "Ptype(2)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}}]},
-  {"name": "MfindVarHandle(32)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"shallowAnalyzer":1}, "subs":[
+  {"name": "MfindVarHandle(32)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.VarHandle"},"hcsMethod":{"2":[[-1]]},"shallowAnalyzer":1}, "subs":[
    {"name": "Precv(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}},
    {"name": "Pname(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
    {"name": "Ptype(2)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}}]},
-  {"name": "MfindStaticGetter(33)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"shallowAnalyzer":1}, "subs":[
+  {"name": "MfindStaticGetter(33)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]},"shallowAnalyzer":1}, "subs":[
    {"name": "Prefc(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}},
    {"name": "Pname(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
    {"name": "Ptype(2)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}}]},
-  {"name": "MfindStaticSetter(34)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"shallowAnalyzer":1}, "subs":[
+  {"name": "MfindStaticSetter(34)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]},"shallowAnalyzer":1}, "subs":[
    {"name": "Prefc(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}},
    {"name": "Pname(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
    {"name": "Ptype(2)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}}]},
-  {"name": "MfindStaticVarHandle(35)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"shallowAnalyzer":1}, "subs":[
+  {"name": "MfindStaticVarHandle(35)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.VarHandle"},"hcsMethod":{"2":[[-1]]},"shallowAnalyzer":1}, "subs":[
    {"name": "Pdecl(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}},
    {"name": "Pname(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
    {"name": "Ptype(2)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}}]},
-  {"name": "Mbind(36)", "data":{"hc":{"0":"Tjava.lang.Object"},"shallowAnalyzer":1}, "subs":[
+  {"name": "Mbind(36)", "data":{"hc":{"0":"Tjava.lang.Object","1":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"1":[[-1]]},"shallowAnalyzer":1}, "subs":[
    {"name": "Preceiver(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
    {"name": "Pname(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
    {"name": "Ptype(2)", "data":{"independentParameter":2,"modifiedParameter":1}}]},
-  {"name": "Munreflect(37)", "data":{"shallowAnalyzer":1}, "sub":
+  {"name": "Munreflect(37)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
    {"name": "Pm(0)", "data":{"independentParameter":2,"modifiedParameter":1}}},
-  {"name": "MunreflectSpecial(40)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"shallowAnalyzer":1}, "subs":[
+  {"name": "MunreflectForMH(38)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"0":[[-1]]}}},
+  {"name": "MunreflectForVH(39)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"0":[[-1]]}}},
+  {"name": "MunreflectSpecial(40)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]},"shallowAnalyzer":1}, "subs":[
    {"name": "Pm(0)", "data":{"independentParameter":2,"modifiedParameter":1}},
    {"name": "PspecialCaller(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}}]},
-  {"name": "MunreflectConstructor(41)", "data":{"hc":{"0":"Tjava.lang.reflect.Constructor","1":"Tjava.lang.Object"},"shallowAnalyzer":1}, "sub":
+  {"name": "MunreflectConstructor(41)", "data":{"hc":{"0":"Tjava.lang.reflect.Constructor","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]},"shallowAnalyzer":1}, "sub":
    {"name": "Pc(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
-  {"name": "MunreflectGetter(42)", "data":{"shallowAnalyzer":1}, "sub":
+  {"name": "MunreflectGetter(42)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
    {"name": "Pf(0)", "data":{"independentParameter":2,"modifiedParameter":1}}},
-  {"name": "MunreflectSetter(43)", "data":{"shallowAnalyzer":1}, "sub":
+  {"name": "MunreflectSetter(43)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
    {"name": "Pf(0)", "data":{"independentParameter":2,"modifiedParameter":1}}},
-  {"name": "MunreflectVarHandle(45)", "data":{"shallowAnalyzer":1}, "sub":
+  {"name": "MunreflectField(44)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"0":[[-1]]}}},
+  {"name": "MunreflectVarHandle(45)", "data":{"hc":{"0":"Tjava.lang.invoke.VarHandle"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
    {"name": "Pf(0)", "data":{"independentParameter":2,"modifiedParameter":1}}},
-  {"name": "MrevealDirect(46)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"},"shallowAnalyzer":1}, "sub":
+  {"name": "MrevealDirect(46)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle","1":"Tjava.lang.invoke.MethodHandleInfo"},"hcsMethod":{"1":[[-1]]},"shallowAnalyzer":1}, "sub":
    {"name": "Ptarget(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
   {"name": "MresolveOrFail(47)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "subs":[
    {"name": "Prefc(1)", "data":{"hcsParameter":{"0":[[-1]]}}},
@@ -153,48 +166,48 @@
   {"name": "McheckSpecialCaller(64)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "subs":[
    {"name": "PspecialCaller(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
    {"name": "Prefc(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
-  {"name": "MrestrictReceiver(66)", "data":{"hc":{"0":"Tjava.lang.invoke.DirectMethodHandle","1":"Tjava.lang.Class","2":"Tjava.lang.Object"}}, "subs":[
+  {"name": "MrestrictReceiver(66)", "data":{"hc":{"0":"Tjava.lang.invoke.DirectMethodHandle","1":"Tjava.lang.Class","2":"Tjava.lang.Object","3":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"3":[[-1]]}}, "subs":[
    {"name": "Pmh(1)", "data":{"hcsParameter":{"0":[[-1]]}}},
    {"name": "Pcaller(2)", "data":{"hcsParameter":{"1":[[-1]]}}}]},
-  {"name": "MgetDirectMethod(67)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "subs":[
+  {"name": "MgetDirectMethod(67)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]}}, "subs":[
    {"name": "Prefc(1)", "data":{"hcsParameter":{"0":[[-1]]}}},
-   {"name": "PcallerLookup(3)", "data":{"hcsParameter":{"0":[[0]],"1":[[1]]}}}]},
-  {"name": "MgetDirectMethodNoRestrictInvokeSpecial(68)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "subs":[
+   {"name": "PcallerLookup(3)", "data":{"hcsParameter":{"0":[[0]],"1":[[1]],"2":[[2]]}}}]},
+  {"name": "MgetDirectMethodNoRestrictInvokeSpecial(68)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]}}, "subs":[
    {"name": "Prefc(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
-   {"name": "PcallerLookup(2)", "data":{"hcsParameter":{"0":[[0]],"1":[[1]]}}}]},
-  {"name": "MgetDirectMethodNoSecurityManager(69)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "subs":[
+   {"name": "PcallerLookup(2)", "data":{"hcsParameter":{"0":[[0]],"1":[[1]],"2":[[2]]}}}]},
+  {"name": "MgetDirectMethodNoSecurityManager(69)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]}}, "subs":[
    {"name": "Prefc(1)", "data":{"hcsParameter":{"0":[[-1]]}}},
-   {"name": "PcallerLookup(3)", "data":{"hcsParameter":{"0":[[0]],"1":[[1]]}}}]},
-  {"name": "MgetDirectMethodCommon(70)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "subs":[
+   {"name": "PcallerLookup(3)", "data":{"hcsParameter":{"0":[[0]],"1":[[1]],"2":[[2]]}}}]},
+  {"name": "MgetDirectMethodCommon(70)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]}}, "subs":[
    {"name": "Prefc(1)", "data":{"hcsParameter":{"0":[[-1]]}}},
-   {"name": "PboundCaller(5)", "data":{"hcsParameter":{"0":[[0]],"1":[[1]]}}}]},
+   {"name": "PboundCaller(5)", "data":{"hcsParameter":{"0":[[0]],"1":[[1]],"2":[[2]]}}}]},
   {"name": "MmaybeBindCaller(71)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"0":[[-1]]}}, "subs":[
    {"name": "Pmh(1)", "data":{"hcsParameter":{"0":[[-1]]}}},
    {"name": "PboundCaller(2)", "data":{"hcsParameter":{"0":[[0]]}}}]},
-  {"name": "MgetDirectField(72)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "subs":[
+  {"name": "MgetDirectField(72)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]}}, "subs":[
    {"name": "Prefc(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
-  {"name": "MgetDirectFieldNoSecurityManager(73)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "subs":[
+  {"name": "MgetDirectFieldNoSecurityManager(73)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]}}, "subs":[
    {"name": "Prefc(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
-  {"name": "MgetDirectFieldCommon(74)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "subs":[
+  {"name": "MgetDirectFieldCommon(74)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]}}, "subs":[
    {"name": "Prefc(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
-  {"name": "MgetFieldVarHandle(75)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "subs":[
+  {"name": "MgetFieldVarHandle(75)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.VarHandle"},"hcsMethod":{"2":[[-1]]}}, "subs":[
    {"name": "Prefc(2)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
-  {"name": "MgetFieldVarHandleNoSecurityManager(76)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "subs":[
+  {"name": "MgetFieldVarHandleNoSecurityManager(76)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.VarHandle"},"hcsMethod":{"2":[[-1]]}}, "subs":[
    {"name": "Prefc(2)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
-  {"name": "MgetFieldVarHandleCommon(77)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "subs":[
+  {"name": "MgetFieldVarHandleCommon(77)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.VarHandle"},"hcsMethod":{"2":[[-1]]}}, "subs":[
    {"name": "Prefc(2)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
-  {"name": "MgetDirectConstructor(78)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "subs":[
+  {"name": "MgetDirectConstructor(78)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]}}, "subs":[
    {"name": "Prefc(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
-  {"name": "MgetDirectConstructorNoSecurityManager(79)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "subs":[
+  {"name": "MgetDirectConstructorNoSecurityManager(79)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]}}, "subs":[
    {"name": "Prefc(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
-  {"name": "MgetDirectConstructorCommon(80)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "subs":[
+  {"name": "MgetDirectConstructorCommon(80)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]}}, "subs":[
    {"name": "Prefc(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
-  {"name": "MlinkMethodHandleConstant(81)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "subs":[
+  {"name": "MlinkMethodHandleConstant(81)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]}}, "subs":[
    {"name": "Pdefc(1)", "data":{"hcsParameter":{"0":[[-1]]}}},
    {"name": "Ptype(3)", "data":{"hcsParameter":{"1":[[-1]]}}}]},
   {"name": "McanBeCached(82)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "subs":[
    {"name": "Pdefc(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
-  {"name": "MgetDirectMethodForConstant(83)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "subs":[
+  {"name": "MgetDirectMethodForConstant(83)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]}}, "subs":[
    {"name": "Pdefc(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]}]},
  {"name": "Mlookup(0)", "data":{"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "MpublicLookup(2)", "data":{"independentMethod":2,"shallowAnalyzer":1}},
@@ -213,35 +226,36 @@
  {"name": "MreflectAs(6)", "data":{"hc":{"0":"PT:0","1":"Tjava.lang.Class","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Pexpected(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[0]],"1":[[-1]]},"immutableParameter":3,"independentParameter":2}},
   {"name": "Ptarget(1)", "data":{"hcsParameter":{"2":[[-1]]},"independentParameter":2,"modifiedParameter":1}}]},
- {"name": "MarrayConstructor(7)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "MarrayConstructor(7)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "ParrayClass(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}}},
- {"name": "MarrayLength(8)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "MarrayLength(8)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "ParrayClass(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}}},
- {"name": "MarrayElementGetter(9)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "MarrayElementGetter(9)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "ParrayClass(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}}},
- {"name": "MarrayElementSetter(10)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "MarrayElementSetter(10)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "ParrayClass(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}}},
- {"name": "MarrayElementVarHandle(11)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "MarrayElementVarHandle(11)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.VarHandle"},"hcsMethod":{"2":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "ParrayClass(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}}},
- {"name": "MbyteArrayViewVarHandle(12)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "MbyteArrayViewVarHandle(12)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.VarHandle"},"hcsMethod":{"2":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "PviewArrayClass(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}},
   {"name": "PbyteOrder(1)", "data":{"independentParameter":2,"modifiedParameter":1}}]},
- {"name": "MbyteBufferViewVarHandle(13)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "MbyteBufferViewVarHandle(13)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.VarHandle"},"hcsMethod":{"2":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "PviewArrayClass(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}},
   {"name": "PbyteOrder(1)", "data":{"independentParameter":2,"modifiedParameter":1}}]},
- {"name": "MspreadInvoker(14)", "data":{"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "MspreadInvoker(14)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Ptype(0)", "data":{"independentParameter":2,"modifiedParameter":1}},
   {"name": "PleadingArgCount(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
- {"name": "MexactInvoker(15)", "data":{"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "MexactInvoker(15)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Ptype(0)", "data":{"independentParameter":2,"modifiedParameter":1}}},
- {"name": "Minvoker(16)", "data":{"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "Minvoker(16)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Ptype(0)", "data":{"independentParameter":2,"modifiedParameter":1}}},
- {"name": "MvarHandleExactInvoker(17)", "data":{"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "MvarHandleExactInvoker(17)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "PaccessMode(0)", "data":{"independentParameter":2,"modifiedParameter":1}},
   {"name": "Ptype(1)", "data":{"independentParameter":2,"modifiedParameter":1}}]},
- {"name": "MvarHandleInvoker(18)", "data":{"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "MvarHandleInvoker(18)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "PaccessMode(0)", "data":{"independentParameter":2,"modifiedParameter":1}},
   {"name": "Ptype(1)", "data":{"independentParameter":2,"modifiedParameter":1}}]},
+ {"name": "MbasicInvoker(19)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"0":[[-1]]}}},
  {"name": "MexplicitCastArguments(20)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Ptarget(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
   {"name": "PnewType(1)", "data":{"independentParameter":2,"modifiedParameter":1}}]},
@@ -251,22 +265,22 @@
   {"name": "Ptarget(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
   {"name": "PnewType(1)", "data":{"independentParameter":2,"modifiedParameter":1}},
   {"name": "Preorder(2)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}]},
- {"name": "Mconstant(25)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "Mconstant(25)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Ptype(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}},
   {"name": "Pvalue(1)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":2}}]},
- {"name": "Midentity(26)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "Midentity(26)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Ptype(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}}},
- {"name": "Mzero(27)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "Mzero(27)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Ptype(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}}},
- {"name": "MidentityOrVoid(28)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "sub":
+ {"name": "MidentityOrVoid(28)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]}}, "sub":
   {"name": "Ptype(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
- {"name": "Mempty(29)", "data":{"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "Mempty(29)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Ptype(0)", "data":{"independentParameter":2,"modifiedParameter":1}}},
- {"name": "MmakeIdentity(30)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "sub":
+ {"name": "MmakeIdentity(30)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]}}, "sub":
   {"name": "Pptype(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
- {"name": "Mzero(31)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "subs":[
+ {"name": "Mzero(31)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]}}, "subs":[
   {"name": "Prtype(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
- {"name": "MmakeZero(32)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "sub":
+ {"name": "MmakeZero(32)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]}}, "sub":
   {"name": "Prtype(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
  {"name": "MsetCachedMethodHandle(33)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"0":[[-1]]}}, "subs":[
   {"name": "Pcache(0)", "data":{"hcsParameter":{"0":[[0]]}}},
@@ -279,13 +293,13 @@
   {"name": "Presult(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
   {"name": "Pptype(2)", "data":{"hcsParameter":{"1":[[-1]]}}},
   {"name": "Pvalue(3)", "data":{"hcsParameter":{"2":[[-1]]}}}]},
- {"name": "MinsertArgumentsChecks(36)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"}}, "subs":[
+ {"name": "MinsertArgumentsChecks(36)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle","1":"Tjava.lang.Class","2":"Tjava.lang.Object"},"hcsMethod":{"1":[[1]]}}, "subs":[
   {"name": "Ptarget(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
  {"name": "MdropArguments(37)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle","1":"Tjava.util.List","2":"Tjava.lang.Class","3":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Ptarget(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
   {"name": "Ppos(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
   {"name": "PvalueTypes(2)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"independentParameter":2,"modifiedParameter":1}}]},
- {"name": "McopyTypes(38)", "data":{"hc":{"0":"Tjava.lang.Object"}}, "sub":
+ {"name": "McopyTypes(38)", "data":{"hc":{"0":"Tjava.lang.Object","1":"Tjava.util.List","2":"Tjava.lang.Class"},"hcsMethod":{"1":[[-1]]}}, "sub":
   {"name": "Parray(0)", "data":{"hcsParameter":{"0":[[0]]}}}},
  {"name": "MdropArguments0(39)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle","1":"Tjava.util.List","2":"Tjava.lang.Class","3":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]}}, "subs":[
   {"name": "Ptarget(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
@@ -342,6 +356,7 @@
   {"name": "Ptarget(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
   {"name": "Ppos(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
   {"name": "Pcombiner(2)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}]},
+ {"name": "MfoldArgumentChecks(57)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]}}},
  {"name": "MfilterArgumentsWithCombiner(58)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"0":[[-1]]}}, "subs":[
   {"name": "Ptarget(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
   {"name": "Pcombiner(2)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
@@ -351,18 +366,19 @@
  {"name": "MargumentsWithCombiner(60)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"0":[[-1]]}}, "subs":[
   {"name": "Ptarget(1)", "data":{"hcsParameter":{"0":[[-1]]}}},
   {"name": "Pcombiner(3)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "MargumentsWithCombinerChecks(61)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]}}},
  {"name": "MguardWithTest(62)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Ptest(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
   {"name": "Ptarget(1)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
   {"name": "Pfallback(2)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}]},
- {"name": "MmisMatchedTypes(63)", "data":{"hc":{"0":"PT:0"}}, "subs":[
+ {"name": "MmisMatchedTypes(63)", "data":{"hc":{"0":"PT:0","1":"Tjava.lang.RuntimeException"},"hcsMethod":{"1":[[-1]]}}, "subs":[
   {"name": "Pt1(1)", "data":{"hcsParameter":{"0":[[-1]]}}},
   {"name": "Pt2(2)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
  {"name": "McatchException(64)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle","1":"Tjava.lang.Class","2":"Tjava.lang.Throwable"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Ptarget(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
   {"name": "PexType(1)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]],"2":[[0]]},"immutableParameter":3,"independentParameter":2}},
   {"name": "Phandler(2)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}]},
- {"name": "MthrowException(65)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.Throwable"},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "MthrowException(65)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.Throwable","3":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"3":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "PreturnType(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}},
   {"name": "PexType(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]],"2":[[0]]},"immutableParameter":3,"independentParameter":2}}]},
  {"name": "Mloop(66)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
@@ -372,11 +388,11 @@
  {"name": "MloopChecks1a(68)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"}}, "subs":[
   {"name": "Pin(1)", "data":{"hcsParameter":{"0":[[-1]]}}},
   {"name": "Pst(2)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
- {"name": "MlongestParameterList(69)", "data":{"hc":{"0":"Tjava.util.stream.Stream","1":"Tjava.lang.invoke.MethodHandle"}}, "subs":[
+ {"name": "MlongestParameterList(69)", "data":{"hc":{"0":"Tjava.util.stream.Stream","1":"Tjava.lang.invoke.MethodHandle","2":"Tjava.util.List","3":"Tjava.lang.Class","4":"Tjava.lang.Object"},"hcsMethod":{"2":[[-1]]}}, "subs":[
   {"name": "Pmhs(0)", "data":{"hcsParameter":{"0":[[-1]],"1":[[0]]}}}]},
  {"name": "MlongestParameterList(70)", "data":{"hc":{"0":"Tjava.util.List","1":"Tjava.lang.Class","2":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]}}, "sub":
   {"name": "Plists(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
- {"name": "MbuildCommonSuffix(71)", "data":{"hc":{"0":"Tjava.util.List","1":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"0":[[-1]]}}, "subs":[
+ {"name": "MbuildCommonSuffix(71)", "data":{"hc":{"0":"Tjava.util.List","1":"Tjava.lang.invoke.MethodHandle","2":"Tjava.lang.Class","3":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]}}, "subs":[
   {"name": "Pinit(0)", "data":{"hcsParameter":{"0":[[-1]],"1":[[0]]}}},
   {"name": "Pstep(1)", "data":{"hcsParameter":{"0":[[-1]],"1":[[0]]}}},
   {"name": "Ppred(2)", "data":{"hcsParameter":{"0":[[-1]],"1":[[0]]}}},
@@ -428,7 +444,7 @@
   {"name": "Piterator(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
   {"name": "Pinit(1)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
   {"name": "Pbody(2)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}]},
- {"name": "MiteratedLoopChecks(84)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"}}, "subs":[
+ {"name": "MiteratedLoopChecks(84)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle","1":"Tjava.lang.Class","2":"Tjava.lang.Object"},"hcsMethod":{"1":[[-1]]}}, "subs":[
   {"name": "Piterator(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
   {"name": "Pinit(1)", "data":{"hcsParameter":{"0":[[-1]]}}},
   {"name": "Pbody(2)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
@@ -459,7 +475,7 @@
    {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
   {"name": "MreturnType(2)", "data":{"containerMethod":1,"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
   {"name": "MparameterArray(3)", "data":{"containerMethod":1,"hcsMethod":{"0":[[0]]},"immutableMethod":1,"shallowAnalyzer":1}},
-  {"name": "MparameterList(4)", "data":{"containerMethod":1,"hcsMethod":{"0":[[0]]},"shallowAnalyzer":1}},
+  {"name": "MparameterList(4)", "data":{"containerMethod":1,"hc":{"2":"Tjava.util.List","M":2},"hcsMethod":{"0":[[0]],"2":[[-1]]},"shallowAnalyzer":1}},
   {"name": "MchangeReturnType(5)", "data":{"hcsMethod":{"1":[[-1]]},"shallowAnalyzer":1}, "sub":
    {"name": "Pf(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
   {"name": "MchangeParameterType(6)", "data":{"hcsMethod":{"1":[[-1]]},"shallowAnalyzer":1}, "subs":[

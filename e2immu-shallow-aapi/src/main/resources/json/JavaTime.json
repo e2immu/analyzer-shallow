@@ -36,7 +36,7 @@
   {"name": "PendExclusive(1)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}]},
  {"name": "Mget(16)", "data":{"containerMethod":1,"hc":{"0":"Tjava.time.temporal.TemporalUnit"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Punit(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
- {"name": "MgetUnits(17)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MgetUnits(17)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.List","1":"Tjava.time.temporal.TemporalUnit"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "MisZero(18)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MisNegative(19)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MgetSeconds(20)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
@@ -85,6 +85,7 @@
   {"name": "Pdivisor(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "MdividedBy(43)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pdivisor(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MtoBigDecimalSeconds(44)", "data":{"hc":{"0":"Tjava.math.BigDecimal"},"hcsMethod":{"0":[[-1]]}}},
  {"name": "Mcreate(45)", "data":{"hc":{"0":"Tjava.math.BigDecimal"},"hcsMethod":{"0":[[0]]}}, "sub":
   {"name": "Pseconds(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
  {"name": "Mnegated(46)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
@@ -113,6 +114,7 @@
   {"name": "Pother(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
  {"name": "MhashCode(65)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MtoString(66)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MwriteReplace(67)", "data":{"hc":{"0":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]}}},
  {"name": "MreadObject(68)", "data":{"hc":{"0":"Tjava.io.ObjectInputStream"}}, "sub":
   {"name": "Ps(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
  {"name": "MwriteExternal(69)", "data":{"hc":{"0":"Tjava.io.DataOutput"}}, "sub":

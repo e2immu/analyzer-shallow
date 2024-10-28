@@ -42,6 +42,7 @@
  {"name": "MtoLevel(9)", "data":{"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "PsArg(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "PdefaultLevel(1)", "data":{"independentParameter":2}}]},
+ {"name": "MreadResolve(10)", "data":{"hc":{"0":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]}}},
  {"name": "MfromLocationAwareLoggerInteger(11)", "data":{"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "PlevelInt(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "MtoLocationAwareLoggerInteger(12)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
@@ -64,8 +65,8 @@
   {"name": "PnewAppender(0)", "data":{"hcsParameter":{"0":[[-1]],"1":[[0]]},"modifiedParameter":1}}},
  {"name": "MisAttached(11)", "data":{"containerMethod":1,"hc":{"0":"Tch.qos.logback.core.Appender","1":"Tch.qos.logback.classic.spi.ILoggingEvent"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pappender(0)", "data":{"hcsParameter":{"0":[[-1]],"1":[[0]]},"independentParameter":2,"modifiedParameter":1}}},
- {"name": "MiteratorForAppenders(12)", "data":{"containerMethod":1,"shallowAnalyzer":1}},
- {"name": "MgetAppender(13)", "data":{"shallowAnalyzer":1}, "sub":
+ {"name": "MiteratorForAppenders(12)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.Iterator","1":"Tch.qos.logback.core.Appender","2":"Tch.qos.logback.classic.spi.ILoggingEvent"},"hcsMethod":{"0":[[-1]],"2":[[0,0]]},"shallowAnalyzer":1}},
+ {"name": "MgetAppender(13)", "data":{"hc":{"0":"Tch.qos.logback.core.Appender","1":"Tch.qos.logback.classic.spi.ILoggingEvent"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"shallowAnalyzer":1}, "sub":
   {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
  {"name": "McallAppenders(14)", "data":{"containerMethod":1,"hc":{"0":"Tch.qos.logback.classic.spi.ILoggingEvent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pevent(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
@@ -291,8 +292,8 @@
  {"name": "MtoString(89)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "McallTurboFilters(90)", "data":{"hc":{"0":"Torg.slf4j.Marker"}}, "subs":[
   {"name": "Pmarker(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
- {"name": "MgetLoggerContext(91)", "data":{"shallowAnalyzer":1}},
- {"name": "MmakeLoggingEventBuilder(92)", "data":{"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "MgetLoggerContext(91)", "data":{"hc":{"0":"Tch.qos.logback.classic.LoggerContext"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MmakeLoggingEventBuilder(92)", "data":{"hc":{"0":"Torg.slf4j.spi.LoggingEventBuilder"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Plevel(0)", "data":{"independentParameter":2}}},
  {"name": "Mlog(93)", "data":{"containerMethod":1,"hc":{"0":"Torg.slf4j.Marker","1":"Tjava.lang.Object","2":"Tjava.lang.Throwable"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Pmarker(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
@@ -302,5 +303,6 @@
   {"name": "PargArray(4)", "data":{"containerParameter":1,"hcsParameter":{"1":[[1]]},"immutableParameter":1,"independentParameter":2}},
   {"name": "Pt(5)", "data":{"hcsParameter":{"2":[[-1]]},"independentParameter":2}}]},
  {"name": "Mlog(94)", "data":{"containerMethod":1,"hc":{"0":"Torg.slf4j.event.LoggingEvent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pslf4jEvent(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}}]}
+  {"name": "Pslf4jEvent(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MreadResolve(95)", "data":{"hc":{"0":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]}}}]}
 ]
