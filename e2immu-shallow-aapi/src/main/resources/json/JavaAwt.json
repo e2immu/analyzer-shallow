@@ -1,10 +1,227 @@
 [
+{"name": "Tjava.awt.Graphics", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"annotatedApi":1}},
+ {"name": "Mcreate(0)", "data":{"annotatedApi":1,"shallowAnalyzer":1}},
+ {"name": "Mcreate(1)", "data":{"annotatedApi":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Px(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pwidth(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pheight(3)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mtranslate(2)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MgetColor(3)", "data":{"annotatedApi":1,"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetColor(4)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.awt.Color"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcolor(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}}},
+ {"name": "MsetPaintMode(5)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetXORMode(6)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.awt.Color"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcolor(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}}},
+ {"name": "MgetFont(7)", "data":{"annotatedApi":1,"shallowAnalyzer":1}},
+ {"name": "MsetFont(8)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.awt.Font"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pfont(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MgetFontMetrics(9)", "data":{"annotatedApi":1,"shallowAnalyzer":1}},
+ {"name": "MgetFontMetrics(10)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.awt.Font"},"shallowAnalyzer":1}, "sub":
+  {"name": "Pfont(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MgetClipBounds(11)", "data":{"annotatedApi":1,"shallowAnalyzer":1}},
+ {"name": "MclipRect(12)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi2(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi3(3)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MsetClip(13)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi2(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi3(3)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MgetClip(14)", "data":{"annotatedApi":1,"shallowAnalyzer":1}},
+ {"name": "MsetClip(15)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.awt.Shape"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pshape(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "McopyArea(16)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi2(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi3(3)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi4(4)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi5(5)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MdrawLine(17)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi2(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi3(3)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MfillRect(18)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi2(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi3(3)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MdrawRect(19)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Px(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pwidth(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pheight(3)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MclearRect(20)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi2(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi3(3)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MdrawRoundRect(21)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi2(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi3(3)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi4(4)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi5(5)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MfillRoundRect(22)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi2(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi3(3)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi4(4)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi5(5)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mdraw3DRect(23)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Px(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pwidth(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pheight(3)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Praised(4)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mfill3DRect(24)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Px(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pwidth(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pheight(3)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Praised(4)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MdrawOval(25)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi2(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi3(3)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MfillOval(26)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi2(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi3(3)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MdrawArc(27)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi2(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi3(3)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi4(4)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi5(5)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MfillArc(28)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi2(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi3(3)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi4(4)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi5(5)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MdrawPolyline(29)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"modifiedParameter":1}},
+  {"name": "Pi1(1)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"modifiedParameter":1}},
+  {"name": "Pi2(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MdrawPolygon(30)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"modifiedParameter":1}},
+  {"name": "Pi1(1)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"modifiedParameter":1}},
+  {"name": "Pi2(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MdrawPolygon(31)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.awt.Polygon"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pp(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MfillPolygon(32)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"modifiedParameter":1}},
+  {"name": "Pi1(1)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"modifiedParameter":1}},
+  {"name": "Pi2(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MfillPolygon(33)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.awt.Polygon"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pp(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+ {"name": "MdrawString(34)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pstring(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pi(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MdrawString(35)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.text.AttributedCharacterIterator"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PattributedCharacterIterator(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}},
+  {"name": "Pi(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MdrawChars(36)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pdata(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"modifiedParameter":1}},
+  {"name": "Poffset(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plength(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Px(3)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(4)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MdrawBytes(37)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pdata(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"modifiedParameter":1}},
+  {"name": "Poffset(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plength(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Px(3)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(4)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MdrawImage(38)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.awt.Image","1":"Tjava.awt.image.ImageObserver"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pimage(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}},
+  {"name": "Pi(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PimageObserver(3)", "data":{"annotatedApi":1,"hcsParameter":{"1":[[-1]]},"modifiedParameter":1}}]},
+ {"name": "MdrawImage(39)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.awt.Image","1":"Tjava.awt.image.ImageObserver"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pimage(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}},
+  {"name": "Pi(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi2(3)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi3(4)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PimageObserver(5)", "data":{"annotatedApi":1,"hcsParameter":{"1":[[-1]]},"modifiedParameter":1}}]},
+ {"name": "MdrawImage(40)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.awt.Image","1":"Tjava.awt.Color","2":"Tjava.awt.image.ImageObserver"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pimage(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}},
+  {"name": "Pi(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pcolor(3)", "data":{"annotatedApi":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":1}},
+  {"name": "PimageObserver(4)", "data":{"annotatedApi":1,"hcsParameter":{"2":[[-1]]},"modifiedParameter":1}}]},
+ {"name": "MdrawImage(41)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.awt.Image","1":"Tjava.awt.Color","2":"Tjava.awt.image.ImageObserver"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pimage(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}},
+  {"name": "Pi(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi2(3)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi3(4)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pcolor(5)", "data":{"annotatedApi":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":1}},
+  {"name": "PimageObserver(6)", "data":{"annotatedApi":1,"hcsParameter":{"2":[[-1]]},"modifiedParameter":1}}]},
+ {"name": "MdrawImage(42)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.awt.Image","1":"Tjava.awt.image.ImageObserver"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pimage(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}},
+  {"name": "Pi(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi2(3)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi3(4)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi4(5)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi5(6)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi6(7)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi7(8)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PimageObserver(9)", "data":{"annotatedApi":1,"hcsParameter":{"1":[[-1]]},"modifiedParameter":1}}]},
+ {"name": "MdrawImage(43)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.awt.Image","1":"Tjava.awt.Color","2":"Tjava.awt.image.ImageObserver"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pimage(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}},
+  {"name": "Pi(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi2(3)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi3(4)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi4(5)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi5(6)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi6(7)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi7(8)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pcolor(9)", "data":{"annotatedApi":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":1}},
+  {"name": "PimageObserver(10)", "data":{"annotatedApi":1,"hcsParameter":{"2":[[-1]]},"modifiedParameter":1}}]},
+ {"name": "Mdispose(44)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mfinalize(45)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MtoString(46)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetClipRect(47)", "data":{"annotatedApi":1,"shallowAnalyzer":1}},
+ {"name": "MhitClip(48)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Px(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Py(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pwidth(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pheight(3)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MgetClipBounds(49)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.awt.Rectangle"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Pr(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}}]},
+
 {"name": "Tjava.awt.MenuContainer", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "MgetFont(0)", "data":{"shallowAnalyzer":1}},
  {"name": "Mremove(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.MenuComponent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "PmenuComponent(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
  {"name": "MpostEvent(2)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Event"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pevent(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}}]},
+
+{"name": "Tjava.awt.Transparency", "data":{"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "FOPAQUE(0)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
+ {"name": "FBITMASK(1)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
+ {"name": "FTRANSLUCENT(2)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
+ {"name": "MgetTransparency(0)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}}]},
 
 {"name": "Tjava.awt.Component", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "SAWTTreeLock(0)", "data":{"hc":{"E":true}}},
@@ -44,12 +261,12 @@
    {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
   {"name": "MgetLocale(10)", "data":{"shallowAnalyzer":1}},
   {"name": "MgetAccessibleComponent(11)", "data":{"shallowAnalyzer":1}},
-  {"name": "MgetBackground(12)", "data":{"shallowAnalyzer":1}},
+  {"name": "MgetBackground(12)", "data":{"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
   {"name": "MsetBackground(13)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Color"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-   {"name": "Pc(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
-  {"name": "MgetForeground(14)", "data":{"shallowAnalyzer":1}},
+   {"name": "Pc(0)", "data":{"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}}},
+  {"name": "MgetForeground(14)", "data":{"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
   {"name": "MsetForeground(15)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Color"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-   {"name": "Pc(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+   {"name": "Pc(0)", "data":{"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}}},
   {"name": "MgetCursor(16)", "data":{"shallowAnalyzer":1}},
   {"name": "MsetCursor(17)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Cursor"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
    {"name": "Pcursor(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
@@ -165,13 +382,13 @@
  {"name": "Mshow(46)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pb(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "Mhide(50)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
- {"name": "MgetForeground(51)", "data":{"shallowAnalyzer":1}},
+ {"name": "MgetForeground(51)", "data":{"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
  {"name": "MsetForeground(52)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Color"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pc(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+  {"name": "Pc(0)", "data":{"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}}},
  {"name": "MisForegroundSet(53)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MgetBackground(54)", "data":{"shallowAnalyzer":1}},
+ {"name": "MgetBackground(54)", "data":{"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
  {"name": "MsetBackground(55)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Color"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pc(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+  {"name": "Pc(0)", "data":{"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}}},
  {"name": "MisBackgroundSet(56)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MgetFont(57)", "data":{"shallowAnalyzer":1}},
  {"name": "MsetFont(59)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Font"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
@@ -587,6 +804,125 @@
   {"name": "Pobj(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
  {"name": "MsetMixingCutoutShape(333)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Shape"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pshape(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}}]},
+
+{"name": "Tjava.awt.Paint", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "sub":
+ {"name": "McreateContext(0)", "data":{"hc":{"0":"Tjava.awt.image.ColorModel","1":"Tjava.awt.Rectangle","2":"Tjava.awt.geom.Rectangle2D","3":"Tjava.awt.geom.AffineTransform","4":"Tjava.awt.RenderingHints"},"shallowAnalyzer":1}, "subs":[
+  {"name": "PcolorModel(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Prectangle(1)", "data":{"hcsParameter":{"1":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Prectangle2D(2)", "data":{"hcsParameter":{"2":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "PaffineTransform(3)", "data":{"hcsParameter":{"3":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "PrenderingHints(4)", "data":{"hcsParameter":{"4":[[-1]]},"independentParameter":2,"modifiedParameter":1}}]}},
+
+{"name": "Tjava.awt.Color", "data":{"annotatedApi":1,"hc":{"E":true},"immutableType":2,"independentType":1,"shallowAnalyzer":1}, "subs":[
+ {"name": "Fwhite(0)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":1,"shallowAnalyzer":1}},
+ {"name": "FWHITE(1)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":1,"shallowAnalyzer":1}},
+ {"name": "FlightGray(2)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":1,"shallowAnalyzer":1}},
+ {"name": "FLIGHT_GRAY(3)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":1,"shallowAnalyzer":1}},
+ {"name": "Fgray(4)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":1,"shallowAnalyzer":1}},
+ {"name": "FGRAY(5)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":1,"shallowAnalyzer":1}},
+ {"name": "FdarkGray(6)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":1,"shallowAnalyzer":1}},
+ {"name": "FDARK_GRAY(7)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":1,"shallowAnalyzer":1}},
+ {"name": "Fblack(8)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":1,"shallowAnalyzer":1}},
+ {"name": "FBLACK(9)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":1,"shallowAnalyzer":1}},
+ {"name": "Fred(10)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":1,"shallowAnalyzer":1}},
+ {"name": "FRED(11)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":1,"shallowAnalyzer":1}},
+ {"name": "Fpink(12)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":1,"shallowAnalyzer":1}},
+ {"name": "FPINK(13)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":1,"shallowAnalyzer":1}},
+ {"name": "Forange(14)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":1,"shallowAnalyzer":1}},
+ {"name": "FORANGE(15)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":1,"shallowAnalyzer":1}},
+ {"name": "Fyellow(16)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":1,"shallowAnalyzer":1}},
+ {"name": "FYELLOW(17)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":1,"shallowAnalyzer":1}},
+ {"name": "Fgreen(18)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":1,"shallowAnalyzer":1}},
+ {"name": "FGREEN(19)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":1,"shallowAnalyzer":1}},
+ {"name": "Fmagenta(20)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":1,"shallowAnalyzer":1}},
+ {"name": "FMAGENTA(21)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":1,"shallowAnalyzer":1}},
+ {"name": "Fcyan(22)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":1,"shallowAnalyzer":1}},
+ {"name": "FCYAN(23)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":1,"shallowAnalyzer":1}},
+ {"name": "Fblue(24)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":1,"shallowAnalyzer":1}},
+ {"name": "FBLUE(25)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":1,"shallowAnalyzer":1}},
+ {"name": "C<init>(0)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pr(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pg(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pb(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "C<init>(1)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pr(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pg(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pb(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pa(3)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "C<init>(2)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Prgb(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "C<init>(3)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Prgba(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Phasalpha(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "C<init>(4)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pr(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pg(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pb(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "C<init>(5)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pr(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pg(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pb(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pa(3)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "C<init>(6)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.awt.color.ColorSpace"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pcspace(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":1,"modifiedParameter":1}},
+  {"name": "Pcomponents(1)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":1,"modifiedParameter":1}},
+  {"name": "Palpha(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MgetRed(3)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetGreen(4)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetBlue(5)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetAlpha(6)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetRGB(7)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mbrighter(8)", "data":{"annotatedApi":1,"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mdarker(9)", "data":{"annotatedApi":1,"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
+ {"name": "MhashCode(10)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mequals(11)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pobj(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "MtoString(12)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mdecode(13)", "data":{"annotatedApi":1,"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pnm(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MgetColor(14)", "data":{"annotatedApi":1,"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pnm(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MgetColor(15)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.awt.Color"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pnm(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pv(1)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}}]},
+ {"name": "MgetColor(16)", "data":{"annotatedApi":1,"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pnm(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pv(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MHSBtoRGB(17)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Phue(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Psaturation(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pbrightness(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MRGBtoHSB(18)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pr(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pg(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pb(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Phsbvals(3)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}]},
+ {"name": "MgetHSBColor(19)", "data":{"annotatedApi":1,"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Ph(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Ps(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pb(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MgetRGBComponents(20)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":1,"independentMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PcompArray(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MgetRGBColorComponents(21)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":1,"independentMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PcompArray(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MgetComponents(22)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":1,"independentMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PcompArray(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MgetColorComponents(23)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":1,"independentMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PcompArray(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MgetComponents(24)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.awt.color.ColorSpace"},"immutableMethod":1,"independentMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pcspace(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "PcompArray(1)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}]},
+ {"name": "MgetColorComponents(25)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.awt.color.ColorSpace"},"immutableMethod":1,"independentMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pcspace(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "PcompArray(1)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}]},
+ {"name": "MgetColorSpace(26)", "data":{"annotatedApi":1,"independentMethod":1,"shallowAnalyzer":1}},
+ {"name": "McreateContext(27)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.awt.image.ColorModel","1":"Tjava.awt.Rectangle","2":"Tjava.awt.geom.Rectangle2D","3":"Tjava.awt.geom.AffineTransform","4":"Tjava.awt.RenderingHints"},"independentMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pcm(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Pr(1)", "data":{"annotatedApi":1,"hcsParameter":{"1":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Pr2d(2)", "data":{"annotatedApi":1,"hcsParameter":{"2":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Pxform(3)", "data":{"annotatedApi":1,"hcsParameter":{"3":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Phints(4)", "data":{"annotatedApi":1,"hcsParameter":{"4":[[-1]]},"independentParameter":2,"modifiedParameter":1}}]},
+ {"name": "MgetTransparency(28)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}}]},
 
 {"name": "Tjava.awt.Container", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "SAccessibleAWTContainer(0)", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[

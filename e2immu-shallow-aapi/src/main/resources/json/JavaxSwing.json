@@ -201,9 +201,9 @@
  {"name": "MsetEnabled(94)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Penabled(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "MsetForeground(95)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Color"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pfg(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+  {"name": "Pfg(0)", "data":{"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}}},
  {"name": "MsetBackground(96)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Color"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pbg(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+  {"name": "Pbg(0)", "data":{"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}}},
  {"name": "MsetFont(97)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Font"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pfont(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
  {"name": "MgetDefaultLocale(98)", "data":{"independentMethod":2,"shallowAnalyzer":1}},

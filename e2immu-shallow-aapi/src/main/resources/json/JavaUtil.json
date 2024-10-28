@@ -4500,8 +4500,8 @@
  {"name": "MlastIndexOf(14)", "data":{"containerMethod":1,"hc":{"1":"Tjava.lang.Object","M":1},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Po(0)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":2}},
   {"name": "Pindex(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
- {"name": "MelementAt(15)", "data":{"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pindex(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MelementAt(15)", "data":{"annotatedApi":1,"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pindex(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "MfirstElement(16)", "data":{"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
  {"name": "MlastElement(17)", "data":{"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
  {"name": "MsetElementAt(18)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[

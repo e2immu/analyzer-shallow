@@ -15,12 +15,12 @@
   {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}}]},
 
 {"name": "Tjavax.accessibility.AccessibleComponent", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
- {"name": "MgetBackground(0)", "data":{"shallowAnalyzer":1}},
+ {"name": "MgetBackground(0)", "data":{"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
  {"name": "MsetBackground(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Color"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pcolor(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
- {"name": "MgetForeground(2)", "data":{"shallowAnalyzer":1}},
+  {"name": "Pcolor(0)", "data":{"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}}},
+ {"name": "MgetForeground(2)", "data":{"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
  {"name": "MsetForeground(3)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Color"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pcolor(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+  {"name": "Pcolor(0)", "data":{"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}}},
  {"name": "MgetCursor(4)", "data":{"shallowAnalyzer":1}},
  {"name": "MsetCursor(5)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Cursor"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pcursor(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},

@@ -1157,6 +1157,9 @@ public class JavaUtil extends AnnotatedAPI {
 
         @Modified
         void addElement(@Independent(hc = true) @NotNull E e);
+
+        @NotModified
+        E elementAt(int i);
     }
 
 }

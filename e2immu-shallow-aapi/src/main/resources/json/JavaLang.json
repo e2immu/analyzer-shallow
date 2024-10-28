@@ -1433,16 +1433,16 @@
   {"name": "Pch(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "MisTitleCase(42)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "PcodePoint(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
- {"name": "MisDigit(43)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pch(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MisDigit(43)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pch(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "MisDigit(44)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "PcodePoint(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "MisDefined(45)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pch(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "MisDefined(46)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "PcodePoint(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
- {"name": "MisLetter(47)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pch(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MisLetter(47)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pch(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "MisLetter(48)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "PcodePoint(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "MisLetterOrDigit(49)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
@@ -1505,8 +1505,8 @@
   {"name": "Pch(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "MisSpaceChar(77)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "PcodePoint(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
- {"name": "MisWhitespace(78)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pch(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MisWhitespace(78)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pch(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "MisWhitespace(79)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "PcodePoint(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "MisISOControl(80)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
@@ -2062,10 +2062,10 @@
   {"name": "Pend(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
  {"name": "Mappend(19)", "data":{"containerMethod":1,"fluentMethod":1,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pstr(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"notNullParameter":1}}},
- {"name": "Mappend(20)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "subs":[
-  {"name": "Pstr(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2}},
-  {"name": "Poffset(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
-  {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mappend(20)", "data":{"annotatedApi":1,"containerMethod":1,"fluentMethod":1,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pstr(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2}},
+  {"name": "Poffset(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
  {"name": "Mappend(21)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Pb(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "Mappend(22)", "data":{"containerMethod":1,"fluentMethod":1,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":

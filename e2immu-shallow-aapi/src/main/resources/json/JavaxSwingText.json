@@ -246,18 +246,18 @@
   {"name": "Pmap(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
   {"name": "Pbindings(1)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"1":[[1]]},"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}},
   {"name": "Pactions(2)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"2":[[2]]},"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}]},
- {"name": "MgetCaretColor(36)", "data":{"annotatedApi":1,"shallowAnalyzer":1}},
+ {"name": "MgetCaretColor(36)", "data":{"annotatedApi":1,"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
  {"name": "MsetCaretColor(37)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.awt.Color"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pc(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
- {"name": "MgetSelectionColor(38)", "data":{"annotatedApi":1,"shallowAnalyzer":1}},
+  {"name": "Pc(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}}},
+ {"name": "MgetSelectionColor(38)", "data":{"annotatedApi":1,"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
  {"name": "MsetSelectionColor(39)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.awt.Color"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pc(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
- {"name": "MgetSelectedTextColor(40)", "data":{"annotatedApi":1,"shallowAnalyzer":1}},
+  {"name": "Pc(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}}},
+ {"name": "MgetSelectedTextColor(40)", "data":{"annotatedApi":1,"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
  {"name": "MsetSelectedTextColor(41)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.awt.Color"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pc(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
- {"name": "MgetDisabledTextColor(42)", "data":{"annotatedApi":1,"shallowAnalyzer":1}},
+  {"name": "Pc(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}}},
+ {"name": "MgetDisabledTextColor(42)", "data":{"annotatedApi":1,"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
  {"name": "MsetDisabledTextColor(43)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.awt.Color"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pc(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+  {"name": "Pc(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}}},
  {"name": "MreplaceSelection(44)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pcontent(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
  {"name": "MgetText(45)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}, "subs":[

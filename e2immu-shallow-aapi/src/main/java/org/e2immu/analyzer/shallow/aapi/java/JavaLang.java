@@ -572,6 +572,9 @@ class JavaLang {
 
         @Fluent
         StringBuffer append(String s) { return null; }
+
+        @Fluent
+        StringBuffer append(char[] c, int i, int j) { return null; }
     }
 
     /*
@@ -630,6 +633,10 @@ class JavaLang {
         interface Subset {
 
         }
+
+        boolean isWhitespace(char c);
+        boolean isDigit(char c);
+        boolean isLetter(char c);
     }
 
     @ImmutableContainer
