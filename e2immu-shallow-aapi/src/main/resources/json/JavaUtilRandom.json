@@ -50,10 +50,10 @@
   {"name": "Msplits(4)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.Stream","1":"Tjava.util.random.RandomGenerator.SplittableGenerator"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "Pl(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
   {"name": "Msplits(5)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.random.RandomGenerator.SplittableGenerator","1":"Tjava.util.stream.Stream"},"hcsMethod":{"0":[[0]],"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
-   {"name": "PsplittableGenerator(0)", "data":{"hcsParameter":{"0":[[-1]],"1":[[1]]},"independentParameter":2}}},
+   {"name": "PsplittableGenerator(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
   {"name": "Msplits(6)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.random.RandomGenerator.SplittableGenerator","1":"Tjava.util.stream.Stream"},"hcsMethod":{"0":[[0]],"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
    {"name": "Pl(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
-   {"name": "PsplittableGenerator(1)", "data":{"hcsParameter":{"0":[[-1]],"1":[[1]]},"independentParameter":2}}]},
+   {"name": "PsplittableGenerator(1)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}]},
   {"name": "Mrngs(7)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.util.stream.Stream","1":"Tjava.util.random.RandomGenerator"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}},
   {"name": "Mrngs(8)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.util.stream.Stream","1":"Tjava.util.random.RandomGenerator"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "PstreamSize(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}}]},

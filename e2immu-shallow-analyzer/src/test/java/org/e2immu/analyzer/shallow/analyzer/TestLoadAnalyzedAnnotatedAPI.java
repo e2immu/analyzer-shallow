@@ -1,8 +1,10 @@
 package org.e2immu.analyzer.shallow.analyzer;
 
 import ch.qos.logback.classic.Level;
+import org.e2immu.analyzer.modification.prepwork.hcs.HiddenContentSelector;
 import org.e2immu.analyzer.modification.prepwork.hct.HiddenContentTypes;
 import org.e2immu.language.cst.api.info.MethodInfo;
+import org.e2immu.language.cst.api.info.ParameterInfo;
 import org.e2immu.language.cst.api.info.TypeInfo;
 import org.e2immu.language.inspection.integration.JavaInspectorImpl;
 import org.e2immu.language.inspection.resource.InputConfigurationImpl;
@@ -15,6 +17,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
+import static org.e2immu.analyzer.modification.prepwork.hcs.HiddenContentSelector.HCS_PARAMETER;
 import static org.e2immu.analyzer.modification.prepwork.hct.HiddenContentTypes.HIDDEN_CONTENT_TYPES;
 import static org.e2immu.language.cst.impl.analysis.PropertyImpl.*;
 import static org.e2immu.language.cst.impl.analysis.PropertyImpl.INDEPENDENT_METHOD;
@@ -69,5 +72,11 @@ public class TestLoadAnalyzedAnnotatedAPI {
         TypeInfo hashMap = javaInspector.compiledTypesManager().get(HashMap.class);
         TypeInfo sub = hashMap.findSubType("EntryIterator");
         assertEquals("EntryIterator:K, V", sub.analysis().getOrNull(HIDDEN_CONTENT_TYPES, HiddenContentTypes.class).toString());
+
+        TypeInfo list = javaInspector.compiledTypesManager().get(List.class);
+        assertEquals("0=E", list.analysis().getOrNull(HIDDEN_CONTENT_TYPES, HiddenContentTypes.class).detailedSortedTypes());
+        MethodInfo listAdd = list.findUniqueMethod("add", 1);
+        ParameterInfo listAdd0 = listAdd.parameters().get(0);
+        assertEquals("0=*", listAdd0.analysis().getOrNull(HCS_PARAMETER, HiddenContentSelector.class).detailed());
     }
 }

@@ -10,7 +10,7 @@
  {"name": "C<init>(1)", "data":{"hc":{"1":"Tjava.lang.ref.ReferenceQueue","M":1},"hcsMethod":{"0":[[0]]}}, "subs":[
   {"name": "Preferent(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
   {"name": "Pqueue(1)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]}}}]},
- {"name": "MgetAndClearReferencePendingList(0)", "data":{"hc":{"1":"Tjava.lang.ref.Reference","2":"Tjava.lang.Object","M":1},"hcsMethod":{"1":[[-1]],"2":[[2]]}}},
+ {"name": "MgetAndClearReferencePendingList(0)", "data":{"hc":{"1":"Tjava.lang.ref.Reference","2":"Tjava.lang.Object","M":1},"hcsMethod":{"1":[[-1]]}}},
  {"name": "Mget(6)", "data":{"annotatedApi":1,"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
  {"name": "MrefersTo(7)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pobj(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},

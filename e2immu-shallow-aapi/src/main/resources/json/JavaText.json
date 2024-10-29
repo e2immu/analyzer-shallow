@@ -134,7 +134,7 @@
  {"name": "MsetRoundingMode(42)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "ProundingMode(0)", "data":{"annotatedApi":1,"modifiedParameter":1}}},
  {"name": "MgetInstance(43)", "data":{"hc":{"0":"Tjava.text.NumberFormat"},"hcsMethod":{"0":[[-1]]}}},
- {"name": "MgetInstance(44)", "data":{"hc":{"0":"Tsun.util.locale.provider.LocaleProviderAdapter","1":"Tjava.text.NumberFormat"},"hcsMethod":{"0":[[0]],"1":[[-1]]}}, "subs":[
+ {"name": "MgetInstance(44)", "data":{"hc":{"0":"Tsun.util.locale.provider.LocaleProviderAdapter","1":"Tjava.text.NumberFormat"},"hcsMethod":{"1":[[-1]]}}, "subs":[
   {"name": "Padapter(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
  {"name": "MreadObject(45)", "data":{"hc":{"0":"Tjava.io.ObjectInputStream"}}, "sub":
   {"name": "Pstream(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},

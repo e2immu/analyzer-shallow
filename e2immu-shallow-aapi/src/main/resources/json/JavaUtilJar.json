@@ -28,7 +28,7 @@
   {"name": "MtoString(4)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
   {"name": "MaddName(5)", "data":{"hc":{"0":"Tjava.util.Map","1":"Tjava.util.jar.Attributes.Name"}}, "subs":[
    {"name": "Pnames(0)", "data":{"hcsParameter":{"0":[[-1]],"1":[[1]]}}},
-   {"name": "Pname(1)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]}}}]}]},
+   {"name": "Pname(1)", "data":{"hcsParameter":{"1":[[-1]]}}}]}]},
  {"name": "C<init>(0)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
  {"name": "C<init>(1)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Psize(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},

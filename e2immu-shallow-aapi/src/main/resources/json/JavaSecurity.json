@@ -19,7 +19,7 @@
   {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.security.MessageDigestSpi","1":"Tjava.security.Provider"}}, "subs":[
    {"name": "PdigestSpi(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
    {"name": "Pp(2)", "data":{"hcsParameter":{"1":[[-1]]}}}]},
-  {"name": "Mof(0)", "data":{"hc":{"0":"Tjava.security.MessageDigestSpi","1":"Tjava.security.Provider","2":"Tjava.security.MessageDigest.Delegate"},"hcsMethod":{"0":[[-1]],"1":[[1]],"2":[[-1]]}}, "subs":[
+  {"name": "Mof(0)", "data":{"hc":{"0":"Tjava.security.MessageDigestSpi","1":"Tjava.security.Provider","2":"Tjava.security.MessageDigest.Delegate"},"hcsMethod":{"2":[[-1]]}}, "subs":[
    {"name": "PdigestSpi(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
    {"name": "Pp(2)", "data":{"hcsParameter":{"1":[[-1]]}}}]},
   {"name": "Mclone(1)", "data":{"hc":{"0":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]}}},
@@ -34,7 +34,7 @@
  {"name": "MgetInstance(1)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.security.MessageDigest"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Palgorithm(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "Pprovider(1)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
- {"name": "MgetInstance(2)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.security.Provider","1":"Tjava.security.MessageDigest"},"hcsMethod":{"0":[[0]],"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "MgetInstance(2)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.security.Provider","1":"Tjava.security.MessageDigest"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Palgorithm(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "Pprovider(1)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}}]},
  {"name": "MgetProvider(3)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.security.Provider"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
@@ -79,17 +79,17 @@
  {"name": "MgetInstance(4)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.security.SecureRandom"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Palgorithm(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "Pprovider(1)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
- {"name": "MgetInstance(5)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.security.Provider","1":"Tjava.security.SecureRandom"},"hcsMethod":{"0":[[0]],"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "MgetInstance(5)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.security.Provider","1":"Tjava.security.SecureRandom"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Palgorithm(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "Pprovider(1)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}]},
- {"name": "MgetInstance(6)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.security.SecureRandomParameters","1":"Tjava.security.SecureRandom"},"hcsMethod":{"0":[[0]],"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "MgetInstance(6)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.security.SecureRandomParameters","1":"Tjava.security.SecureRandom"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Palgorithm(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "Pparams(1)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}]},
- {"name": "MgetInstance(7)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.security.SecureRandomParameters","1":"Tjava.security.SecureRandom"},"hcsMethod":{"0":[[0]],"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "MgetInstance(7)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.security.SecureRandomParameters","1":"Tjava.security.SecureRandom"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Palgorithm(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "Pparams(1)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
   {"name": "Pprovider(2)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
- {"name": "MgetInstance(8)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.security.SecureRandomParameters","1":"Tjava.security.Provider","2":"Tjava.security.SecureRandom"},"hcsMethod":{"0":[[0]],"1":[[1]],"2":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "MgetInstance(8)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.security.SecureRandomParameters","1":"Tjava.security.Provider","2":"Tjava.security.SecureRandom"},"hcsMethod":{"2":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Palgorithm(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "Pparams(1)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
   {"name": "Pprovider(2)", "data":{"annotatedApi":1,"hcsParameter":{"1":[[-1]]},"independentParameter":2,"modifiedParameter":1}}]},

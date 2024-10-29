@@ -51,7 +51,6 @@
 {"name": "Tch.qos.logback.classic.Logger", "data":{"annotatedApi":1,"shallowAnalyzer":1}, "subs":[
  {"name": "FFQCN(1)", "data":{"containerField":1,"finalField":1,"immutableField":3,"independentField":2,"shallowAnalyzer":1}},
  {"name": "C<init>(0)", "data":{"hc":{"0":"Tch.qos.logback.classic.LoggerContext"}}, "subs":[
-  {"name": "Pparent(1)", "data":{"hcsParameter":{"0":[[0]]}}},
   {"name": "PloggerContext(2)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
  {"name": "MgetEffectiveLevel(0)", "data":{"shallowAnalyzer":1}},
  {"name": "MgetLevel(2)", "data":{"shallowAnalyzer":1}},

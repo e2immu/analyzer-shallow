@@ -36,10 +36,10 @@
   {"name": "MpreviousLookupClass(2)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
   {"name": "MlookupClassOrNull(3)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]}}},
   {"name": "MlookupModes(4)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
-  {"name": "MnewLookup(5)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"hcsMethod":{"0":[[0]],"1":[[1]]}}, "subs":[
+  {"name": "MnewLookup(5)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "subs":[
    {"name": "PlookupClass(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
    {"name": "PprevLookupClass(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
-  {"name": "Min(6)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"hcsMethod":{"0":[[0]],"1":[[1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Min(6)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"shallowAnalyzer":1}, "sub":
    {"name": "PrequestedLookupClass(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}}},
   {"name": "MdropLookupMode(7)", "data":{"shallowAnalyzer":1}, "sub":
    {"name": "PmodeToDrop(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
@@ -49,7 +49,7 @@
    {"name": "Pbytes(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}},
    {"name": "Pinitialize(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
    {"name": "Poptions(2)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}]},
-  {"name": "MdefineHiddenClassWithClassData(11)", "data":{"hc":{"0":"Tjava.lang.Object"},"hcsMethod":{"0":[[0]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "MdefineHiddenClassWithClassData(11)", "data":{"hc":{"0":"Tjava.lang.Object"},"shallowAnalyzer":1}, "subs":[
    {"name": "Pbytes(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}},
    {"name": "PclassData(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
    {"name": "Pinitialize(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
@@ -170,20 +170,15 @@
    {"name": "Pmh(1)", "data":{"hcsParameter":{"0":[[-1]]}}},
    {"name": "Pcaller(2)", "data":{"hcsParameter":{"1":[[-1]]}}}]},
   {"name": "MgetDirectMethod(67)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]}}, "subs":[
-   {"name": "Prefc(1)", "data":{"hcsParameter":{"0":[[-1]]}}},
-   {"name": "PcallerLookup(3)", "data":{"hcsParameter":{"0":[[0]],"1":[[1]],"2":[[2]]}}}]},
+   {"name": "Prefc(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
   {"name": "MgetDirectMethodNoRestrictInvokeSpecial(68)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]}}, "subs":[
-   {"name": "Prefc(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
-   {"name": "PcallerLookup(2)", "data":{"hcsParameter":{"0":[[0]],"1":[[1]],"2":[[2]]}}}]},
+   {"name": "Prefc(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
   {"name": "MgetDirectMethodNoSecurityManager(69)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]}}, "subs":[
-   {"name": "Prefc(1)", "data":{"hcsParameter":{"0":[[-1]]}}},
-   {"name": "PcallerLookup(3)", "data":{"hcsParameter":{"0":[[0]],"1":[[1]],"2":[[2]]}}}]},
+   {"name": "Prefc(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
   {"name": "MgetDirectMethodCommon(70)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]}}, "subs":[
-   {"name": "Prefc(1)", "data":{"hcsParameter":{"0":[[-1]]}}},
-   {"name": "PboundCaller(5)", "data":{"hcsParameter":{"0":[[0]],"1":[[1]],"2":[[2]]}}}]},
+   {"name": "Prefc(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
   {"name": "MmaybeBindCaller(71)", "data":{"hc":{"0":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"0":[[-1]]}}, "subs":[
-   {"name": "Pmh(1)", "data":{"hcsParameter":{"0":[[-1]]}}},
-   {"name": "PboundCaller(2)", "data":{"hcsParameter":{"0":[[0]]}}}]},
+   {"name": "Pmh(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
   {"name": "MgetDirectField(72)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]}}, "subs":[
    {"name": "Prefc(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
   {"name": "MgetDirectFieldNoSecurityManager(73)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.invoke.MethodHandle"},"hcsMethod":{"2":[[-1]]}}, "subs":[

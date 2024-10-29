@@ -2,12 +2,12 @@
 {"name": "Tjavax.xml.parsers.DocumentBuilderFactory", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "MnewDefaultNSInstance(0)", "data":{"hc":{"0":"Tjavax.xml.parsers.DocumentBuilderFactory"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
  {"name": "MnewNSInstance(1)", "data":{"hc":{"0":"Tjavax.xml.parsers.DocumentBuilderFactory"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
- {"name": "MnewNSInstance(2)", "data":{"hc":{"0":"Tjava.lang.ClassLoader","1":"Tjavax.xml.parsers.DocumentBuilderFactory"},"hcsMethod":{"0":[[0]],"1":[[-1]]},"shallowAnalyzer":1}, "subs":[
+ {"name": "MnewNSInstance(2)", "data":{"hc":{"0":"Tjava.lang.ClassLoader","1":"Tjavax.xml.parsers.DocumentBuilderFactory"},"hcsMethod":{"1":[[-1]]},"shallowAnalyzer":1}, "subs":[
   {"name": "PfactoryClassName(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "PclassLoader(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}}]},
  {"name": "MnewDefaultInstance(3)", "data":{"hc":{"0":"Tjavax.xml.parsers.DocumentBuilderFactory"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
  {"name": "MnewInstance(4)", "data":{"annotatedApi":1,"hc":{"0":"Tjavax.xml.parsers.DocumentBuilderFactory"},"hcsMethod":{"0":[[-1]]},"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MnewInstance(5)", "data":{"hc":{"0":"Tjava.lang.ClassLoader","1":"Tjavax.xml.parsers.DocumentBuilderFactory"},"hcsMethod":{"0":[[0]],"1":[[-1]]},"shallowAnalyzer":1}, "subs":[
+ {"name": "MnewInstance(5)", "data":{"hc":{"0":"Tjava.lang.ClassLoader","1":"Tjavax.xml.parsers.DocumentBuilderFactory"},"hcsMethod":{"1":[[-1]]},"shallowAnalyzer":1}, "subs":[
   {"name": "PfactoryClassName(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "PclassLoader(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}}]},
  {"name": "MmakeNSAware(6)", "data":{"hc":{"0":"Tjavax.xml.parsers.DocumentBuilderFactory"},"hcsMethod":{"0":[[-1]]}}, "sub":
