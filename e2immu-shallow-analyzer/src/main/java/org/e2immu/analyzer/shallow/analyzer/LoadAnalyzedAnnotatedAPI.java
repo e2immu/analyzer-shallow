@@ -110,16 +110,8 @@ public class LoadAnalyzedAnnotatedAPI {
                 epvs.add(new Codec.EncodedPropertyValue(key, new CodecImpl.D(kvp2.get(2))));
             }
         }
-        List<Codec.PropertyValue> pvs = codec.decode(context, info.analysis(), epvs.stream()).toList();
-        try {
-            pvs.forEach(pv -> {
-                if(!info.analysis().haveAnalyzedValueFor(pv.property())) {
-                    info.analysis().set(pv.property(), pv.value());
-                }
-            });
-        } catch (IllegalStateException ise) {
-            LOGGER.error("Problem while writing to {}", info);
-            throw new RuntimeException(ise);
-        }
+        // the decoder writes directly into info.analysis()! we must do this, because to properly
+        // decode HCS, we need the value of HCT which occurs earlier in the same list
+        codec.decode(context, info.analysis(), epvs.stream());
     }
 }
