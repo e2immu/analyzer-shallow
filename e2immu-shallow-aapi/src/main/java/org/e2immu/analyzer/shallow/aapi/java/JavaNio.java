@@ -14,10 +14,7 @@
 
 package org.e2immu.analyzer.shallow.aapi.java;
 
-import org.e2immu.annotation.Container;
-import org.e2immu.annotation.Fluent;
-import org.e2immu.annotation.Modified;
-import org.e2immu.annotation.NotModified;
+import org.e2immu.annotation.*;
 
 import java.nio.Buffer;
 import java.nio.CharBuffer;
@@ -50,9 +47,14 @@ public class JavaNio {
         @Fluent
         @Modified
         CharBuffer get(@Modified char[] dst);
+
+        @Independent(absent = true)
+        char[] array();
     }
 
-    interface ByteBuffer$ {
 
+    interface ByteBuffer$ {
+        @Independent(absent = true) // dependent!
+        byte[] array();
     }
 }

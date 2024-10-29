@@ -1,5 +1,6 @@
 package org.e2immu.analyzer.shallow.aapi.java;
 import org.e2immu.annotation.Immutable;
+import org.e2immu.annotation.Independent;
 import org.e2immu.annotation.Modified;
 import org.e2immu.annotation.method.GetSet;
 
@@ -77,8 +78,10 @@ public class JavaAwt {
         static int HSBtoRGB(float hue, float saturation, float brightness) { return 0; }
         static float[] RGBtoHSB(int r, int g, int b, float[] hsbvals) { return null; }
         static Color getHSBColor(float h, float s, float b) { return null; }
-        float[] getRGBComponents(float[] compArray) { return null; }
-        float[] getRGBColorComponents(float[] compArray) { return null; }
+        @Independent // independent of the Color object, but dependent on 'compArray'
+        float[] getRGBComponents(@Independent(dependentReturnValue = true) float[] compArray) { return null; }
+        @Independent
+        float[] getRGBColorComponents(@Independent(dependentReturnValue = true) float[] compArray) { return null; }
         float[] getComponents(float[] compArray) { return null; }
         float[] getColorComponents(float[] compArray) { return null; }
         float[] getComponents(ColorSpace cspace, float[] compArray) { return null; }
