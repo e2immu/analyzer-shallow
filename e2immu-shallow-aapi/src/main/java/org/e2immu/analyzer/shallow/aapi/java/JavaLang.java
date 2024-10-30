@@ -739,7 +739,7 @@ class JavaLang {
 
         // very difficult to assign semantics to this one
         @StaticSideEffects
-        void exit();
+        void exit(int code);
     }
 
     /*

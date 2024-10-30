@@ -1161,4 +1161,32 @@ public class JavaUtil extends AnnotatedAPI {
         E elementAt(int i);
     }
 
+    interface Enumeration$<E> {
+        @Modified
+        boolean hasMoreElements();
+
+        @Modified
+        E nextElement();
+    }
+
+    //public class StringTokenizer implements Enumeration<Object>
+    class StringTokenizer$ {
+        StringTokenizer$(String str, String delim, boolean returnDelims) { }
+        StringTokenizer$(String str, String delim) { }
+        StringTokenizer$(String str) { }
+        boolean hasMoreTokens() { return false; }
+        @Modified
+        String nextToken() { return null; }
+        @Modified
+        String nextToken(String delim) { return null; }
+
+        //overrides in java.util.Enumeration
+        boolean hasMoreElements() { return false; }
+
+        //overrides in java.util.Enumeration
+        @Modified
+        Object nextElement() { return null; }
+
+        int countTokens() { return 0; }
+    }
 }

@@ -2137,6 +2137,11 @@
  {"name": "McomparingDouble(17)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"1":"PT:1","2":"Tjava.util.function.ToDoubleFunction","3":"Tjava.util.Comparator","M":1},"hcsMethod":{"1":[[0]],"3":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "PkeyExtractor(0)", "data":{"annotatedApi":1,"hcsParameter":{"1":[[0]],"2":[[-1]]},"ignoreModsParameter":1,"independentParameter":1,"notNullParameter":1}}}]},
 
+{"name": "Tjava.util.Enumeration", "data":{"annotatedApi":1,"hc":{"0":"PE:0","E":true,"M":1},"shallowAnalyzer":1}, "subs":[
+ {"name": "MhasMoreElements(0)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MnextElement(1)", "data":{"annotatedApi":1,"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MasIterator(2)", "data":{"containerMethod":1,"hc":{"1":"Tjava.util.Iterator","M":1},"hcsMethod":{"0":[[0]],"1":[[-1]]},"shallowAnalyzer":1}}]},
+
 {"name": "Tjava.util.EventListener", "data":{"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}},
 
 {"name": "Tjava.util.Iterator", "data":{"annotatedApi":1,"containerType":1,"hc":{"0":"PE:0","E":true,"M":1},"independentType":1,"shallowAnalyzer":1}, "subs":[
@@ -2847,6 +2852,24 @@
  {"name": "MkeySet(6)", "data":{"containerMethod":1,"hc":{"2":"Tjava.util.Set","M":2},"hcsMethod":{"0":[[0]],"2":[[-1]]},"notNullMethod":2,"shallowAnalyzer":1}},
  {"name": "Mvalues(7)", "data":{"containerMethod":1,"hc":{"2":"Tjava.util.Collection","M":2},"hcsMethod":{"1":[[0]],"2":[[-1]]},"notNullMethod":2,"shallowAnalyzer":1}},
  {"name": "MentrySet(8)", "data":{"containerMethod":1,"hc":{"2":"Tjava.util.Set","3":"Tjava.util.Map.Entry","M":2},"hcsMethod":{"0":[[0,0]],"1":[[0,1]],"2":[[-1]]},"notNullMethod":2,"shallowAnalyzer":1}}]},
+
+{"name": "Tjava.util.StringTokenizer", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pstr(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pdelim(1)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "PreturnDelims(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "C<init>(1)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pstr(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pdelim(1)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
+ {"name": "C<init>(2)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pstr(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MhasMoreTokens(4)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MnextToken(5)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MnextToken(6)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pdelim(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MhasMoreElements(7)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MnextElement(8)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "McountTokens(9)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}}]},
 
 {"name": "Tjava.util.AbstractCollection", "data":{"annotatedApi":1,"containerType":1,"hc":{"0":"PE:0","E":true,"M":1},"shallowAnalyzer":1}, "subs":[
  {"name": "C<init>(0)", "data":{"hcsMethod":{"0":[[0]]}}},

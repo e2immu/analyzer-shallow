@@ -294,7 +294,7 @@
  {"name": "MwriteTo(4)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.OutputStream"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pout(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]}}}},
  {"name": "Mreset(5)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
- {"name": "MtoByteArray(6)", "data":{"containerMethod":1,"immutableMethod":1,"shallowAnalyzer":1}},
+ {"name": "MtoByteArray(6)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":1,"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "Msize(7)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MtoString(8)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MtoString(9)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}, "sub":
@@ -328,6 +328,31 @@
  {"name": "Mclose(17)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
  {"name": "MgetFD(18)", "data":{"shallowAnalyzer":1}},
  {"name": "MgetChannel(19)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.channels.FileChannel"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}}]},
+
+{"name": "Tjava.io.FileOutputStream", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "C<init>(1)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pappend(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "C<init>(2)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.io.File"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pfile(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "C<init>(3)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.File"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pfile(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}},
+  {"name": "Pappend(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "C<init>(4)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PfdObj(0)", "data":{"modifiedParameter":1}}},
+ {"name": "Mwrite(3)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mwrite(5)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mwrite(6)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Poff(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mclose(7)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetFD(8)", "data":{"shallowAnalyzer":1}},
+ {"name": "MgetChannel(9)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.channels.FileChannel"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}}]},
 
 {"name": "Tjava.io.FilterInputStream", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.io.InputStream"}}, "sub":

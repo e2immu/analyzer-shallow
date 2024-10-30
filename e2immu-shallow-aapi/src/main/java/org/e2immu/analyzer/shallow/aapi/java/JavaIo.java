@@ -168,6 +168,8 @@ public class JavaIo {
      */
     interface ByteArrayOutputStream$ {
 
+        @Independent
+        byte[] toByteArray();
     }
 
     // obviously not a container, it wraps an object it will modify
@@ -291,6 +293,13 @@ public class JavaIo {
 
     class FileInputStream$ {
         FileInputStream$(@NotModified @Independent File file) {}
+
+        // dependent
+        FileChannel getChannel() { return null; }
+    }
+
+    class FileOutputStream$ {
+        FileOutputStream$(@NotModified @Independent File file) {}
 
         // dependent
         FileChannel getChannel() { return null; }
