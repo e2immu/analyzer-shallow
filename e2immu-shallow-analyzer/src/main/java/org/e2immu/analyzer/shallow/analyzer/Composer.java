@@ -147,7 +147,7 @@ public class Composer {
         parentType.builder().addSubType(newType);
     }
 
-    private static Comment addCommentLine(TypeInfo typeInfo) {
+    private Comment addCommentLine(TypeInfo typeInfo) {
         String access = TypePrinter.minimalModifiers(typeInfo)
                 .stream().map(m -> m.keyword().minimal())
                 .collect(Collectors.joining(" ", "", " "));
@@ -156,7 +156,7 @@ public class Composer {
                 : " extends " + typeInfo.parentClass().simpleString();
         String implementString = typeInfo.interfacesImplemented().isEmpty() ? ""
                 : " implements " + typeInfo.interfacesImplemented().stream()
-                .map(i -> i.print(QualificationImpl.SIMPLE_NAMES, false, DiamondEnum.NO).toString())
+                .map(i -> i.print(runtime.qualificationQualifyFromPrimaryType(), false, runtime.diamondShowAll()).toString())
                 .collect(Collectors.joining(", "));
         String shortString = access + type + typeInfo.simpleName() + extendString + implementString;
         return new SingleLineComment(shortString);

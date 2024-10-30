@@ -1,5 +1,6 @@
 package org.e2immu.analyzer.shallow.analyzer;
 
+import org.e2immu.language.cst.api.analysis.Message;
 import org.e2immu.language.cst.api.analysis.Property;
 import org.e2immu.language.cst.api.analysis.Value;
 import org.e2immu.language.cst.api.expression.AnnotationExpression;
@@ -7,6 +8,7 @@ import org.e2immu.language.cst.api.info.MethodInfo;
 import org.e2immu.language.cst.api.info.ParameterInfo;
 import org.e2immu.language.cst.api.info.TypeInfo;
 import org.e2immu.language.cst.api.type.ParameterizedType;
+import org.e2immu.language.cst.impl.analysis.MessageImpl;
 import org.e2immu.language.cst.impl.analysis.PropertyImpl;
 import org.e2immu.language.cst.impl.analysis.ValueImpl;
 import org.slf4j.Logger;
@@ -25,6 +27,7 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
     private static final Logger LOGGER = LoggerFactory.getLogger(ShallowMethodAnalyzer.class);
     private final AnalysisHelper analysisHelper;
     private final Map<TypeInfo, Set<TypeInfo>> hierarchyProblems = new HashMap<>();
+    private final List<Message> messages = new LinkedList<>();
 
     public ShallowMethodAnalyzer(AnnotationProvider annotationProvider) {
         super(annotationProvider);
@@ -32,6 +35,10 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
     }
 
     public void analyze(MethodInfo methodInfo) {
+        analyze(methodInfo, false, false);
+    }
+
+    public void analyze(MethodInfo methodInfo, boolean defaultModifiedMethod, boolean defaultModifiedParameter) {
         if (methodInfo.analysis().getOrDefault(SHALLOW_ANALYZER, FALSE).isTrue()) {
             return; // already done
         }
@@ -42,10 +49,10 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
         List<AnnotationExpression> annotations = annotationProvider.annotations(methodInfo);
         Map<Property, Value> map = annotationsToMap(methodInfo, annotations);
 
-        methodPropertiesBeforeParameters(methodInfo, map, explicitlyEmpty);
+        methodPropertiesBeforeParameters(methodInfo, map, explicitlyEmpty, defaultModifiedMethod);
 
         for (ParameterInfo parameterInfo : methodInfo.parameters()) {
-            handleParameter(parameterInfo, map, explicitlyEmpty);
+            handleParameter(parameterInfo, map, explicitlyEmpty, defaultModifiedParameter);
         }
 
         methodPropertiesAfterParameters(methodInfo, map);
@@ -186,7 +193,9 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
         return DEPENDENT;
     }
 
-    private void methodPropertiesBeforeParameters(MethodInfo methodInfo, Map<Property, Value> map, boolean explicitlyEmpty) {
+    private void methodPropertiesBeforeParameters(MethodInfo methodInfo, Map<Property, Value> map,
+                                                  boolean explicitlyEmpty,
+                                                  boolean defaultModifiedMethod) {
         if (methodInfo.isConstructor()) {
             map.put(FLUENT_METHOD, FALSE);
             map.put(IDENTITY_METHOD, FALSE);
@@ -217,16 +226,20 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
             Value.Bool modified = (Value.Bool) map.get(MODIFIED_METHOD);
             if (modified != null) {
                 if (modified.isTrue() && explicitlyEmpty) {
-                    LOGGER.warn("Impossible! how can a method without statements be @Modified?");
+                    messages.add(MessageImpl.warn(methodInfo, "Impossible! how can a method without statements be @Modified?"));
                 }
             } else {
-                map.put(MODIFIED_METHOD, explicitlyEmpty ? FALSE : computeMethodModified(methodInfo, map));
+                map.put(MODIFIED_METHOD, explicitlyEmpty ? FALSE
+                        : computeMethodModified(methodInfo, map, defaultModifiedMethod));
             }
         }
         map.putIfAbsent(METHOD_ALLOWS_INTERRUPTS, FALSE);
     }
 
-    private void handleParameter(ParameterInfo parameterInfo, Map<Property, Value> methodMap, boolean explicitlyEmpty) {
+    private void handleParameter(ParameterInfo parameterInfo,
+                                 Map<Property, Value> methodMap,
+                                 boolean explicitlyEmpty,
+                                 boolean defaultModifiedParameter) {
         List<AnnotationExpression> annotations = annotationProvider.annotations(parameterInfo);
         Map<Property, Value> map = annotationsToMap(parameterInfo, annotations);
         if (explicitlyEmpty) {
@@ -258,7 +271,7 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
             }
             Value.Bool mod = (Value.Bool) map.get(MODIFIED_PARAMETER);
             if (mod == null) {
-                map.put(MODIFIED_PARAMETER, computeParameterModified(parameterInfo));
+                map.put(MODIFIED_PARAMETER, computeParameterModified(parameterInfo, defaultModifiedParameter));
             }
             Value.NotNull nn = (NotNull) map.get(NOT_NULL_PARAMETER);
             if (nn == null) {
@@ -302,7 +315,7 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
                 .reduce(NULLABLE, Value.NotNull::max);
     }
 
-    private Value.Bool computeParameterModified(ParameterInfo parameterInfo) {
+    private Value.Bool computeParameterModified(ParameterInfo parameterInfo, boolean defaultParameterModified) {
         MethodInfo methodInfo = parameterInfo.methodInfo();
         Value.Bool typeContainer = methodInfo.typeInfo().analysis().getOrDefault(CONTAINER_TYPE, FALSE);
         if (typeContainer.isTrue()) {
@@ -318,17 +331,12 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
         }
         Value.Bool override = methodInfo.overrides().stream()
                 .map(mi -> mi.parameters().get(parameterInfo.index()))
-                .map(pi -> pi.analysis().getOrDefault(MODIFIED_PARAMETER, FALSE))
+                .map(pi -> pi.analysis().getOrDefault(MODIFIED_PARAMETER, ValueImpl.BoolImpl.NO_VALUE))
                 .reduce(ValueImpl.BoolImpl.NO_VALUE, Value.Bool::or);
         if (override.hasAValue()) {
             return override;
         }
-        Value.Independent typeIndependent = analysisHelper.typeIndependent(type);
-        if (typeIndependent == null) {
-            LOGGER.warn("Have no @Independent value for {}", type);
-            typeIndependent = DEPENDENT;
-        }
-        return ValueImpl.BoolImpl.from(!typeIndependent.isIndependent());
+        return defaultParameterModified ? TRUE : FALSE;
     }
 
 
@@ -369,12 +377,15 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
     }
 
 
-    private Value computeMethodModified(MethodInfo methodInfo, Map<Property, Value> map) {
+    private Value computeMethodModified(MethodInfo methodInfo,
+                                        Map<Property, Value> map,
+                                        boolean defaultModifiedMethod) {
         if (methodInfo.isConstructor()) return TRUE;
         Value.Bool fluent = (Value.Bool) map.get(FLUENT_METHOD);
         boolean nonStaticVoid = !methodInfo.isStatic() && methodInfo.noReturnValue();
         Value.Bool addToModified = ValueImpl.BoolImpl.from(fluent.isTrue() || nonStaticVoid);
-        if(addToModified.isTrue()) return addToModified;
+        if (addToModified.isTrue()) return addToModified;
+        Value.Bool defaultValue = defaultModifiedMethod ? TRUE : FALSE;
         return methodInfo.overrides().stream()
                 .filter(MethodInfo::isPublic)
                 .filter(m -> m.analysis().haveAnalyzedValueFor(MODIFIED_METHOD, () -> {
@@ -382,8 +393,8 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
                         LOGGER.warn("Have no modification value for {}, overridden by {}", m, methodInfo);
                     }
                 }))
-                .map(m -> m.analysis().getOrDefault(MODIFIED_METHOD, FALSE))
-                .reduce(FALSE, Value.Bool::or);
+                .map(m -> m.analysis().getOrDefault(MODIFIED_METHOD, defaultValue))
+                .reduce(defaultValue, Value.Bool::or);
     }
 
     private Value computeMethodFluent(MethodInfo methodInfo) {
@@ -413,5 +424,9 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
 
     public Map<TypeInfo, Set<TypeInfo>> getHierarchyProblems() {
         return hierarchyProblems;
+    }
+
+    public List<Message> messages() {
+        return messages;
     }
 }

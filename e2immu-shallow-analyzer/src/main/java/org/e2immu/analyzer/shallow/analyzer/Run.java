@@ -3,6 +3,7 @@ package org.e2immu.analyzer.shallow.analyzer;
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
 import org.e2immu.analyzer.modification.prepwork.PrepAnalyzer;
+import org.e2immu.language.cst.api.analysis.Message;
 import org.e2immu.language.cst.api.info.Info;
 import org.e2immu.language.cst.api.info.MethodInfo;
 import org.e2immu.language.cst.api.info.TypeInfo;
@@ -34,7 +35,7 @@ public class Run {
         run.go(new String[]{"../analyzer-shallow/e2immu-shallow-aapi/src/main/java/org/e2immu/analyzer/shallow/aapi"});
     }
 
-    public void go(String[] args) throws IOException {
+    public List<Message> go(String[] args) throws IOException {
         LOGGER.info("I'm at {}", new File(".").getAbsolutePath());
         AnnotatedApiParser annotatedApiParser = new AnnotatedApiParser();
         annotatedApiParser.initialize(
@@ -77,5 +78,6 @@ public class Run {
 
         WriteDecoratedAAPI writeDecoratedAAPI = new WriteDecoratedAAPI(annotatedApiParser.runtime());
         writeDecoratedAAPI.write("build/decorated", trie);
+        return shallowAnalyzer.getMessages();
     }
 }
