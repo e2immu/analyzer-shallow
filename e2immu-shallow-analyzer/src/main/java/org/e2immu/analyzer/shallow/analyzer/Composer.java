@@ -15,6 +15,7 @@
 package org.e2immu.analyzer.shallow.analyzer;
 
 
+import org.e2immu.language.cst.api.element.Comment;
 import org.e2immu.language.cst.api.element.CompilationUnit;
 import org.e2immu.language.cst.api.expression.Expression;
 import org.e2immu.language.cst.api.info.*;
@@ -26,6 +27,10 @@ import org.e2immu.language.cst.api.statement.Block;
 import org.e2immu.language.cst.api.statement.Statement;
 import org.e2immu.language.cst.api.type.ParameterizedType;
 import org.e2immu.language.cst.api.type.TypeParameter;
+import org.e2immu.language.cst.impl.element.SingleLineComment;
+import org.e2immu.language.cst.impl.info.TypePrinter;
+import org.e2immu.language.cst.impl.output.QualificationImpl;
+import org.e2immu.language.cst.impl.type.DiamondEnum;
 import org.e2immu.language.cst.print.FormatterImpl;
 import org.e2immu.language.cst.print.FormattingOptionsImpl;
 import org.e2immu.util.internal.util.StringUtil;
@@ -108,6 +113,8 @@ public class Composer {
         TypeInfo newType = createType(parentType, typeInfo, topLevel);
         translateFromDollarToReal.put(newType, typeInfo);
 
+        newType.builder().addComment(addCommentLine(typeInfo));
+
         for (TypeInfo subType : typeInfo.subTypes()) {
             appendType(newType, subType, false);
         }
@@ -119,16 +126,20 @@ public class Composer {
             }
         }
         for (MethodInfo constructor : typeInfo.constructors()) {
-            if (predicate.test(constructor)) {
+            if (constructor.isPublic() && predicate.test(constructor)) {
                 MethodInfo newConstructor = createMethod(constructor, newType);
                 translateFromDollarToReal.put(newConstructor, constructor);
+                newConstructor.parameters().forEach(newPi ->
+                        translateFromDollarToReal.put(newPi, constructor.parameters().get(newPi.index())));
                 newType.builder().addMethod(newConstructor);
             }
         }
         for (MethodInfo methodInfo : typeInfo.methods()) {
-            if (predicate.test(methodInfo)) {
+            if (methodInfo.isPublic() && predicate.test(methodInfo) && !methodInfo.isOverloadOfJLOMethod()) {
                 MethodInfo newMethod = createMethod(methodInfo, newType);
                 translateFromDollarToReal.put(newMethod, methodInfo);
+                newMethod.parameters().forEach(newPi ->
+                        translateFromDollarToReal.put(newPi, methodInfo.parameters().get(newPi.index())));
                 newType.builder().addMethod(newMethod);
             }
         }
@@ -136,7 +147,23 @@ public class Composer {
         parentType.builder().addSubType(newType);
     }
 
+    private static Comment addCommentLine(TypeInfo typeInfo) {
+        String access = TypePrinter.minimalModifiers(typeInfo)
+                .stream().map(m -> m.keyword().minimal())
+                .collect(Collectors.joining(" ", "", " "));
+        String type = typeInfo.typeNature().keyword().minimal() + " ";
+        String extendString = typeInfo.parentClass() == null || typeInfo.parentClass().isJavaLangObject() ? ""
+                : " extends " + typeInfo.parentClass().simpleString();
+        String implementString = typeInfo.interfacesImplemented().isEmpty() ? ""
+                : " implements " + typeInfo.interfacesImplemented().stream()
+                .map(i -> i.print(QualificationImpl.SIMPLE_NAMES, false, DiamondEnum.NO).toString())
+                .collect(Collectors.joining(", "));
+        String shortString = access + type + typeInfo.simpleName() + extendString + implementString;
+        return new SingleLineComment(shortString);
+    }
+
     private boolean acceptTypeOrAnySubType(TypeInfo typeInfo) {
+        if (!typeInfo.isPubliclyAccessible()) return false;
         if (predicate.test(typeInfo)) return true;
         return typeInfo.subTypes().stream().anyMatch(this::acceptTypeOrAnySubType);
     }

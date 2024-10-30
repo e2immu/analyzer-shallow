@@ -1,9 +1,6 @@
 package org.e2immu.analyzer.shallow.analyzer;
 
-import org.e2immu.annotation.Final;
-import org.e2immu.annotation.Immutable;
-import org.e2immu.annotation.Independent;
-import org.e2immu.annotation.Modified;
+import org.e2immu.annotation.*;
 import org.e2immu.language.cst.api.analysis.PropertyValueMap;
 import org.e2immu.language.cst.api.analysis.Value;
 import org.e2immu.language.cst.api.element.Comment;
@@ -15,10 +12,15 @@ import org.e2immu.language.cst.api.runtime.Runtime;
 import org.e2immu.language.cst.api.type.ParameterizedType;
 import org.e2immu.language.cst.impl.analysis.PropertyImpl;
 import org.e2immu.language.cst.impl.analysis.ValueImpl;
+import org.e2immu.language.cst.impl.element.SingleLineComment;
+import org.e2immu.language.cst.impl.info.TypePrinter;
+import org.e2immu.language.cst.impl.output.QualificationImpl;
+import org.e2immu.language.cst.impl.type.DiamondEnum;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import static org.e2immu.language.cst.impl.analysis.PropertyImpl.*;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.FALSE;
@@ -33,12 +35,16 @@ public class DecoratorImpl implements Qualification.Decorator {
     private final TypeInfo immutableTi;
     private final TypeInfo independentTi;
     private final TypeInfo finalTi;
+    private final TypeInfo immutableContainerTi;
     private final AnnotationExpression finalAnnotation;
+    private final AnnotationExpression containerAnnotation;
 
+    private boolean needContainerImport;
     private boolean needModifiedImport;
     private boolean needImmutableImport;
     private boolean needIndependentImport;
     private boolean needFinalImport;
+    private boolean needImmutableContainerImport;
 
     private final Map<Info, Info> translationMap;
 
@@ -54,7 +60,10 @@ public class DecoratorImpl implements Qualification.Decorator {
         independentTi = runtime.getFullyQualified(Independent.class, true);
         immutableTi = runtime.getFullyQualified(Immutable.class, true);
         finalTi = runtime.getFullyQualified(Final.class, true);
+        TypeInfo containerTi = runtime.getFullyQualified(Container.class, true);
+        immutableContainerTi = runtime.getFullyQualified(ImmutableContainer.class, true);
         finalAnnotation = runtime.newAnnotationExpressionBuilder().setTypeInfo(finalTi).build();
+        containerAnnotation = runtime.newAnnotationExpressionBuilder().setTypeInfo(containerTi).build();
         this.translationMap = translationMap;
     }
 
@@ -75,6 +84,7 @@ public class DecoratorImpl implements Qualification.Decorator {
         Value.Immutable immutable;
         Value.Independent independent;
         boolean isFinal;
+        boolean isContainer;
         PropertyValueMap analysis = info.analysis();
         if (info instanceof MethodInfo methodInfo) {
             modified = !methodInfo.isConstructor() && analysis.getOrDefault(MODIFIED_METHOD, FALSE).isTrue();
@@ -82,22 +92,26 @@ public class DecoratorImpl implements Qualification.Decorator {
             independent = nonTrivialIndependent(analysis.getOrDefault(INDEPENDENT_METHOD, DEPENDENT), methodInfo.typeInfo(),
                     methodInfo.returnType());
             isFinal = false;
+            isContainer = false;
         } else if (info instanceof FieldInfo fieldInfo) {
             modified = analysis.getOrDefault(MODIFIED_FIELD, FALSE).isTrue();
             immutable = null;
             independent = nonTrivialIndependent(analysis.getOrDefault(INDEPENDENT_FIELD, DEPENDENT),
                     fieldInfo.owner(), fieldInfo.type());
             isFinal = !fieldInfo.isFinal() && fieldInfo.isPropertyFinal();
+            isContainer = false;
         } else if (info instanceof ParameterInfo pi) {
             modified = analysis.getOrDefault(MODIFIED_PARAMETER, FALSE).isTrue();
             immutable = null;
             independent = nonTrivialIndependent(analysis.getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT), pi.typeInfo(),
                     pi.parameterizedType());
             isFinal = false;
+            isContainer = false;
         } else if (info instanceof TypeInfo) {
             modified = false;
             immutable = analysis.getOrDefault(IMMUTABLE_TYPE, MUTABLE);
             independent = nonTrivialIndependentType(analysis.getOrDefault(INDEPENDENT_TYPE, DEPENDENT), immutable);
+            isContainer = analysis.getOrDefault(CONTAINER_TYPE, FALSE).isTrue();
             isFinal = false;
         } else throw new UnsupportedOperationException();
 
@@ -107,12 +121,22 @@ public class DecoratorImpl implements Qualification.Decorator {
         }
 
         if (immutable != null && !immutable.isMutable()) {
-            this.needImmutableImport = true;
-            AnnotationExpression.Builder b = runtime.newAnnotationExpressionBuilder().setTypeInfo(immutableTi);
+            TypeInfo ti;
+            if (isContainer) {
+                ti = immutableContainerTi;
+                this.needImmutableContainerImport = true;
+            } else {
+                ti = immutableTi;
+                this.needImmutableImport = true;
+            }
+            AnnotationExpression.Builder b = runtime.newAnnotationExpressionBuilder().setTypeInfo(ti);
             if (immutable.isImmutableHC()) {
                 b.addKeyValuePair("hc", runtime.constantTrue());
             }
             list.add(b.build());
+        } else if (isContainer) {
+            needContainerImport = true;
+            list.add(containerAnnotation);
         }
         if (independent != null && !independent.isDependent()) {
             this.needIndependentImport = true;
@@ -159,6 +183,12 @@ public class DecoratorImpl implements Qualification.Decorator {
         }
         if (needFinalImport) {
             list.add(runtime.newImportStatement(finalTi.fullyQualifiedName(), false));
+        }
+        if (needContainerImport) {
+            list.add(runtime.newImportStatement(containerAnnotation.typeInfo().fullyQualifiedName(), false));
+        }
+        if (needImmutableContainerImport) {
+            list.add(runtime.newImportStatement(immutableContainerTi.fullyQualifiedName(), false));
         }
         return list;
     }
