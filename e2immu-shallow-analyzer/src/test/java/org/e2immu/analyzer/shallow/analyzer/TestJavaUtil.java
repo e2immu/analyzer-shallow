@@ -91,7 +91,7 @@ public class TestJavaUtil extends CommonTest {
     public void testCollections() {
         TypeInfo typeInfo = compiledTypesManager.get(Collections.class);
         assertFalse(typeInfo.isInterface());
-        // NOTE at the moment: @UtilityClass does not enforce @Immutable
+        // NOTE at the moment: @UtilityClass does not enforce @Immutable (without hc)
         assertSame(IMMUTABLE_HC, typeInfo.analysis().getOrDefault(IMMUTABLE_TYPE, MUTABLE));
         assertSame(INDEPENDENT, typeInfo.analysis().getOrDefault(INDEPENDENT_TYPE, DEPENDENT));
         assertSame(FALSE, typeInfo.analysis().getOrDefault(CONTAINER_TYPE, FALSE));

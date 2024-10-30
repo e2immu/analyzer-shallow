@@ -9,7 +9,7 @@
  {"name": "FERROR(6)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FABORT(7)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "MimageUpdate(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Image"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
-  {"name": "Pimage(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Pimage(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
   {"name": "Pi(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
   {"name": "Pi1(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
   {"name": "Pi2(3)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},

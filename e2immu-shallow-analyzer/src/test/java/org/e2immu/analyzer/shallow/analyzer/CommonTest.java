@@ -66,15 +66,17 @@ public class CommonTest {
         runtime = annotatedApiParser.runtime();
     }
 
-    protected void testImmutableContainer(TypeInfo typeInfo, boolean hc) {
-        Value.Immutable immutable = typeInfo.analysis().getOrDefault(IMMUTABLE_TYPE,
-                MUTABLE);
-        Value.Immutable expectImmutable = hc ? ValueImpl.ImmutableImpl.IMMUTABLE_HC : ValueImpl.ImmutableImpl.IMMUTABLE;
+    protected void testImmutableContainer(TypeInfo typeInfo, boolean hcImmutable, boolean hcIndependent) {
+        Value.Immutable immutable = typeInfo.analysis().getOrDefault(IMMUTABLE_TYPE, MUTABLE);
+        Value.Immutable expectImmutable = hcImmutable
+                ? ValueImpl.ImmutableImpl.IMMUTABLE_HC : ValueImpl.ImmutableImpl.IMMUTABLE;
         assertSame(expectImmutable, immutable);
 
-        Value.Independent independent = typeInfo.analysis().getOrDefault(INDEPENDENT_TYPE,
-                DEPENDENT);
-        assertSame(ValueImpl.IndependentImpl.INDEPENDENT, independent);
+        Value.Independent independent = typeInfo.analysis().getOrDefault(INDEPENDENT_TYPE, DEPENDENT);
+        Value.Independent expectIndependent = hcIndependent
+                ? ValueImpl.IndependentImpl.INDEPENDENT_HC: ValueImpl.IndependentImpl.INDEPENDENT;
+        assertSame(expectIndependent, independent);
+
         boolean container = typeInfo.analysis().getOrDefault(CONTAINER_TYPE, ValueImpl.BoolImpl.FALSE).isTrue();
         assertTrue(container);
     }

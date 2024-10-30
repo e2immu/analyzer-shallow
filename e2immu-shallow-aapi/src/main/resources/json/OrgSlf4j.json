@@ -1,9 +1,9 @@
 [
-{"name": "Torg.slf4j.ILoggerFactory", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "sub":
+{"name": "Torg.slf4j.ILoggerFactory", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "sub":
  {"name": "MgetLogger(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Torg.slf4j.Logger"},"hcsMethod":{"0":[[-1]]},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pstring(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}}},
 
-{"name": "Torg.slf4j.Logger", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Torg.slf4j.Logger", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "FROOT_LOGGER_NAME(0)", "data":{"containerField":1,"finalField":1,"immutableField":3,"independentField":2,"shallowAnalyzer":1}},
  {"name": "MgetName(0)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "MmakeLoggingEventBuilder(1)", "data":{"hc":{"0":"Torg.slf4j.spi.LoggingEventBuilder"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":

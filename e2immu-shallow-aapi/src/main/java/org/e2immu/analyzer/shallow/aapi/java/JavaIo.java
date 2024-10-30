@@ -196,11 +196,11 @@ public class JavaIo {
 
         @Modified
         @AllowsInterrupt
-        void write(char[] cbuf);
+        void write(@NotNull char[] cbuf);
 
         @Modified
         @AllowsInterrupt
-        void write(char[] cbuf, int off, int len);
+        void write(@NotNull char[] cbuf, int off, int len);
 
         @Modified
         @AllowsInterrupt

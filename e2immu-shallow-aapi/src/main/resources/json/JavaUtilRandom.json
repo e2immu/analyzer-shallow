@@ -1,6 +1,6 @@
 [
-{"name": "Tjava.util.random.RandomGenerator", "data":{"annotatedApi":1,"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
- {"name": "SArbitrarilyJumpableGenerator(0)", "data":{"annotatedApi":1,"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.util.random.RandomGenerator", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "SArbitrarilyJumpableGenerator(0)", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Mof(0)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.util.random.RandomGenerator.ArbitrarilyJumpableGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "Pname(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
   {"name": "Mcopy(1)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.util.random.RandomGenerator.ArbitrarilyJumpableGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
@@ -17,7 +17,7 @@
   {"name": "Mleap(7)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
   {"name": "McopyAndJump(8)", "data":{"hc":{"0":"Tjava.util.random.RandomGenerator.ArbitrarilyJumpableGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "Pdistance(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}}]},
- {"name": "SJumpableGenerator(1)", "data":{"annotatedApi":1,"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "SJumpableGenerator(1)", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Mof(0)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.util.random.RandomGenerator.JumpableGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "Pname(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
   {"name": "Mcopy(1)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.util.random.RandomGenerator.JumpableGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
@@ -30,7 +30,7 @@
   {"name": "Mrngs(7)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.util.stream.Stream","1":"Tjava.util.random.RandomGenerator"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "PstreamSize(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
   {"name": "McopyAndJump(8)", "data":{"hc":{"0":"Tjava.util.random.RandomGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}}]},
- {"name": "SLeapableGenerator(2)", "data":{"annotatedApi":1,"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "SLeapableGenerator(2)", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Mof(0)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.util.random.RandomGenerator.LeapableGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "Pname(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
   {"name": "Mcopy(1)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.util.random.RandomGenerator.LeapableGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
@@ -40,7 +40,7 @@
   {"name": "Mleaps(5)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.Stream","1":"Tjava.util.random.RandomGenerator.JumpableGenerator"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "PstreamSize(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
   {"name": "McopyAndLeap(6)", "data":{"hc":{"0":"Tjava.util.random.RandomGenerator.JumpableGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}}]},
- {"name": "SSplittableGenerator(3)", "data":{"annotatedApi":1,"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "SSplittableGenerator(3)", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Mof(0)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.util.random.RandomGenerator.SplittableGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "Pname(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
   {"name": "Msplit(1)", "data":{"hc":{"0":"Tjava.util.random.RandomGenerator.SplittableGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
@@ -57,7 +57,7 @@
   {"name": "Mrngs(7)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.util.stream.Stream","1":"Tjava.util.random.RandomGenerator"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}},
   {"name": "Mrngs(8)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.util.stream.Stream","1":"Tjava.util.random.RandomGenerator"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "PstreamSize(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}}]},
- {"name": "SStreamableGenerator(4)", "data":{"annotatedApi":1,"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "SStreamableGenerator(4)", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Mof(0)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.util.random.RandomGenerator.StreamableGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
    {"name": "Pname(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
   {"name": "Mrngs(1)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.util.stream.Stream","1":"Tjava.util.random.RandomGenerator"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}},
@@ -98,8 +98,8 @@
   {"name": "Pl(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
   {"name": "PrandomNumberOrigin(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
  {"name": "MnextBoolean(15)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MnextBytes(16)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pbytes(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MnextBytes(16)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pbytes(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}},
  {"name": "MnextFloat(17)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MnextFloat(18)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pbound(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},

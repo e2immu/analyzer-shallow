@@ -111,4 +111,24 @@ public class TestJavaIo extends CommonTest {
         assertSame(DEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
         assertSame(FINAL_FIELDS, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
     }
+
+
+    @Test
+    public void testWriterWriteCharArray() {
+        TypeInfo typeInfo = compiledTypesManager.get(Writer.class);
+        MethodInfo methodInfo = typeInfo.methodStream()
+                .filter(mi -> "write".equals(mi.name())
+                              && mi.parameters().size() == 1
+                              && mi.parameters().get(0).parameterizedType().arrays() > 0)
+                .findFirst().orElseThrow();
+        assertEquals("java.io.Writer.write(char[])", methodInfo.fullyQualifiedName());
+
+        assertTrue(methodInfo.allowsInterrupts());
+        assertTrue(methodInfo.isModifying());
+
+        ParameterInfo p0 = methodInfo.parameters().get(0);
+        assertSame(INDEPENDENT, p0.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT));
+        assertSame(NOT_NULL, p0.analysis().getOrDefault(NOT_NULL_PARAMETER, NULLABLE));
+        assertSame(FALSE, p0.analysis().getOrDefault(MODIFIED_PARAMETER, FALSE));
+    }
 }

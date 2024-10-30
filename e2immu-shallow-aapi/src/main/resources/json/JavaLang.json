@@ -1,5 +1,5 @@
 [
-{"name": "Tjava.lang.Object", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.lang.Object", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "C<init>(0)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
  {"name": "MgetClass(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MhashCode(1)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
@@ -16,7 +16,7 @@
   {"name": "PtimeoutMillis(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
   {"name": "Pi(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]}]},
 
-{"name": "Tjava.lang.Appendable", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.lang.Appendable", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "Mappend(0)", "data":{"annotatedApi":1,"containerMethod":1,"fluentMethod":1,"hc":{"0":"Tjava.lang.CharSequence","1":"Tjava.lang.Appendable"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "PcharSequence(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
  {"name": "Mappend(1)", "data":{"annotatedApi":1,"containerMethod":1,"fluentMethod":1,"hc":{"0":"Tjava.lang.CharSequence","1":"Tjava.lang.Appendable"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
@@ -26,10 +26,10 @@
  {"name": "Mappend(2)", "data":{"annotatedApi":1,"containerMethod":1,"fluentMethod":1,"hc":{"0":"Tjava.lang.Appendable"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pc(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}}]},
 
-{"name": "Tjava.lang.AutoCloseable", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "sub":
+{"name": "Tjava.lang.AutoCloseable", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "sub":
  {"name": "Mclose(0)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}}},
 
-{"name": "Tjava.lang.CharSequence", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.lang.CharSequence", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "Mlength(0)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "McharAt(1)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pi(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
@@ -44,7 +44,7 @@
   {"name": "Pcs1(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
   {"name": "Pcs2(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}]}]},
 
-{"name": "Tjava.lang.ClassLoader", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.lang.ClassLoader", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "SParallelLoaders(0)", "data":{"hc":{"E":true}}, "subs":[
   {"name": "Mregister(0)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.ClassLoader"}}, "sub":
    {"name": "Pc(0)", "data":{"hcsParameter":{"0":[[-1]],"1":[[0]]}}}},
@@ -262,17 +262,17 @@
   {"name": "PexplicitVersion(0)", "data":{"hcsParameter":{"1":[[0]],"2":[[-1]]}}},
   {"name": "Pvalue(1)", "data":{"hcsParameter":{"1":[[-1]]}}}]}]},
 
-{"name": "Tjava.lang.Cloneable", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}},
+{"name": "Tjava.lang.Cloneable", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}},
 
-{"name": "Tjava.lang.Comparable", "data":{"annotatedApi":1,"containerType":1,"hc":{"0":"PT:0","E":true,"M":1},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "sub":
+{"name": "Tjava.lang.Comparable", "data":{"annotatedApi":1,"containerType":1,"hc":{"0":"PT:0","E":true,"M":1},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "sub":
  {"name": "McompareTo(0)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pt(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2,"notNullParameter":1}}}},
 
 {"name": "Tjava.lang.Iterable", "data":{"annotatedApi":1,"containerType":1,"hc":{"0":"PT:0","E":true,"M":1},"shallowAnalyzer":1}, "subs":[
- {"name": "Miterator(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"1":"Tjava.util.Iterator","M":1},"hcsMethod":{"0":[[0]],"1":[[-1]]},"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Miterator(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"1":"Tjava.util.Iterator","M":1},"hcsMethod":{"0":[[0]],"1":[[-1]]},"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MforEach(1)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"1":"Tjava.util.function.Consumer","M":1},"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Paction(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[0]],"1":[[-1]]},"ignoreModsParameter":1,"independentParameter":1,"notNullParameter":1}}},
- {"name": "Mspliterator(2)", "data":{"annotatedApi":1,"hc":{"1":"Tjava.util.Spliterator","M":1},"hcsMethod":{"0":[[0]],"1":[[-1]]},"independentMethod":1,"notNullMethod":1,"shallowAnalyzer":1}}]},
+ {"name": "Mspliterator(2)", "data":{"annotatedApi":1,"hc":{"1":"Tjava.util.Spliterator","M":1},"hcsMethod":{"0":[[0]],"1":[[-1]]},"independentMethod":1,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}}]},
 
 {"name": "Tjava.lang.Math", "data":{"annotatedApi":1,"immutableType":3,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "FE(0)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
@@ -478,25 +478,25 @@
   {"name": "Pf(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
   {"name": "PscaleFactor(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]}]},
 
-{"name": "Tjava.lang.NamedPackage", "data":{"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.lang.NamedPackage", "data":{"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "MtoPackage(3)", "data":{"hc":{"0":"Tjava.lang.Package"},"hcsMethod":{"0":[[-1]]}}}]},
 
-{"name": "Tjava.lang.Readable", "data":{"annotatedApi":1,"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "sub":
+{"name": "Tjava.lang.Readable", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "sub":
  {"name": "Mread(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.nio.CharBuffer"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "PcharBuffer(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1,"notNullParameter":1}}}},
 
-{"name": "Tjava.lang.Record", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.lang.Record", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "Mequals(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pobject(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
  {"name": "MhashCode(1)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MtoString(2)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}}]},
 
-{"name": "Tjava.lang.Runnable", "data":{"annotatedApi":1,"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "sub":
+{"name": "Tjava.lang.Runnable", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "sub":
  {"name": "Mrun(0)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}}},
 
 {"name": "Tjava.lang.System", "data":{"annotatedApi":1,"immutableType":3,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "SCallersHolder(0)", "data":{"hc":{"E":true}}},
- {"name": "SLogger(1)", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "SLogger(1)", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
   {"name": "SLevel(0)", "data":{"shallowAnalyzer":1}, "subs":[
    {"name": "FALL(0)", "data":{"finalField":1,"notNullField":1,"shallowAnalyzer":1}},
    {"name": "FTRACE(1)", "data":{"finalField":1,"notNullField":1,"shallowAnalyzer":1}},
@@ -550,7 +550,7 @@
    {"name": "Pmodule(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
   {"name": "MgetLocalizedLogger(2)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.ResourceBundle","1":"Tjava.lang.System.Logger"},"hcsMethod":{"1":[[-1]]},"shallowAnalyzer":1}, "subs":[
    {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
-   {"name": "Pbundle(1)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+   {"name": "Pbundle(1)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
    {"name": "Pmodule(2)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
   {"name": "MgetLoggerFinder(3)", "data":{"hc":{"0":"Tjava.lang.System.LoggerFinder"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
   {"name": "MaccessProvider(4)", "data":{"hc":{"0":"Tjava.lang.System.LoggerFinder"},"hcsMethod":{"0":[[-1]]}}}]},
@@ -558,7 +558,7 @@
  {"name": "Fout(1)", "data":{"annotatedApi":1,"finalField":1,"ignoreModificationsField":1,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "Ferr(2)", "data":{"annotatedApi":1,"finalField":1,"ignoreModificationsField":1,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "MsetIn(2)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.InputStream"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
-  {"name": "Pin(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+  {"name": "Pin(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
  {"name": "MsetOut(3)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.PrintStream"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Pout(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
  {"name": "MsetErr(4)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.PrintStream"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
@@ -629,7 +629,7 @@
  {"name": "McreateProperties(40)", "data":{"hc":{"0":"Tjava.util.Map","1":"Tjava.util.Properties"},"hcsMethod":{"1":[[-1]]}}, "sub":
   {"name": "PinitialProps(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}]},
 
-{"name": "Tjava.lang.AbstractStringBuilder", "data":{"annotatedApi":1,"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.lang.AbstractStringBuilder", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "C<init>(3)", "data":{"hc":{"0":"Tjava.lang.CharSequence"}}, "sub":
   {"name": "Pseq(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
  {"name": "McompareTo(0)", "data":{"hc":{"0":"Tjava.lang.AbstractStringBuilder"}}, "sub":
@@ -656,7 +656,7 @@
  {"name": "MgetChars(14)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "PsrcBegin(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
   {"name": "PsrcEnd(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
-  {"name": "Pdst(2)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Pdst(2)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2}},
   {"name": "PdstBegin(3)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
  {"name": "MsetCharAt(15)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Pindex(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
@@ -679,7 +679,7 @@
  {"name": "Mappend(23)", "data":{"fluentMethod":1,"hc":{"0":"Tjava.lang.AbstractStringBuilder"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pstr(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"notNullParameter":1}}},
  {"name": "Mappend(24)", "data":{"hc":{"0":"Tjava.lang.AbstractStringBuilder"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
-  {"name": "Pstr(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Pstr(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2}},
   {"name": "Poffset(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
   {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
  {"name": "Mappend(25)", "data":{"hc":{"0":"Tjava.lang.AbstractStringBuilder"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
@@ -715,7 +715,7 @@
   {"name": "Pend(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
  {"name": "Minsert(39)", "data":{"hc":{"0":"Tjava.lang.AbstractStringBuilder"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Pindex(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
-  {"name": "Pstr(1)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Pstr(1)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2}},
   {"name": "Poffset(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
   {"name": "Plen(3)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
  {"name": "Minsert(40)", "data":{"hc":{"0":"Tjava.lang.Object","1":"Tjava.lang.AbstractStringBuilder"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
@@ -726,7 +726,7 @@
   {"name": "Pstr(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
  {"name": "Minsert(42)", "data":{"hc":{"0":"Tjava.lang.AbstractStringBuilder"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Poffset(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
-  {"name": "Pstr(1)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}]},
+  {"name": "Pstr(1)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2}}]},
  {"name": "Minsert(43)", "data":{"hc":{"0":"Tjava.lang.CharSequence","1":"Tjava.lang.AbstractStringBuilder"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "PdstOffset(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
   {"name": "Ps(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}]},
@@ -815,7 +815,7 @@
 
 {"name": "Tjava.lang.Character", "data":{"annotatedApi":1,"containerType":1,"immutableType":3,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "SCharacterCache(0)", "data":{"hc":{"E":true}}},
- {"name": "SSubset(1)", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "SSubset(1)", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Mequals(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
    {"name": "Pobj(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
   {"name": "MhashCode(1)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
@@ -1574,12 +1574,12 @@
  {"name": "McodePointOf(95)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}}]},
 
-{"name": "Tjava.lang.Enum", "data":{"annotatedApi":1,"containerType":1,"hc":{"0":"PE:0","E":true,"M":1},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.lang.Enum", "data":{"annotatedApi":1,"containerType":1,"hc":{"0":"PE:0","E":true,"M":1},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "SEnumDesc(0)", "data":{"hc":{"0":"PE:0","M":1},"shallowAnalyzer":1}, "subs":[
   {"name": "C<init>(0)", "data":{"hc":{"1":"Tjava.lang.constant.ClassDesc","M":1},"hcsMethod":{"0":[[0]]}}, "subs":[
    {"name": "PconstantClass(0)", "data":{"hcsParameter":{"1":[[-1]]}}}]},
   {"name": "Mof(0)", "data":{"hc":{"1":"PE:1","2":"Tjava.lang.constant.ClassDesc","3":"Tjava.lang.Enum.EnumDesc","M":1},"hcsMethod":{"1":[[0]],"3":[[-1]]},"shallowAnalyzer":1}, "subs":[
-   {"name": "PenumClass(0)", "data":{"hcsParameter":{"2":[[-1]]},"modifiedParameter":1}},
+   {"name": "PenumClass(0)", "data":{"hcsParameter":{"2":[[-1]]}}},
    {"name": "PconstantName(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
   {"name": "MresolveConstantDesc(1)", "data":{"containerMethod":1,"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
    {"name": "Plookup(0)", "data":{"independentParameter":2}}},
@@ -1682,7 +1682,7 @@
  {"name": "MdefineModule0(55)", "data":{"hc":{"0":"Tjava.lang.Object"}}, "subs":[
   {"name": "Pobject(4)", "data":{"hcsParameter":{"0":[[0]]}}}]}]},
 
-{"name": "Tjava.lang.Number", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.lang.Number", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "C<init>(0)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
  {"name": "MintValue(0)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MlongValue(1)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
@@ -1691,7 +1691,7 @@
  {"name": "MbyteValue(4)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MshortValue(5)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}}]},
 
-{"name": "Tjava.lang.Package", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.lang.Package", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "SVersionInfo(0)", "data":{"hc":{"E":true}}, "subs":[
   {"name": "MgetInstance(0)", "data":{"hc":{"0":"Tjava.lang.Package.VersionInfo"},"hcsMethod":{"0":[[-1]]}}}]},
  {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.lang.ClassLoader"}}, "subs":[
@@ -1728,7 +1728,7 @@
  {"name": "MgetDeclaredAnnotations(21)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.annotation.Annotation"},"hcsMethod":{"0":[[0]]},"immutableMethod":1,"independentMethod":2,"shallowAnalyzer":1}}]},
 
 {"name": "Tjava.lang.ProcessHandle", "data":{"annotatedApi":1,"containerType":1,"hc":{"0":"Tjava.lang.ProcessHandle","E":true,"M":1},"shallowAnalyzer":1}, "subs":[
- {"name": "SInfo(0)", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "SInfo(0)", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Mcommand(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.Optional"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
   {"name": "McommandLine(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.Optional"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
   {"name": "Marguments(2)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.Optional"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
@@ -2312,8 +2312,8 @@
    {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}}]},
  {"name": "SUncaughtExceptionHandler(2)", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "sub":
   {"name": "MuncaughtException(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.lang.Thread","1":"Tjava.lang.Throwable"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
-   {"name": "Pthread(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}},
-   {"name": "Pthrowable(1)", "data":{"annotatedApi":1,"hcsParameter":{"1":[[-1]]},"modifiedParameter":1}}]}},
+   {"name": "Pthread(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]}}},
+   {"name": "Pthrowable(1)", "data":{"annotatedApi":1,"hcsParameter":{"1":[[-1]]}}}]}},
  {"name": "SWeakClassKey(3)", "data":{"hc":{"E":true}}, "subs":[
   {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.lang.ref.ReferenceQueue"}}, "subs":[
    {"name": "Pcl(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
@@ -2332,27 +2332,27 @@
  {"name": "C<init>(3)", "data":{"hc":{"0":"Tjava.lang.Runnable"}}, "subs":[
   {"name": "Ptarget(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
  {"name": "C<init>(4)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.ThreadGroup","1":"Tjava.lang.Runnable"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
-  {"name": "Pgroup(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}},
+  {"name": "Pgroup(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
   {"name": "Ptarget(1)", "data":{"hcsParameter":{"1":[[-1]]}}}]},
  {"name": "C<init>(5)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
  {"name": "C<init>(6)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.ThreadGroup"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
-  {"name": "Pgroup(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}},
+  {"name": "Pgroup(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
   {"name": "Pname(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
  {"name": "C<init>(7)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Runnable"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Ptarget(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
   {"name": "Pname(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
  {"name": "C<init>(8)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.ThreadGroup","1":"Tjava.lang.Runnable"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
-  {"name": "Pgroup(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}},
+  {"name": "Pgroup(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
   {"name": "Ptarget(1)", "data":{"hcsParameter":{"1":[[-1]]}}},
   {"name": "Pname(2)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
  {"name": "C<init>(9)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.ThreadGroup","1":"Tjava.lang.Runnable"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
-  {"name": "Pgroup(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}},
+  {"name": "Pgroup(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
   {"name": "Ptarget(1)", "data":{"hcsParameter":{"1":[[-1]]}}},
   {"name": "Pname(2)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "PstackSize(3)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
  {"name": "C<init>(10)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.ThreadGroup","1":"Tjava.lang.Runnable"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
-  {"name": "Pgroup(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}},
+  {"name": "Pgroup(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
   {"name": "Ptarget(1)", "data":{"hcsParameter":{"1":[[-1]]}}},
   {"name": "Pname(2)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "PstackSize(3)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
@@ -2417,11 +2417,11 @@
  {"name": "MgetId(46)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MgetState(47)", "data":{"shallowAnalyzer":1}},
  {"name": "MsetDefaultUncaughtExceptionHandler(48)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Thread.UncaughtExceptionHandler"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
-  {"name": "Peh(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+  {"name": "Peh(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
  {"name": "MgetDefaultUncaughtExceptionHandler(49)", "data":{"hc":{"0":"Tjava.lang.Thread.UncaughtExceptionHandler"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
  {"name": "MgetUncaughtExceptionHandler(50)", "data":{"hc":{"0":"Tjava.lang.Thread.UncaughtExceptionHandler"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
  {"name": "MsetUncaughtExceptionHandler(51)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Thread.UncaughtExceptionHandler"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Peh(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+  {"name": "Peh(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
  {"name": "MdispatchUncaughtException(52)", "data":{"hc":{"0":"Tjava.lang.Throwable"}}, "sub":
   {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
  {"name": "MprocessQueue(53)", "data":{"hc":{"0":"Tjava.lang.ref.ReferenceQueue","1":"Tjava.lang.Class","2":"Tjava.lang.Object","3":"Tjava.util.concurrent.ConcurrentMap","4":"Tjava.lang.ref.WeakReference"}}, "subs":[
@@ -2453,16 +2453,16 @@
   {"name": "Pmessage(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
  {"name": "C<init>(2)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Throwable"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Pmessage(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
-  {"name": "Pcause(1)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}]},
+  {"name": "Pcause(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
  {"name": "C<init>(3)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Throwable"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pcause(0)", "data":{"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+  {"name": "Pcause(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
  {"name": "C<init>(4)", "data":{"hc":{"0":"Tjava.lang.Throwable"}}, "subs":[
   {"name": "Pcause(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
  {"name": "MgetMessage(0)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "MgetLocalizedMessage(1)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "MgetCause(2)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.lang.Throwable"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
  {"name": "MinitCause(3)", "data":{"annotatedApi":1,"fluentMethod":1,"hc":{"0":"Tjava.lang.Throwable"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pcause(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
+  {"name": "Pcause(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]}}}},
  {"name": "MsetCause(4)", "data":{"hc":{"0":"Tjava.lang.Throwable"}}, "sub":
   {"name": "Pt(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
  {"name": "MtoString(5)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
@@ -2480,7 +2480,7 @@
  {"name": "MfillInStackTrace(12)", "data":{"hc":{"0":"Tjava.lang.Throwable"},"hcsMethod":{"0":[[-1]]}}},
  {"name": "MgetStackTrace(13)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MsetStackTrace(15)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "PstackTrace(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"modifiedParameter":1,"notNullParameter":1}}},
+  {"name": "PstackTrace(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"notNullParameter":1}}},
  {"name": "MreadObject(16)", "data":{"hc":{"0":"Tjava.io.ObjectInputStream"}}, "sub":
   {"name": "Ps(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
  {"name": "MvalidateSuppressedExceptionsList(17)", "data":{"hc":{"0":"Tjava.util.List","1":"Tjava.lang.Throwable"}}, "sub":
@@ -2488,7 +2488,7 @@
  {"name": "MwriteObject(18)", "data":{"hc":{"0":"Tjava.io.ObjectOutputStream"}}, "sub":
   {"name": "Ps(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
  {"name": "MaddSuppressed(19)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.lang.Throwable"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pexception(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1,"notNullParameter":1}}},
+  {"name": "Pexception(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"notNullParameter":1}}},
  {"name": "MgetSuppressed(20)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Throwable"},"hcsMethod":{"0":[[0]]},"immutableMethod":1,"shallowAnalyzer":1}}]},
 
 {"name": "Tjava.lang.Byte", "data":{"annotatedApi":1,"containerType":1,"immutableType":3,"independentType":2,"shallowAnalyzer":1}, "subs":[

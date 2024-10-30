@@ -6,6 +6,7 @@
 
 * explicitly empty methods are `@NotModified` (even though they can be non-static and `void`)
 * non-static `void` methods, `@Fluent` methods, constructors are `@Modified` by default
+* methods in an immutable type are `@NotModified` by default. Overriding this will result in a warning.
 
 === Modification of parameter
 

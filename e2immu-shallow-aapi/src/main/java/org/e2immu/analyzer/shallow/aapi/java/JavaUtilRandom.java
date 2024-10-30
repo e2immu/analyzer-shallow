@@ -1,6 +1,7 @@
 package org.e2immu.analyzer.shallow.aapi.java;
 
 import org.e2immu.annotation.Independent;
+import org.e2immu.annotation.Modified;
 
 import java.util.random.RandomGenerator;
 import java.util.stream.Stream;
@@ -11,6 +12,7 @@ public class JavaUtilRandom {
     @Independent
     interface RandomGenerator$ {
 
+        void nextBytes(@Modified byte[] bytes);
 
         @Independent
         interface ArbitrarilyJumpableGenerator {

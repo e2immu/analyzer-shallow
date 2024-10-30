@@ -229,10 +229,10 @@
   {"name": "Madd(1)", "data":{"hc":{"0":"Tjava.util.stream.DoubleStream.Builder"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
    {"name": "Pt(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
   {"name": "Mbuild(2)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.DoubleStream"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}}]},
- {"name": "SDoubleMapMultiConsumer(1)", "data":{"annotatedApi":1,"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "sub":
+ {"name": "SDoubleMapMultiConsumer(1)", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "sub":
   {"name": "Maccept(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.util.function.DoubleConsumer"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
    {"name": "Pd(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
-   {"name": "PdoubleConsumer(1)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}]}},
+   {"name": "PdoubleConsumer(1)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}]}},
  {"name": "Mfilter(0)", "data":{"containerMethod":1,"hc":{"1":"Tjava.util.function.DoublePredicate","M":1},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
   {"name": "PdoublePredicate(0)", "data":{"hcsParameter":{"1":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}},
  {"name": "Mmap(1)", "data":{"containerMethod":1,"hc":{"1":"Tjava.util.function.DoubleUnaryOperator","M":1},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
@@ -415,10 +415,10 @@
   {"name": "Madd(1)", "data":{"hc":{"0":"Tjava.util.stream.LongStream.Builder"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
    {"name": "Pt(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
   {"name": "Mbuild(2)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.LongStream"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}}]},
- {"name": "SLongMapMultiConsumer(1)", "data":{"annotatedApi":1,"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "sub":
+ {"name": "SLongMapMultiConsumer(1)", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "sub":
   {"name": "Maccept(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.util.function.LongConsumer"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
    {"name": "Pl(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
-   {"name": "PlongConsumer(1)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2,"modifiedParameter":1}}]}},
+   {"name": "PlongConsumer(1)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}]}},
  {"name": "Mfilter(0)", "data":{"containerMethod":1,"hc":{"1":"Tjava.util.function.LongPredicate","M":1},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
   {"name": "PlongPredicate(0)", "data":{"hcsParameter":{"1":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}},
  {"name": "Mmap(1)", "data":{"containerMethod":1,"hc":{"1":"Tjava.util.function.LongUnaryOperator","M":1},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":

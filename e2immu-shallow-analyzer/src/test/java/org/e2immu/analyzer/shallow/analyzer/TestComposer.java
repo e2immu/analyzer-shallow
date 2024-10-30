@@ -63,6 +63,6 @@ public class TestComposer {
         composer.write(apiTypes, TEST_DIR, () -> new DecoratorImpl(javaInspector.runtime(), dollarMap));
 
         String ju = Files.readString(new File(TEST_DIR, "org/e2immu/testannotatedapi/JavaUtil.java").toPath());
-        assertTrue(ju.contains("public String toString()"));
+        assertTrue(ju.contains("//public abstract class AbstractSet extends AbstractCollection<E> implements Set<E>"));
     }
 }

@@ -51,9 +51,7 @@ public class ShallowTypeAnalyzer extends CommonAnalyzer {
             map.put(IMMUTABLE_TYPE, MUTABLE);
         }
         Value.Independent ind = (Value.Independent) map.get(INDEPENDENT_TYPE);
-        if (ind != null && ind.isIndependent() && isExtensible) {
-            map.put(INDEPENDENT_TYPE, INDEPENDENT_HC);
-        } else if (ind == null) {
+        if (ind == null) {
             map.put(INDEPENDENT_TYPE, DEPENDENT);
         }
         map.forEach(typeInfo.analysis()::set);

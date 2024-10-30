@@ -25,7 +25,7 @@ public class TestJavaLang extends CommonTest {
     @Test
     public void testObject() {
         TypeInfo typeInfo = compiledTypesManager.get(Object.class);
-        testImmutableContainer(typeInfo, true);
+        testImmutableContainer(typeInfo, true, false);
     }
 
     @Test
@@ -42,7 +42,7 @@ public class TestJavaLang extends CommonTest {
     @Test
     public void testString() {
         TypeInfo typeInfo = compiledTypesManager.get(String.class);
-        testImmutableContainer(typeInfo, false);
+        testImmutableContainer(typeInfo, false, false);
     }
 
     @Test
@@ -123,13 +123,13 @@ public class TestJavaLang extends CommonTest {
     @Test
     public void testCharSequence() {
         TypeInfo typeInfo = compiledTypesManager.get(CharSequence.class);
-        testImmutableContainer(typeInfo, true);
+        testImmutableContainer(typeInfo, true, false);
     }
 
     @Test
     public void testClass() {
         TypeInfo typeInfo = compiledTypesManager.get(Class.class);
-        testImmutableContainer(typeInfo, false);
+        testImmutableContainer(typeInfo, false, false);
     }
 
     //AnnotatedType[] getAnnotatedInterfaces()
@@ -146,7 +146,7 @@ public class TestJavaLang extends CommonTest {
     @Test
     public void testComparable() {
         TypeInfo typeInfo = compiledTypesManager.get(Comparable.class);
-        testImmutableContainer(typeInfo, true);
+        testImmutableContainer(typeInfo, true, false);
     }
 
     @Test
@@ -172,7 +172,7 @@ public class TestJavaLang extends CommonTest {
     @Test
     public void testSerializable() {
         TypeInfo typeInfo = compiledTypesManager.get(Serializable.class);
-        testImmutableContainer(typeInfo, true);
+        testImmutableContainer(typeInfo, true, false);
     }
 
     @Test
@@ -282,13 +282,13 @@ public class TestJavaLang extends CommonTest {
     @Test
     public void testBoolean() {
         TypeInfo typeInfo = compiledTypesManager.get(Boolean.class);
-        testImmutableContainer(typeInfo, false);
+        testImmutableContainer(typeInfo, false, false);
     }
 
     @Test
     public void testInteger() {
         TypeInfo typeInfo = compiledTypesManager.get(Integer.class);
-        testImmutableContainer(typeInfo, false);
+        testImmutableContainer(typeInfo, false, false);
     }
 
     @Test

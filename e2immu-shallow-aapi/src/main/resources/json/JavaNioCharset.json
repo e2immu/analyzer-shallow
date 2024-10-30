@@ -1,5 +1,5 @@
 [
-{"name": "Tjava.nio.charset.Charset", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.nio.charset.Charset", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "SExtendedProviderHolder(0)", "data":{"hc":{"E":true}}, "subs":[
   {"name": "MextendedProviders(0)", "data":{"hc":{"0":"Tjava.nio.charset.spi.CharsetProvider"},"hcsMethod":{"0":[[0]]}}}]},
  {"name": "Mcache(1)", "data":{"hc":{"0":"Tjava.nio.charset.Charset"}}, "subs":[

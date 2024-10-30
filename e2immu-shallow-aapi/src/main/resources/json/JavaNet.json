@@ -7,7 +7,7 @@
   {"name": "Purlc(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
   {"name": "Pclasses(1)", "data":{"containerParameter":1,"hcsParameter":{"1":[[1]]},"immutableParameter":1,"independentParameter":2}}]}]},
 
-{"name": "Tjava.net.ContentHandlerFactory", "data":{"annotatedApi":1,"hc":{"E":true},"immutableType":2,"independentField":1,"independentType":2,"shallowAnalyzer":1}, "sub":
+{"name": "Tjava.net.ContentHandlerFactory", "data":{"annotatedApi":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "sub":
  {"name": "McreateContentHandler(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.net.ContentHandler"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}}},
 

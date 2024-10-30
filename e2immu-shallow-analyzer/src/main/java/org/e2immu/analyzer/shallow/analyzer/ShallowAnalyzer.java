@@ -8,6 +8,8 @@ import org.e2immu.language.cst.api.info.ParameterInfo;
 import org.e2immu.language.cst.api.info.TypeInfo;
 import org.e2immu.language.cst.api.analysis.Message;
 import org.e2immu.language.cst.impl.analysis.MessageImpl;
+import org.e2immu.language.cst.impl.analysis.PropertyImpl;
+import org.e2immu.language.cst.impl.analysis.ValueImpl;
 import org.e2immu.util.internal.graph.G;
 import org.e2immu.util.internal.graph.op.Linearize;
 
@@ -56,12 +58,14 @@ public class ShallowAnalyzer {
         for (TypeInfo typeInfo : sorted) {
             shallowTypeAnalyzer.analyzeFields(typeInfo);
             AnnotationCounts ac = countAnnotations(typeInfo);
-            boolean defaultModifiedMethod = ac.modifiedOnMethod == 0;
+            boolean typeIsMutable = typeInfo.analysis()
+                    .getOrDefault(PropertyImpl.IMMUTABLE_TYPE, ValueImpl.ImmutableImpl.MUTABLE).isMutable();
+            boolean defaultModifiedMethod = typeIsMutable && ac.notModifiedOnMethod > 0;
             if (ac.modifiedOnMethod > 0 && ac.notModifiedOnMethod > 0) {
                 messages.add(MessageImpl.warn(typeInfo,
                         "Mixing @NotModified and @Modified methods; default to @Modified"));
             }
-            boolean defaultModifiedParameters = ac.modifiedOnParameter == 0;
+            boolean defaultModifiedParameters = ac.notModifiedOnParameter > 0;
             if (ac.modifiedOnParameter > 0 && ac.notModifiedOnParameter > 0) {
                 messages.add(MessageImpl.warn(typeInfo,
                         "Mixing @NotModified and @Modified on parameters; default to @Modified"));
@@ -103,7 +107,7 @@ public class ShallowAnalyzer {
     private AnnotationCounts countAnnotations(TypeInfo typeInfo) {
         AnnotationCounts ac = new AnnotationCounts();
         typeInfo.constructorAndMethodStream().filter(MethodInfo::isPublic).forEach(mi -> {
-            for (AnnotationExpression ae : mi.annotations()) {
+            for (AnnotationExpression ae : annotatedApiParser.annotations(mi)) {
                 if (ae.typeInfo().equals(modifiedTi)) {
                     ac.modifiedOnMethod++;
                 } else if (ae.typeInfo().equals(notModifiedTi)) {
@@ -111,7 +115,7 @@ public class ShallowAnalyzer {
                 }
             }
             for (ParameterInfo pi : mi.parameters()) {
-                for (AnnotationExpression ae : pi.annotations()) {
+                for (AnnotationExpression ae : annotatedApiParser.annotations(pi)) {
                     if (ae.typeInfo().equals(modifiedTi)) {
                         ac.modifiedOnParameter++;
                     } else if (ae.typeInfo().equals(notModifiedTi)) {

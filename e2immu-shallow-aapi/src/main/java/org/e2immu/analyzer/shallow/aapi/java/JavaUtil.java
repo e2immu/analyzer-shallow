@@ -918,7 +918,6 @@ public class JavaUtil extends AnnotatedAPI {
         @Container
         Set<K> keySet();
 
-        @NotModified
         void forEach(@NotNull @Independent(hc = true) BiConsumer<? super K, ? super V> action);
 
         /*

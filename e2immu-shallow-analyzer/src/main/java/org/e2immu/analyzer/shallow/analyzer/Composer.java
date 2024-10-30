@@ -147,6 +147,12 @@ public class Composer {
         parentType.builder().addSubType(newType);
     }
 
+    private Comment addCommentLine(MethodInfo methodInfo) {
+        String shortString = "overrides in " + methodInfo.overrides()
+                .stream().map(mi -> mi.typeInfo().fullyQualifiedName()).sorted().collect(Collectors.joining(", "));
+        return new SingleLineComment(shortString);
+    }
+
     private Comment addCommentLine(TypeInfo typeInfo) {
         String access = TypePrinter.minimalModifiers(typeInfo)
                 .stream().map(m -> m.keyword().minimal())
@@ -187,6 +193,9 @@ public class Composer {
             MethodInfo.MethodType methodType = methodInfo.isStatic() ? runtime.methodTypeStaticMethod()
                     : runtime.methodTypeMethod();
             newMethod = runtime.newMethod(owner, methodInfo.name(), methodType);
+            if (!methodInfo.overrides().isEmpty()) {
+                newMethod.builder().addComment(addCommentLine(methodInfo));
+            }
         }
         ParameterizedType returnType = methodInfo.returnType();
         newMethod.builder()
