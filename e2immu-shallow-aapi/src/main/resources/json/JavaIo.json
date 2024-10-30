@@ -327,7 +327,7 @@
  {"name": "Mavailable(15)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "Mclose(17)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
  {"name": "MgetFD(18)", "data":{"shallowAnalyzer":1}},
- {"name": "MgetChannel(19)", "data":{"hc":{"0":"Tjava.nio.channels.FileChannel"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}}]},
+ {"name": "MgetChannel(19)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.channels.FileChannel"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}}]},
 
 {"name": "Tjava.io.FilterInputStream", "data":{"annotatedApi":1,"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.io.InputStream"}}, "sub":

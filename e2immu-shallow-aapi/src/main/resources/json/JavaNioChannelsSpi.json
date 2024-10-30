@@ -1,0 +1,7 @@
+[
+{"name": "Tjava.nio.channels.spi.AbstractInterruptibleChannel", "data":{"hc":{"E":true},"independentField":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "Mclose(0)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisOpen(2)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MblockedOn(5)", "data":{"hc":{"0":"Tsun.nio.ch.Interruptible"}}, "sub":
+  {"name": "Pintr(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}]}
+]

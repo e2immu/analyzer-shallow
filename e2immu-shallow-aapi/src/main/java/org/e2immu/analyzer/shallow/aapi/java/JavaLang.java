@@ -736,6 +736,10 @@ class JavaLang {
         interface Logger {
 
         }
+
+        // very difficult to assign semantics to this one
+        @StaticSideEffects
+        void exit();
     }
 
     /*

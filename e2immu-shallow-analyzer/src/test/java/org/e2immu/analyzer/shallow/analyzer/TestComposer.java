@@ -2,11 +2,8 @@ package org.e2immu.analyzer.shallow.analyzer;
 
 
 import ch.qos.logback.classic.Level;
+import org.e2immu.language.cst.api.info.Info;
 import org.e2immu.language.cst.api.info.TypeInfo;
-import org.e2immu.language.cst.api.output.Formatter;
-import org.e2immu.language.cst.api.output.OutputBuilder;
-import org.e2immu.language.cst.print.FormatterImpl;
-import org.e2immu.language.cst.print.FormattingOptionsImpl;
 import org.e2immu.language.inspection.api.integration.JavaInspector;
 import org.e2immu.language.inspection.integration.JavaInspectorImpl;
 import org.e2immu.language.inspection.resource.InputConfigurationImpl;
@@ -22,6 +19,7 @@ import java.nio.file.Path;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -61,7 +59,8 @@ public class TestComposer {
                     .forEach(File::delete);
         }
 
-        composer.write(apiTypes, TEST_DIR);
+        Map<Info, Info> dollarMap = composer.translateFromDollarToReal();
+        composer.write(apiTypes, TEST_DIR, () -> new DecoratorImpl(javaInspector.runtime(), dollarMap));
 
         String ju = Files.readString(new File(TEST_DIR, "org/e2immu/testannotatedapi/JavaUtil.java").toPath());
         assertTrue(ju.contains("public String toString()"));

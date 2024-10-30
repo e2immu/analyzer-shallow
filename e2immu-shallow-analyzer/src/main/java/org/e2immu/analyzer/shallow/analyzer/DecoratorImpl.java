@@ -18,6 +18,7 @@ import org.e2immu.language.cst.impl.analysis.ValueImpl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static org.e2immu.language.cst.impl.analysis.PropertyImpl.*;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.FALSE;
@@ -39,7 +40,13 @@ public class DecoratorImpl implements Qualification.Decorator {
     private boolean needIndependentImport;
     private boolean needFinalImport;
 
+    private final Map<Info, Info> translationMap;
+
     public DecoratorImpl(Runtime runtime) {
+        this(runtime, null);
+    }
+
+    public DecoratorImpl(Runtime runtime, Map<Info, Info> translationMap) {
         this.runtime = runtime;
         analysisHelper = new AnalysisHelper();
         modifiedTi = runtime.getFullyQualified(Modified.class, true);
@@ -48,6 +55,7 @@ public class DecoratorImpl implements Qualification.Decorator {
         immutableTi = runtime.getFullyQualified(Immutable.class, true);
         finalTi = runtime.getFullyQualified(Final.class, true);
         finalAnnotation = runtime.newAnnotationExpressionBuilder().setTypeInfo(finalTi).build();
+        this.translationMap = translationMap;
     }
 
     @Override
@@ -60,7 +68,8 @@ public class DecoratorImpl implements Qualification.Decorator {
     }
 
     @Override
-    public List<AnnotationExpression> annotations(Info info) {
+    public List<AnnotationExpression> annotations(Info infoIn) {
+        Info info = translationMap == null ? infoIn : translationMap.getOrDefault(infoIn, infoIn);
         List<AnnotationExpression> list = new ArrayList<>();
         boolean modified;
         Value.Immutable immutable;
@@ -68,7 +77,7 @@ public class DecoratorImpl implements Qualification.Decorator {
         boolean isFinal;
         PropertyValueMap analysis = info.analysis();
         if (info instanceof MethodInfo methodInfo) {
-            modified = analysis.getOrDefault(MODIFIED_METHOD, FALSE).isTrue();
+            modified = !methodInfo.isConstructor() && analysis.getOrDefault(MODIFIED_METHOD, FALSE).isTrue();
             immutable = null;
             independent = nonTrivialIndependent(analysis.getOrDefault(INDEPENDENT_METHOD, DEPENDENT), methodInfo.typeInfo(),
                     methodInfo.returnType());

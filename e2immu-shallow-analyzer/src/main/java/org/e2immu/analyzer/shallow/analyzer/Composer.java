@@ -20,6 +20,7 @@ import org.e2immu.language.cst.api.expression.Expression;
 import org.e2immu.language.cst.api.info.*;
 import org.e2immu.language.cst.api.output.Formatter;
 import org.e2immu.language.cst.api.output.OutputBuilder;
+import org.e2immu.language.cst.api.output.Qualification;
 import org.e2immu.language.cst.api.runtime.Runtime;
 import org.e2immu.language.cst.api.statement.Block;
 import org.e2immu.language.cst.api.statement.Statement;
@@ -38,6 +39,7 @@ import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 
@@ -76,6 +78,7 @@ public class Composer {
     private final Runtime runtime;
     private final String destinationPackage;
     private final Predicate<Info> predicate;
+    private final Map<Info, Info> translateFromDollarToReal = new HashMap<>();
 
     public Composer(Runtime runtime,
                     String destinationPackage,
@@ -103,23 +106,30 @@ public class Composer {
     private void appendType(TypeInfo parentType, TypeInfo typeInfo, boolean topLevel) {
         if (!acceptTypeOrAnySubType(typeInfo)) return;
         TypeInfo newType = createType(parentType, typeInfo, topLevel);
+        translateFromDollarToReal.put(newType, typeInfo);
 
         for (TypeInfo subType : typeInfo.subTypes()) {
             appendType(newType, subType, false);
         }
         for (FieldInfo fieldInfo : typeInfo.fields()) {
             if (fieldInfo.access().isPublic() && predicate.test(fieldInfo)) {
-                newType.builder().addField(createField(fieldInfo, newType));
+                FieldInfo newField = createField(fieldInfo, newType);
+                translateFromDollarToReal.put(newField, fieldInfo);
+                newType.builder().addField(newField);
             }
         }
         for (MethodInfo constructor : typeInfo.constructors()) {
             if (predicate.test(constructor)) {
-                newType.builder().addMethod(createMethod(constructor, newType));
+                MethodInfo newConstructor = createMethod(constructor, newType);
+                translateFromDollarToReal.put(newConstructor, constructor);
+                newType.builder().addMethod(newConstructor);
             }
         }
         for (MethodInfo methodInfo : typeInfo.methods()) {
             if (predicate.test(methodInfo)) {
-                newType.builder().addMethod(createMethod(methodInfo, newType));
+                MethodInfo newMethod = createMethod(methodInfo, newType);
+                translateFromDollarToReal.put(newMethod, methodInfo);
+                newType.builder().addMethod(newMethod);
             }
         }
         newType.builder().commit();
@@ -197,6 +207,10 @@ public class Composer {
         return typeInfo;
     }
 
+    public Map<Info, Info> translateFromDollarToReal() {
+        return translateFromDollarToReal;
+    }
+
     private TypeInfo newPackageType(String packageName) {
         String camelCasePackageName = convertToCamelCase(packageName);
         CompilationUnit compilationUnit = runtime.newCompilationUnitBuilder().setPackageName(destinationPackage).build();
@@ -225,11 +239,19 @@ public class Composer {
         return Arrays.stream(components).map(StringUtil::capitalize).collect(Collectors.joining());
     }
 
-    public void write(Collection<TypeInfo> apiTypes, String writeAnnotatedAPIsDir) throws IOException {
+    public void write(Collection<TypeInfo> apiTypes,
+                      String writeAnnotatedAPIsDir,
+                      Supplier<Qualification.Decorator> decoratorSupplier) throws IOException {
         File base = new File(writeAnnotatedAPIsDir);
         if (base.mkdirs()) {
             LOGGER.info("Created annotated API destination folder '{}'", base.getAbsolutePath());
         }
+        write(apiTypes, base, decoratorSupplier);
+    }
+
+    public void write(Collection<TypeInfo> apiTypes,
+                      File base,
+                      Supplier<Qualification.Decorator> decoratorSupplier) throws IOException {
         Formatter formatter = new FormatterImpl(runtime, FormattingOptionsImpl.DEFAULT);
         int count = 0;
         for (TypeInfo apiType : apiTypes) {
@@ -241,9 +263,11 @@ public class Composer {
                 LOGGER.info("Created annotated API destination package folder '{}'", directory.getAbsolutePath());
             }
             File outputFile = new File(directory, apiType.simpleName() + ".java");
+            Qualification.Decorator decorator = decoratorSupplier.get();
             try (OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(outputFile),
                     StandardCharsets.UTF_8)) {
-                OutputBuilder outputBuilder = apiType.print(runtime.qualificationQualifyFromPrimaryType());
+                Qualification qualification = runtime.qualificationQualifyFromPrimaryType(decorator);
+                OutputBuilder outputBuilder = apiType.print(qualification);
                 outputStreamWriter.write(formatter.write(outputBuilder));
             }
             LOGGER.info("Wrote {}", apiType);

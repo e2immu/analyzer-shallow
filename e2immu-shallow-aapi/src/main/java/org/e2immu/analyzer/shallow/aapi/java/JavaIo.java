@@ -24,6 +24,7 @@ import java.io.Writer;
 import java.net.URI;
 import java.net.URL;
 import java.nio.CharBuffer;
+import java.nio.channels.FileChannel;
 
 public class JavaIo {
     final static String PACKAGE_NAME = "java.io";
@@ -290,6 +291,9 @@ public class JavaIo {
 
     class FileInputStream$ {
         FileInputStream$(@NotModified @Independent File file) {}
+
+        // dependent
+        FileChannel getChannel() { return null; }
     }
 
     @Independent

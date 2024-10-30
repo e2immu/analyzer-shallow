@@ -70,9 +70,12 @@ public class Run {
                 trie.add(ti.packageName().split("\\."), ti);
             }
         }
-        File dir = new File("build");
+        File dir = new File("build/json");
         File targetFile = new File(dir, "OrgE2Immu.json");
         if (targetFile.delete()) LOGGER.debug("Deleted {}", targetFile);
         wa.write(dir.getAbsolutePath(), trie);
+
+        WriteDecoratedAAPI writeDecoratedAAPI = new WriteDecoratedAAPI(annotatedApiParser.runtime());
+        writeDecoratedAAPI.write("build/decorated", trie);
     }
 }
