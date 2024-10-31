@@ -108,7 +108,7 @@ public class TestJavaIo extends CommonTest {
         assertFalse(methodInfo.allowsInterrupts());
 
         assertFalse(methodInfo.isModifying());
-        assertSame(DEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
+        assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
         assertSame(FINAL_FIELDS, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
     }
 
