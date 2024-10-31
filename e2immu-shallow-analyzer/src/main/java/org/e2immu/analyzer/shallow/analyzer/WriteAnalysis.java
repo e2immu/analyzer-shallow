@@ -1,5 +1,6 @@
 package org.e2immu.analyzer.shallow.analyzer;
 
+import org.e2immu.language.cst.api.runtime.Runtime;
 import org.e2immu.language.cst.api.analysis.Codec;
 import org.e2immu.language.cst.api.info.*;
 import org.e2immu.language.cst.impl.analysis.PropertyProviderImpl;
@@ -24,12 +25,18 @@ import java.util.stream.Stream;
 public class WriteAnalysis {
     private static final Logger LOGGER = LoggerFactory.getLogger(WriteAnalysis.class);
 
+    private final Runtime runtime;
+
+    public WriteAnalysis(Runtime runtime) {
+        this.runtime = runtime;
+    }
+
     public void write(String destinationDirectory, Trie<TypeInfo> typeTrie) throws IOException {
         File directory = new File(destinationDirectory);
         if (directory.mkdirs()) {
             LOGGER.info("Created directory {}", directory.getAbsolutePath());
         }
-        Codec codec = new CodecImpl(PropertyProviderImpl::get, null, null); // we don't have to decode
+        Codec codec = new CodecImpl(runtime, PropertyProviderImpl::get, null, null); // we don't have to decode
         write(directory, typeTrie, codec);
     }
 

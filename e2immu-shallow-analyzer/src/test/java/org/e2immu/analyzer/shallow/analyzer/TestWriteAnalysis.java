@@ -46,7 +46,7 @@ public class TestWriteAnalysis {
         methodInfo.analysis().set(PropertyImpl.SHALLOW_ANALYZER, ValueImpl.BoolImpl.TRUE);
         typeInfo.builder().addMethod(methodInfo);
 
-        WriteAnalysis wa = new WriteAnalysis();
+        WriteAnalysis wa = new WriteAnalysis(runtime);
         Trie<TypeInfo> trie = new Trie<>();
         trie.add(new String[]{"org", "e2immu"}, typeInfo);
         File dir = new File("build");

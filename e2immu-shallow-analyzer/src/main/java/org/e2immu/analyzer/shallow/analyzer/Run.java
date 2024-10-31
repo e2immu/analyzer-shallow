@@ -64,7 +64,7 @@ public class Run {
             }
         });
 
-        WriteAnalysis wa = new WriteAnalysis();
+        WriteAnalysis wa = new WriteAnalysis(annotatedApiParser.runtime());
         Trie<TypeInfo> trie = new Trie<>();
         for (TypeInfo ti : parsedTypes) {
             if (ti.isPrimaryType()) {
