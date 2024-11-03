@@ -116,7 +116,7 @@
    {"name": "PbodyPublisher(1)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]}}}]},
   {"name": "Mbuild(12)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.net.http.HttpRequest"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
   {"name": "Mcopy(13)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.net.http.HttpRequest.Builder"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}}]},
- {"name": "MnewBuilder(0)", "data":{"annotatedApi":1,"containerMethod":1,"getSetEquivalent":[["Pjava.net.http.HttpRequest.newBuilder(0):0"],"Mjava.net.http.HttpRequest.newBuilder(2)"],"hc":{"0":"Tjava.net.http.HttpRequest.Builder"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+ {"name": "MnewBuilder(0)", "data":{"annotatedApi":1,"containerMethod":1,"getSetEquivalent":[[["P",["Tjava.net.http.HttpRequest","MnewBuilder(0)","Puri(0)"]]],["Tjava.net.http.HttpRequest","MnewBuilder(2)"]],"hc":{"0":"Tjava.net.http.HttpRequest.Builder"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Puri(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
  {"name": "MnewBuilder(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.net.http.HttpRequest","1":"Tjava.util.function.BiPredicate","2":"Tjava.net.http.HttpRequest.Builder"},"hcsMethod":{"2":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Prequest(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},

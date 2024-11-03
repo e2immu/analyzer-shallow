@@ -2,13 +2,7 @@ package org.e2immu.analyzer.shallow.analyzer;
 
 import org.e2immu.analyzer.modification.prepwork.PrepWorkCodec;
 import org.e2immu.language.cst.api.analysis.Codec;
-import org.e2immu.language.cst.api.analysis.PropertyValueMap;
-import org.e2immu.language.cst.api.info.FieldInfo;
 import org.e2immu.language.cst.api.info.Info;
-import org.e2immu.language.cst.api.info.MethodInfo;
-import org.e2immu.language.cst.api.info.TypeInfo;
-import org.e2immu.language.cst.impl.analysis.PropertyProviderImpl;
-import org.e2immu.language.cst.impl.analysis.ValueImpl;
 import org.e2immu.language.cst.io.CodecImpl;
 import org.e2immu.language.inspection.api.integration.JavaInspector;
 import org.parsers.json.JSONParser;
@@ -82,7 +76,7 @@ public class LoadAnalyzedAnnotatedAPI {
 
         char type = fullyQualifiedWithType.charAt(0);
         String name = fullyQualifiedWithType.substring(1);
-        Info info = codec.decodeInfo(context, type, name);
+        Info info = codec.decodeInfoInContext(context, type, name);
         assert info != null : "Cannot find " + name;
         context.push(info);
         processData(codec, context, info, dataJo);
