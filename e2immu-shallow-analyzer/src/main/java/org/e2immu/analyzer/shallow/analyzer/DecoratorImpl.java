@@ -36,6 +36,7 @@ public class DecoratorImpl implements Qualification.Decorator {
     private final TypeInfo independentTi;
     private final TypeInfo finalTi;
     private final TypeInfo immutableContainerTi;
+    private final AnnotationExpression identityAnnotation;
     private final AnnotationExpression finalAnnotation;
     private final AnnotationExpression containerAnnotation;
 
@@ -45,6 +46,7 @@ public class DecoratorImpl implements Qualification.Decorator {
     private boolean needIndependentImport;
     private boolean needFinalImport;
     private boolean needImmutableContainerImport;
+    private boolean needIdentityImport;
 
     private final Map<Info, Info> translationMap;
 
@@ -64,6 +66,8 @@ public class DecoratorImpl implements Qualification.Decorator {
         immutableContainerTi = runtime.getFullyQualified(ImmutableContainer.class, true);
         finalAnnotation = runtime.newAnnotationExpressionBuilder().setTypeInfo(finalTi).build();
         containerAnnotation = runtime.newAnnotationExpressionBuilder().setTypeInfo(containerTi).build();
+        TypeInfo identityTi = runtime.getFullyQualified(Identity.class, true);
+        identityAnnotation = runtime.newAnnotationExpressionBuilder().setTypeInfo(identityTi).build();
         this.translationMap = translationMap;
     }
 
@@ -79,12 +83,12 @@ public class DecoratorImpl implements Qualification.Decorator {
     @Override
     public List<AnnotationExpression> annotations(Info infoIn) {
         Info info = translationMap == null ? infoIn : translationMap.getOrDefault(infoIn, infoIn);
-        List<AnnotationExpression> list = new ArrayList<>();
         boolean modified;
         Value.Immutable immutable;
         Value.Independent independent;
         boolean isFinal;
         boolean isContainer;
+        boolean isIdentity;
         PropertyValueMap analysis = info.analysis();
         if (info instanceof MethodInfo methodInfo) {
             modified = !methodInfo.isConstructor() && analysis.getOrDefault(MODIFIED_METHOD, FALSE).isTrue();
@@ -92,6 +96,7 @@ public class DecoratorImpl implements Qualification.Decorator {
             independent = nonTrivialIndependent(analysis.getOrDefault(INDEPENDENT_METHOD, DEPENDENT), methodInfo.typeInfo(),
                     methodInfo.returnType());
             isFinal = false;
+            isIdentity = methodInfo.isIdentity();
             isContainer = false;
         } else if (info instanceof FieldInfo fieldInfo) {
             modified = analysis.getOrDefault(MODIFIED_FIELD, FALSE).isTrue();
@@ -100,6 +105,7 @@ public class DecoratorImpl implements Qualification.Decorator {
                     fieldInfo.owner(), fieldInfo.type());
             isFinal = !fieldInfo.isFinal() && fieldInfo.isPropertyFinal();
             isContainer = false;
+            isIdentity = false;
         } else if (info instanceof ParameterInfo pi) {
             modified = analysis.getOrDefault(MODIFIED_PARAMETER, FALSE).isTrue();
             immutable = null;
@@ -107,19 +113,25 @@ public class DecoratorImpl implements Qualification.Decorator {
                     pi.parameterizedType());
             isFinal = false;
             isContainer = false;
+            isIdentity = false;
         } else if (info instanceof TypeInfo) {
             modified = false;
             immutable = analysis.getOrDefault(IMMUTABLE_TYPE, MUTABLE);
             independent = nonTrivialIndependentType(analysis.getOrDefault(INDEPENDENT_TYPE, DEPENDENT), immutable);
             isContainer = analysis.getOrDefault(CONTAINER_TYPE, FALSE).isTrue();
             isFinal = false;
+            isIdentity = false;
         } else throw new UnsupportedOperationException();
 
-        if (modified) {
-            this.needModifiedImport = true;
-            list.add(modifiedAnnotation);
+        List<AnnotationExpression> list = new ArrayList<>();
+        if (isFinal) {
+            needFinalImport = true;
+            list.add(finalAnnotation);
         }
-
+        if(isIdentity) {
+            needIdentityImport = true;
+            list.add(identityAnnotation);
+        }
         if (immutable != null && !immutable.isMutable()) {
             TypeInfo ti;
             if (isContainer) {
@@ -146,9 +158,9 @@ public class DecoratorImpl implements Qualification.Decorator {
             }
             list.add(b.build());
         }
-        if (isFinal) {
-            needFinalImport = true;
-            list.add(finalAnnotation);
+        if (modified) {
+            this.needModifiedImport = true;
+            list.add(modifiedAnnotation);
         }
         return list;
     }
@@ -171,9 +183,16 @@ public class DecoratorImpl implements Qualification.Decorator {
 
     @Override
     public List<ImportStatement> importStatements() {
+
         List<ImportStatement> list = new ArrayList<>();
-        if (needModifiedImport) {
-            list.add(runtime.newImportStatement(modifiedTi.fullyQualifiedName(), false));
+        if (needContainerImport) {
+            list.add(runtime.newImportStatement(containerAnnotation.typeInfo().fullyQualifiedName(), false));
+        }
+        if (needFinalImport) {
+            list.add(runtime.newImportStatement(finalTi.fullyQualifiedName(), false));
+        }
+        if(needIdentityImport) {
+            list.add(runtime.newImportStatement(identityAnnotation.typeInfo().fullyQualifiedName(), false));
         }
         if (needIndependentImport) {
             list.add(runtime.newImportStatement(independentTi.fullyQualifiedName(), false));
@@ -181,14 +200,11 @@ public class DecoratorImpl implements Qualification.Decorator {
         if (needImmutableImport) {
             list.add(runtime.newImportStatement(immutableTi.fullyQualifiedName(), false));
         }
-        if (needFinalImport) {
-            list.add(runtime.newImportStatement(finalTi.fullyQualifiedName(), false));
-        }
-        if (needContainerImport) {
-            list.add(runtime.newImportStatement(containerAnnotation.typeInfo().fullyQualifiedName(), false));
-        }
         if (needImmutableContainerImport) {
             list.add(runtime.newImportStatement(immutableContainerTi.fullyQualifiedName(), false));
+        }
+        if (needModifiedImport) {
+            list.add(runtime.newImportStatement(modifiedTi.fullyQualifiedName(), false));
         }
         return list;
     }
