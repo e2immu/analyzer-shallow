@@ -200,7 +200,7 @@ public class TestJavaUtil extends CommonTest {
         assertSame(FALSE, get.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
 
         // hard-coded at the moment
-        assertEquals("java.util.List.list", get.getSetField().field().fullyQualifiedName());
+        assertEquals("java.util.List._synthetic_list", get.getSetField().field().fullyQualifiedName());
     }
 
     @Test
