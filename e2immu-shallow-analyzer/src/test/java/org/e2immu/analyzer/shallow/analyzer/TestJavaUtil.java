@@ -198,6 +198,9 @@ public class TestJavaUtil extends CommonTest {
         MethodInfo get = typeInfo.findUniqueMethod("get", 1);
         assertTrue(get.overrides().isEmpty());
         assertSame(FALSE, get.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+
+        // hard-coded at the moment
+        assertEquals("java.util.List.list", get.getSetField().field().fullyQualifiedName());
     }
 
     @Test

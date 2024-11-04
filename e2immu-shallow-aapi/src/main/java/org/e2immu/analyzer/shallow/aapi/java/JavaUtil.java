@@ -17,6 +17,7 @@ package org.e2immu.analyzer.shallow.aapi.java;
 import org.e2immu.annotatedapi.AnnotatedAPI;
 import org.e2immu.annotation.*;
 import org.e2immu.annotation.Commutable;
+import org.e2immu.annotation.method.GetSet;
 import org.e2immu.annotation.type.UtilityClass;
 
 import java.util.*;
@@ -342,6 +343,7 @@ public class JavaUtil extends AnnotatedAPI {
         /*
          @NotModified by default
          */
+        @GetSet("list")
         @NotNull
         E get(int index);
 
@@ -400,6 +402,7 @@ public class JavaUtil extends AnnotatedAPI {
         @Modified
         boolean removeAll(@NotNull(content = true) @Independent Collection<?> c);
 
+        @GetSet("list")
         @Modified
         @Independent(hc = true)
         E set(int index, @Independent(hc = true) E element);
