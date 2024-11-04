@@ -72,6 +72,24 @@ public class TestJavaUtil extends CommonTest {
 
         assertTrue(methodInfo.isModifying());
         assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
+
+        ParameterInfo add0 = methodInfo.parameters().get(0);
+        assertFalse(add0.isModified());
+    }
+
+
+    @Test
+    public void testCollectionRemove() {
+        TypeInfo typeInfo = compiledTypesManager.get(Collection.class);
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("remove", 1);
+        assertTrue(methodInfo.overrides().isEmpty());
+        assertFalse(methodInfo.allowsInterrupts());
+
+        assertTrue(methodInfo.isModifying());
+        assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
+
+        ParameterInfo add0 = methodInfo.parameters().get(0);
+        assertFalse(add0.isModified());
     }
 
     @Test
@@ -143,6 +161,35 @@ public class TestJavaUtil extends CommonTest {
         MethodInfo override = add.overrides().stream().findFirst().orElseThrow();
         assertEquals("java.util.Collection.add(E)", override.fullyQualifiedName());
         assertSame(TRUE, add.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+    }
+
+
+    @Test
+    public void testListRemoveInt() {
+        TypeInfo typeInfo = compiledTypesManager.get(List.class);
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("remove", runtime.intTypeInfo());
+        assertTrue(methodInfo.overrides().isEmpty());
+        assertFalse(methodInfo.allowsInterrupts());
+
+        assertTrue(methodInfo.isModifying());
+        assertSame(INDEPENDENT_HC, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
+
+        ParameterInfo remove0 = methodInfo.parameters().get(0);
+        assertFalse(remove0.isModified());
+    }
+
+    @Test
+    public void testListRemoveObject() {
+        TypeInfo typeInfo = compiledTypesManager.get(List.class);
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("remove", runtime.objectTypeInfo());
+        assertEquals("[java.util.Collection.remove(Object)]", methodInfo.overrides().toString());
+        assertFalse(methodInfo.allowsInterrupts());
+
+        assertTrue(methodInfo.isModifying());
+        assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
+
+        ParameterInfo remove0 = methodInfo.parameters().get(0);
+        assertFalse(remove0.isModified());
     }
 
     @Test
