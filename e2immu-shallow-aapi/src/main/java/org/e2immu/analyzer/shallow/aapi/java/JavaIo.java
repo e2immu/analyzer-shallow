@@ -246,13 +246,41 @@ public class JavaIo {
         void write(char[] cbuf, int off, int len);
     }
 
+    @Independent
+    interface RandomAccessFile$ {
+        @Modified
+        int read();
+
+        @Modified
+        int read(@Modified byte[] buffer);
+
+        @Modified
+        int read(@Modified byte[] buffer, int off, int len);
+    }
+
     /*
      The @Independent here implies that the Reader will not keep a dependent copy of the CharBuffer or Writer.
      */
     @Independent
     interface Reader$ {
+
+        @Modified
+        int read();
+
         @Modified
         int read(@Modified CharBuffer target);
+
+        @Modified
+        int read(@Modified char[] cbuf);
+
+        @Modified
+        int read(@Modified char[] cbuf, int off, int len);
+
+        @Modified
+        void reset();
+
+        @Modified
+        long skip(long n);
 
         @Modified
         long transferTo(@Modified Writer out);
