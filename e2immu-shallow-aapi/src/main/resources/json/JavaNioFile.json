@@ -355,7 +355,7 @@
  {"name": "Mregister(25)", "data":{"annotatedApi":1,"hc":{"1":"Tjava.nio.file.WatchService","2":"Tjava.nio.file.WatchEvent.Kind","3":"Tjava.lang.Object","4":"Tjava.nio.file.WatchKey","M":1},"hcsMethod":{"4":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Pwatcher(0)", "data":{"annotatedApi":1,"hcsParameter":{"1":[[-1]]},"independentParameter":2}},
   {"name": "Pevents(1)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"2":[[2]]},"immutableParameter":1,"independentParameter":2}}]},
- {"name": "Miterator(26)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"1":"Tjava.util.Iterator","M":1},"hcsMethod":{"0":[[0]],"1":[[-1]]},"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Miterator(26)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"1":"Tjava.util.Iterator","M":1},"hcsMethod":{"0":[[0]],"1":[[-1]]},"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "McompareTo(27)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Ppath(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2,"notNullParameter":1}}},
  {"name": "Mequals(28)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"1":"Tjava.lang.Object","M":1},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":

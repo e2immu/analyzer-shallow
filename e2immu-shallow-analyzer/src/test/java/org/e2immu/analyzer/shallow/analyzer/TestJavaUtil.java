@@ -79,6 +79,30 @@ public class TestJavaUtil extends CommonTest {
 
 
     @Test
+    public void testCollectionIterator() {
+        TypeInfo typeInfo = compiledTypesManager.get(Collection.class);
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("iterator", 0);
+        assertEquals("[java.lang.Iterable.iterator()]", methodInfo.overrides().toString());
+        assertFalse(methodInfo.allowsInterrupts());
+
+        assertFalse(methodInfo.isModifying());
+        assertSame(DEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
+    }
+
+
+    @Test
+    public void testIterableIterator() {
+        TypeInfo typeInfo = compiledTypesManager.get(Iterable.class);
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("iterator", 0);
+        assertTrue(methodInfo.overrides().isEmpty());
+        assertFalse(methodInfo.allowsInterrupts());
+
+        assertFalse(methodInfo.isModifying());
+        assertSame(DEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
+    }
+
+
+    @Test
     public void testCollectionRemove() {
         TypeInfo typeInfo = compiledTypesManager.get(Collection.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("remove", 1);

@@ -52,11 +52,13 @@ class JavaLang {
 
         // implicitly @Dependent, has `remove()`
         @NotNull
+        @NotModified
         Iterator<T> iterator();
 
         /*
         The spliterator cannot change the iterable, but it does communicate hidden content.
          */
+        @NotModified
         @NotNull
         @Independent(hc = true)
         Spliterator<T> spliterator();

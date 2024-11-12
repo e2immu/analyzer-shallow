@@ -269,10 +269,10 @@
   {"name": "Pt(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2,"notNullParameter":1}}}},
 
 {"name": "Tjava.lang.Iterable", "data":{"annotatedApi":1,"containerType":1,"hc":{"0":"PT:0","E":true,"M":1},"shallowAnalyzer":1}, "subs":[
- {"name": "Miterator(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"1":"Tjava.util.Iterator","M":1},"hcsMethod":{"0":[[0]],"1":[[-1]]},"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Miterator(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"1":"Tjava.util.Iterator","M":1},"hcsMethod":{"0":[[0]],"1":[[-1]]},"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MforEach(1)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"1":"Tjava.util.function.Consumer","M":1},"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Paction(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[0]],"1":[[-1]]},"ignoreModsParameter":1,"independentParameter":1,"notNullParameter":1}}},
- {"name": "Mspliterator(2)", "data":{"annotatedApi":1,"hc":{"1":"Tjava.util.Spliterator","M":1},"hcsMethod":{"0":[[0]],"1":[[-1]]},"independentMethod":1,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}}]},
+ {"name": "Mspliterator(2)", "data":{"annotatedApi":1,"hc":{"1":"Tjava.util.Spliterator","M":1},"hcsMethod":{"0":[[0]],"1":[[-1]]},"independentMethod":1,"notNullMethod":1,"shallowAnalyzer":1}}]},
 
 {"name": "Tjava.lang.Math", "data":{"annotatedApi":1,"immutableType":3,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "FE(0)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
