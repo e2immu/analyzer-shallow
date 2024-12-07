@@ -176,12 +176,14 @@ public class Composer {
 
     private FieldInfo createField(FieldInfo fieldInfo, TypeInfo owner) {
         FieldInfo newField = runtime.newFieldInfo(fieldInfo.name(), fieldInfo.isStatic(), fieldInfo.type(), owner);
-        fieldInfo.modifiers()
-                .stream().filter(m -> !m.isPublic()).forEach(newField.builder()::addFieldModifier);
+        FieldInfo.Builder builder = newField.builder();
+        fieldInfo.modifiers().stream().filter(m -> !m.isPublic()).forEach(builder::addFieldModifier);
         if (fieldInfo.isFinal()) {
-            newField.builder().setInitializer(runtime.nullValue(fieldInfo.type()));
+            builder.setInitializer(runtime.nullValue(fieldInfo.type()));
+        } else {
+            builder.setInitializer(runtime.newEmptyExpression());
         }
-        newField.builder().setAccess(runtime.accessPackage()).commit();
+        builder.setAccess(runtime.accessPackage()).commit();
         return newField;
     }
 
