@@ -14,6 +14,8 @@
 
 package org.e2immu.analyzer.shallow.aapi.java;
 
+import org.e2immu.annotation.Fluent;
+import org.e2immu.annotation.Modified;
 import org.e2immu.annotation.NotNull;
 
 import java.util.regex.Matcher;
@@ -25,5 +27,14 @@ public class JavaUtilRegex {
 
         @NotNull
         Matcher matcher(CharSequence sequence);
+    }
+
+    interface Matcher$ {
+
+        @Fluent
+        Matcher appendReplacement(@Modified StringBuffer sb, String replacement);
+
+        @Fluent
+        Matcher appendReplacement(@Modified StringBuilder sb, String replacement);
     }
 }

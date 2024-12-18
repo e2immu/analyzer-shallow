@@ -101,4 +101,9 @@ public class JavaSecurity {
         @Modified
         void reseed(SecureRandomParameters params) { }
     }
+
+    static class AccessController$ {
+        static <T> T doPrivileged(@Modified PrivilegedAction<T> action) { return null; }
+        static <T> T doPrivileged(@Modified PrivilegedExceptionAction<T> action) { return null; }
+    }
 }

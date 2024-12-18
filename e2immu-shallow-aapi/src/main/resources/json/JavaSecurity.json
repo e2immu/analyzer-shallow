@@ -1,4 +1,62 @@
 [
+{"name": "Tjava.security.AccessController", "data":{"annotatedApi":1,"shallowAnalyzer":1}, "subs":[
+ {"name": "SAccHolder(0)", "data":{"hc":{"E":true}}},
+ {"name": "C<init>(0)", "data":{"annotatedApi":1}},
+ {"name": "MdoPrivileged(0)", "data":{"annotatedApi":1,"hc":{"0":"PT:0","1":"Tjava.security.PrivilegedAction"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Paction(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[0]],"1":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MdoPrivilegedWithCombiner(1)", "data":{"hc":{"0":"PT:0","1":"Tjava.security.PrivilegedAction"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Paction(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]},"independentParameter":2}}},
+ {"name": "MdoPrivileged(2)", "data":{"hc":{"0":"PT:0","1":"Tjava.security.PrivilegedAction"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Paction(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]},"independentParameter":2}},
+  {"name": "Pcontext(1)", "data":{"independentParameter":2}}]},
+ {"name": "MdoPrivileged(3)", "data":{"hc":{"0":"PT:0","1":"Tjava.security.PrivilegedAction","2":"Tjava.security.Permission"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Paction(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]},"independentParameter":2}},
+  {"name": "Pcontext(1)", "data":{"independentParameter":2}},
+  {"name": "Pperms(2)", "data":{"containerParameter":1,"hcsParameter":{"2":[[2]]},"immutableParameter":1,"independentParameter":2}}]},
+ {"name": "MdoPrivilegedWithCombiner(4)", "data":{"hc":{"0":"PT:0","1":"Tjava.security.PrivilegedAction","2":"Tjava.security.Permission"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Paction(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]},"independentParameter":2}},
+  {"name": "Pcontext(1)", "data":{"independentParameter":2}},
+  {"name": "Pperms(2)", "data":{"containerParameter":1,"hcsParameter":{"2":[[2]]},"immutableParameter":1,"independentParameter":2}}]},
+ {"name": "MdoPrivileged(5)", "data":{"annotatedApi":1,"hc":{"0":"PT:0","1":"Tjava.security.PrivilegedExceptionAction"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Paction(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[0]],"1":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MdoPrivilegedWithCombiner(6)", "data":{"hc":{"0":"PT:0","1":"Tjava.security.PrivilegedExceptionAction"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Paction(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]},"independentParameter":2}}},
+ {"name": "MpreserveCombiner(7)", "data":{"hc":{"0":"Tjava.security.DomainCombiner","1":"Tjava.lang.Class","2":"Tjava.lang.Object"}}, "subs":[
+  {"name": "Pcombiner(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+  {"name": "Pcaller(1)", "data":{"hcsParameter":{"1":[[-1]]}}}]},
+ {"name": "McreateWrapper(8)", "data":{"hc":{"0":"Tjava.security.DomainCombiner","1":"Tjava.lang.Class","2":"Tjava.lang.Object","3":"Tjava.security.Permission"}}, "subs":[
+  {"name": "Pcombiner(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+  {"name": "Pcaller(1)", "data":{"hcsParameter":{"1":[[-1]]}}},
+  {"name": "Pperms(4)", "data":{"hcsParameter":{"3":[[3]]}}}]},
+ {"name": "MgetProtectionDomain(10)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Tjava.security.ProtectionDomain"},"hcsMethod":{"2":[[-1]]}}, "sub":
+  {"name": "Pclass(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MdoPrivileged(11)", "data":{"hc":{"0":"PT:0","1":"Tjava.security.PrivilegedExceptionAction"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Paction(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]},"independentParameter":2}},
+  {"name": "Pcontext(1)", "data":{"independentParameter":2}}]},
+ {"name": "McheckContext(12)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "subs":[
+  {"name": "Pcaller(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "MensureMaterializedForStackWalk(13)", "data":{"hc":{"0":"Tjava.lang.Object"}}, "sub":
+  {"name": "Pobject(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MexecutePrivileged(15)", "data":{"hc":{"0":"PT:0","1":"Tjava.security.PrivilegedAction","2":"Tjava.lang.Class","3":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]}}, "subs":[
+  {"name": "Paction(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]}}},
+  {"name": "Pcaller(2)", "data":{"hcsParameter":{"2":[[-1]]}}}]},
+ {"name": "MexecutePrivileged(16)", "data":{"hc":{"0":"PT:0","1":"Tjava.security.PrivilegedExceptionAction","2":"Tjava.lang.Class","3":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]}}, "subs":[
+  {"name": "Paction(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]}}},
+  {"name": "Pcaller(2)", "data":{"hcsParameter":{"2":[[-1]]}}}]},
+ {"name": "MwrapException(17)", "data":{"hc":{"0":"Tjava.lang.Exception","1":"Tjava.security.PrivilegedActionException"},"hcsMethod":{"1":[[-1]]}}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MdoPrivileged(18)", "data":{"hc":{"0":"PT:0","1":"Tjava.security.PrivilegedExceptionAction","2":"Tjava.security.Permission"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Paction(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]},"independentParameter":2}},
+  {"name": "Pcontext(1)", "data":{"independentParameter":2}},
+  {"name": "Pperms(2)", "data":{"containerParameter":1,"hcsParameter":{"2":[[2]]},"immutableParameter":1,"independentParameter":2}}]},
+ {"name": "MdoPrivilegedWithCombiner(19)", "data":{"hc":{"0":"PT:0","1":"Tjava.security.PrivilegedExceptionAction","2":"Tjava.security.Permission"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Paction(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]},"independentParameter":2}},
+  {"name": "Pcontext(1)", "data":{"independentParameter":2}},
+  {"name": "Pperms(2)", "data":{"containerParameter":1,"hcsParameter":{"2":[[2]]},"immutableParameter":1,"independentParameter":2}}]},
+ {"name": "MgetContext(22)", "data":{"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "McheckPermission(23)", "data":{"containerMethod":1,"hc":{"0":"Tjava.security.Permission"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Pperm(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}}]},
+
 {"name": "Tjava.security.Guard", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "sub":
  {"name": "McheckGuard(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pobject(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}}},
