@@ -279,6 +279,14 @@ public class TestJavaLang extends CommonTest {
         assertEquals(" - 0=Object", hctMethod.detailedSortedTypes());
     }
 
+
+    @Test
+    public void testSystemSetSecurityManager() {
+        TypeInfo typeInfo = compiledTypesManager.get(System.class);
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("setSecurityManager", 1);
+        assertTrue(methodInfo.isModifying());
+    }
+
     @Test
     public void testBoolean() {
         TypeInfo typeInfo = compiledTypesManager.get(Boolean.class);

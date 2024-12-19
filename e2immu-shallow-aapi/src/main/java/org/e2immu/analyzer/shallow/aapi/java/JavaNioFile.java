@@ -2,6 +2,7 @@ package org.e2immu.analyzer.shallow.aapi.java;
 import org.e2immu.annotation.Immutable;
 import org.e2immu.annotation.Modified;
 import org.e2immu.annotation.NotModified;
+import org.e2immu.annotation.rare.AllowsInterrupt;
 
 import java.io.*;
 import java.net.URI;
@@ -57,105 +58,233 @@ public class JavaNioFile {
     }
 
     class Files$ {
+        @AllowsInterrupt @NotModified
         static InputStream newInputStream(Path path, OpenOption... options) { return null; }
+        @AllowsInterrupt
         static OutputStream newOutputStream(Path path, OpenOption... options) { return null; }
 
+        @AllowsInterrupt
         static SeekableByteChannel newByteChannel(
             Path path,
             Set<? extends OpenOption> options,
             FileAttribute<?> ... attrs) { return null; }
 
+        @AllowsInterrupt
         static SeekableByteChannel newByteChannel(Path path, OpenOption... options) { return null; }
+
+        @AllowsInterrupt @NotModified
         static DirectoryStream<Path> newDirectoryStream(Path dir) { return null; }
+
+        @AllowsInterrupt @NotModified
         static DirectoryStream<Path> newDirectoryStream(Path dir, String glob) { return null; }
 
+        @AllowsInterrupt @NotModified
         static DirectoryStream<Path> newDirectoryStream(Path dir, DirectoryStream.Filter<? super Path> filter) {
             return null;
         }
 
+        @AllowsInterrupt
         static Path createFile(Path path, FileAttribute<?> ... attrs) { return null; }
+
+        @AllowsInterrupt
         static Path createDirectory(Path dir, FileAttribute<?> ... attrs) { return null; }
+
+        @AllowsInterrupt
         static Path createDirectories(Path dir, FileAttribute<?> ... attrs) { return null; }
+
+        @AllowsInterrupt
         static Path createTempFile(Path dir, String prefix, String suffix, FileAttribute<?> ... attrs) { return null; }
+
+        @AllowsInterrupt
         static Path createTempFile(String prefix, String suffix, FileAttribute<?> ... attrs) { return null; }
+
+        @AllowsInterrupt
         static Path createTempDirectory(Path dir, String prefix, FileAttribute<?> ... attrs) { return null; }
+
+        @AllowsInterrupt
         static Path createTempDirectory(String prefix, FileAttribute<?> ... attrs) { return null; }
+
+        @AllowsInterrupt
         static Path createSymbolicLink(Path link, Path target, FileAttribute<?> ... attrs) { return null; }
+
+        @AllowsInterrupt
         static Path createLink(Path link, Path existing) { return null; }
+
+        @AllowsInterrupt
         static void delete(Path path) { }
+
+        @AllowsInterrupt
         static boolean deleteIfExists(Path path) { return false; }
+
+        @AllowsInterrupt
         static Path copy(Path source, Path target, CopyOption... options) { return null; }
+
+        @AllowsInterrupt
         static Path move(Path source, Path target, CopyOption... options) { return null; }
+
+        @AllowsInterrupt @NotModified
         static Path readSymbolicLink(Path link) { return null; }
+
+        @AllowsInterrupt @NotModified
         static FileStore getFileStore(Path path) { return null; }
+
+        @AllowsInterrupt @NotModified
         static boolean isSameFile(Path path, Path path2) { return false; }
+
+        @AllowsInterrupt @NotModified
         static long mismatch(Path path, Path path2) { return 0L; }
+
+        @AllowsInterrupt @NotModified
         static boolean isHidden(Path path) { return false; }
+
+        @AllowsInterrupt @NotModified
         static String probeContentType(Path path) { return null; }
+
+        @AllowsInterrupt @NotModified
         static <V> V getFileAttributeView(Path path, Class<V> type, LinkOption... options) { return null; }
+
+        @AllowsInterrupt @NotModified
         static <A> A readAttributes(Path path, Class<A> type, LinkOption... options) { return null; }
+
+        @AllowsInterrupt
         static Path setAttribute(Path path, String attribute, Object value, LinkOption... options) { return null; }
+
+        @AllowsInterrupt @NotModified
         static Object getAttribute(Path path, String attribute, LinkOption... options) { return null; }
+
+        @AllowsInterrupt @NotModified
         static Map<String, Object> readAttributes(Path path, String attributes, LinkOption... options) { return null; }
+
+        @AllowsInterrupt @NotModified
         static Set<PosixFilePermission> getPosixFilePermissions(Path path, LinkOption... options) { return null; }
+
+        @AllowsInterrupt
         static Path setPosixFilePermissions(Path path, Set<PosixFilePermission> perms) { return null; }
+
+        @AllowsInterrupt @NotModified
         static UserPrincipal getOwner(Path path, LinkOption... options) { return null; }
+
+        @AllowsInterrupt
         static Path setOwner(Path path, UserPrincipal owner) { return null; }
+
+        @AllowsInterrupt @NotModified
         static boolean isSymbolicLink(Path path) { return false; }
+
+        @AllowsInterrupt @NotModified
         static boolean isDirectory(Path path, LinkOption... options) { return false; }
+
+        @AllowsInterrupt @NotModified
         static boolean isRegularFile(Path path, LinkOption... options) { return false; }
+
+        @AllowsInterrupt @NotModified
         static FileTime getLastModifiedTime(Path path, LinkOption... options) { return null; }
+
+        @AllowsInterrupt
         static Path setLastModifiedTime(Path path, FileTime time) { return null; }
+
+        @AllowsInterrupt @NotModified
         static long size(Path path) { return 0L; }
+
+        @AllowsInterrupt @NotModified
         static boolean exists(Path path, LinkOption... options) { return false; }
+
+        @AllowsInterrupt @NotModified
         static boolean notExists(Path path, LinkOption... options) { return false; }
+
+        @AllowsInterrupt @NotModified
         static boolean isReadable(Path path) { return false; }
+
+        @AllowsInterrupt @NotModified
         static boolean isWritable(Path path) { return false; }
+
+        @AllowsInterrupt @NotModified
         static boolean isExecutable(Path path) { return false; }
 
+        @AllowsInterrupt @NotModified
         static Path walkFileTree(
             Path start,
             Set<FileVisitOption> options,
             int maxDepth,
             FileVisitor<? super Path> visitor) { return null; }
 
+        @AllowsInterrupt @NotModified
         static Path walkFileTree(Path start, FileVisitor<? super Path> visitor) { return null; }
+
+        @AllowsInterrupt @NotModified
         static BufferedReader newBufferedReader(Path path, Charset cs) { return null; }
+
+        @AllowsInterrupt @NotModified
         static BufferedReader newBufferedReader(Path path) { return null; }
+
+        @AllowsInterrupt
         static BufferedWriter newBufferedWriter(Path path, Charset cs, OpenOption... options) { return null; }
+
+        @AllowsInterrupt
         static BufferedWriter newBufferedWriter(Path path, OpenOption... options) { return null; }
+
+        @AllowsInterrupt
         static long copy(InputStream in, Path target, CopyOption... options) { return 0L; }
+
+        @AllowsInterrupt
         static long copy(Path source, OutputStream out) { return 0L; }
+
+        @AllowsInterrupt @NotModified
         static byte[] readAllBytes(Path path) { return null; }
+
+        @AllowsInterrupt @NotModified
         static String readString(Path path) { return null; }
+
+        @AllowsInterrupt @NotModified
         static String readString(Path path, Charset cs) { return null; }
+
+        @AllowsInterrupt @NotModified
         static List<String> readAllLines(Path path, Charset cs) { return null; }
+
+        @AllowsInterrupt @NotModified
         static List<String> readAllLines(Path path) { return null; }
+
+        @AllowsInterrupt
         static Path write(Path path, byte[] bytes, OpenOption... options) { return null; }
 
+        @AllowsInterrupt
         static Path write(Path path, Iterable<? extends CharSequence> lines, Charset cs, OpenOption... options) {
             return null;
         }
 
+        @AllowsInterrupt
         static Path write(Path path, Iterable<? extends CharSequence> lines, OpenOption... options) { return null; }
+
+        @AllowsInterrupt
         static Path writeString(Path path, CharSequence csq, OpenOption... options) { return null; }
+
+        @AllowsInterrupt
         static Path writeString(Path path, CharSequence csq, Charset cs, OpenOption... options) { return null; }
+
+        @AllowsInterrupt @NotModified
         static Stream<Path> list(Path dir) { return null; }
+
+        @AllowsInterrupt @NotModified
         static Stream<Path> walk(Path start, int maxDepth, FileVisitOption... options) { return null; }
+
+        @AllowsInterrupt @NotModified
         static Stream<Path> walk(Path start, FileVisitOption... options) { return null; }
 
+        @AllowsInterrupt @NotModified
         static Stream<Path> find(
             Path start,
             int maxDepth,
             BiPredicate<Path, BasicFileAttributes> matcher,
             FileVisitOption... options) { return null; }
 
+        @AllowsInterrupt @NotModified
         static Stream<String> lines(Path path, Charset cs) { return null; }
+
+        @AllowsInterrupt @NotModified
         static Stream<String> lines(Path path) { return null; }
     }
 
     @Immutable
-    class LinkOption {
+    class LinkOption$ {
     }
 
     @Immutable

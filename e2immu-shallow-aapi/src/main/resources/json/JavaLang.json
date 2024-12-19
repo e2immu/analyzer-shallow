@@ -573,8 +573,8 @@
   {"name": "PprintStream(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
  {"name": "McodeSource(11)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "sub":
   {"name": "Pclazz(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
- {"name": "MsetSecurityManager(12)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.SecurityManager"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
-  {"name": "Psm(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MsetSecurityManager(12)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.lang.SecurityManager"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Psm(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
  {"name": "MimplSetSecurityManager(13)", "data":{"hc":{"0":"Tjava.lang.SecurityManager"}}, "sub":
   {"name": "Psm(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
  {"name": "MsetSecurityManager0(14)", "data":{"hc":{"0":"Tjava.lang.SecurityManager"}}, "sub":
@@ -592,18 +592,18 @@
   {"name": "Pobject(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
  {"name": "MgetProperties(20)", "data":{"hc":{"0":"Tjava.util.Properties"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "MlineSeparator(21)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "MsetProperties(22)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.Properties"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
-  {"name": "Pprops(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MsetProperties(22)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.util.Properties"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pprops(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
  {"name": "MgetProperty(23)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Pkey(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
  {"name": "MgetProperty(24)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Pkey(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "Pdef(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
- {"name": "MsetProperty(25)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}, "subs":[
-  {"name": "Pkey(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
-  {"name": "Pvalue(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
- {"name": "MclearProperty(26)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}, "sub":
-  {"name": "Pkey(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MsetProperty(25)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pkey(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pvalue(1)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
+ {"name": "MclearProperty(26)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pkey(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
  {"name": "Mgetenv(28)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
  {"name": "Mgetenv(29)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.Map"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},

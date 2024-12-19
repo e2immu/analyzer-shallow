@@ -24,6 +24,7 @@ import java.io.PrintStream;
 import java.lang.reflect.Method;
 import java.nio.CharBuffer;
 import java.util.Iterator;
+import java.util.Properties;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 import java.util.stream.IntStream;
@@ -742,6 +743,18 @@ class JavaLang {
         // very difficult to assign semantics to this one
         @StaticSideEffects
         void exit(int code);
+
+        @Modified
+        void setProperties(Properties properties);
+
+        @Modified
+        void setProperty(String key, String value);
+
+        @Modified
+        String clearProperty(String key);
+
+        @Modified
+        void setSecurityManager(SecurityManager securityManager);
     }
 
     /*
