@@ -5,10 +5,7 @@ import org.e2immu.language.cst.api.info.ParameterInfo;
 import org.e2immu.language.cst.api.info.TypeInfo;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FilterOutputStream;
-import java.io.PrintStream;
-import java.io.Writer;
+import java.io.*;
 
 import static org.e2immu.language.cst.impl.analysis.PropertyImpl.*;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.FALSE;
@@ -130,5 +127,21 @@ public class TestJavaIo extends CommonTest {
         assertSame(INDEPENDENT, p0.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT));
         assertSame(NOT_NULL, p0.analysis().getOrDefault(NOT_NULL_PARAMETER, NULLABLE));
         assertSame(FALSE, p0.analysis().getOrDefault(MODIFIED_PARAMETER, FALSE));
+    }
+
+    @Test
+    public void testDataInputStreamReadUTF() {
+        TypeInfo typeInfo = compiledTypesManager.get(DataInputStream.class);
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("readUTF", 0);
+
+        assertTrue(methodInfo.isModifying());
+    }
+
+    @Test
+    public void testInputStreamAvailable() {
+        TypeInfo typeInfo = compiledTypesManager.get(InputStream.class);
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("available", 0);
+
+        assertFalse(methodInfo.isModifying());
     }
 }

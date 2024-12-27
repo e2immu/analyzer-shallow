@@ -17,10 +17,7 @@ package org.e2immu.analyzer.shallow.aapi.java;
 import org.e2immu.annotation.*;
 import org.e2immu.annotation.rare.AllowsInterrupt;
 
-import java.io.File;
-import java.io.FilenameFilter;
-import java.io.OutputStream;
-import java.io.Writer;
+import java.io.*;
 import java.net.URI;
 import java.net.URL;
 import java.nio.CharBuffer;
@@ -343,6 +340,16 @@ public class JavaIo {
 
     }
 
+    @Independent
+    interface DataInputStream$ {
+
+        void readFully(@Modified byte[] b);
+
+        void readFully(@Modified byte[] b, int off, int len);
+
+        @NotModified
+        String readUTF(@Modified DataInput in);
+    }
     /*
     .exists() .delete() .exists(), when true first, must return false after the removal.
     Cannot be independent because getCanonicalFile() can return a File which "points to the same underlying file",
