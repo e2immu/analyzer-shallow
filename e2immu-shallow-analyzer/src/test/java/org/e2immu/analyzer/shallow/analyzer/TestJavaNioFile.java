@@ -29,6 +29,10 @@ public class TestJavaNioFile extends CommonTest {
         MethodInfo methodInfo = typeInfo.findUniqueMethod("walkFileTree", 4);
         assertTrue(methodInfo.allowsInterrupts());
         assertFalse(methodInfo.isModifying());
+        ParameterInfo p3 = methodInfo.parameters().get(3);
+        assertEquals("Type java.nio.file.FileVisitor<? super java.nio.file.Path>",
+                p3.parameterizedType().toString());
+        assertTrue(p3.isIgnoreModifications());
     }
 
     @Test

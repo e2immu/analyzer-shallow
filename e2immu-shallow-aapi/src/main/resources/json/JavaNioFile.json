@@ -208,10 +208,10 @@
   {"name": "Pstart(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
   {"name": "Poptions(1)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"1":[[-1]]},"independentParameter":2}},
   {"name": "PmaxDepth(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
-  {"name": "Pvisitor(3)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[0]],"2":[[-1]]},"independentParameter":2}}]},
+  {"name": "Pvisitor(3)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[0]],"2":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}]},
  {"name": "MwalkFileTree(52)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.file.Path","1":"Tjava.nio.file.FileVisitor"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"methodAllowsInterrupts":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Pstart(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
-  {"name": "Pvisitor(1)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[0]],"1":[[-1]]},"independentParameter":2}}]},
+  {"name": "Pvisitor(1)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[0]],"1":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}]},
  {"name": "MnewBufferedReader(53)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.file.Path","1":"Tjava.nio.charset.Charset","2":"Tjava.io.BufferedReader"},"hcsMethod":{"2":[[-1]]},"independentMethod":2,"methodAllowsInterrupts":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Ppath(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
   {"name": "Pcs(1)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":2}}]},

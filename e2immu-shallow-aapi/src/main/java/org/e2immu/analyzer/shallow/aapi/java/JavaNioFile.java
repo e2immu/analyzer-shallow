@@ -3,6 +3,7 @@ import org.e2immu.annotation.Immutable;
 import org.e2immu.annotation.Modified;
 import org.e2immu.annotation.NotModified;
 import org.e2immu.annotation.rare.AllowsInterrupt;
+import org.e2immu.annotation.rare.IgnoreModifications;
 
 import java.io.*;
 import java.net.URI;
@@ -205,10 +206,11 @@ public class JavaNioFile {
             Path start,
             Set<FileVisitOption> options,
             int maxDepth,
+            @IgnoreModifications
             FileVisitor<? super Path> visitor) { return null; }
 
         @AllowsInterrupt @NotModified
-        static Path walkFileTree(Path start, FileVisitor<? super Path> visitor) { return null; }
+        static Path walkFileTree(Path start, @IgnoreModifications FileVisitor<? super Path> visitor) { return null; }
 
         @AllowsInterrupt @NotModified
         static BufferedReader newBufferedReader(Path path, Charset cs) { return null; }
