@@ -126,14 +126,19 @@ public class JavaIo {
     interface PrintWriter$ {
         @Modified
         void println(String s);
+
         @Modified
         void println();
+
         @Modified
         void print(String s);
+
         @Modified
         void print(char c);
+
         @Modified
         void print(int i);
+
         @Modified
         void printf(String s, @NotModified Object... objects);
     }
@@ -317,17 +322,23 @@ public class JavaIo {
     }
 
     class FileInputStream$ {
-        FileInputStream$(@NotModified @Independent File file) {}
+        FileInputStream$(@NotModified @Independent File file) {
+        }
 
         // dependent
-        FileChannel getChannel() { return null; }
+        FileChannel getChannel() {
+            return null;
+        }
     }
 
     class FileOutputStream$ {
-        FileOutputStream$(@NotModified @Independent File file) {}
+        FileOutputStream$(@NotModified @Independent File file) {
+        }
 
         // dependent
-        FileChannel getChannel() { return null; }
+        FileChannel getChannel() {
+            return null;
+        }
     }
 
     @Independent
@@ -336,7 +347,7 @@ public class JavaIo {
     }
 
     @Independent
-    interface BufferedInputStream${
+    interface BufferedInputStream$ {
 
     }
 
@@ -350,6 +361,7 @@ public class JavaIo {
         @NotModified
         String readUTF(@Modified DataInput in);
     }
+
     /*
     .exists() .delete() .exists(), when true first, must return false after the removal.
     Cannot be independent because getCanonicalFile() can return a File which "points to the same underlying file",
@@ -437,6 +449,40 @@ public class JavaIo {
     @Container
     @Independent
     interface FilenameFilter$ {
+
+    }
+
+    interface PushbackInputStream$ {
+        int available();
+
+        @Modified
+        void close();
+
+        @Modified
+        void mark(int readLimit);
+
+        boolean markSupported();
+
+        @Modified
+        int read();
+
+        @Modified
+        int read(byte[] b, int off, int len);
+
+        @Modified
+        void reset();
+
+        @Modified
+        void skip(long n);
+
+        @Modified
+        void unread(byte[] b);
+
+        @Modified
+        void unread(byte[] b, int off, int len);
+
+        @Modified
+        void unread(int b);
 
     }
 }
