@@ -32,6 +32,21 @@ public class JavaNio {
         @Fluent
         Buffer reset();
 
+        @Fluent
+        Buffer flip();
+
+        @Fluent
+        Buffer limit(int limit);
+
+        @Fluent
+        Buffer mark();
+
+        @Fluent
+        Buffer rewind();
+
+        @Fluent
+        Buffer clear();
+
         /*
          @Dependent!!
          */
