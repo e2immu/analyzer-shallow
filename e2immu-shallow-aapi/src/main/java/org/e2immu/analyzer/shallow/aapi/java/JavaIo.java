@@ -352,6 +352,54 @@ public class JavaIo {
     }
 
     @Independent
+    interface DataInput$ {
+        @Modified
+        boolean readBoolean();
+
+        @Modified
+        byte readByte();
+
+        @Modified
+        char readChar();
+
+        @Modified
+        double readDouble();
+
+        @Modified
+        float readFloat();
+
+        @Modified
+        int readInt();
+
+        @Modified
+        String readLine();
+
+        @Modified
+        long readLong();
+
+        @Modified
+        short readShort();
+
+        @Modified
+        int readUnsignedByte();
+
+        @Modified
+        int readUnsignedShort();
+
+        @Modified
+        String readUTF();
+
+        @Modified
+        int skipBytes(int n);
+
+        @Modified
+        void readFully(byte[] b);
+
+        @Modified
+        void readFully(byte[] b, int off, int len);
+    }
+
+    @Independent
     interface DataInputStream$ {
 
         void readFully(@Modified byte[] b);

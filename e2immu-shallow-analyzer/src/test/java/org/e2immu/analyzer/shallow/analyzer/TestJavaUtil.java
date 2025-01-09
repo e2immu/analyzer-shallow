@@ -79,6 +79,15 @@ public class TestJavaUtil extends CommonTest {
 
 
     @Test
+    public void testCollectionSize() {
+        TypeInfo typeInfo = compiledTypesManager.get(Collection.class);
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("size", 0);
+        assertTrue(methodInfo.overrides().isEmpty());
+        assertFalse(methodInfo.allowsInterrupts());
+        assertFalse(methodInfo.isModifying());
+    }
+
+    @Test
     public void testCollectionIterator() {
         TypeInfo typeInfo = compiledTypesManager.get(Collection.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("iterator", 0);
@@ -225,6 +234,45 @@ public class TestJavaUtil extends CommonTest {
 
         // hard-coded at the moment
         assertEquals("java.util.List._synthetic_list", get.getSetField().field().fullyQualifiedName());
+    }
+
+    @Test
+    public void testAbstractListGet() {
+        TypeInfo typeInfo = compiledTypesManager.get(AbstractList.class);
+        MethodInfo get = typeInfo.findUniqueMethod("get", 1);
+        assertEquals("java.util.List.get(int)",
+                get.overrides().stream().map(Objects::toString).sorted().collect(Collectors.joining(",")));
+        assertFalse(get.isModifying());
+    }
+
+    // Vector implements List, but also extends AbstractList, AbstractCollection
+
+    @Test
+    public void testVectorGet() {
+        TypeInfo typeInfo = compiledTypesManager.get(Vector.class);
+        MethodInfo get = typeInfo.findUniqueMethod("get", 1);
+        assertEquals("java.util.Vector.get(int)", get.fullyQualifiedName());
+        assertEquals("java.util.AbstractList.get(int),java.util.List.get(int)",
+                get.overrides().stream().map(Objects::toString).sorted().collect(Collectors.joining(",")));
+        assertFalse(get.isModifying());
+    }
+
+    @Test
+    public void testAbstractCollectionSize() {
+        TypeInfo typeInfo = compiledTypesManager.get(AbstractCollection.class);
+        MethodInfo get = typeInfo.findUniqueMethod("size", 0);
+        assertEquals("java.util.Collection.size()",
+                get.overrides().stream().map(Objects::toString).sorted().collect(Collectors.joining(",")));
+        assertFalse(get.isModifying());
+    }
+
+    @Test
+    public void testVectorSize() {
+        TypeInfo typeInfo = compiledTypesManager.get(Vector.class);
+        MethodInfo get = typeInfo.findUniqueMethod("size", 0);
+        assertEquals("java.util.AbstractCollection.size(),java.util.Collection.size(),java.util.List.size()",
+                get.overrides().stream().map(Objects::toString).sorted().collect(Collectors.joining(",")));
+        assertFalse(get.isModifying());
     }
 
     @Test

@@ -200,6 +200,7 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
             map.put(FLUENT_METHOD, FALSE);
             map.put(IDENTITY_METHOD, FALSE);
             map.put(MODIFIED_METHOD, TRUE);
+            map.putIfAbsent(METHOD_ALLOWS_INTERRUPTS, FALSE);
         } else {
             Value.Bool fluent = (Value.Bool) map.get(FLUENT_METHOD);
             if (fluent != null) {
@@ -226,14 +227,23 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
             Value.Bool modified = (Value.Bool) map.get(MODIFIED_METHOD);
             if (modified != null) {
                 if (modified.isTrue() && explicitlyEmpty) {
-                    messages.add(MessageImpl.warn(methodInfo, "Impossible! how can a method without statements be @Modified?"));
+                    messages.add(MessageImpl.warn(methodInfo,
+                            "Impossible! how can a method without statements be @Modified?"));
                 }
             } else {
                 map.put(MODIFIED_METHOD, explicitlyEmpty ? FALSE
                         : computeMethodModified(methodInfo, map, defaultModifiedMethod));
             }
+            Value.Bool allowsInterrupt = (Value.Bool) map.get(METHOD_ALLOWS_INTERRUPTS);
+            if (allowsInterrupt != null) {
+                if (allowsInterrupt.isTrue() && explicitlyEmpty) {
+                    messages.add(MessageImpl.warn(methodInfo,
+                            "Impossible! how can a method without statements be @AllowInterrupt?"));
+                }
+            } else {
+                map.put(METHOD_ALLOWS_INTERRUPTS, explicitlyEmpty ? FALSE : computeAllowInterrupt(methodInfo));
+            }
         }
-        map.putIfAbsent(METHOD_ALLOWS_INTERRUPTS, FALSE);
     }
 
     private void handleParameter(ParameterInfo parameterInfo,
@@ -385,40 +395,48 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
         boolean nonStaticVoid = !methodInfo.isStatic() && methodInfo.noReturnValue();
         Value.Bool addToModified = ValueImpl.BoolImpl.from(fluent.isTrue() || nonStaticVoid);
         if (addToModified.isTrue()) return addToModified;
-        Value.Bool defaultValue = defaultModifiedMethod ? TRUE : FALSE;
-        return methodInfo.overrides().stream()
+        Boolean fromOverride = methodInfo.overrides().stream()
                 .filter(MethodInfo::isPublic)
                 .filter(m -> m.analysis().haveAnalyzedValueFor(MODIFIED_METHOD, () -> {
                     if (hierarchyProblems.computeIfAbsent(methodInfo.typeInfo(), t -> new HashSet<>()).add(m.typeInfo())) {
                         LOGGER.warn("Have no modification value for {}, overridden by {}", m, methodInfo);
                     }
                 }))
-                .map(m -> m.analysis().getOrDefault(MODIFIED_METHOD, defaultValue))
-                .reduce(defaultValue, Value.Bool::or);
+                .map(m -> m.analysis().getOrNull(MODIFIED_METHOD, ValueImpl.BoolImpl.class))
+                .map(v -> v == null ? null : v.isTrue())
+                .reduce(null, ShallowMethodAnalyzer::nullOr);
+        if (fromOverride == null) return defaultModifiedMethod ? TRUE : FALSE;
+        return ValueImpl.BoolImpl.from(fromOverride);
+    }
+
+    private static Boolean nullOr(Boolean b1, Boolean b2) {
+        if (b1 == null) return b2;
+        if (b2 == null) return b1;
+        return b1 || b2;
     }
 
     private Value computeMethodFluent(MethodInfo methodInfo) {
         if (methodInfo.returnType().typeInfo() != methodInfo.typeInfo()) return FALSE;
-        return methodInfo.overrides().stream()
-                .filter(MethodInfo::isPublic)
-                .filter(m -> m.analysis().haveAnalyzedValueFor(FLUENT_METHOD, () -> {
-                    if (hierarchyProblems.computeIfAbsent(methodInfo.typeInfo(), t -> new HashSet<>()).add(m.typeInfo())) {
-                        LOGGER.warn("Have no @Fluent value for {}, overridden by {}", m, methodInfo);
-                    }
-                }))
-                .map(m -> m.analysis().getOrDefault(FLUENT_METHOD, FALSE))
-                .reduce(FALSE, Value.Bool::or);
+        return commonBooleanFromOverride(FLUENT_METHOD, methodInfo);
     }
 
     private Value computeMethodIdentity(MethodInfo methodInfo) {
+        return commonBooleanFromOverride(IDENTITY_METHOD, methodInfo);
+    }
+
+    private Value computeAllowInterrupt(MethodInfo methodInfo) {
+        return commonBooleanFromOverride(METHOD_ALLOWS_INTERRUPTS, methodInfo);
+    }
+
+    private Value commonBooleanFromOverride(Property property, MethodInfo methodInfo) {
         return methodInfo.overrides().stream()
                 .filter(MethodInfo::isPublic)
-                .filter(m -> m.analysis().haveAnalyzedValueFor(IDENTITY_METHOD, () -> {
+                .filter(m -> m.analysis().haveAnalyzedValueFor(property, () -> {
                     if (hierarchyProblems.computeIfAbsent(methodInfo.typeInfo(), t -> new HashSet<>()).add(m.typeInfo())) {
-                        LOGGER.warn("Have no @Identity value for {}, overridden by {}", m, methodInfo);
+                        LOGGER.warn("Have no {} value for {}, overridden by {}", property.key(), m, methodInfo);
                     }
                 }))
-                .map(m -> m.analysis().getOrDefault(IDENTITY_METHOD, FALSE))
+                .map(m -> m.analysis().getOrDefault(property, FALSE))
                 .reduce(FALSE, Value.Bool::or);
     }
 

@@ -63,7 +63,7 @@
   {"name": "Pnumber(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
   {"name": "PtoAppendTo(1)", "data":{"annotatedApi":1,"containerParameter":1,"independentParameter":2,"modifiedParameter":1}},
   {"name": "Ppos(2)", "data":{"annotatedApi":1,"hcsParameter":{"1":[[-1]]},"independentParameter":2}}]},
- {"name": "MparseObject(1)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.text.ParsePosition","1":"Tjava.lang.Object"},"hcsMethod":{"1":[[-1]]},"immutableMethod":2,"independentMethod":1,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+ {"name": "MparseObject(1)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.text.ParsePosition","1":"Tjava.lang.Object"},"hcsMethod":{"1":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Psource(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "Ppos(1)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}}]},
  {"name": "Mformat(2)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}, "sub":
@@ -108,10 +108,10 @@
   {"name": "Plocale(0)", "data":{"annotatedApi":1}},
   {"name": "PformatStyle(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2}}]},
  {"name": "MgetAvailableLocales(25)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
- {"name": "MhashCode(26)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "Mequals(27)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+ {"name": "MhashCode(26)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mequals(27)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pobj(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
- {"name": "Mclone(28)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mclone(28)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
  {"name": "MisGroupingUsed(29)", "data":{"annotatedApi":1,"containerMethod":1,"getSetField":["FgroupingUsed(8)",false],"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MsetGroupingUsed(30)", "data":{"annotatedApi":1,"containerMethod":1,"getSetField":["FgroupingUsed(8)",true],"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "PnewValue(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
