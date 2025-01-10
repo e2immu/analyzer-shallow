@@ -53,6 +53,25 @@ public class TestJavaUtil extends CommonTest {
         assertEquals("0=0,1=*", paramHcs.detailed());
     }
 
+
+    @Test
+    public void testArraysEquals() {
+        TypeInfo typeInfo = compiledTypesManager.get(Arrays.class);
+        MethodInfo methodInfo = typeInfo.methodStream()
+                .filter(mi -> mi.parameters().size() == 2
+                              && "equals".equals(mi.name())
+                              && mi.parameters().get(0).parameterizedType().typeInfo().equals(runtime.longParameterizedType().typeInfo()))
+                .findFirst().orElseThrow();
+        assertEquals("java.util.Arrays.equals(long[],long[])", methodInfo.fullyQualifiedName());
+        assertFalse(methodInfo.isModifying());
+
+        ParameterInfo add0 = methodInfo.parameters().get(0);
+        assertFalse(add0.isModified());
+        ParameterInfo add1 = methodInfo.parameters().get(1);
+        assertFalse(add1.isModified());
+    }
+
+
     @Test
     public void testCollection() {
         TypeInfo typeInfo = compiledTypesManager.get(Collection.class);

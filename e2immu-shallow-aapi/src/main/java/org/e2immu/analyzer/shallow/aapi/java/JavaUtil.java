@@ -822,6 +822,10 @@ public class JavaUtil extends AnnotatedAPI {
         <T> List<T> asList(@NotModified  T... ts);
 
         <T> void setAll(@NotNull T[] array, @NotNull @Independent(hcParameters = {0}) IntFunction<? extends T> generator);
+
+        boolean equals(@NotModified int[] l1, @NotModified int[] l2);
+        boolean equals(@NotModified double[] l1, @NotModified double[] l2);
+        boolean equals(@NotModified long[] l1, @NotModified long[] l2);
     }
 
     @UtilityClass
