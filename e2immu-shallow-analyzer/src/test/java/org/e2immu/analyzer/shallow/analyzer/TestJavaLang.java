@@ -169,6 +169,16 @@ public class TestJavaLang extends CommonTest {
         assertSame(FALSE, p0.analysis().getOrDefault(MODIFIED_PARAMETER, FALSE));
     }
 
+
+    @Test
+    public void testThrowablePrintStackTrace() {
+        TypeInfo typeInfo = compiledTypesManager.get(Throwable.class);
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("printStackTrace", 0);
+        assertFalse(methodInfo.isFluent());
+        assertTrue(methodInfo.isStaticSideEffects());
+        assertFalse(methodInfo.isModifying());
+    }
+
     @Test
     public void testSerializable() {
         TypeInfo typeInfo = compiledTypesManager.get(Serializable.class);

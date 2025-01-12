@@ -224,6 +224,16 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
                         ? FALSE : computeMethodIdentity(methodInfo));
             }
 
+            Value.Bool staticSideEffects = (Value.Bool) map.get(STATIC_SIDE_EFFECTS_METHOD);
+            if (staticSideEffects != null) {
+                if (staticSideEffects.isTrue() && explicitlyEmpty) {
+                    messages.add(MessageImpl.warn(methodInfo,
+                            "Impossible! how can a method without statements be @StaticSideEffects?"));
+                }
+            } else {
+                map.put(STATIC_SIDE_EFFECTS_METHOD, explicitlyEmpty ? FALSE : computeStaticSideEffects(methodInfo));
+            }
+
             Value.Bool modified = (Value.Bool) map.get(MODIFIED_METHOD);
             if (modified != null) {
                 if (modified.isTrue() && explicitlyEmpty) {
@@ -391,10 +401,12 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
                                         Map<Property, Value> map,
                                         boolean defaultModifiedMethod) {
         if (methodInfo.isConstructor()) return TRUE;
+        Value.Bool sse = (Value.Bool) map.get(STATIC_SIDE_EFFECTS_METHOD);
+        if (sse != null && sse.isTrue()) return FALSE;
         Value.Bool fluent = (Value.Bool) map.get(FLUENT_METHOD);
+        if (fluent != null && fluent.isTrue()) return TRUE;
         boolean nonStaticVoid = !methodInfo.isStatic() && methodInfo.noReturnValue();
-        Value.Bool addToModified = ValueImpl.BoolImpl.from(fluent.isTrue() || nonStaticVoid);
-        if (addToModified.isTrue()) return addToModified;
+        if (nonStaticVoid) return TRUE;
         Boolean fromOverride = methodInfo.overrides().stream()
                 .filter(MethodInfo::isPublic)
                 .filter(m -> m.analysis().haveAnalyzedValueFor(MODIFIED_METHOD, () -> {
@@ -422,6 +434,10 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
 
     private Value computeMethodIdentity(MethodInfo methodInfo) {
         return commonBooleanFromOverride(IDENTITY_METHOD, methodInfo);
+    }
+
+    private Value computeStaticSideEffects(MethodInfo methodInfo) {
+        return commonBooleanFromOverride(STATIC_SIDE_EFFECTS_METHOD, methodInfo);
     }
 
     private Value computeAllowInterrupt(MethodInfo methodInfo) {

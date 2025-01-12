@@ -243,7 +243,7 @@
  {"name": "MgetContent(24)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "MgetContent(25)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"hcsMethod":{"1":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Pclasses(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[0]]},"immutableParameter":1,"independentParameter":2}}},
- {"name": "MsetURLStreamHandlerFactory(26)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.net.URLStreamHandlerFactory"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "MsetURLStreamHandlerFactory(26)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.net.URLStreamHandlerFactory"},"independentMethod":2,"shallowAnalyzer":1,"sseMethod":1}, "sub":
   {"name": "Pfac(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
  {"name": "MlookupViaProperty(27)", "data":{"hc":{"0":"Tjava.net.URLStreamHandler"},"hcsMethod":{"0":[[-1]]}}},
  {"name": "Mproviders(28)", "data":{"hc":{"0":"Tjava.util.Iterator","1":"Tjava.net.spi.URLStreamHandlerProvider"},"hcsMethod":{"0":[[-1]],"1":[[0]]}}},

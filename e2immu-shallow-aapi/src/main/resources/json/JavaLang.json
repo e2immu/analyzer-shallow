@@ -612,7 +612,7 @@
  {"name": "MgetLogger(31)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.ResourceBundle","1":"Tjava.lang.System.Logger"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "Pbundle(1)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}]},
- {"name": "Mexit(32)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "Mexit(32)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1,"sseMethod":1}, "sub":
   {"name": "Pstatus(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "Mgc(33)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "MrunFinalization(34)", "data":{"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}},
@@ -2466,7 +2466,7 @@
  {"name": "MsetCause(4)", "data":{"hc":{"0":"Tjava.lang.Throwable"}}, "sub":
   {"name": "Pt(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
  {"name": "MtoString(5)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "MprintStackTrace(6)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MprintStackTrace(6)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1,"sseMethod":1}},
  {"name": "MprintStackTrace(7)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.io.PrintStream"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Ps(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}},
  {"name": "MprintStackTrace(8)", "data":{"hc":{"0":"Tjava.lang.Throwable.PrintStreamOrWriter"}}, "sub":
