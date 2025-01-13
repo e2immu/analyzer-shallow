@@ -20,6 +20,8 @@ import org.e2immu.annotation.Commutable;
 import org.e2immu.annotation.method.GetSet;
 import org.e2immu.annotation.type.UtilityClass;
 
+import java.io.*;
+import java.nio.charset.Charset;
 import java.util.*;
 import java.util.function.*;
 import java.util.stream.IntStream;
@@ -1195,5 +1197,40 @@ public class JavaUtil extends AnnotatedAPI {
         Object nextElement() { return null; }
 
         int countTokens() { return 0; }
+    }
+
+    interface Properties$ {
+        String getProperty(String key);
+        String getProperty(String key, String defaultValue);
+        void list(@Modified PrintStream out);
+        void list(@Modified PrintWriter out);
+
+        @Modified
+        void load(@Modified InputStream i);
+
+        @Modified
+        void load(@Modified Reader r);
+
+        @Modified
+        void loadFromXML(@Modified InputStream in);
+
+        Enumeration<?> propertyNames();
+
+        void save(@Modified OutputStream os, String comments);
+
+        @Modified
+        Object setProperty(String key, String value);
+
+        void store(@Modified OutputStream os, String comments);
+
+        void store(@Modified Writer w, String comments);
+
+        void storeToXML(@Modified OutputStream os, String comments);
+
+        void storeToXML(@Modified OutputStream os, String comments, String encoding);
+
+        void storeToXML(@Modified OutputStream os, String comments, Charset charset);
+
+        Set<String> stringPropertyNames();
     }
 }
