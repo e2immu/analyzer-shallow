@@ -24,6 +24,9 @@ public class TestJavaUtilZip extends CommonTest {
     public void testZipOutputStreamClose() {
         TypeInfo typeInfo = compiledTypesManager.getOrLoad(ZipOutputStream.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("close", 0);
-        assertTrue(methodInfo.isModifying());
+
+        // must be "false" when the class is not present in the AAPI, and true otherwise
+        // if not present, then the shallow analyser is never run, so we don't even have a value
+        assertFalse(methodInfo.isModifying());
     }
 }
