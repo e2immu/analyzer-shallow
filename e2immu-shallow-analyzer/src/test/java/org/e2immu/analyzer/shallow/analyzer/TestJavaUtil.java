@@ -228,6 +228,8 @@ public class TestJavaUtil extends CommonTest {
 
         ParameterInfo remove0 = methodInfo.parameters().get(0);
         assertFalse(remove0.isModified());
+
+        assertNull(methodInfo.getSetField().field());
     }
 
     @Test
