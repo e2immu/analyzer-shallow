@@ -183,28 +183,27 @@ public class DecoratorImpl implements Qualification.Decorator {
 
     @Override
     public List<ImportStatement> importStatements() {
-
         List<ImportStatement> list = new ArrayList<>();
         if (needContainerImport) {
-            list.add(runtime.newImportStatement(containerAnnotation.typeInfo().fullyQualifiedName(), false));
+            list.add(runtime.newImportStatementBuilder().setImport(containerAnnotation.typeInfo().fullyQualifiedName()).build());
         }
         if (needFinalImport) {
-            list.add(runtime.newImportStatement(finalTi.fullyQualifiedName(), false));
+            list.add(runtime.newImportStatementBuilder().setImport(finalTi.fullyQualifiedName()).build());
         }
         if(needIdentityImport) {
-            list.add(runtime.newImportStatement(identityAnnotation.typeInfo().fullyQualifiedName(), false));
+            list.add(runtime.newImportStatementBuilder().setImport(identityAnnotation.typeInfo().fullyQualifiedName()).build());
         }
         if (needIndependentImport) {
-            list.add(runtime.newImportStatement(independentTi.fullyQualifiedName(), false));
+            list.add(runtime.newImportStatementBuilder().setImport(independentTi.fullyQualifiedName()).build());
         }
         if (needImmutableImport) {
-            list.add(runtime.newImportStatement(immutableTi.fullyQualifiedName(), false));
+            list.add(runtime.newImportStatementBuilder().setImport(immutableTi.fullyQualifiedName()).build());
         }
         if (needImmutableContainerImport) {
-            list.add(runtime.newImportStatement(immutableContainerTi.fullyQualifiedName(), false));
+            list.add(runtime.newImportStatementBuilder().setImport(immutableContainerTi.fullyQualifiedName()).build());
         }
         if (needModifiedImport) {
-            list.add(runtime.newImportStatement(modifiedTi.fullyQualifiedName(), false));
+            list.add(runtime.newImportStatementBuilder().setImport(modifiedTi.fullyQualifiedName()).build());
         }
         return list;
     }
