@@ -2,28 +2,29 @@
 {"name": "Tjava.nio.file.CopyOption", "data":{"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}},
 
 {"name": "Tjava.nio.file.FileStore", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
- {"name": "C<init>(0)", "data":{"annotatedApi":1}},
- {"name": "Mname(0)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "Mtype(1)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "MisReadOnly(2)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MgetTotalSpace(3)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MgetUsableSpace(4)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MgetUnallocatedSpace(5)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MgetBlockSize(6)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "C<init>(0)", "data":{"annotatedApi":1,"hc":{}}},
+ {"name": "Mname(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "Mtype(1)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MisReadOnly(2)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetTotalSpace(3)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetUsableSpace(4)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetUnallocatedSpace(5)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetBlockSize(6)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MsupportsFileAttributeView(7)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.lang.Class","1":"Tjava.nio.file.attribute.FileAttributeView"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pclass(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[-1]],"1":[[0]]},"immutableParameter":3,"independentParameter":2}}},
- {"name": "MsupportsFileAttributeView(8)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+ {"name": "MsupportsFileAttributeView(8)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pstring(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
  {"name": "MgetFileStoreAttributeView(9)", "data":{"annotatedApi":1,"hc":{"0":"PV:0","1":"Tjava.lang.Class"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
   {"name": "Pclass(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[0]],"1":[[-1]]},"immutableParameter":3,"independentParameter":2}}},
  {"name": "MgetAttribute(10)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pstring(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}}]},
 
-{"name": "Tjava.nio.file.FileSystems", "data":{"annotatedApi":1,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.nio.file.FileSystems", "data":{"annotatedApi":1,"hc":{},"shallowAnalyzer":1}, "subs":[
  {"name": "SDefaultFileSystemHolder(0)", "data":{"hc":{"E":true}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{}}},
   {"name": "MdefaultFileSystem(0)", "data":{"hc":{"0":"Tjava.nio.file.FileSystem"},"hcsMethod":{"0":[[-1]]}}},
   {"name": "MgetDefaultProvider(1)", "data":{"hc":{"0":"Tjava.nio.file.spi.FileSystemProvider"},"hcsMethod":{"0":[[-1]]}}}]},
- {"name": "C<init>(0)", "data":{"annotatedApi":1}},
+ {"name": "C<init>(0)", "data":{"annotatedApi":1,"hc":{}}},
  {"name": "MgetDefault(0)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.file.FileSystem"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "MgetFileSystem(1)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.file.FileSystem"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Puri(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
@@ -47,14 +48,16 @@
   {"name": "Penv(1)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"1":[[-1]]},"independentParameter":2}},
   {"name": "Ploader(2)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"3":[[-1]]},"immutableParameter":2,"independentParameter":2}}]}]},
 
-{"name": "Tjava.nio.file.Files", "data":{"annotatedApi":1,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.nio.file.Files", "data":{"annotatedApi":1,"hc":{},"shallowAnalyzer":1}, "subs":[
  {"name": "SAcceptAllFilter(0)", "data":{"hc":{"E":true}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{}}},
   {"name": "Maccept(0)", "data":{"hc":{"0":"Tjava.nio.file.Path"}}, "sub":
    {"name": "Pentry(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}]},
  {"name": "SFileTypeDetectors(1)", "data":{"hc":{"E":true}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{}}},
   {"name": "McreateDefaultFileTypeDetector(0)", "data":{"hc":{"0":"Tjava.nio.file.spi.FileTypeDetector"},"hcsMethod":{"0":[[-1]]}}},
   {"name": "MloadInstalledDetectors(1)", "data":{"hc":{"0":"Tjava.util.List","1":"Tjava.nio.file.spi.FileTypeDetector"},"hcsMethod":{"0":[[-1]],"1":[[0]]}}}]},
- {"name": "C<init>(0)", "data":{"annotatedApi":1}},
+ {"name": "C<init>(0)", "data":{"annotatedApi":1,"hc":{}}},
  {"name": "Mprovider(0)", "data":{"hc":{"0":"Tjava.nio.file.Path","1":"Tjava.nio.file.spi.FileSystemProvider"},"hcsMethod":{"1":[[-1]]}}, "sub":
   {"name": "Ppath(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
  {"name": "MasUncheckedRunnable(1)", "data":{"hc":{"0":"Tjava.io.Closeable","1":"Tjava.lang.Runnable"},"hcsMethod":{"1":[[-1]]}}, "sub":
@@ -190,6 +193,7 @@
   {"name": "Ptime(1)", "data":{"annotatedApi":1}}]},
  {"name": "Msize(43)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.nio.file.Path"},"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Ppath(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "MfollowLinks(44)", "data":{"hc":{}}},
  {"name": "Mexists(45)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.nio.file.Path"},"immutableMethod":3,"independentMethod":2,"methodAllowsInterrupts":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Ppath(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
   {"name": "Poptions(1)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2}}]},
@@ -294,8 +298,8 @@
 
 {"name": "Tjava.nio.file.OpenOption", "data":{"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}},
 
-{"name": "Tjava.nio.file.Paths", "data":{"annotatedApi":1,"shallowAnalyzer":1}, "subs":[
- {"name": "C<init>(0)", "data":{"annotatedApi":1}},
+{"name": "Tjava.nio.file.Paths", "data":{"annotatedApi":1,"hc":{},"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"annotatedApi":1,"hc":{}}},
  {"name": "Mget(0)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.file.Path"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Pfirst(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "Pmore(1)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2}}]},
@@ -312,44 +316,44 @@
   {"name": "Pkind(1)", "data":{"containerParameter":1,"hcsParameter":{"1":[[1]]},"immutableParameter":1,"independentParameter":2}}]}]},
 
 {"name": "Tjava.nio.file.Path", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.file.Path","E":true,"M":1},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
- {"name": "Mof(0)", "data":{"annotatedApi":1,"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "Mof(0)", "data":{"annotatedApi":1,"hc":{"M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Pfirst(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "Pmore(1)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2}}]},
- {"name": "Mof(1)", "data":{"annotatedApi":1,"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "Mof(1)", "data":{"annotatedApi":1,"hc":{"M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Puri(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
  {"name": "MgetFileSystem(2)", "data":{"annotatedApi":1,"hc":{"1":"Tjava.nio.file.FileSystem","M":1},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "MisAbsolute(3)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MgetRoot(4)", "data":{"annotatedApi":1,"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "MgetFileName(5)", "data":{"annotatedApi":1,"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "MgetParent(6)", "data":{"annotatedApi":1,"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "MgetNameCount(7)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MgetName(8)", "data":{"annotatedApi":1,"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "MisAbsolute(3)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"M":1},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetRoot(4)", "data":{"annotatedApi":1,"hc":{"M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MgetFileName(5)", "data":{"annotatedApi":1,"hc":{"M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MgetParent(6)", "data":{"annotatedApi":1,"hc":{"M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MgetNameCount(7)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"M":1},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetName(8)", "data":{"annotatedApi":1,"hc":{"M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Pi(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
- {"name": "Msubpath(9)", "data":{"annotatedApi":1,"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "Msubpath(9)", "data":{"annotatedApi":1,"hc":{"M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Pi(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
   {"name": "Pi1(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
- {"name": "MstartsWith(10)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+ {"name": "MstartsWith(10)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"M":1},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Ppath(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
- {"name": "MstartsWith(11)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+ {"name": "MstartsWith(11)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"M":1},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pother(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
- {"name": "MendsWith(12)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+ {"name": "MendsWith(12)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"M":1},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Ppath(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
- {"name": "MendsWith(13)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+ {"name": "MendsWith(13)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"M":1},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pother(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
- {"name": "Mnormalize(14)", "data":{"annotatedApi":1,"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "Mresolve(15)", "data":{"annotatedApi":1,"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "Mnormalize(14)", "data":{"annotatedApi":1,"hc":{"M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "Mresolve(15)", "data":{"annotatedApi":1,"hc":{"M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Ppath(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
- {"name": "Mresolve(16)", "data":{"annotatedApi":1,"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "Mresolve(16)", "data":{"annotatedApi":1,"hc":{"M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Pother(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
- {"name": "MresolveSibling(17)", "data":{"annotatedApi":1,"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "MresolveSibling(17)", "data":{"annotatedApi":1,"hc":{"M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Pother(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
- {"name": "MresolveSibling(18)", "data":{"annotatedApi":1,"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "MresolveSibling(18)", "data":{"annotatedApi":1,"hc":{"M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Pother(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
- {"name": "Mrelativize(19)", "data":{"annotatedApi":1,"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "Mrelativize(19)", "data":{"annotatedApi":1,"hc":{"M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Ppath(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
- {"name": "MtoUri(20)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "MtoAbsolutePath(21)", "data":{"annotatedApi":1,"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "MtoRealPath(22)", "data":{"annotatedApi":1,"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "MtoUri(20)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"M":1},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MtoAbsolutePath(21)", "data":{"annotatedApi":1,"hc":{"M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MtoRealPath(22)", "data":{"annotatedApi":1,"hc":{"M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "PlinkOption(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2}}},
  {"name": "MtoFile(23)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"1":"Tjava.io.File","M":1},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "Mregister(24)", "data":{"annotatedApi":1,"hc":{"1":"Tjava.nio.file.WatchService","2":"Tjava.nio.file.WatchEvent.Kind","3":"Tjava.lang.Object","4":"Tjava.nio.file.WatchEvent.Modifier","5":"Tjava.nio.file.WatchKey","M":1},"hcsMethod":{"5":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
@@ -360,20 +364,20 @@
   {"name": "Pwatcher(0)", "data":{"annotatedApi":1,"hcsParameter":{"1":[[-1]]},"independentParameter":2}},
   {"name": "Pevents(1)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"2":[[2]]},"immutableParameter":1,"independentParameter":2}}]},
  {"name": "Miterator(26)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"1":"Tjava.util.Iterator","M":1},"hcsMethod":{"0":[[0]],"1":[[-1]]},"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "McompareTo(27)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+ {"name": "McompareTo(27)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"M":1},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Ppath(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2,"notNullParameter":1}}},
  {"name": "Mequals(28)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"1":"Tjava.lang.Object","M":1},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pobject(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
- {"name": "MhashCode(29)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MtoString(30)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}}]},
+ {"name": "MhashCode(29)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"M":1},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MtoString(30)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"M":1},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}}]},
 
 {"name": "Tjava.nio.file.FileSystem", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
- {"name": "C<init>(0)", "data":{"annotatedApi":1}},
+ {"name": "C<init>(0)", "data":{"annotatedApi":1,"hc":{}}},
  {"name": "Mprovider(0)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.file.spi.FileSystemProvider"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
- {"name": "Mclose(1)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
- {"name": "MisOpen(2)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MisReadOnly(3)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MgetSeparator(4)", "data":{"annotatedApi":1,"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "Mclose(1)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisOpen(2)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisReadOnly(3)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetSeparator(4)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "MgetRootDirectories(5)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.lang.Iterable","1":"Tjava.nio.file.Path"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"shallowAnalyzer":1}},
  {"name": "MgetFileStores(6)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.lang.Iterable","1":"Tjava.nio.file.FileStore"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"shallowAnalyzer":1}},
  {"name": "MsupportedFileAttributeViews(7)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.util.Set"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
@@ -385,10 +389,10 @@
  {"name": "MgetUserPrincipalLookupService(10)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.file.attribute.UserPrincipalLookupService"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
  {"name": "MnewWatchService(11)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.file.WatchService"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}}]},
 
-{"name": "Tjava.nio.file.LinkOption", "data":{"annotatedApi":1,"immutableType":3,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Tjava.nio.file.LinkOption", "data":{"annotatedApi":1,"hc":{},"immutableType":3,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "FNOFOLLOW_LINKS(0)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
- {"name": "C<init>(0)", "data":{"annotatedApi":1}},
- {"name": "Mvalues(0)", "data":{"containerMethod":1,"immutableMethod":1,"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "MvalueOf(1)", "data":{"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "C<init>(0)", "data":{"annotatedApi":1,"hc":{}}},
+ {"name": "Mvalues(0)", "data":{"containerMethod":1,"hc":{},"immutableMethod":1,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MvalueOf(1)", "data":{"hc":{},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}}]}
 ]

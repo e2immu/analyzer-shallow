@@ -7,9 +7,9 @@
   {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
  {"name": "MisAttached(3)", "data":{"containerMethod":1,"hc":{"1":"Tch.qos.logback.core.Appender","M":1},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pappender(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]},"independentParameter":2}}},
- {"name": "MdetachAndStopAllAppenders(4)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MdetachAndStopAllAppenders(4)", "data":{"containerMethod":1,"hc":{"M":1},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
  {"name": "MdetachAppender(5)", "data":{"containerMethod":1,"hc":{"1":"Tch.qos.logback.core.Appender","M":1},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pappender(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]},"independentParameter":2}}},
- {"name": "MdetachAppender(6)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+ {"name": "MdetachAppender(6)", "data":{"containerMethod":1,"hc":{"M":1},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}}]}
 ]

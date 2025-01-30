@@ -5,15 +5,15 @@
 
 {"name": "Torg.slf4j.Logger", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "FROOT_LOGGER_NAME(0)", "data":{"containerField":1,"finalField":1,"immutableField":3,"independentField":2,"shallowAnalyzer":1}},
- {"name": "MgetName(0)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MgetName(0)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "MmakeLoggingEventBuilder(1)", "data":{"hc":{"0":"Torg.slf4j.spi.LoggingEventBuilder"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Plevel(0)", "data":{"independentParameter":2}}},
  {"name": "MatLevel(2)", "data":{"hc":{"0":"Torg.slf4j.spi.LoggingEventBuilder"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Plevel(0)", "data":{"independentParameter":2}}},
- {"name": "MisEnabledForLevel(3)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+ {"name": "MisEnabledForLevel(3)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Plevel(0)", "data":{"independentParameter":2}}},
- {"name": "MisTraceEnabled(4)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "Mtrace(5)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+ {"name": "MisTraceEnabled(4)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mtrace(5)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
  {"name": "Mtrace(6)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
@@ -51,8 +51,8 @@
   {"name": "Pmarker(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
   {"name": "Pstring(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "Pthrowable(2)", "data":{"hcsParameter":{"1":[[-1]]},"independentParameter":2}}]},
- {"name": "MisDebugEnabled(17)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "Mdebug(18)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "MisDebugEnabled(17)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mdebug(18)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Pstring(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "Mdebug(19)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Pstring(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
@@ -90,8 +90,8 @@
   {"name": "Pstring(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "Pthrowable(2)", "data":{"hcsParameter":{"1":[[-1]]},"independentParameter":2}}]},
  {"name": "MatDebug(29)", "data":{"hc":{"0":"Torg.slf4j.spi.LoggingEventBuilder"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "MisInfoEnabled(30)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "Minfo(31)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+ {"name": "MisInfoEnabled(30)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Minfo(31)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
  {"name": "Minfo(32)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
@@ -129,8 +129,8 @@
   {"name": "Pstring(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "Pthrowable(2)", "data":{"hcsParameter":{"1":[[-1]]},"independentParameter":2}}]},
  {"name": "MatInfo(42)", "data":{"hc":{"0":"Torg.slf4j.spi.LoggingEventBuilder"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "MisWarnEnabled(43)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "Mwarn(44)", "data":{"containerMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+ {"name": "MisWarnEnabled(43)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mwarn(44)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
  {"name": "Mwarn(45)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
@@ -168,8 +168,8 @@
   {"name": "Pstring(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
   {"name": "Pthrowable(2)", "data":{"hcsParameter":{"1":[[-1]]},"independentParameter":2}}]},
  {"name": "MatWarn(55)", "data":{"hc":{"0":"Torg.slf4j.spi.LoggingEventBuilder"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "MisErrorEnabled(56)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "Merror(57)", "data":{"annotatedApi":1,"containerMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+ {"name": "MisErrorEnabled(56)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Merror(57)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "Pstring(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
  {"name": "Merror(58)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Pstring(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
@@ -208,25 +208,35 @@
   {"name": "Pthrowable(2)", "data":{"hcsParameter":{"1":[[-1]]},"independentParameter":2}}]},
  {"name": "MatError(68)", "data":{"hc":{"0":"Torg.slf4j.spi.LoggingEventBuilder"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}}]},
 
-{"name": "Torg.slf4j.LoggerFactory", "data":{"annotatedApi":1,"containerType":1,"independentType":2,"shallowAnalyzer":1}, "subs":[
+{"name": "Torg.slf4j.LoggerFactory", "data":{"annotatedApi":1,"containerType":1,"hc":{},"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "FPROVIDER_PROPERTY_KEY(11)", "data":{"containerField":1,"finalField":1,"immutableField":3,"independentField":2,"shallowAnalyzer":1}},
+ {"name": "C<init>(0)", "data":{"hc":{}}},
  {"name": "MfindServiceProviders(0)", "data":{"hc":{"0":"Tjava.util.List","1":"Torg.slf4j.spi.SLF4JServiceProvider"},"hcsMethod":{"0":[[-1]],"1":[[0]]}}},
  {"name": "MgetServiceLoader(1)", "data":{"hc":{"0":"Tjava.lang.ClassLoader","1":"Tjava.util.ServiceLoader","2":"Torg.slf4j.spi.SLF4JServiceProvider"},"hcsMethod":{"1":[[-1]],"2":[[0]]}}, "sub":
   {"name": "PclassLoaderOfLoggerFactory(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
  {"name": "MsafelyInstantiate(2)", "data":{"hc":{"0":"Tjava.util.List","1":"Torg.slf4j.spi.SLF4JServiceProvider","2":"Tjava.util.Iterator"}}, "subs":[
   {"name": "PproviderList(0)", "data":{"hcsParameter":{"0":[[-1]],"1":[[0]]}}},
   {"name": "Piterator(1)", "data":{"hcsParameter":{"1":[[0]],"2":[[-1]]}}}]},
+ {"name": "Mreset(3)", "data":{"hc":{}}},
+ {"name": "MperformInitialization(4)", "data":{"hc":{}}},
+ {"name": "Mbind(5)", "data":{"hc":{}}},
  {"name": "MloadExplicitlySpecified(6)", "data":{"hc":{"0":"Tjava.lang.ClassLoader","1":"Torg.slf4j.spi.SLF4JServiceProvider"},"hcsMethod":{"1":[[-1]]}}, "sub":
   {"name": "PclassLoader(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
  {"name": "MreportIgnoredStaticLoggerBinders(7)", "data":{"hc":{"0":"Tjava.util.Set"}}, "sub":
   {"name": "PstaticLoggerBinderPathSet(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
  {"name": "MfindPossibleStaticLoggerBinderPathSet(8)", "data":{"hc":{"0":"Tjava.util.Set"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MpostBindCleanUp(9)", "data":{"hc":{}}},
+ {"name": "MfixSubstituteLoggers(10)", "data":{"hc":{}}},
  {"name": "MfailedBinding(11)", "data":{"hc":{"0":"Tjava.lang.Throwable"}}, "sub":
   {"name": "Pt(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MreplayEvents(12)", "data":{"hc":{}}},
  {"name": "MemitReplayOrSubstituionWarning(13)", "data":{"hc":{"0":"Torg.slf4j.event.SubstituteLoggingEvent"}}, "subs":[
   {"name": "Pevent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
  {"name": "MreplaySingleEvent(14)", "data":{"hc":{"0":"Torg.slf4j.event.SubstituteLoggingEvent"}}, "sub":
   {"name": "Pevent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MemitSubstitutionWarning(15)", "data":{"hc":{}}},
+ {"name": "MemitReplayWarning(16)", "data":{"hc":{}}},
+ {"name": "MversionSanityCheck(17)", "data":{"hc":{}}},
  {"name": "MisAmbiguousProviderList(18)", "data":{"hc":{"0":"Tjava.util.List","1":"Torg.slf4j.spi.SLF4JServiceProvider"}}, "sub":
   {"name": "PproviderList(0)", "data":{"hcsParameter":{"0":[[-1]],"1":[[0]]}}}},
  {"name": "MreportMultipleBindingAmbiguity(19)", "data":{"hc":{"0":"Tjava.util.List","1":"Torg.slf4j.spi.SLF4JServiceProvider"}}, "sub":
@@ -246,19 +256,19 @@
 {"name": "Torg.slf4j.Marker", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "FANY_MARKER(0)", "data":{"containerField":1,"finalField":1,"immutableField":3,"independentField":2,"shallowAnalyzer":1}},
  {"name": "FANY_NON_NULL_MARKER(1)", "data":{"containerField":1,"finalField":1,"immutableField":3,"independentField":2,"shallowAnalyzer":1}},
- {"name": "MgetName(0)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MgetName(0)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "Madd(1)", "data":{"containerMethod":1,"hc":{"0":"Torg.slf4j.Marker"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pmarker(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]}}}},
  {"name": "Mremove(2)", "data":{"containerMethod":1,"hc":{"0":"Torg.slf4j.Marker"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pmarker(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
- {"name": "MhasChildren(3)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MhasReferences(4)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MhasChildren(3)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MhasReferences(4)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "Miterator(5)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.Iterator","1":"Torg.slf4j.Marker"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"shallowAnalyzer":1}},
  {"name": "Mcontains(6)", "data":{"containerMethod":1,"hc":{"0":"Torg.slf4j.Marker"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pmarker(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
- {"name": "Mcontains(7)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+ {"name": "Mcontains(7)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
  {"name": "Mequals(8)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pobject(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
- {"name": "MhashCode(9)", "data":{"containerMethod":1,"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}}]}
+ {"name": "MhashCode(9)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}}]}
 ]

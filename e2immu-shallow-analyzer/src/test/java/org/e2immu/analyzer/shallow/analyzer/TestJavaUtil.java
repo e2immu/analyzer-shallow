@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static org.e2immu.analyzer.modification.prepwork.hcs.HiddenContentSelector.HCS_PARAMETER;
+import static org.e2immu.analyzer.modification.prepwork.hcs.HiddenContentSelector.*;
 import static org.e2immu.analyzer.modification.prepwork.hct.HiddenContentTypes.HIDDEN_CONTENT_TYPES;
 import static org.e2immu.language.cst.impl.analysis.PropertyImpl.*;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.FALSE;
@@ -506,6 +506,10 @@ public class TestJavaUtil extends CommonTest {
 
         assertSame(INDEPENDENT_HC, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
         assertSame(IMMUTABLE_HC, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
+
+        assertEquals("Iterator:E - next:", methodInfo.analysis()
+                .getOrDefault(HIDDEN_CONTENT_TYPES, HiddenContentTypes.NO_VALUE).toString());
+        assertEquals("*", methodInfo.analysis().getOrDefault(HCS_METHOD, NONE).toString());
     }
 
     @Test
