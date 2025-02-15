@@ -57,55 +57,45 @@ public class AnnotationHelper {
     }
 
 
-    public List<AnnotationExpression> annotationsToWrite(Info info, List<AnnotationExpression> overrides) {
-        Map<Property, Value> overrideMap = overrides == null ? Map.of()
-                : AnnotationExpressionsToPropertyValueMap.annotationsToMap(info, overrides);
-
+    public List<AnnotationExpression> annotationsToWrite(Info info) {
         // we want to maintain the order of the annotations
-        List<AnnotationExpression> map = new ArrayList<>();
+        List<AnnotationExpression> list = new ArrayList<>();
         if (info instanceof ParameterInfo pi) {
             boolean mutable = analysisHelper.typeImmutable(pi.parameterizedType()).isMutable();
             if (mutable) {
-                add(map, overrideMap, info, INDEPENDENT_PARAMETER, ValueImpl.IndependentImpl.DEPENDENT);
-                add(map, overrideMap, info, MODIFIED_PARAMETER, FALSE);
+                add(list, info, INDEPENDENT_PARAMETER, ValueImpl.IndependentImpl.DEPENDENT);
+                add(list, info, MODIFIED_PARAMETER, FALSE);
             }
         } else if (info instanceof MethodInfo methodInfo) {
             boolean mutable = analysisHelper.typeImmutable(methodInfo.returnType()).isMutable();
             if (mutable) {
-                add(map, overrideMap, info, INDEPENDENT_METHOD, ValueImpl.IndependentImpl.DEPENDENT);
+                add(list, info, INDEPENDENT_METHOD, ValueImpl.IndependentImpl.DEPENDENT);
             }
-            add(map, overrideMap, info, MODIFIED_METHOD, FALSE);
-            add(map, overrideMap, info, FLUENT_METHOD, FALSE);
-            add(map, overrideMap, info, IDENTITY_METHOD, FALSE);
-            add(map, overrideMap, info, METHOD_ALLOWS_INTERRUPTS, FALSE);
+            add(list, info, MODIFIED_METHOD, FALSE);
+            add(list, info, FLUENT_METHOD, FALSE);
+            add(list, info, IDENTITY_METHOD, FALSE);
+            add(list, info, METHOD_ALLOWS_INTERRUPTS, FALSE);
         } else if (info instanceof TypeInfo) {
-            Value.Immutable immutable = (Value.Immutable) add(map, overrideMap, info, IMMUTABLE_TYPE,
+            Value.Immutable immutable = (Value.Immutable) add(list, info, IMMUTABLE_TYPE,
                     ValueImpl.ImmutableImpl.MUTABLE);
             if (immutable.isMutable()) {
-                add(map, overrideMap, info, INDEPENDENT_TYPE, ValueImpl.IndependentImpl.DEPENDENT);
+                add(list, info, INDEPENDENT_TYPE, ValueImpl.IndependentImpl.DEPENDENT);
             }
         } else if (info instanceof FieldInfo fieldInfo) {
             boolean mutable = analysisHelper.typeImmutable(fieldInfo.type()).isMutable();
             if (mutable) {
-                add(map, overrideMap, info, MODIFIED_FIELD, FALSE);
+                add(list, info, MODIFIED_FIELD, FALSE);
             }
             if (!fieldInfo.isFinal()) {
-                add(map, overrideMap, info, FINAL_FIELD, FALSE);
+                add(list, info, FINAL_FIELD, FALSE);
             }
         } else throw new UnsupportedOperationException();
-        return map;
+        return list;
     }
 
-    private Value add(List<AnnotationExpression> list,
-                      Map<Property, Value> overrideMap,
-                      Info info,
-                      Property property,
-                      Value defaultValue) {
+    private Value add(List<AnnotationExpression> list, Info info, Property property, Value defaultValue) {
         Value computed = info.analysis().getOrDefault(property, defaultValue);
-        Value override = overrideMap.get(property);
-        if (override != null) {
-            toWrite = override;
-        } else if (!computed.equals(defaultValue)) {
+        if (!computed.equals(defaultValue)) {
             list.add(createAnnotation(property, computed));
         }
         return defaultValue;

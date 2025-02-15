@@ -280,19 +280,22 @@ public class Composer {
 
     private void addAnnotationsOrComment(Info info, Info.Builder<?> builder) {
         List<AnnotationExpression> overrides = annotationOverrides.get(info);
-        Map<Property, Value> explicit = annotationHelper.annotationsToWrite(info, overrides);
-        if (overrides != null && !overrides.isEmpty()) {
-            for (Map.Entry<Property, Value> entry : explicit.entrySet()) {
-                AnnotationExpression ae = annotationHelper.createAnnotation(entry.getKey(), entry.getValue());
-                builder.addAnnotation(ae);
-            }
+        boolean haveOverrides = overrides != null && !overrides.isEmpty();
+        if (haveOverrides) {
+            builder.addAnnotations(overrides);
         } else {
             StringBuilder commentStringBuilder = new StringBuilder();
             if (overrides == null) commentStringBuilder.append("? ");
             Qualification qualification = runtime.qualificationQualifyFromPrimaryType();
-            for (Map.Entry<Property, Value> entry : explicit.entrySet()) {
-                AnnotationExpression ae = annotationHelper.createAnnotation(entry.getKey(), entry.getValue());
-                commentStringBuilder.append(" ").append(ae.print(qualification));
+            List<AnnotationExpression> toWrite = annotationHelper.annotationsToWrite(info);
+            boolean first = true;
+            for (AnnotationExpression ae : toWrite) {
+                if (first) {
+                    first = false;
+                } else {
+                    commentStringBuilder.append(" ");
+                }
+                commentStringBuilder.append(ae.print(qualification));
             }
             Comment comment;
             String commentString = commentStringBuilder.toString();
