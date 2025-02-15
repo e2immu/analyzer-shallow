@@ -5,6 +5,7 @@ import org.e2immu.language.cst.api.analysis.Codec;
 import org.e2immu.language.cst.api.info.Info;
 import org.e2immu.language.cst.io.CodecImpl;
 import org.e2immu.language.inspection.api.integration.JavaInspector;
+import org.e2immu.language.inspection.api.resource.PathEntry;
 import org.parsers.json.JSONParser;
 import org.parsers.json.Node;
 import org.parsers.json.ast.Array;
@@ -17,13 +18,15 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class LoadAnalyzedAnnotatedAPI {
     private static final Logger LOGGER = LoggerFactory.getLogger(LoadAnalyzedAnnotatedAPI.class);
 
     public void go(JavaInspector javaInspector, AnnotatedAPIConfiguration annotatedAPIConfiguration) throws IOException {
-        Codec codec =new PrepWorkCodec(javaInspector.runtime()).codec();
+        Codec codec = new PrepWorkCodec(javaInspector.runtime()).codec();
         go(codec, annotatedAPIConfiguration);
     }
 
@@ -31,7 +34,7 @@ public class LoadAnalyzedAnnotatedAPI {
         for (String dir : annotatedAPIConfiguration.analyzedAnnotatedApiDirs()) {
             File directory = new File(dir);
             if (directory.canRead()) {
-                new LoadAnalyzedAnnotatedAPI().goDir(codec, directory);
+                new LoadAnalyzedAnnotatedAPI().goDir(codec, null, directory);
                 LOGGER.info("Finished reading all json files in AAAPI {}", directory.getAbsolutePath());
             } else {
                 LOGGER.warn("Path '{}' is not a directory containing analyzed annotated API files", directory);
@@ -41,26 +44,53 @@ public class LoadAnalyzedAnnotatedAPI {
 
     public void goDir(JavaInspector javaInspector, File directory) throws IOException {
         Codec codec = new PrepWorkCodec(javaInspector.runtime()).codec();
-        goDir(codec, directory);
+        goDir(codec, null, directory);
     }
 
-    public void goDir(Codec codec, File directory) throws IOException {
+    public Map<String, Boolean> goDir(Codec codec, Map<String, List<PathEntry>> expectedHashPerPackage, File directory) throws IOException {
         File[] jsonFiles = directory.listFiles(fnf -> fnf.getName().endsWith(".json"));
         assert jsonFiles != null;
+        Map<String, Boolean> res = new HashMap<>();
         for (File jsonFile : jsonFiles) {
-            go(codec, jsonFile);
+            PackageLoaded pl = go(codec, expectedHashPerPackage, jsonFile);
+            if (pl.packageName != null) {
+                res.put(pl.packageName, pl.loaded);
+            }
         }
+        return res;
     }
 
-    public void go(Codec codec, File jsonFile) throws IOException {
+    public record PackageLoaded(String packageName, boolean loaded) {
+    }
+
+    public PackageLoaded go(Codec codec, Map<String, List<PathEntry>> expectedHashPerPackage, File jsonFile) throws IOException {
         LOGGER.info("Parsing {}", jsonFile);
         String s = Files.readString(jsonFile.toPath());
         JSONParser parser = new JSONParser(s);
         parser.Root();
         Node root = parser.rootNode();
+        int i = 0;
+        String packageName = null;
         for (JSONObject jo : root.get(0).childrenOfType(JSONObject.class)) {
-            processPrimaryType(codec, jo);
+            if (i == 0 && havePackageAndPathEntries(jo)) {
+                if (differentPathEntries(jo, expectedHashPerPackage)) {
+                    return new PackageLoaded(packageName, false);
+                }
+            } else {
+                processPrimaryType(codec, jo);
+            }
+            ++i;
         }
+        return new PackageLoaded(packageName, true); // loaded
+    }
+
+    private boolean differentPathEntries(JSONObject jo, Map<String, List<PathEntry>> expectedHashPerPackage) {
+        return false; // FIXME to implement!
+    }
+
+    private boolean havePackageAndPathEntries(JSONObject jo) {
+        return false; // FIXME  jo.get(1) instanceof KeyValuePair packageKv
+        //  && "package".equals(CodecImpl.unquote(packageKv.get(2).getSource()));
     }
 
     private static void processPrimaryType(Codec codec, JSONObject jo) {

@@ -15,8 +15,11 @@
 package org.e2immu.analyzer.shallow.analyzer;
 
 
+import org.e2immu.language.cst.api.analysis.Property;
+import org.e2immu.language.cst.api.analysis.Value;
 import org.e2immu.language.cst.api.element.Comment;
 import org.e2immu.language.cst.api.element.CompilationUnit;
+import org.e2immu.language.cst.api.expression.AnnotationExpression;
 import org.e2immu.language.cst.api.expression.Expression;
 import org.e2immu.language.cst.api.info.*;
 import org.e2immu.language.cst.api.output.Formatter;
@@ -29,10 +32,9 @@ import org.e2immu.language.cst.api.type.ParameterizedType;
 import org.e2immu.language.cst.api.type.TypeParameter;
 import org.e2immu.language.cst.impl.element.SingleLineComment;
 import org.e2immu.language.cst.impl.info.TypePrinter;
-import org.e2immu.language.cst.impl.output.QualificationImpl;
-import org.e2immu.language.cst.impl.type.DiamondEnum;
 import org.e2immu.language.cst.print.FormatterImpl;
 import org.e2immu.language.cst.print.FormattingOptionsImpl;
+import org.e2immu.language.inspection.api.resource.PathEntry;
 import org.e2immu.util.internal.util.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,6 +48,7 @@ import java.util.*;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 /*
@@ -72,25 +75,63 @@ public class NameOfPackageWithoutDots {
     }
  }
 
-- The purpose of this class is to generate an AnnotatedAPI file for others to start editing.
-  This can be run on byte-code inspected Java, meaning the JavaParser needn't used, so we can do Java 16 already.
 
-- Only public methods, types and fields will be shown.
+  new for 202502
+  - unconfirmed annotations: //? @...
+  - confirmed annotations: //@...
+  - override annotations (different from computation): uncommented
+  this works fine for type, field, method, but not so much for parameters.
 
+  the step from unconfirmed to confirmed: user removes "? "
+  the only difference between confirmed and unconfirmed is that confirmed ones are excluded from the frequency ** system.
  */
 public class Composer {
     private static final Logger LOGGER = LoggerFactory.getLogger(Composer.class);
     private final Runtime runtime;
     private final String destinationPackage;
     private final Predicate<Info> predicate;
+    private final Map<Info, Integer> frequencyTable;
+    private final Map<Info, List<AnnotationExpression>> annotationOverrides;
+    private final Map<String, List<PathEntry>> pathEntriesPerPackage;
+
     private final Map<Info, Info> translateFromDollarToReal = new HashMap<>();
+    private final TreeMap<Integer, Integer> starBounds;
+    private final AnnotationHelper annotationHelper;
 
     public Composer(Runtime runtime,
                     String destinationPackage,
+                    Map<Info, Integer> frequencyTable,
+                    Map<Info, List<AnnotationExpression>> annotationOverrides,
+                    Map<String, List<PathEntry>> pathEntriesPerPackage,
                     Predicate<Info> predicate) {
         this.runtime = runtime;
         this.destinationPackage = destinationPackage;
         this.predicate = predicate;
+        this.frequencyTable = frequencyTable;
+        this.annotationOverrides = annotationOverrides;
+        this.pathEntriesPerPackage = pathEntriesPerPackage;
+        starBounds = computeStarBounds(frequencyTable, annotationOverrides);
+        annotationHelper = new AnnotationHelper(runtime);
+    }
+
+    private TreeMap<Integer, Integer> computeStarBounds(Map<Info, Integer> frequencyTable,
+                                                        Map<Info, List<AnnotationExpression>> annotationOverrides) {
+        if (frequencyTable == null || annotationOverrides == null) return new TreeMap<>();
+        int[] frequenciesSorted = frequencyTable.entrySet().stream()
+                .filter(e -> !annotationOverrides.containsKey(e.getKey()))
+                .mapToInt(Map.Entry::getValue).sorted().toArray();
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+        if (frequenciesSorted.length <= 5) {
+            for (int i = 0; i < frequenciesSorted.length; i++) map.put(frequenciesSorted[i], i);
+        } else {
+            int n = frequenciesSorted.length;
+            map.put((n * 99) / 100, 5); // 99%
+            map.put((n * 95) / 100, 4); // 95%
+            map.put((n * 9) / 10, 3);   // 90%
+            map.put((n * 75) / 100, 2); // 75%
+            map.put((n * 5) / 10, 1);   // 50%
+        }
+        return map;
     }
 
     public Collection<TypeInfo> compose(Collection<TypeInfo> primaryTypes) {
@@ -113,7 +154,7 @@ public class Composer {
         TypeInfo newType = createType(parentType, typeInfo, topLevel);
         translateFromDollarToReal.put(newType, typeInfo);
 
-        newType.builder().addComment(addCommentLine(typeInfo));
+        newType.builder().addComment(addInformationLine(typeInfo));
 
         for (TypeInfo subType : typeInfo.subTypes()) {
             appendType(newType, subType, false);
@@ -147,13 +188,14 @@ public class Composer {
         parentType.builder().addSubType(newType);
     }
 
-    private Comment addCommentLine(MethodInfo methodInfo) {
+    private Comment addInformationLine(MethodInfo methodInfo) {
         String shortString = "overrides in " + methodInfo.overrides()
-                .stream().map(mi -> mi.typeInfo().fullyQualifiedName()).sorted().collect(Collectors.joining(", "));
+                .stream().map(mi -> mi.typeInfo().fullyQualifiedName()).sorted().collect(Collectors.joining(", "))
+                             + frequencyString(methodInfo);
         return new SingleLineComment(shortString);
     }
 
-    private Comment addCommentLine(TypeInfo typeInfo) {
+    private Comment addInformationLine(TypeInfo typeInfo) {
         String access = TypePrinter.minimalModifiers(typeInfo)
                 .stream().map(m -> m.keyword().minimal())
                 .collect(Collectors.joining(" ", "", " "));
@@ -164,7 +206,8 @@ public class Composer {
                 : " implements " + typeInfo.interfacesImplemented().stream()
                 .map(i -> i.print(runtime.qualificationQualifyFromPrimaryType(), false, runtime.diamondShowAll()).toString())
                 .collect(Collectors.joining(", "));
-        String shortString = access + type + typeInfo.simpleName() + extendString + implementString;
+        String shortString = access + type + typeInfo.simpleName() + extendString + implementString
+                             + frequencyString(typeInfo);
         return new SingleLineComment(shortString);
     }
 
@@ -183,6 +226,7 @@ public class Composer {
         } else {
             builder.setInitializer(runtime.newEmptyExpression());
         }
+        addAnnotationsOrComment(fieldInfo, builder);
         builder.setAccess(runtime.accessPackage()).commit();
         return newField;
     }
@@ -196,39 +240,69 @@ public class Composer {
                     : runtime.methodTypeMethod();
             newMethod = runtime.newMethod(owner, methodInfo.name(), methodType);
             if (!methodInfo.overrides().isEmpty()) {
-                newMethod.builder().addComment(addCommentLine(methodInfo));
+                newMethod.builder().addComment(addInformationLine(methodInfo));
             }
         }
+        MethodInfo.Builder builder = newMethod.builder();
+        addAnnotationsOrComment(methodInfo, methodInfo.builder());
         ParameterizedType returnType = methodInfo.returnType();
-        newMethod.builder()
+        builder
                 .setAccess(runtime.accessPackage())
                 .setReturnType(returnType);
         if (methodInfo.hasReturnValue()) {
             Expression defaultReturnValue = runtime.nullValue(returnType);
             Statement returnStatement = runtime.newReturnStatement(defaultReturnValue);
             Block block = runtime.newBlockBuilder().addStatement(returnStatement).build();
-            newMethod.builder().setMethodBody(block);
+            builder.setMethodBody(block);
         } else {
-            newMethod.builder().setMethodBody(runtime.newBlockBuilder().build());
+            builder.setMethodBody(runtime.newBlockBuilder().build());
         }
         for (ParameterInfo p : methodInfo.parameters()) {
-            ParameterInfo pi = newMethod.builder().addParameter(p.name(), p.parameterizedType());
+            ParameterInfo pi = builder.addParameter(p.name(), p.parameterizedType());
+            addAnnotationsOrComment(pi, pi.builder());
             pi.builder().setVarArgs(p.isVarArgs()).commit();
         }
         for (TypeParameter tp : methodInfo.typeParameters()) {
             TypeParameter newTp = runtime.newTypeParameter(tp.getIndex(), tp.simpleName(), newMethod);
-            newMethod.builder().addTypeParameter(newTp);
+            builder.addTypeParameter(newTp);
         }
         if (methodInfo.isOverloadOfJLOMethod()) {
             LOGGER.info("Method {} is overload", methodInfo);
             if ("clone".equals(methodInfo.name()) || "finalize".equals(methodInfo.name())) {
-                newMethod.builder().addMethodModifier(runtime.methodModifierProtected()).setAccess(runtime.accessProtected());
+                builder.addMethodModifier(runtime.methodModifierProtected()).setAccess(runtime.accessProtected());
             } else {
-                newMethod.builder().addMethodModifier(runtime.methodModifierPublic()).setAccess(runtime.accessPublic());
+                builder.addMethodModifier(runtime.methodModifierPublic()).setAccess(runtime.accessPublic());
             }
         }
-        newMethod.builder().commitParameters().commit();
+        builder.commitParameters().commit();
         return newMethod;
+    }
+
+    private void addAnnotationsOrComment(Info info, Info.Builder<?> builder) {
+        List<AnnotationExpression> overrides = annotationOverrides.get(info);
+        Map<Property, Value> explicit = annotationHelper.annotationsToWrite(info, overrides);
+        if (overrides != null && !overrides.isEmpty()) {
+            for (Map.Entry<Property, Value> entry : explicit.entrySet()) {
+                AnnotationExpression ae = annotationHelper.createAnnotation(entry.getKey(), entry.getValue());
+                builder.addAnnotation(ae);
+            }
+        } else {
+            StringBuilder commentStringBuilder = new StringBuilder();
+            if (overrides == null) commentStringBuilder.append("? ");
+            Qualification qualification = runtime.qualificationQualifyFromPrimaryType();
+            for (Map.Entry<Property, Value> entry : explicit.entrySet()) {
+                AnnotationExpression ae = annotationHelper.createAnnotation(entry.getKey(), entry.getValue());
+                commentStringBuilder.append(" ").append(ae.print(qualification));
+            }
+            Comment comment;
+            String commentString = commentStringBuilder.toString();
+            if (info instanceof ParameterInfo) {
+                comment = runtime.newMultilineComment(commentString);
+            } else {
+                comment = runtime.newSingleLineComment(commentString);
+            }
+            builder.addComment(comment);
+        }
     }
 
     private TypeInfo createType(TypeInfo parent, TypeInfo typeToCopy, boolean topLevel) {
@@ -242,6 +316,7 @@ public class Composer {
             TypeParameter newTp = runtime.newTypeParameter(tp.getIndex(), tp.simpleName(), typeInfo);
             typeInfo.builder().addOrSetTypeParameter(newTp);
         }
+        addAnnotationsOrComment(typeInfo, typeInfo.builder());
         return typeInfo;
     }
 
@@ -269,6 +344,20 @@ public class Composer {
                 .setInitializer(runtime.newStringConstant(packageName))
                 .commit();
         builder.addField(packageField);
+        FieldInfo pathEntries = runtime.newFieldInfo("SOURCES", true,
+                runtime.stringParameterizedType().copyWithArrays(1), typeInfo);
+        List<Expression> strings = pathEntriesPerPackage.getOrDefault(packageName, List.of()).stream()
+                .flatMap(pe -> Stream.concat(Stream.of((Expression) runtime.newStringConstant(pe.path())),
+                        Stream.of(runtime.newStringConstant(pe.hash()))))
+                .toList();
+        pathEntries.builder()
+                .addFieldModifier(runtime.fieldModifierFinal())
+                .addFieldModifier(runtime.fieldModifierStatic())
+                .addFieldModifier(runtime.fieldModifierPublic())
+                .setAccess(runtime.accessPublic())
+                .setInitializer(runtime.newArrayInitializerBuilder()
+                        .setExpressions(strings)
+                        .setCommonType(runtime.stringParameterizedType()).build());
         return typeInfo;
     }
 
@@ -312,5 +401,15 @@ public class Composer {
             ++count;
         }
         LOGGER.info("Wrote {} files", count);
+    }
+
+    private String frequencyString(Info info) {
+        if (frequencyTable == null || annotationOverrides == null) return "";
+        if (annotationOverrides.containsKey(info)) return "";
+        Integer freq = frequencyTable.get(info);
+        if (freq == null || freq == 0) return "";
+        Integer stars = starBounds.floorKey(freq);
+        if (stars == null) return "";
+        return "; freq " + ("*".repeat(stars));
     }
 }

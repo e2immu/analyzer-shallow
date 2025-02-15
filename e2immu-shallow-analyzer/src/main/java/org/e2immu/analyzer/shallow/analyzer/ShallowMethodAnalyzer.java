@@ -23,14 +23,15 @@ import static org.e2immu.language.cst.impl.analysis.ValueImpl.IndependentImpl.*;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.NotNullImpl.NOT_NULL;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.NotNullImpl.NULLABLE;
 
-public class ShallowMethodAnalyzer extends CommonAnalyzer {
+public class ShallowMethodAnalyzer {
     private static final Logger LOGGER = LoggerFactory.getLogger(ShallowMethodAnalyzer.class);
     private final AnalysisHelper analysisHelper;
     private final Map<TypeInfo, Set<TypeInfo>> hierarchyProblems = new HashMap<>();
     private final List<Message> messages = new LinkedList<>();
+    private final AnnotationProvider annotationProvider;
 
     public ShallowMethodAnalyzer(AnnotationProvider annotationProvider) {
-        super(annotationProvider);
+        this.annotationProvider = annotationProvider;
         this.analysisHelper = new AnalysisHelper();
     }
 
@@ -47,7 +48,7 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
         boolean explicitlyEmpty = methodInfo.explicitlyEmptyMethod();
 
         List<AnnotationExpression> annotations = annotationProvider.annotations(methodInfo);
-        Map<Property, Value> map = annotationsToMap(methodInfo, annotations);
+        Map<Property, Value> map = AnnotationExpressionsToPropertyValueMap.annotationsToMap(methodInfo, annotations);
 
         methodPropertiesBeforeParameters(methodInfo, map, explicitlyEmpty, defaultModifiedMethod);
 
@@ -261,7 +262,7 @@ public class ShallowMethodAnalyzer extends CommonAnalyzer {
                                  boolean explicitlyEmpty,
                                  boolean defaultModifiedParameter) {
         List<AnnotationExpression> annotations = annotationProvider.annotations(parameterInfo);
-        Map<Property, Value> map = annotationsToMap(parameterInfo, annotations);
+        Map<Property, Value> map = AnnotationExpressionsToPropertyValueMap.annotationsToMap(parameterInfo, annotations);
         if (explicitlyEmpty) {
             Value.Independent ind = (Value.Independent) map.get(INDEPENDENT_PARAMETER);
             if (ind != null && ind != INDEPENDENT) {

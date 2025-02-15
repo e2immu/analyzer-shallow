@@ -5,6 +5,7 @@ import org.e2immu.language.cst.api.analysis.Codec;
 import org.e2immu.language.cst.api.info.*;
 import org.e2immu.language.cst.impl.analysis.PropertyProviderImpl;
 import org.e2immu.language.cst.io.CodecImpl;
+import org.e2immu.language.inspection.api.resource.PathEntry;
 import org.e2immu.util.internal.util.Trie;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,10 +15,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -26,9 +24,11 @@ public class WriteAnalysis {
     private static final Logger LOGGER = LoggerFactory.getLogger(WriteAnalysis.class);
 
     private final Runtime runtime;
+    private final Map<String, List<PathEntry>> pathEntriesPerPackage;
 
-    public WriteAnalysis(Runtime runtime) {
+    public WriteAnalysis(Runtime runtime, Map<String, List<PathEntry>> pathEntriesPerPackage) {
         this.runtime = runtime;
+        this.pathEntriesPerPackage = pathEntriesPerPackage;
     }
 
     public void write(String destinationDirectory, Trie<TypeInfo> typeTrie) throws IOException {
@@ -55,11 +55,26 @@ public class WriteAnalysis {
         if (list.isEmpty()) return;
         String compressedPackages = Arrays.stream(packageParts).map(WriteAnalysis::capitalize)
                 .collect(Collectors.joining());
+        String packageName = String.join(".", packageParts);
         File outputFile = new File(directory, compressedPackages + ".json");
         LOGGER.info("Writing {} type(s) to {}", list.size(), outputFile.getAbsolutePath());
         try (OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(outputFile), StandardCharsets.UTF_8)) {
             osw.write("[");
-            AtomicBoolean first = new AtomicBoolean(true);
+            List<PathEntry> pathEntries = pathEntriesPerPackage.getOrDefault(packageName, List.of());
+            if (!pathEntries.isEmpty()) {
+                osw.write("[ {\"package\": ");
+                osw.write(CodecImpl.quote(packageName));
+                osw.write("}");
+                for (PathEntry pe : pathEntries) {
+                    osw.write(", {\"path\": ");
+                    osw.write(CodecImpl.quote(pe.path()));
+                    osw.write(", \"hash\": ");
+                    osw.write(CodecImpl.quote(pe.hash()));
+                    osw.write("}");
+                }
+                osw.write("]");
+            }
+            AtomicBoolean first = new AtomicBoolean(pathEntries.isEmpty());
             for (TypeInfo typeInfo : list) {
                 writePrimary(osw, codec, first, typeInfo);
             }

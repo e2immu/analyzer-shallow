@@ -44,7 +44,8 @@ public class TestComposer {
         JavaInspector javaInspector = new JavaInspectorImpl();
         javaInspector.initialize(inputConfigurationBuilder.build());
 
-        Composer composer = new Composer(javaInspector.runtime(), "org.e2immu.testannotatedapi", w -> true);
+        Composer composer = new Composer(javaInspector.runtime(), "org.e2immu.testannotatedapi",
+                null, w -> true);
         List<TypeInfo> primaryTypes = javaInspector.compiledTypesManager()
                 .typesLoaded().stream().filter(TypeInfo::isPrimaryType).toList();
         LOGGER.info("Have {} primary types loaded", primaryTypes.size());

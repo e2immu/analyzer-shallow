@@ -22,24 +22,14 @@ import org.slf4j.LoggerFactory;
 import java.util.*;
 import java.util.stream.Stream;
 
-class CommonAnalyzer {
-    private static final Logger LOGGER = LoggerFactory.getLogger(CommonAnalyzer.class);
+public class AnnotationExpressionsToPropertyValueMap {
+    private static final Logger LOGGER = LoggerFactory.getLogger(AnnotationExpressionsToPropertyValueMap.class);
 
-    protected final AnnotationProvider annotationProvider;
-
-    CommonAnalyzer(AnnotationProvider annotationProvider) {
-        this.annotationProvider = annotationProvider;
+    private AnnotationExpressionsToPropertyValueMap() {
+        throw new UnsupportedOperationException();
     }
 
-    @SuppressWarnings("unchecked")
-    protected <T extends Value> T leastOfHierarchy(TypeInfo typeInfo, Property property, T defaultValue, T bestValue) {
-        return typeInfo.recursiveSuperTypeStream()
-                .filter(TypeInfo::isPublic)
-                .map(ti -> ti.analysis().getOrDefault(property, defaultValue))
-                .reduce(bestValue, (t1, t2) -> (T) t1.min(t2));
-    }
-
-    protected Map<Property, Value> annotationsToMap(Info info, List<AnnotationExpression> annotations) {
+    public static Map<Property, Value> annotationsToMap(Info info, List<AnnotationExpression> annotations) {
         Value.Immutable immutable = null;
         Value.Independent independent = null;
         Value.NotNull notNull = null;
@@ -238,7 +228,8 @@ class CommonAnalyzer {
         throw new UnsupportedOperationException();
     }
 
-    private Value.GetSetEquivalent findBestCompatibleMethod(Stream<MethodInfo> candidateStream, MethodInfo target) {
+
+    private static Value.GetSetEquivalent findBestCompatibleMethod(Stream<MethodInfo> candidateStream, MethodInfo target) {
         return candidateStream
                 .map(mi -> createGetSetEquivalent(mi, target))
                 .filter(Objects::nonNull)
@@ -249,7 +240,7 @@ class CommonAnalyzer {
     /*
     return null when not compatible.
      */
-    private Value.GetSetEquivalent createGetSetEquivalent(MethodInfo candidate, MethodInfo target) {
+    private static Value.GetSetEquivalent createGetSetEquivalent(MethodInfo candidate, MethodInfo target) {
         if (candidate.parameters().size() >= target.parameters().size()) return null;
         Set<ParameterInfo> params = new HashSet<>(target.parameters());
         for (ParameterInfo pi : candidate.parameters()) {
@@ -262,7 +253,7 @@ class CommonAnalyzer {
         return new ValueImpl.GetSetEquivalentImpl(params, candidate);
     }
 
-    private Value.Independent simpleComputeIndependent(TypeInfo typeInfo, Value.Immutable immutable) {
+    private static Value.Independent simpleComputeIndependent(TypeInfo typeInfo, Value.Immutable immutable) {
         if (immutable != null) {
             if (immutable.isImmutable()) return ValueImpl.IndependentImpl.INDEPENDENT;
             if (immutable.isAtLeastImmutableHC()) return ValueImpl.IndependentImpl.INDEPENDENT_HC;
@@ -278,5 +269,13 @@ class CommonAnalyzer {
                     ValueImpl.IndependentImpl.INDEPENDENT);
         }
         return ValueImpl.IndependentImpl.DEPENDENT;
+    }
+
+    @SuppressWarnings("unchecked")
+    static <T extends Value> T leastOfHierarchy(TypeInfo typeInfo, Property property, T defaultValue, T bestValue) {
+        return typeInfo.recursiveSuperTypeStream()
+                .filter(TypeInfo::isPublic)
+                .map(ti -> ti.analysis().getOrDefault(property, defaultValue))
+                .reduce(bestValue, (t1, t2) -> (T) t1.min(t2));
     }
 }

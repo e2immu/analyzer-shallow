@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static org.e2immu.analyzer.shallow.analyzer.AnnotationExpressionsToPropertyValueMap.annotationsToMap;
+import static org.e2immu.analyzer.shallow.analyzer.AnnotationExpressionsToPropertyValueMap.leastOfHierarchy;
 import static org.e2immu.language.cst.impl.analysis.PropertyImpl.*;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.FALSE;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.TRUE;
@@ -23,13 +25,14 @@ import static org.e2immu.language.cst.impl.analysis.ValueImpl.IndependentImpl.*;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.NotNullImpl.NOT_NULL;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.NotNullImpl.NULLABLE;
 
-public class ShallowTypeAnalyzer extends CommonAnalyzer {
+public class ShallowTypeAnalyzer {
     private static final Logger LOGGER = LoggerFactory.getLogger(ShallowTypeAnalyzer.class);
     private final AnalysisHelper analysisHelper = new AnalysisHelper();
     private final AtomicInteger warnings = new AtomicInteger();
+    private final AnnotationProvider annotationProvider;
 
     public ShallowTypeAnalyzer(AnnotationProvider annotationProvider) {
-        super(annotationProvider);
+        this.annotationProvider = annotationProvider;
     }
 
     public void analyze(TypeInfo typeInfo) {
@@ -73,7 +76,8 @@ public class ShallowTypeAnalyzer extends CommonAnalyzer {
             fieldInfo.analysis().set(SHALLOW_ANALYZER, TRUE);
 
             List<AnnotationExpression> fieldAnnotations = annotationProvider.annotations(fieldInfo);
-            Map<Property, Value> fieldMap = annotationsToMap(fieldInfo, fieldAnnotations);
+            Map<Property, Value> fieldMap = annotationsToMap(fieldInfo,
+                    fieldAnnotations);
             boolean enumField = isEnum && fieldInfo.isSynthetic();
 
             Value.Bool ff = (Value.Bool) fieldMap.get(FINAL_FIELD);

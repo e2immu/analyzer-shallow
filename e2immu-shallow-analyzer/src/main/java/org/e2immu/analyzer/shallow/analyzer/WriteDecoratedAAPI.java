@@ -48,7 +48,7 @@ public class WriteDecoratedAAPI {
                 .collect(Collectors.joining());
         File outputFile = new File(directory, compressedPackages + ".json");
         LOGGER.info("Writing {} type(s) to {}", list.size(), outputFile.getAbsolutePath());
-        Composer composer = new Composer(runtime, "org.e2immu", w -> true);
+        Composer composer = new Composer(runtime, "org.e2immu", null, w -> true);
         Collection<TypeInfo> apiTypes = composer.compose(list);
 
         Map<Info, Info> dollarMap = composer.translateFromDollarToReal();
