@@ -1,4 +1,5 @@
-[
+[[ {"package": "java.util.random"}, {"path": "jmods/java.base.jmod", "hash": "937d04cae1d8c576df1c9b7ec5c5e4b0"}],
+
 {"name": "Tjava.util.random.RandomGenerator", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "SArbitrarilyJumpableGenerator(0)", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
   {"name": "Mof(0)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.util.random.RandomGenerator.ArbitrarilyJumpableGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":

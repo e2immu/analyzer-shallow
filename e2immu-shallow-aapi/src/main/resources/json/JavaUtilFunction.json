@@ -1,4 +1,5 @@
-[
+[[ {"package": "java.util.function"}, {"path": "jmods/java.base.jmod", "hash": "937d04cae1d8c576df1c9b7ec5c5e4b0"}],
+
 {"name": "Tjava.util.function.BiConsumer", "data":{"annotatedApi":1,"hc":{"0":"PT:0","1":"PU:1","E":true,"M":2},"independentType":1,"shallowAnalyzer":1}, "subs":[
  {"name": "Maccept(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"M":2},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
   {"name": "Pt(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1,"modifiedParameter":1}},

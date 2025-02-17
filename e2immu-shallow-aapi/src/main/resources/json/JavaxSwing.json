@@ -1,4 +1,5 @@
-[
+[[ {"package": "javax.swing"}, {"path": "jmods/java.desktop.jmod", "hash": "7e1c8207e87cd55810f565a2b8d6774b"}],
+
 {"name": "Tjavax.swing.Scrollable", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "MgetPreferredScrollableViewportSize(0)", "data":{"hc":{"0":"Tjava.awt.Dimension"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
  {"name": "MgetScrollableUnitIncrement(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.Rectangle"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[

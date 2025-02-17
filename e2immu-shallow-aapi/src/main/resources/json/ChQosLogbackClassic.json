@@ -1,4 +1,5 @@
-[
+[[ {"package": "ch.qos.logback.classic"}, {"path": "ch/qos/logback/classic", "hash": "ff52ddc06ddda6cd457a369aa2a7f9a3"}],
+
 {"name": "Tch.qos.logback.classic.Level", "data":{"annotatedApi":1,"hc":{},"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "FOFF_INT(1)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FERROR_INT(2)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},

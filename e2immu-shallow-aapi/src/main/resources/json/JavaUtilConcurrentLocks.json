@@ -1,4 +1,5 @@
-[
+[[ {"package": "java.util.concurrent.locks"}, {"path": "jmods/java.base.jmod", "hash": "937d04cae1d8c576df1c9b7ec5c5e4b0"}],
+
 {"name": "Tjava.util.concurrent.locks.Condition", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "Mawait(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
  {"name": "MawaitUninterruptibly(1)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},

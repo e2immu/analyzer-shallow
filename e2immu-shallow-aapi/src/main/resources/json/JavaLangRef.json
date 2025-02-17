@@ -1,4 +1,5 @@
-[
+[[ {"package": "java.lang.ref"}, {"path": "jmods/java.base.jmod", "hash": "937d04cae1d8c576df1c9b7ec5c5e4b0"}],
+
 {"name": "Tjava.lang.ref.Reference", "data":{"annotatedApi":1,"containerType":1,"hc":{"0":"PT:0","E":true,"M":1},"independentType":1,"shallowAnalyzer":1}, "subs":[
  {"name": "SReferenceHandler(0)", "data":{"hc":{"E":true}}, "subs":[
   {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.lang.ThreadGroup"}}, "subs":[

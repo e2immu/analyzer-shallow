@@ -1,4 +1,5 @@
-[
+[[ {"package": "java.nio"}, {"path": "jmods/java.base.jmod", "hash": "937d04cae1d8c576df1c9b7ec5c5e4b0"}],
+
 {"name": "Tjava.nio.Buffer", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "McreateSameBufferException(0)", "data":{"hc":{"0":"Tjava.lang.IllegalArgumentException"},"hcsMethod":{"0":[[-1]]}}},
  {"name": "McreateCapacityException(1)", "data":{"hc":{"0":"Tjava.lang.IllegalArgumentException"},"hcsMethod":{"0":[[-1]]}}},

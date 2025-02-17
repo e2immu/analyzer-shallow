@@ -242,7 +242,7 @@ public class Composer {
             }
         }
         MethodInfo.Builder builder = newMethod.builder();
-        addAnnotationsOrComment(methodInfo, methodInfo.builder());
+        addAnnotationsOrComment(methodInfo, builder);
         ParameterizedType returnType = methodInfo.returnType();
         builder
                 .setAccess(runtime.accessPackage())
@@ -349,7 +349,7 @@ public class Composer {
                 runtime.stringParameterizedType().copyWithArrays(1), typeInfo);
         List<Expression> strings = pathEntriesPerPackage.getOrDefault(packageName, List.of()).stream()
                 .flatMap(pe -> Stream.concat(Stream.of((Expression) runtime.newStringConstant(pe.path())),
-                        Stream.of(runtime.newStringConstant(pe.hash()))))
+                        Stream.of(runtime.newStringConstant(pe.hash() == null ? "?" : pe.hash()))))
                 .toList();
         pathEntries.builder()
                 .addFieldModifier(runtime.fieldModifierFinal())
@@ -358,7 +358,9 @@ public class Composer {
                 .setAccess(runtime.accessPublic())
                 .setInitializer(runtime.newArrayInitializerBuilder()
                         .setExpressions(strings)
-                        .setCommonType(runtime.stringParameterizedType()).build());
+                        .setCommonType(runtime.stringParameterizedType()).build())
+                .commit();
+        builder.addField(pathEntries);
         return typeInfo;
     }
 

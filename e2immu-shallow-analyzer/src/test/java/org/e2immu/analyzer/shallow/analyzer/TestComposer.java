@@ -5,8 +5,10 @@ import ch.qos.logback.classic.Level;
 import org.e2immu.language.cst.api.info.Info;
 import org.e2immu.language.cst.api.info.TypeInfo;
 import org.e2immu.language.inspection.api.integration.JavaInspector;
+import org.e2immu.language.inspection.api.resource.InputPathEntry;
 import org.e2immu.language.inspection.integration.JavaInspectorImpl;
 import org.e2immu.language.inspection.resource.InputConfigurationImpl;
+import org.e2immu.language.inspection.resource.ResourcesImpl;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -22,8 +24,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestComposer {
     private static final Logger LOGGER = LoggerFactory.getLogger(TestComposer.class);
@@ -33,19 +34,22 @@ public class TestComposer {
     public static void beforeAll() {
         ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger(org.slf4j.Logger.ROOT_LOGGER_NAME)).setLevel(Level.INFO);
         ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger("org.e2immu.analyzer.shallow")).setLevel(Level.DEBUG);
+        ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger(ResourcesImpl.class)).setLevel(Level.DEBUG);
+
     }
 
     @Test
     public void test() throws IOException {
         InputConfigurationImpl.Builder inputConfigurationBuilder = new InputConfigurationImpl.Builder()
-                .addSources("none")
                 .addClassPath("jmods/java.base.jmod");
 
         JavaInspector javaInspector = new JavaInspectorImpl();
         javaInspector.initialize(inputConfigurationBuilder.build());
+        InputPathEntry orgE2ImmuAnnotations = javaInspector.packageToInputPath().get("org.e2immu.annotation").get(0);
+        assertNotNull(orgE2ImmuAnnotations.hash());
 
         Composer composer = new Composer(javaInspector.runtime(), "org.e2immu.testannotatedapi",
-                null, null, javaInspector.packageToInputPath(), w -> true);
+                Map.of(), Map.of(), javaInspector.packageToInputPath(), w -> true);
         List<TypeInfo> primaryTypes = javaInspector.compiledTypesManager()
                 .typesLoaded().stream().filter(TypeInfo::isPrimaryType).toList();
         LOGGER.info("Have {} primary types loaded", primaryTypes.size());

@@ -1,4 +1,5 @@
-[
+[[ {"package": "java.io"}, {"path": "jmods/java.base.jmod", "hash": "937d04cae1d8c576df1c9b7ec5c5e4b0"}],
+
 {"name": "Tjava.io.DataInput", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "MreadFully(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pb(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2}}},

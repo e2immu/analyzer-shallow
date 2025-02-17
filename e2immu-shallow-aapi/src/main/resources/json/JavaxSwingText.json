@@ -1,4 +1,5 @@
-[
+[[ {"package": "javax.swing.text"}, {"path": "jmods/java.desktop.jmod", "hash": "7e1c8207e87cd55810f565a2b8d6774b"}],
+
 {"name": "Tjavax.swing.text.JTextComponent", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "SAccessibleJTextComponent(0)", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
   {"name": "SIndexedSegment(0)", "data":{"hc":{"E":true}}, "subs":[

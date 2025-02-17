@@ -1,4 +1,5 @@
-[
+[[ {"package": "java.nio.channels.spi"}, {"path": "jmods/java.base.jmod", "hash": "937d04cae1d8c576df1c9b7ec5c5e4b0"}],
+
 {"name": "Tjava.nio.channels.spi.AbstractInterruptibleChannel", "data":{"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "C<init>(0)", "data":{"hc":{}}},
  {"name": "Mclose(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},

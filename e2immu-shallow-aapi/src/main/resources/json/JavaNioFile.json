@@ -1,4 +1,5 @@
-[
+[[ {"package": "java.nio.file"}, {"path": "jmods/java.base.jmod", "hash": "937d04cae1d8c576df1c9b7ec5c5e4b0"}],
+
 {"name": "Tjava.nio.file.CopyOption", "data":{"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}},
 
 {"name": "Tjava.nio.file.FileStore", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[

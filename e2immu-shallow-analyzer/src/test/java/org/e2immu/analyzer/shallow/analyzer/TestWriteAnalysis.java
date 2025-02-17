@@ -30,7 +30,8 @@ public class TestWriteAnalysis {
 
     @Language("json")
     private static final String EXPECT = """
-            [
+            [[ {"package": "org.e2immu"}, {"path": "default", "hash": "abc123"}],
+            
             {"name": "Torg.e2immu.C", "data":{"commutableMethods":["p1","p2,p3","p4"],"immutableType":3,"shallowAnalyzer":1}, "sub":
              {"name": "Mm1(0)", "data":{"shallowAnalyzer":1}}}
             ]

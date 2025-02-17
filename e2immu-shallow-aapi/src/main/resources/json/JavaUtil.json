@@ -1,4 +1,5 @@
-[
+[[ {"package": "java.util"}, {"path": "jmods/java.base.jmod", "hash": "937d04cae1d8c576df1c9b7ec5c5e4b0"}],
+
 {"name": "Tjava.util.Arrays", "data":{"annotatedApi":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "SArrayItr(0)", "data":{"hc":{"0":"PE:0","E":true,"M":1}}, "subs":[
   {"name": "C<init>(0)", "data":{"hc":{"M":1},"hcsMethod":{"0":[[0]]}}, "sub":

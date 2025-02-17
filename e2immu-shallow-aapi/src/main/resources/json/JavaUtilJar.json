@@ -1,4 +1,5 @@
-[
+[[ {"package": "java.util.jar"}, {"path": "jmods/java.base.jmod", "hash": "937d04cae1d8c576df1c9b7ec5c5e4b0"}],
+
 {"name": "Tjava.util.jar.Attributes", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "SName(0)", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
   {"name": "FMANIFEST_VERSION(3)", "data":{"containerField":1,"finalField":1,"immutableField":2,"independentField":2,"shallowAnalyzer":1}},

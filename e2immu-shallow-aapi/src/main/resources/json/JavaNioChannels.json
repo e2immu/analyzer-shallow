@@ -1,4 +1,5 @@
-[
+[[ {"package": "java.nio.channels"}, {"path": "jmods/java.base.jmod", "hash": "937d04cae1d8c576df1c9b7ec5c5e4b0"}],
+
 {"name": "Tjava.nio.channels.Channels", "data":{"annotatedApi":1,"hc":{},"shallowAnalyzer":1}, "subs":[
  {"name": "SReadableByteChannelImpl(0)", "data":{"hc":{"E":true}}, "subs":[
   {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.io.InputStream"}}, "sub":

@@ -1,6 +1,7 @@
 package org.e2immu.analyzer.shallow.analyzer;
 
 import org.e2immu.annotation.*;
+import org.e2immu.annotation.rare.AllowsInterrupt;
 import org.e2immu.language.cst.api.analysis.Property;
 import org.e2immu.language.cst.api.analysis.Value;
 import org.e2immu.language.cst.api.expression.AnnotationExpression;
@@ -53,7 +54,21 @@ public class AnnotationHelper {
             }
             return ae;
         }
-        throw new UnsupportedOperationException("NYI: " + key);
+        String annotationFqn;
+        if (IDENTITY_METHOD.equals(key)) {
+            annotationFqn = Identity.class.getCanonicalName();
+        } else if (FLUENT_METHOD.equals(key)) {
+            annotationFqn = Fluent.class.getCanonicalName();
+        } else if (METHOD_ALLOWS_INTERRUPTS.equals(key)) {
+            annotationFqn = AllowsInterrupt.class.getCanonicalName();
+        } else {
+            throw new UnsupportedOperationException("NYI: " + key);
+        }
+        AnnotationExpression ae = runtime.e2immuAnnotation(annotationFqn);
+        if (ValueImpl.BoolImpl.TRUE.equals(value)) {
+            return ae;
+        }
+        return ae.withKeyValuePair("absent", runtime.constantTrue());
     }
 
 

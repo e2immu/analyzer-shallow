@@ -1,4 +1,5 @@
-[
+[[ {"package": "java.net.http"}, {"path": "jmods/java.net.http.jmod", "hash": "f5ef63928cf1614f0f6ef55a7a123ef5"}],
+
 {"name": "Tjava.net.http.HttpClient", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "SBuilder(0)", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
   {"name": "FNO_PROXY(0)", "data":{"finalField":1,"shallowAnalyzer":1}},

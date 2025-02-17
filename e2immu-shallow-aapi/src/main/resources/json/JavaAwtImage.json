@@ -1,4 +1,5 @@
-[
+[[ {"package": "java.awt.image"}, {"path": "jmods/java.desktop.jmod", "hash": "7e1c8207e87cd55810f565a2b8d6774b"}],
+
 {"name": "Tjava.awt.image.ImageObserver", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "FWIDTH(0)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FHEIGHT(1)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},

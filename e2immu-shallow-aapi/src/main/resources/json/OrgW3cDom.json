@@ -1,4 +1,5 @@
-[
+[[ {"package": "org.w3c.dom"}, {"path": "jmods/java.xml.jmod", "hash": "1633a9efcd7bc25d2433c396e3a74d42"}],
+
 {"name": "Torg.w3c.dom.Node", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "FELEMENT_NODE(0)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FATTRIBUTE_NODE(1)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},

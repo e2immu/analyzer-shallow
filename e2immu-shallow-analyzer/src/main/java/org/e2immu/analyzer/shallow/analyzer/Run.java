@@ -41,7 +41,6 @@ public class Run {
         annotatedApiParser.initialize(
                 List.of("jmods/java.base.jmod", "jmods/java.xml.jmod", "jmods/java.net.http.jmod",
                         "jmods/java.datatransfer.jmod", "jmods/java.desktop.jmod",
-                        JAR_WITH_PATH_PREFIX + "org/e2immu/support",
                         JAR_WITH_PATH_PREFIX + "org/slf4j",
                         JAR_WITH_PATH_PREFIX + "ch/qos/logback/classic",
                         JAR_WITH_PATH_PREFIX + "org/junit/jupiter/api",

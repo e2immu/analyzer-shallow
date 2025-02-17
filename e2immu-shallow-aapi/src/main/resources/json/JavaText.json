@@ -1,4 +1,5 @@
-[
+[[ {"package": "java.text"}, {"path": "jmods/java.base.jmod", "hash": "937d04cae1d8c576df1c9b7ec5c5e4b0"}],
+
 {"name": "Tjava.text.Format", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "SField(0)", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
   {"name": "C<init>(0)", "data":{"hc":{}}}]},

@@ -1,4 +1,5 @@
-[
+[[ {"package": "javax.accessibility"}, {"path": "jmods/java.desktop.jmod", "hash": "7e1c8207e87cd55810f565a2b8d6774b"}],
+
 {"name": "Tjavax.accessibility.Accessible", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "sub":
  {"name": "MgetAccessibleContext(0)", "data":{"hc":{"0":"Tjavax.accessibility.AccessibleContext"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}}},
 

@@ -1,4 +1,5 @@
-[
+[[ {"package": "java.lang.invoke"}, {"path": "jmods/java.base.jmod", "hash": "937d04cae1d8c576df1c9b7ec5c5e4b0"}],
+
 {"name": "Tjava.lang.invoke.MethodHandles", "data":{"annotatedApi":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "SLookup(0)", "data":{"hc":{},"shallowAnalyzer":1}, "subs":[
   {"name": "SClassDefiner(0)", "data":{"hc":{"E":true}}, "subs":[

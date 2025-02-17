@@ -1,4 +1,5 @@
-[
+[[ {"package": "java.awt"}, {"path": "jmods/java.desktop.jmod", "hash": "7e1c8207e87cd55810f565a2b8d6774b"}],
+
 {"name": "Tjava.awt.Graphics", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "C<init>(0)", "data":{"annotatedApi":1,"hc":{}}},
  {"name": "Mcreate(0)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.awt.Graphics"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},

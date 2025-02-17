@@ -1,4 +1,5 @@
-[
+[[ {"package": "java.util.regex"}, {"path": "jmods/java.base.jmod", "hash": "937d04cae1d8c576df1c9b7ec5c5e4b0"}],
+
 {"name": "Tjava.util.regex.MatchResult", "data":{"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
  {"name": "Mstart(0)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "Mstart(1)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":

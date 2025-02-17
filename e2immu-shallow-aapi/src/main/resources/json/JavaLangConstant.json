@@ -1,4 +1,5 @@
-[
+[[ {"package": "java.lang.constant"}, {"path": "jmods/java.base.jmod", "hash": "937d04cae1d8c576df1c9b7ec5c5e4b0"}],
+
 {"name": "Tjava.lang.constant.Constable", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "sub":
  {"name": "MdescribeConstable(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.util.Optional","1":"Tjava.lang.constant.ConstantDesc"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"immutableMethod":2,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}}},
 

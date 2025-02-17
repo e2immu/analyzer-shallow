@@ -1,4 +1,5 @@
-[
+[[ {"package": "java.util.stream"}, {"path": "jmods/java.base.jmod", "hash": "937d04cae1d8c576df1c9b7ec5c5e4b0"}],
+
 {"name": "Tjava.util.stream.Collector", "data":{"annotatedApi":1,"containerType":1,"hc":{"0":"PT:0","1":"PA:1","2":"PR:2","E":true,"M":3},"shallowAnalyzer":1}, "subs":[
  {"name": "SCharacteristics(0)", "data":{"hc":{},"shallowAnalyzer":1}, "subs":[
   {"name": "FCONCURRENT(0)", "data":{"finalField":1,"notNullField":1,"shallowAnalyzer":1}},

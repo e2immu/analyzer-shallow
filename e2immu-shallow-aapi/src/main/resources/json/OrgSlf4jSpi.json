@@ -1,4 +1,5 @@
-[
+[[ {"package": "org.slf4j.spi"}, {"path": "org/slf4j", "hash": "357e4a230bfd9a2c303f25a3f2ade4c2"}],
+
 {"name": "Torg.slf4j.spi.LoggingEventAware", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "sub":
  {"name": "Mlog(0)", "data":{"containerMethod":1,"hc":{"0":"Torg.slf4j.event.LoggingEvent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "PloggingEvent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}},
