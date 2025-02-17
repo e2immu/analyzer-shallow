@@ -5,6 +5,7 @@ import org.e2immu.language.cst.api.info.*;
 import org.e2immu.language.cst.api.runtime.Runtime;
 import org.e2immu.language.cst.impl.analysis.PropertyProviderImpl;
 import org.e2immu.language.cst.io.CodecImpl;
+import org.e2immu.language.inspection.api.resource.InputPathEntry;
 import org.e2immu.util.internal.util.Trie;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,9 +23,11 @@ import java.util.stream.Stream;
 public class WriteDecoratedAAPI {
     private static final Logger LOGGER = LoggerFactory.getLogger(WriteDecoratedAAPI.class);
     private final Runtime runtime;
+    private final Map<String, List<InputPathEntry>> packageToInputPath;
 
-    public WriteDecoratedAAPI(Runtime runtime) {
+    public WriteDecoratedAAPI(Runtime runtime, Map<String, List<InputPathEntry>> packageToInputPath) {
         this.runtime = runtime;
+        this.packageToInputPath = packageToInputPath;
     }
 
     public void write(String destinationDirectory, Trie<TypeInfo> typeTrie) throws IOException {
@@ -48,7 +51,8 @@ public class WriteDecoratedAAPI {
                 .collect(Collectors.joining());
         File outputFile = new File(directory, compressedPackages + ".json");
         LOGGER.info("Writing {} type(s) to {}", list.size(), outputFile.getAbsolutePath());
-        Composer composer = new Composer(runtime, "org.e2immu", null, w -> true);
+        Composer composer = new Composer(runtime, "org.e2immu", null,
+                null, packageToInputPath, w -> true);
         Collection<TypeInfo> apiTypes = composer.compose(list);
 
         Map<Info, Info> dollarMap = composer.translateFromDollarToReal();

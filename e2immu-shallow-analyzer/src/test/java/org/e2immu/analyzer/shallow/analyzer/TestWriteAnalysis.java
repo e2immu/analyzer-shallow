@@ -7,6 +7,8 @@ import org.e2immu.language.cst.api.runtime.Runtime;
 import org.e2immu.language.cst.impl.analysis.PropertyImpl;
 import org.e2immu.language.cst.impl.analysis.ValueImpl;
 import org.e2immu.language.cst.impl.runtime.RuntimeImpl;
+import org.e2immu.language.inspection.api.resource.InputPathEntry;
+import org.e2immu.language.inspection.resource.InputPathEntryImpl;
 import org.e2immu.util.internal.util.Trie;
 import org.intellij.lang.annotations.Language;
 import org.junit.jupiter.api.Test;
@@ -16,6 +18,8 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -26,11 +30,11 @@ public class TestWriteAnalysis {
 
     @Language("json")
     private static final String EXPECT = """
-           [
-           {"name": "Torg.e2immu.C", "data":{"commutableMethods":["p1","p2,p3","p4"],"immutableType":3,"shallowAnalyzer":1}, "sub":
-            {"name": "Mm1(0)", "data":{"shallowAnalyzer":1}}}
-           ]
-           """;
+            [
+            {"name": "Torg.e2immu.C", "data":{"commutableMethods":["p1","p2,p3","p4"],"immutableType":3,"shallowAnalyzer":1}, "sub":
+             {"name": "Mm1(0)", "data":{"shallowAnalyzer":1}}}
+            ]
+            """;
 
     @Test
     public void test() throws IOException {
@@ -46,7 +50,10 @@ public class TestWriteAnalysis {
         methodInfo.analysis().set(PropertyImpl.SHALLOW_ANALYZER, ValueImpl.BoolImpl.TRUE);
         typeInfo.builder().addMethod(methodInfo);
 
-        WriteAnalysis wa = new WriteAnalysis(runtime);
+        InputPathEntry inputPathEntry = new InputPathEntryImpl.Builder("default")
+                .addPackage("org.e2immu").setHash("abc123")
+                .build();
+        WriteAnalysis wa = new WriteAnalysis(runtime, Map.of("org.e2immu", List.of(inputPathEntry)));
         Trie<TypeInfo> trie = new Trie<>();
         trie.add(new String[]{"org", "e2immu"}, typeInfo);
         File dir = new File("build");

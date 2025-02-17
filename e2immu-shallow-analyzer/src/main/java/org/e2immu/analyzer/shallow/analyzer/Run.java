@@ -64,7 +64,8 @@ public class Run {
             }
         });
 
-        WriteAnalysis wa = new WriteAnalysis(annotatedApiParser.runtime());
+        WriteAnalysis wa = new WriteAnalysis(annotatedApiParser.runtime(),
+                annotatedApiParser.javaInspector().packageToInputPath());
         Trie<TypeInfo> trie = new Trie<>();
         for (TypeInfo ti : parsedTypes) {
             if (ti.isPrimaryType()) {
@@ -76,7 +77,8 @@ public class Run {
         if (targetFile.delete()) LOGGER.debug("Deleted {}", targetFile);
         wa.write(dir.getAbsolutePath(), trie);
 
-        WriteDecoratedAAPI writeDecoratedAAPI = new WriteDecoratedAAPI(annotatedApiParser.runtime());
+        WriteDecoratedAAPI writeDecoratedAAPI = new WriteDecoratedAAPI(annotatedApiParser.runtime(),
+                annotatedApiParser.javaInspector().packageToInputPath());
         writeDecoratedAAPI.write("build/decorated", trie);
         return shallowAnalyzer.getMessages();
     }

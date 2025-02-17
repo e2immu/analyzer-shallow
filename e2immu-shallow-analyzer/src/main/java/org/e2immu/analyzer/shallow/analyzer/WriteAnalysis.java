@@ -5,7 +5,7 @@ import org.e2immu.language.cst.api.analysis.Codec;
 import org.e2immu.language.cst.api.info.*;
 import org.e2immu.language.cst.impl.analysis.PropertyProviderImpl;
 import org.e2immu.language.cst.io.CodecImpl;
-import org.e2immu.language.inspection.api.resource.PathEntry;
+import org.e2immu.language.inspection.api.resource.InputPathEntry;
 import org.e2immu.util.internal.util.Trie;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,9 +24,9 @@ public class WriteAnalysis {
     private static final Logger LOGGER = LoggerFactory.getLogger(WriteAnalysis.class);
 
     private final Runtime runtime;
-    private final Map<String, List<PathEntry>> pathEntriesPerPackage;
+    private final Map<String, List<InputPathEntry>> pathEntriesPerPackage;
 
-    public WriteAnalysis(Runtime runtime, Map<String, List<PathEntry>> pathEntriesPerPackage) {
+    public WriteAnalysis(Runtime runtime, Map<String, List<InputPathEntry>> pathEntriesPerPackage) {
         this.runtime = runtime;
         this.pathEntriesPerPackage = pathEntriesPerPackage;
     }
@@ -60,12 +60,12 @@ public class WriteAnalysis {
         LOGGER.info("Writing {} type(s) to {}", list.size(), outputFile.getAbsolutePath());
         try (OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(outputFile), StandardCharsets.UTF_8)) {
             osw.write("[");
-            List<PathEntry> pathEntries = pathEntriesPerPackage.getOrDefault(packageName, List.of());
+            List<InputPathEntry> pathEntries = pathEntriesPerPackage.getOrDefault(packageName, List.of());
             if (!pathEntries.isEmpty()) {
                 osw.write("[ {\"package\": ");
                 osw.write(CodecImpl.quote(packageName));
                 osw.write("}");
-                for (PathEntry pe : pathEntries) {
+                for (InputPathEntry pe : pathEntries) {
                     osw.write(", {\"path\": ");
                     osw.write(CodecImpl.quote(pe.path()));
                     osw.write(", \"hash\": ");

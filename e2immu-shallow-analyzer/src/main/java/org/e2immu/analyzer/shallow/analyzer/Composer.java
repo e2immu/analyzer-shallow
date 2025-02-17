@@ -15,8 +15,6 @@
 package org.e2immu.analyzer.shallow.analyzer;
 
 
-import org.e2immu.language.cst.api.analysis.Property;
-import org.e2immu.language.cst.api.analysis.Value;
 import org.e2immu.language.cst.api.element.Comment;
 import org.e2immu.language.cst.api.element.CompilationUnit;
 import org.e2immu.language.cst.api.expression.AnnotationExpression;
@@ -34,7 +32,7 @@ import org.e2immu.language.cst.impl.element.SingleLineComment;
 import org.e2immu.language.cst.impl.info.TypePrinter;
 import org.e2immu.language.cst.print.FormatterImpl;
 import org.e2immu.language.cst.print.FormattingOptionsImpl;
-import org.e2immu.language.inspection.api.resource.PathEntry;
+import org.e2immu.language.inspection.api.resource.InputPathEntry;
 import org.e2immu.util.internal.util.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -92,7 +90,7 @@ public class Composer {
     private final Predicate<Info> predicate;
     private final Map<Info, Integer> frequencyTable;
     private final Map<Info, List<AnnotationExpression>> annotationOverrides;
-    private final Map<String, List<PathEntry>> pathEntriesPerPackage;
+    private final Map<String, List<InputPathEntry>> pathEntriesPerPackage;
 
     private final Map<Info, Info> translateFromDollarToReal = new HashMap<>();
     private final TreeMap<Integer, Integer> starBounds;
@@ -102,7 +100,7 @@ public class Composer {
                     String destinationPackage,
                     Map<Info, Integer> frequencyTable,
                     Map<Info, List<AnnotationExpression>> annotationOverrides,
-                    Map<String, List<PathEntry>> pathEntriesPerPackage,
+                    Map<String, List<InputPathEntry>> pathEntriesPerPackage,
                     Predicate<Info> predicate) {
         this.runtime = runtime;
         this.destinationPackage = destinationPackage;

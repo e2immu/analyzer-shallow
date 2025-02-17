@@ -5,7 +5,7 @@ import org.e2immu.language.cst.api.analysis.Codec;
 import org.e2immu.language.cst.api.info.Info;
 import org.e2immu.language.cst.io.CodecImpl;
 import org.e2immu.language.inspection.api.integration.JavaInspector;
-import org.e2immu.language.inspection.api.resource.PathEntry;
+import org.e2immu.language.inspection.api.resource.InputPathEntry;
 import org.parsers.json.JSONParser;
 import org.parsers.json.Node;
 import org.parsers.json.ast.Array;
@@ -47,7 +47,7 @@ public class LoadAnalyzedAnnotatedAPI {
         goDir(codec, null, directory);
     }
 
-    public Map<String, Boolean> goDir(Codec codec, Map<String, List<PathEntry>> expectedHashPerPackage, File directory) throws IOException {
+    public Map<String, Boolean> goDir(Codec codec, Map<String, List<InputPathEntry>> expectedHashPerPackage, File directory) throws IOException {
         File[] jsonFiles = directory.listFiles(fnf -> fnf.getName().endsWith(".json"));
         assert jsonFiles != null;
         Map<String, Boolean> res = new HashMap<>();
@@ -63,7 +63,7 @@ public class LoadAnalyzedAnnotatedAPI {
     public record PackageLoaded(String packageName, boolean loaded) {
     }
 
-    public PackageLoaded go(Codec codec, Map<String, List<PathEntry>> expectedHashPerPackage, File jsonFile) throws IOException {
+    public PackageLoaded go(Codec codec, Map<String, List<InputPathEntry>> expectedHashPerPackage, File jsonFile) throws IOException {
         LOGGER.info("Parsing {}", jsonFile);
         String s = Files.readString(jsonFile.toPath());
         JSONParser parser = new JSONParser(s);
@@ -84,7 +84,7 @@ public class LoadAnalyzedAnnotatedAPI {
         return new PackageLoaded(packageName, true); // loaded
     }
 
-    private boolean differentPathEntries(JSONObject jo, Map<String, List<PathEntry>> expectedHashPerPackage) {
+    private boolean differentPathEntries(JSONObject jo, Map<String, List<InputPathEntry>> expectedHashPerPackage) {
         return false; // FIXME to implement!
     }
 
