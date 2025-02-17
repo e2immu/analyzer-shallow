@@ -6,6 +6,7 @@ import org.e2immu.analyzer.modification.prepwork.hct.HiddenContentTypes;
 import org.e2immu.language.cst.api.info.MethodInfo;
 import org.e2immu.language.cst.api.info.ParameterInfo;
 import org.e2immu.language.cst.api.info.TypeInfo;
+import org.e2immu.language.inspection.api.resource.InputPathEntry;
 import org.e2immu.language.inspection.integration.JavaInspectorImpl;
 import org.e2immu.language.inspection.resource.InputConfigurationImpl;
 import org.junit.jupiter.api.Test;
@@ -16,6 +17,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.e2immu.analyzer.modification.prepwork.hcs.HiddenContentSelector.HCS_PARAMETER;
 import static org.e2immu.analyzer.modification.prepwork.hct.HiddenContentTypes.HIDDEN_CONTENT_TYPES;
@@ -40,12 +42,11 @@ public class TestLoadAnalyzedAnnotatedAPI {
     public void test() throws IOException {
         ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger(org.slf4j.Logger.ROOT_LOGGER_NAME)).setLevel(Level.INFO);
         ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger("org.e2immu.analyzer.shallow")).setLevel(Level.DEBUG);
-        ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger("org.e2immu.analyzer.modification")).setLevel(Level.DEBUG);
+        //((ch.qos.logback.classic.Logger) LoggerFactory.getLogger("org.e2immu.analyzer.modification")).setLevel(Level.DEBUG);
 
         List<String> classPath = List.of(
                 "jmods/java.base.jmod", "jmods/java.xml.jmod", "jmods/java.net.http.jmod",
                 "jmods/java.desktop.jmod", "jmods/java.datatransfer.jmod",
-                JAR_WITH_PATH_PREFIX + "org/e2immu/support",
                 JAR_WITH_PATH_PREFIX + "org/slf4j",
                 JAR_WITH_PATH_PREFIX + "ch/qos/logback/classic",
                 JAR_WITH_PATH_PREFIX + "org/junit/jupiter/api",
@@ -57,9 +58,15 @@ public class TestLoadAnalyzedAnnotatedAPI {
         InputConfigurationImpl.Builder inputConfiguration = new InputConfigurationImpl.Builder();
         classPath.forEach(inputConfiguration::addClassPath);
         javaInspector.initialize(inputConfiguration.build());
+
+        InputPathEntry orgE2ImmuAnnotation = javaInspector.packageToInputPath().get("org.e2immu.annotation").get(0);
+        assertEquals("org/e2immu/annotation", orgE2ImmuAnnotation.path());
+        LOGGER.info("computed hash {}", orgE2ImmuAnnotation.hash() + " for path org/e2immu/annotation");
+
         File jsonDir = new File("../e2immu-shallow-aapi/src/main/resources/json");
         assertTrue(jsonDir.isDirectory());
-        new LoadAnalyzedAnnotatedAPI().goDir(javaInspector, jsonDir);
+        Map<String, Boolean> loaded = new LoadAnalyzedAnnotatedAPI().goDir(javaInspector, jsonDir);
+        assertTrue(loaded.values().stream().allMatch(v -> v), "Map is " + loaded);
 
         TypeInfo typeInfo = javaInspector.compiledTypesManager().get(Object.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("toString", 0);

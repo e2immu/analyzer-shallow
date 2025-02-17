@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -42,9 +43,9 @@ public class LoadAnalyzedAnnotatedAPI {
         }
     }
 
-    public void goDir(JavaInspector javaInspector, File directory) throws IOException {
+    public Map<String, Boolean> goDir(JavaInspector javaInspector, File directory) throws IOException {
         Codec codec = new PrepWorkCodec(javaInspector.runtime()).codec();
-        goDir(codec, null, directory);
+        return goDir(codec, javaInspector.packageToInputPath(), directory);
     }
 
     public Map<String, Boolean> goDir(Codec codec, Map<String, List<InputPathEntry>> expectedHashPerPackage, File directory) throws IOException {
@@ -69,28 +70,41 @@ public class LoadAnalyzedAnnotatedAPI {
         JSONParser parser = new JSONParser(s);
         parser.Root();
         Node root = parser.rootNode();
-        int i = 0;
+        Array main = (Array) root.get(0);
         String packageName = null;
-        for (JSONObject jo : root.get(0).childrenOfType(JSONObject.class)) {
-            if (i == 0 && havePackageAndPathEntries(jo)) {
-                if (differentPathEntries(jo, expectedHashPerPackage)) {
-                    return new PackageLoaded(packageName, false);
-                }
-            } else {
-                processPrimaryType(codec, jo);
+        if (main.get(1) instanceof Array pkgPathHash) {
+            packageName = CodecImpl.unquote(pkgPathHash.get(1).get(1).get(2).getSource());
+            List<InputPathEntry> expectedHashes = expectedHashPerPackage.get(packageName);
+            if (expectedHashes != null && differentPathEntries(pkgPathHash, expectedHashes)) {
+                return new PackageLoaded(packageName, false);
             }
-            ++i;
+        }
+        for (JSONObject jo : main.childrenOfType(JSONObject.class)) {
+            processPrimaryType(codec, jo);
         }
         return new PackageLoaded(packageName, true); // loaded
     }
 
-    private boolean differentPathEntries(JSONObject jo, Map<String, List<InputPathEntry>> expectedHashPerPackage) {
-        return false; // FIXME to implement!
-    }
-
-    private boolean havePackageAndPathEntries(JSONObject jo) {
-        return false; // FIXME  jo.get(1) instanceof KeyValuePair packageKv
-        //  && "package".equals(CodecImpl.unquote(packageKv.get(2).getSource()));
+    private static boolean differentPathEntries(Array array, List<InputPathEntry> expectedHashes) {
+        for (JSONObject jo : array.childrenOfType(JSONObject.class)) {
+            String key = CodecImpl.unquote(jo.get(1).get(0).getSource());
+            if ("path".equals(key)) {
+                String path = CodecImpl.unquote(jo.get(1).get(2).getSource());
+                InputPathEntry entry = expectedHashes.stream()
+                        .filter(e -> path.equals(e.path())).findFirst().orElse(null);
+                if (entry == null) {
+                    LOGGER.debug("Computed no path/hash entry for path '{}'", path);
+                    return true;
+                }
+                String hash = CodecImpl.unquote(jo.get(3).get(2).getSource());
+                if (!hash.equals(entry.hash())) {
+                    LOGGER.debug("Different hashes for path '{}': computed {}, found {} in AAAPI file", path,
+                            entry.hash(), hash);
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     private static void processPrimaryType(Codec codec, JSONObject jo) {
