@@ -1,7 +1,7 @@
 [[ {"package": "org.slf4j.spi"}, {"path": "org/slf4j", "hash": "357e4a230bfd9a2c303f25a3f2ade4c2"}],
 
 {"name": "Torg.slf4j.spi.LoggingEventAware", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "sub":
- {"name": "Mlog(0)", "data":{"containerMethod":1,"hc":{"0":"Torg.slf4j.event.LoggingEvent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+ {"name": "Mlog(0)", "data":{"containerMethod":1,"hc":{"0":"Torg.slf4j.event.LoggingEvent"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "PloggingEvent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}},
 
 {"name": "Torg.slf4j.spi.LocationAwareLogger", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
@@ -10,11 +10,11 @@
  {"name": "FINFO_INT(2)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FWARN_INT(3)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FERROR_INT(4)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
- {"name": "Mlog(0)", "data":{"containerMethod":1,"hc":{"0":"Torg.slf4j.Marker","1":"Tjava.lang.Object","2":"Tjava.lang.Throwable"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
-  {"name": "Pmarker(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
-  {"name": "Pstring(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
-  {"name": "Pi(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
-  {"name": "Pstring1(3)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
-  {"name": "Pobject(4)", "data":{"containerParameter":1,"hcsParameter":{"1":[[1]]},"immutableParameter":1,"independentParameter":2}},
-  {"name": "Pthrowable(5)", "data":{"hcsParameter":{"2":[[-1]]},"independentParameter":2}}]}]}
+ {"name": "Mlog(0)", "data":{"containerMethod":1,"hc":{"0":"Torg.slf4j.Marker","1":"Tjava.lang.Object","2":"Tjava.lang.Throwable"},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pmarker(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"unmodifiedParameter":1}},
+  {"name": "Pstring(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2,"unmodifiedParameter":1}},
+  {"name": "Pi(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1,"unmodifiedParameter":1}},
+  {"name": "Pstring1(3)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2,"unmodifiedParameter":1}},
+  {"name": "Pobject(4)", "data":{"containerParameter":1,"hcsParameter":{"1":[[1]]},"immutableParameter":1,"independentParameter":2,"unmodifiedParameter":1}},
+  {"name": "Pthrowable(5)", "data":{"hcsParameter":{"2":[[-1]]},"independentParameter":2,"unmodifiedParameter":1}}]}]}
 ]

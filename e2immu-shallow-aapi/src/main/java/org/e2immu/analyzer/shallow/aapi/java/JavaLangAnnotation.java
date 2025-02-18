@@ -14,11 +14,14 @@
 
 package org.e2immu.analyzer.shallow.aapi.java;
 
+import org.e2immu.annotation.ImmutableContainer;
+
 import java.lang.annotation.Annotation;
 
 class JavaLangAnnotation {
     final static String PACKAGE_NAME = "java.lang.annotation";
 
+    @ImmutableContainer
     interface Annotation$ {
         Class<? extends Annotation> annotationType();
     }

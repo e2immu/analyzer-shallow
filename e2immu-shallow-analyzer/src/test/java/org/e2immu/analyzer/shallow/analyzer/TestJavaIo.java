@@ -104,7 +104,7 @@ public class TestJavaIo extends CommonTest {
         MethodInfo methodInfo = typeInfo.findUniqueMethod("toByteArray", 0);
         assertFalse(methodInfo.allowsInterrupts());
 
-        assertFalse(methodInfo.isModifying());
+        assertTrue(methodInfo.isNotModifying());
         assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
         assertSame(FINAL_FIELDS, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
     }
@@ -132,10 +132,19 @@ public class TestJavaIo extends CommonTest {
     @Test
     public void testDataInputStreamReadUTF() {
         TypeInfo typeInfo = compiledTypesManager.get(DataInputStream.class);
-        MethodInfo methodInfo = typeInfo.findUniqueMethod("readUTF", 0);
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("readUTF", 1);
+
+        assertTrue(methodInfo.isNotModifying());
+    }
+
+    @Test
+    public void testDataInputStreamReadFully1() {
+        TypeInfo typeInfo = compiledTypesManager.get(DataInputStream.class);
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("readFully", 1);
 
         assertTrue(methodInfo.isModifying());
     }
+
 
     @Test
     public void testInputStreamAvailable() {

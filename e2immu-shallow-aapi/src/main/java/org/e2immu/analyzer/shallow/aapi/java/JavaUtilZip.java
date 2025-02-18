@@ -14,13 +14,6 @@
 
 package org.e2immu.analyzer.shallow.aapi.java;
 
-import org.e2immu.annotation.*;
-
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.function.Consumer;
-import java.util.function.UnaryOperator;
-
 public class JavaUtilZip {
 
     public static final String PACKAGE_NAME = "java.util.zip";

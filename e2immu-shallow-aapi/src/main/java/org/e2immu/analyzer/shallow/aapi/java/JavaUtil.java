@@ -161,23 +161,27 @@ public class JavaUtil extends AnnotatedAPI {
         /*
         not modifying, so implicitly @Independent
          */
+        @NotModified
         boolean contains(@NotNull Object object);
 
         default boolean containsAll$Value$Size(int i, Collection<?> c, boolean retVal) {
             return i != 0 && retVal;
         }
 
+        @NotModified
         boolean containsAll(@NotNull(content = true) Collection<?> c);
 
         default boolean isEmpty$Value$Size(int i, boolean retVal) {
             return i == 0;
         }
 
+        @NotModified
         boolean isEmpty();
 
         /*
         @Dependent, because of the remove() in Iterator.
          */
+        @NotModified
         @NotNull(content = true)
         java.util.Iterator<E> iterator();
 
@@ -241,6 +245,7 @@ public class JavaUtil extends AnnotatedAPI {
         default void size$Aspect$Size() {
         }
 
+        @NotModified
         int size();
 
         default int stream$Transfer$Size(int i) {
@@ -250,6 +255,7 @@ public class JavaUtil extends AnnotatedAPI {
         /*
         Streams are @E2Container
          */
+        @NotModified
         @NotNull(content = true)
         @Independent(hc = true)
         Stream<E> stream();
@@ -258,6 +264,7 @@ public class JavaUtil extends AnnotatedAPI {
             return i;
         }
 
+        @NotModified
         @NotNull(content = true)
         @Independent(hc = true)
         Object[] toArray();
@@ -270,6 +277,7 @@ public class JavaUtil extends AnnotatedAPI {
          Important: we're contradicting the container property here.
          Use of this method will result in a warning that the container property is being violated.
          */
+        @NotModified
         @NotNull(content = true)
         @Independent(hc = true)
         <T> T[] toArray(@Independent(hc = true) @NotNull @Modified T[] a);
@@ -278,6 +286,7 @@ public class JavaUtil extends AnnotatedAPI {
             return i;
         }
 
+        @NotModified
         @NotNull(content = true)
         @Independent(hc = true)
         <T> T[] toArray(@NotNull IntFunction<T[]> generator);
@@ -329,6 +338,7 @@ public class JavaUtil extends AnnotatedAPI {
             return i != 0 && retVal;
         }
 
+        // @NotModified inherited
         boolean contains(Object object);
 
         /*
@@ -342,9 +352,7 @@ public class JavaUtil extends AnnotatedAPI {
             return index < size;
         }
 
-        /*
-         @NotModified by default
-         */
+        @NotModified
         @GetSet("list")
         @NotNull
         E get(int index);
@@ -860,8 +868,10 @@ public class JavaUtil extends AnnotatedAPI {
             return i != 0 && retVal;
         }
 
+        @NotModified
         boolean containsKey(@NotNull @Independent Object key);
 
+        @NotModified
         @ImmutableContainer
         @NotNull
         <KK, VV> Map<KK, VV> of();
@@ -870,10 +880,12 @@ public class JavaUtil extends AnnotatedAPI {
          factory method, @NotModified by default, independence in the immutable container is with respect to the
          parameter 'map'.
          */
+        @NotModified
         @ImmutableContainer(hc = true)
         @NotNull
         <KK, VV> Map<KK, VV> copyOf(@NotNull @Independent(hc = true) Map<? extends KK, ? extends VV> map);
 
+        @NotModified
         @ImmutableContainer(hc = true)
         @NotNull
         <KK, VV> Map<KK, VV> of(@NotNull KK k, @NotNull VV v);
@@ -885,12 +897,14 @@ public class JavaUtil extends AnnotatedAPI {
         default void size$Aspect$Size() {
         }
 
+        // @NM inherited
         int size();
 
         default boolean isEmpty$Value$Size(int i, boolean retVal) {
             return i == 0;
         }
 
+        @NotModified
         boolean isEmpty();
 
         default int entrySet$Transfer$Size(int i) {
@@ -912,6 +926,7 @@ public class JavaUtil extends AnnotatedAPI {
          e.getKey() and e.getValue() are linked to map at the hidden content level.
          See e.g. Loops_18
          */
+        @NotModified
         @NotNull(content = true)
         @Container
         Set<Map.Entry<K, V>> entrySet();
@@ -923,21 +938,25 @@ public class JavaUtil extends AnnotatedAPI {
         /*
         @Dependent!
          */
+        @NotModified
         @NotNull(content = true)
         @Container
         Set<K> keySet();
 
+        @NotModified
         void forEach(@NotNull @Independent(hc = true) BiConsumer<? super K, ? super V> action);
 
         /*
          Parameter 'key' is @Independent because get is @NotModified.
          */
+        @NotModified
         @Independent(hc = true)
         V get(@NotNull Object key);
 
         /*
          Parameters 'key' and 'defaultValue' are @Independent because get is @NotModified.
          */
+        @NotModified
         @Independent(hc = true)
         V getOrDefault(@NotNull Object key, V defaultValue);
 
@@ -956,6 +975,7 @@ public class JavaUtil extends AnnotatedAPI {
         /*
          @Dependent! changes to values() have an effect on the map
          */
+        @NotModified
         @NotNull(content = true)
         Collection<V> values();
 
@@ -1077,6 +1097,7 @@ public class JavaUtil extends AnnotatedAPI {
          This particular Entry does not support modification!
          */
         // returns null when the map is empty TODO add correct companions
+        @NotModified
         @ImmutableContainer(hc = true)
         Map.Entry<K, V> firstEntry() {
             return null;

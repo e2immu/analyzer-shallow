@@ -17,8 +17,7 @@ import org.slf4j.LoggerFactory;
 import java.util.*;
 
 import static org.e2immu.language.cst.impl.analysis.PropertyImpl.*;
-import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.FALSE;
-import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.TRUE;
+import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.*;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.IndependentImpl.*;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.NotNullImpl.NOT_NULL;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.NotNullImpl.NULLABLE;
@@ -352,27 +351,25 @@ public class ShallowMethodAnalyzer {
     private Value.Independent computeParameterIndependent(ParameterInfo parameterInfo,
                                                           Map<Property, Value> methodMap,
                                                           Map<Property, Value> map) {
-        ParameterizedType type = parameterInfo.parameterizedType();
+        Value.Immutable immutableType = analysisHelper.typeImmutable(parameterInfo.parameterizedType());
         Value.Immutable immutable = (Value.Immutable) map.get(PropertyImpl.IMMUTABLE_PARAMETER);
+        Value.Independent independentOwner = parameterInfo.typeInfo().analysis().getOrDefault(INDEPENDENT_TYPE, DEPENDENT);
         MethodInfo methodInfo = parameterInfo.methodInfo();
+        Value.Bool nonModifyingMethod = (Value.Bool) methodMap.get(NON_MODIFYING_METHOD);
 
         Value.Independent value;
-        if (type.isTriviallyImmutable() || immutable.isImmutable()) {
+        if (immutableType.isImmutable() || immutable.isImmutable() || independentOwner.isIndependent()
+            || nonModifyingMethod.isTrue() && !methodInfo.isFactoryMethod()) {
             value = INDEPENDENT;
         } else if (immutable.isImmutableHC()) {
             value = INDEPENDENT_HC;
+        } else if(methodInfo.isFactoryMethod()) {
+            Value.Independent independentFromImmutable = immutable.toCorrespondingIndependent();
+            TypeInfo ownerType = parameterInfo.methodInfo().typeInfo();
+            Value.Independent independentType = ownerType.analysis().getOrDefault(INDEPENDENT_TYPE, DEPENDENT);
+            value = independentType.max(independentFromImmutable);
         } else {
-            // @Modified needs to be marked explicitly
-            Value.Bool nonModifyingMethod = (Value.Bool) methodMap.get(NON_MODIFYING_METHOD);
-            if (nonModifyingMethod.isFalse() || methodInfo.isFactoryMethod()) {
-                // note that an unbound type parameter is by default @Dependent, not @Independent1!!
-                Value.Independent independentFromImmutable = immutable.toCorrespondingIndependent();
-                TypeInfo ownerType = parameterInfo.methodInfo().typeInfo();
-                Value.Independent independentType = ownerType.analysis().getOrDefault(INDEPENDENT_TYPE, DEPENDENT);
-                value = independentType.max(independentFromImmutable);
-            } else {
-                value = INDEPENDENT;
-            }
+            value = DEPENDENT;
         }
         Value.Independent override = methodInfo.overrides().stream()
                 .filter(MethodInfo::isPublic)
@@ -389,31 +386,25 @@ public class ShallowMethodAnalyzer {
 
 
     private Value computeMethodNonModifying(MethodInfo methodInfo, Map<Property, Value> map) {
-        if (methodInfo.isConstructor()) return TRUE;
+        if (methodInfo.isConstructor()) return FALSE;
         Value.Bool sse = (Value.Bool) map.get(STATIC_SIDE_EFFECTS_METHOD);
-        if (sse != null && sse.isTrue()) return FALSE;
+        if (sse != null && sse.isTrue()) return TRUE;
         Value.Bool fluent = (Value.Bool) map.get(FLUENT_METHOD);
-        if (fluent != null && fluent.isTrue()) return TRUE;
+        if (fluent != null && fluent.isTrue()) return FALSE;
         boolean nonStaticVoid = !methodInfo.isStatic() && methodInfo.noReturnValue();
-        if (nonStaticVoid) return TRUE;
-        Boolean fromOverride = methodInfo.overrides().stream()
+        if (nonStaticVoid) return FALSE;
+        Immutable immutable = analysisHelper.typeImmutable(methodInfo.typeInfo().asParameterizedType());
+        if (immutable.isAtLeastImmutableHC()) return TRUE;
+        Value.Bool fromOverride = methodInfo.overrides().stream()
                 .filter(MethodInfo::isPublic)
                 .filter(m -> m.analysis().haveAnalyzedValueFor(NON_MODIFYING_METHOD, () -> {
                     if (hierarchyProblems.computeIfAbsent(methodInfo.typeInfo(), t -> new HashSet<>()).add(m.typeInfo())) {
                         LOGGER.warn("Have no modification value for {}, overridden by {}", m, methodInfo);
                     }
                 }))
-                .map(m -> m.analysis().getOrNull(NON_MODIFYING_METHOD, ValueImpl.BoolImpl.class))
-                .map(v -> v == null ? null : v.isFalse())
-                .reduce(null, ShallowMethodAnalyzer::nullAnd);
-        if (fromOverride == null) return FALSE;
-        return ValueImpl.BoolImpl.from(fromOverride);
-    }
-
-    private static Boolean nullAnd(Boolean b1, Boolean b2) {
-        if (b1 == null) return b2;
-        if (b2 == null) return b1;
-        return b1 && b2;
+                .map(m -> m.analysis().getOrDefault(NON_MODIFYING_METHOD, FALSE))
+                .reduce(NO_VALUE, Value.Bool::and);
+        return fromOverride.hasAValue() ? fromOverride : FALSE;
     }
 
     private Value computeMethodFluent(MethodInfo methodInfo) {

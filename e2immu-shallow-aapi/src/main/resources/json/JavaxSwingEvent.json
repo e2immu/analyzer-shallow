@@ -1,14 +1,14 @@
 [[ {"package": "javax.swing.event"}, {"path": "jmods/java.desktop.jmod", "hash": "7e1c8207e87cd55810f565a2b8d6774b"}],
 
 {"name": "Tjavax.swing.event.CaretListener", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "sub":
- {"name": "McaretUpdate(0)", "data":{"containerMethod":1,"hc":{"0":"Tjavax.swing.event.CaretEvent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+ {"name": "McaretUpdate(0)", "data":{"containerMethod":1,"hc":{"0":"Tjavax.swing.event.CaretEvent"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "PcaretEvent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}},
 
 {"name": "Tjavax.swing.event.DocumentListener", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
- {"name": "MinsertUpdate(0)", "data":{"containerMethod":1,"hc":{"0":"Tjavax.swing.event.DocumentEvent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+ {"name": "MinsertUpdate(0)", "data":{"containerMethod":1,"hc":{"0":"Tjavax.swing.event.DocumentEvent"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "PdocumentEvent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
- {"name": "MremoveUpdate(1)", "data":{"containerMethod":1,"hc":{"0":"Tjavax.swing.event.DocumentEvent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+ {"name": "MremoveUpdate(1)", "data":{"containerMethod":1,"hc":{"0":"Tjavax.swing.event.DocumentEvent"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "PdocumentEvent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
- {"name": "MchangedUpdate(2)", "data":{"containerMethod":1,"hc":{"0":"Tjavax.swing.event.DocumentEvent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+ {"name": "MchangedUpdate(2)", "data":{"containerMethod":1,"hc":{"0":"Tjavax.swing.event.DocumentEvent"},"independentMethod":2,"shallowAnalyzer":1}, "sub":
   {"name": "PdocumentEvent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}]}
 ]

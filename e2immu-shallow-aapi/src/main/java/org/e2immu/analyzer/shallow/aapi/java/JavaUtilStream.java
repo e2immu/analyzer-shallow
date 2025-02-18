@@ -142,6 +142,7 @@ public class JavaUtilStream {
     @Container
     interface Stream$<T> {
 
+        @NotModified
         @NotNull
         Stream.Builder<T> builder();
 
@@ -149,12 +150,14 @@ public class JavaUtilStream {
          Factory method, result dependent on parameters
          */
         @NotNull
+        @NotModified
         <TT> Stream<TT> concat(@NotNull Stream<? extends TT> s1, @NotNull Stream<? extends TT> s2);
 
         /*
          Independent, yet mutable
          */
         @NotNull
+        @NotModified
         @Independent
         <TT> Stream<TT> empty();
 
@@ -162,6 +165,7 @@ public class JavaUtilStream {
          Factory method, the hidden content in the result comes from the parameter
          */
         @NotNull
+        @NotModified
         @Independent(hc = true)
         <TT> Stream<TT> of(@NotNull TT t);
 
@@ -169,6 +173,7 @@ public class JavaUtilStream {
          Factory method, the hidden content in the result comes from the parameter
          */
         @NotNull
+        @NotModified
         @Independent(hc = true)
         <TT> Stream<TT> of(@NotNull TT... t);
 
@@ -176,9 +181,11 @@ public class JavaUtilStream {
          The resulting stream is dependent on the object stream, but the method is not modifying.
          Note that the functional interface implies @IgnoreModifications, which allows modifications external to the type,
          */
+        @NotModified
         @NotNull
         <R> Stream<R> map(@NotNull Function<? super T, ? extends R> mapper);
 
+        @NotModified
         @NotNull
         <R> Stream<R> flatMap(@NotNull Function<? super T, ? extends Stream<? extends R>> mapper);
 
@@ -187,9 +194,11 @@ public class JavaUtilStream {
         @Finalizer
         <R, A> R collect(@NotNull Collector<? super T, A, R> collector);
 
+        @NotModified
         @NotNull
         Stream<T> filter(@NotNull Predicate<? super T> predicate);
 
+        @NotModified
         @NotNull
         IntStream mapToInt(@NotNull ToIntFunction<? super T> mapper);
 
@@ -198,9 +207,11 @@ public class JavaUtilStream {
         @Finalizer
         Optional<T> min(@NotNull Comparator<? super T> comparator);
 
+        @NotModified
         @NotNull
         Stream<T> sorted();
 
+        @NotModified
         @NotNull
         Stream<T> sorted(@NotNull Comparator<? super T> comparator);
 

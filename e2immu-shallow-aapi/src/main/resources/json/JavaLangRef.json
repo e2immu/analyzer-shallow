@@ -20,12 +20,12 @@
  {"name": "MwaitForReferenceProcessing(5)", "data":{"hc":{"M":1}}},
  {"name": "Mget(6)", "data":{"annotatedApi":1,"hc":{"M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
  {"name": "MrefersTo(7)", "data":{"containerMethod":1,"hc":{"M":1},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pobj(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+  {"name": "Pobj(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1,"unmodifiedParameter":1}}},
  {"name": "MrefersToImpl(8)", "data":{"hc":{"M":1}}, "sub":
   {"name": "Pobj(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
  {"name": "MrefersTo0(9)", "data":{"hc":{"1":"Tjava.lang.Object","M":1}}, "sub":
   {"name": "Pobject(0)", "data":{"hcsParameter":{"1":[[-1]]}}}},
- {"name": "Mclear(10)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"M":1},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mclear(10)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"M":1},"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "Mclear0(11)", "data":{"hc":{"M":1}}},
  {"name": "MgetFromInactiveFinalReference(12)", "data":{"hc":{"M":1},"hcsMethod":{"0":[[-1]]}}},
  {"name": "MclearInactiveFinalReference(13)", "data":{"hc":{"M":1}}},
@@ -33,5 +33,5 @@
  {"name": "Menqueue(15)", "data":{"containerMethod":1,"hc":{"M":1},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "Mclone(16)", "data":{"hc":{"1":"Tjava.lang.Object","M":1},"hcsMethod":{"1":[[-1]]}}},
  {"name": "MreachabilityFence(17)", "data":{"containerMethod":1,"hc":{"1":"Tjava.lang.Object","M":1},"independentMethod":2,"shallowAnalyzer":1}, "sub":
-  {"name": "Pref(0)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":2}}}]}
+  {"name": "Pref(0)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":1,"unmodifiedParameter":1}}}]}
 ]

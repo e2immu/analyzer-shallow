@@ -1,7 +1,7 @@
 [[ {"package": "org.slf4j.helpers"}, {"path": "org/slf4j", "hash": "357e4a230bfd9a2c303f25a3f2ade4c2"}],
 
 {"name": "Torg.slf4j.helpers.NOPLoggerFactory", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
- {"name": "C<init>(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
- {"name": "MgetLogger(0)", "data":{"containerMethod":1,"hc":{"0":"Torg.slf4j.Logger"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}}]}
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MgetLogger(0)", "data":{"containerMethod":1,"hc":{"0":"Torg.slf4j.Logger"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"nonModifyingMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2,"unmodifiedParameter":1}}}]}
 ]

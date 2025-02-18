@@ -39,25 +39,20 @@ public class JavaSecurity {
         static MessageDigest getInstance(String algorithm) { return null; }
         static MessageDigest getInstance(String algorithm, String provider) { return null; }
         static MessageDigest getInstance(String algorithm, @NotModified Provider provider) { return null; }
+        @NotModified
         Provider getProvider() { return null; }
-        @Modified
         void update(byte input) { }
-        @Modified
         void update(@NotModified byte[] input, int offset, int len) { }
-        @Modified
         void update(@NotModified byte[] input) { }
-        @Modified
         void update(@Modified ByteBuffer input) { }
-        @Modified
         byte[] digest() { return null; }
-        @Modified
         int digest(@NotModified byte[] buf, int offset, int len) { return 0; }
-        @Modified
         byte[] digest(@NotModified byte[] input) { return null; }
         static boolean isEqual(@NotModified byte[] digesta, @NotModified byte[] digestb) { return false; }
-        @Modified
         void reset() { }
+        @NotModified
         String getAlgorithm() { return null; }
+        @NotModified
         int getDigestLength() { return 0; }
     }
 
@@ -81,24 +76,21 @@ public class JavaSecurity {
             return null;
         }
 
+        @NotModified
         Provider getProvider() { return null; }
+        @NotModified
         String getAlgorithm() { return null; }
-        public String toString() { return null; }
+        @NotModified
         SecureRandomParameters getParameters() { return null; }
-        @Modified
         void setSeed(@NotModified byte[] seed) { }
-        @Modified
         void setSeed(long seed) { }
-        @Modified
         void nextBytes(byte[] bytes) { }
-        @Modified
         void nextBytes(byte[] bytes, SecureRandomParameters params) { }
         static byte[] getSeed(int numBytes) { return null; }
+        @NotModified
         byte[] generateSeed(int numBytes) { return null; }
         static SecureRandom getInstanceStrong() { return null; }
-        @Modified
         void reseed() { }
-        @Modified
         void reseed(SecureRandomParameters params) { }
     }
 

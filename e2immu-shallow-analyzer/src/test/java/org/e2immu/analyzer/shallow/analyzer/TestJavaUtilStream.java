@@ -57,8 +57,10 @@ public class TestJavaUtilStream extends CommonTest {
     @Test
     public void testStreamOfT() {
         TypeInfo typeInfo = compiledTypesManager.get(Stream.class);
-        MethodInfo methodInfo = typeInfo.methodStream().filter(m -> "of".equals(m.name())
-                && 0 == m.parameters().get(0).parameterizedType().arrays()).findFirst().orElseThrow();
+        MethodInfo methodInfo = typeInfo.methodStream()
+                .filter(m -> "of".equals(m.name())
+                             && 0 == m.parameters().get(0).parameterizedType().arrays())
+                .findFirst().orElseThrow();
         assertEquals("java.util.stream.Stream.of(T)", methodInfo.fullyQualifiedName());
         assertFalse(methodInfo.allowsInterrupts());
         assertTrue(methodInfo.isStatic());
@@ -85,7 +87,7 @@ public class TestJavaUtilStream extends CommonTest {
         assertTrue(methodInfo.isStatic());
         assertTrue(methodInfo.isFactoryMethod());
 
-        assertFalse(methodInfo.isModifying());
+        assertTrue(methodInfo.isNotModifying());
         assertSame(NOT_NULL, methodInfo.analysis().getOrDefault(NOT_NULL_METHOD, NULLABLE));
         assertSame(MUTABLE, methodInfo.analysis().getOrDefault(IMMUTABLE_METHOD, MUTABLE));
         assertSame(INDEPENDENT, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));

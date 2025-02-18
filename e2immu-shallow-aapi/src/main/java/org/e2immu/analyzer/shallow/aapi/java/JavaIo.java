@@ -171,6 +171,7 @@ public class JavaIo {
     interface ByteArrayOutputStream$ {
 
         @Independent
+        @NotModified
         byte[] toByteArray();
     }
 
@@ -305,6 +306,12 @@ public class JavaIo {
     */
     @Independent
     interface InputStream$ {
+        @NotModified
+        int available();
+
+        @NotModified
+        boolean markSupported();
+        
         @Modified
         long transferTo(@Modified OutputStream out);
 
