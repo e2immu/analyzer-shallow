@@ -30,12 +30,12 @@ public class AnalysisHelper {
         if (parameterizedType.isTypeOfNullConstant() || parameterizedType.isVoid()) {
             return ValueImpl.ImmutableImpl.NO_VALUE;
         }
+        if (parameterizedType.isTriviallyImmutable()) {
+            return ValueImpl.ImmutableImpl.IMMUTABLE;
+        }
         TypeInfo bestType = parameterizedType.bestTypeInfo();
         if (bestType == null) {
             return ValueImpl.ImmutableImpl.IMMUTABLE_HC;
-        }
-        if (bestType.isPrimitiveExcludingVoid()) {
-            return ValueImpl.ImmutableImpl.IMMUTABLE;
         }
 
         Value.Immutable dynamicBaseValue;

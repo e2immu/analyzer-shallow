@@ -51,7 +51,7 @@ public class TestJavaLang extends CommonTest {
         MethodInfo getBytes = typeInfo.findUniqueMethod("getBytes", 4);
         assertEquals(1, getBytes.annotations().size());
         assertEquals("@Deprecated(since=\"1.1\")", getBytes.annotations().get(0).toString());
-        assertSame(FALSE, getBytes.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertTrue(getBytes.isNotModifying());
     }
 
     @Test
@@ -100,7 +100,7 @@ public class TestJavaLang extends CommonTest {
         assertSame(INDEPENDENT, p0.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT));
         assertSame(IMMUTABLE, p0.analysis().getOrDefault(IMMUTABLE_PARAMETER, MUTABLE));
         assertSame(NOT_NULL, p0.analysis().getOrDefault(NOT_NULL_PARAMETER, NULLABLE));
-        assertSame(FALSE, p0.analysis().getOrDefault(MODIFIED_PARAMETER, FALSE));
+        assertTrue(p0.isUnmodified());
     }
 
     @Test
@@ -117,7 +117,7 @@ public class TestJavaLang extends CommonTest {
         assertSame(INDEPENDENT, p0.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT));
         assertSame(IMMUTABLE, p0.analysis().getOrDefault(IMMUTABLE_PARAMETER, MUTABLE));
         assertSame(NULLABLE, p0.analysis().getOrDefault(NOT_NULL_PARAMETER, NULLABLE));
-        assertSame(FALSE, p0.analysis().getOrDefault(MODIFIED_PARAMETER, FALSE));
+        assertTrue(p0.isUnmodified());
     }
 
     @Test
@@ -166,7 +166,7 @@ public class TestJavaLang extends CommonTest {
         assertSame(INDEPENDENT, p0.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT));
         assertSame(IMMUTABLE_HC, p0.analysis().getOrDefault(IMMUTABLE_PARAMETER, MUTABLE));
         assertSame(NOT_NULL, p0.analysis().getOrDefault(NOT_NULL_PARAMETER, NULLABLE));
-        assertSame(FALSE, p0.analysis().getOrDefault(MODIFIED_PARAMETER, FALSE));
+        assertTrue(p0.isUnmodified());
     }
 
 
@@ -274,7 +274,7 @@ public class TestJavaLang extends CommonTest {
         assertEquals("object", p0.name());
         assertSame(INDEPENDENT, p0.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT));
         assertSame(NOT_NULL, p0.analysis().getOrDefault(NOT_NULL_PARAMETER, NULLABLE));
-        assertSame(FALSE, p0.analysis().getOrDefault(MODIFIED_PARAMETER, FALSE));
+        assertTrue(p0.isUnmodified());
 
         ParameterInfo p2 = methodInfo.parameters().get(2);
         // name generated from Object
@@ -282,7 +282,7 @@ public class TestJavaLang extends CommonTest {
         Value.Independent independentP2 = p2.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT);
         assertEquals("@Dependent(hcParameters={0})", independentP2.toString());
         assertSame(NOT_NULL, p2.analysis().getOrDefault(NOT_NULL_PARAMETER, NULLABLE));
-        assertSame(TRUE, p2.analysis().getOrDefault(MODIFIED_PARAMETER, FALSE));
+        assertTrue(p2.isModified());
 
         HiddenContentTypes hctMethod = methodInfo.analysis().getOrNull(HiddenContentTypes.HIDDEN_CONTENT_TYPES, HiddenContentTypes.class);
         assertNotNull(hctMethod);
@@ -337,7 +337,7 @@ public class TestJavaLang extends CommonTest {
         assertEquals("i", p0.name());
         assertSame(INDEPENDENT, p0.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT));
         assertSame(NOT_NULL, p0.analysis().getOrDefault(NOT_NULL_PARAMETER, NULLABLE));
-        assertSame(FALSE, p0.analysis().getOrDefault(MODIFIED_PARAMETER, FALSE));
+        assertTrue(p0.isUnmodified());
     }
 
     @Test
@@ -374,7 +374,7 @@ public class TestJavaLang extends CommonTest {
         ParameterInfo p0 = methodInfo.parameters().get(0);
         assertSame(INDEPENDENT, p0.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT));
         assertSame(NOT_NULL, p0.analysis().getOrDefault(NOT_NULL_PARAMETER, NULLABLE));
-        assertSame(TRUE, p0.analysis().getOrDefault(MODIFIED_PARAMETER, FALSE));
+        assertTrue(p0.isModified());
     }
 
 }

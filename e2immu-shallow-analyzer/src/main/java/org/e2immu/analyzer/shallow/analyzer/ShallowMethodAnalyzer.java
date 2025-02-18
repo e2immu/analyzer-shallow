@@ -36,10 +36,6 @@ public class ShallowMethodAnalyzer {
     }
 
     public void analyze(MethodInfo methodInfo) {
-        analyze(methodInfo, false, false);
-    }
-
-    public void analyze(MethodInfo methodInfo, boolean defaultModifiedMethod, boolean defaultModifiedParameter) {
         if (methodInfo.analysis().getOrDefault(SHALLOW_ANALYZER, FALSE).isTrue()) {
             return; // already done
         }
@@ -50,10 +46,10 @@ public class ShallowMethodAnalyzer {
         List<AnnotationExpression> annotations = annotationProvider.annotations(methodInfo);
         Map<Property, Value> map = AnnotationExpressionsToPropertyValueMap.annotationsToMap(methodInfo, annotations);
 
-        methodPropertiesBeforeParameters(methodInfo, map, explicitlyEmpty, defaultModifiedMethod);
+        methodPropertiesBeforeParameters(methodInfo, map, explicitlyEmpty);
 
         for (ParameterInfo parameterInfo : methodInfo.parameters()) {
-            handleParameter(parameterInfo, map, explicitlyEmpty, defaultModifiedParameter);
+            handleParameter(parameterInfo, map, explicitlyEmpty);
         }
 
         methodPropertiesAfterParameters(methodInfo, map);
@@ -168,8 +164,8 @@ public class ShallowMethodAnalyzer {
             return INDEPENDENT;
         }
         Value.Bool identity = (Value.Bool) map.get(IDENTITY_METHOD);
-        Value.Bool modified = (Value.Bool) map.get(MODIFIED_METHOD);
-        if (identity.isTrue() && modified.isFalse()) {
+        Value.Bool nonModifying = (Value.Bool) map.get(NON_MODIFYING_METHOD);
+        if (identity.isTrue() && nonModifying.isTrue()) {
             return INDEPENDENT; // @Identity + @NotModified -> must be @Independent
         }
         // from here on we're assuming the result is linked to the fields.
@@ -184,7 +180,7 @@ public class ShallowMethodAnalyzer {
             // unbound type parameter T, or unbound with array T[], T[][]
             return INDEPENDENT_HC;
         }
-        if (bestType.isPrimitiveExcludingVoid()) {
+        if (bestType.isTriviallyImmutable()) {
             return INDEPENDENT;
         }
         Value.Immutable imm = (Immutable) map.get(IMMUTABLE_METHOD);
@@ -195,12 +191,11 @@ public class ShallowMethodAnalyzer {
     }
 
     private void methodPropertiesBeforeParameters(MethodInfo methodInfo, Map<Property, Value> map,
-                                                  boolean explicitlyEmpty,
-                                                  boolean defaultModifiedMethod) {
+                                                  boolean explicitlyEmpty) {
         if (methodInfo.isConstructor()) {
             map.put(FLUENT_METHOD, FALSE);
             map.put(IDENTITY_METHOD, FALSE);
-            map.put(MODIFIED_METHOD, TRUE);
+            map.put(NON_MODIFYING_METHOD, FALSE);
             map.putIfAbsent(METHOD_ALLOWS_INTERRUPTS, FALSE);
         } else {
             Value.Bool fluent = (Value.Bool) map.get(FLUENT_METHOD);
@@ -235,15 +230,14 @@ public class ShallowMethodAnalyzer {
                 map.put(STATIC_SIDE_EFFECTS_METHOD, explicitlyEmpty ? FALSE : computeStaticSideEffects(methodInfo));
             }
 
-            Value.Bool modified = (Value.Bool) map.get(MODIFIED_METHOD);
-            if (modified != null) {
-                if (modified.isTrue() && explicitlyEmpty) {
+            Value.Bool nonModifying = (Value.Bool) map.get(NON_MODIFYING_METHOD);
+            if (nonModifying != null) {
+                if (nonModifying.isFalse() && explicitlyEmpty) {
                     messages.add(MessageImpl.warn(methodInfo,
                             "Impossible! how can a method without statements be @Modified?"));
                 }
             } else {
-                map.put(MODIFIED_METHOD, explicitlyEmpty ? FALSE
-                        : computeMethodModified(methodInfo, map, defaultModifiedMethod));
+                map.put(NON_MODIFYING_METHOD, explicitlyEmpty ? TRUE : computeMethodNonModifying(methodInfo, map));
             }
             Value.Bool allowsInterrupt = (Value.Bool) map.get(METHOD_ALLOWS_INTERRUPTS);
             if (allowsInterrupt != null) {
@@ -257,23 +251,20 @@ public class ShallowMethodAnalyzer {
         }
     }
 
-    private void handleParameter(ParameterInfo parameterInfo,
-                                 Map<Property, Value> methodMap,
-                                 boolean explicitlyEmpty,
-                                 boolean defaultModifiedParameter) {
+    private void handleParameter(ParameterInfo parameterInfo, Map<Property, Value> methodMap, boolean explicitlyEmpty) {
         List<AnnotationExpression> annotations = annotationProvider.annotations(parameterInfo);
         Map<Property, Value> map = AnnotationExpressionsToPropertyValueMap.annotationsToMap(parameterInfo, annotations);
         if (explicitlyEmpty) {
             Value.Independent ind = (Value.Independent) map.get(INDEPENDENT_PARAMETER);
-            if (ind != null && ind != INDEPENDENT) {
-                LOGGER.warn("Parameter {} must be independent", parameterInfo);
+            if (ind != null && !ind.isIndependent()) {
+                LOGGER.warn("Parameter {} of explicitly empty method must be @Independent", parameterInfo);
             }
             map.put(INDEPENDENT_PARAMETER, INDEPENDENT);
-            Value.Bool modified = (Value.Bool) map.get(MODIFIED_PARAMETER);
-            if (modified != null && modified.isTrue()) {
-                LOGGER.warn("Parameter {} cannot be @Modified", parameterInfo);
+            Value.Bool unmodified = (Value.Bool) map.get(UNMODIFIED_PARAMETER);
+            if (unmodified != null && unmodified.isFalse()) {
+                LOGGER.warn("Parameter {} of explicitly empty method cannot be @Modified", parameterInfo);
             }
-            map.put(MODIFIED_PARAMETER, FALSE);
+            map.put(UNMODIFIED_PARAMETER, TRUE);
             map.put(NOT_NULL_PARAMETER, analysisHelper.notNullOfType(parameterInfo.parameterizedType()));
             map.putIfAbsent(IGNORE_MODIFICATIONS_PARAMETER, FALSE);
         } else {
@@ -290,9 +281,9 @@ public class ShallowMethodAnalyzer {
             if (ind == null) {
                 map.put(INDEPENDENT_PARAMETER, computeParameterIndependent(parameterInfo, methodMap, map));
             }
-            Value.Bool mod = (Value.Bool) map.get(MODIFIED_PARAMETER);
-            if (mod == null) {
-                map.put(MODIFIED_PARAMETER, computeParameterModified(parameterInfo, defaultModifiedParameter));
+            Value.Bool unmodified = (Value.Bool) map.get(UNMODIFIED_PARAMETER);
+            if (unmodified == null) {
+                map.put(UNMODIFIED_PARAMETER, computeParameterUnmodified(parameterInfo));
             }
             Value.NotNull nn = (NotNull) map.get(NOT_NULL_PARAMETER);
             if (nn == null) {
@@ -336,28 +327,25 @@ public class ShallowMethodAnalyzer {
                 .reduce(NULLABLE, Value.NotNull::max);
     }
 
-    private Value.Bool computeParameterModified(ParameterInfo parameterInfo, boolean defaultParameterModified) {
+    private Value.Bool computeParameterUnmodified(ParameterInfo parameterInfo) {
         MethodInfo methodInfo = parameterInfo.methodInfo();
         Value.Bool typeContainer = methodInfo.typeInfo().analysis().getOrDefault(CONTAINER_TYPE, FALSE);
         if (typeContainer.isTrue()) {
-            return FALSE;
+            return TRUE;
         }
         ParameterizedType type = parameterInfo.parameterizedType();
-        if (type.isPrimitiveStringClass()) {
-            return FALSE;
-        }
         Value.Immutable typeImmutable = analysisHelper.typeImmutable(type);
         if (typeImmutable != null && typeImmutable.isAtLeastImmutableHC()) {
-            return FALSE;
+            return TRUE;
         }
         Value.Bool override = methodInfo.overrides().stream()
                 .map(mi -> mi.parameters().get(parameterInfo.index()))
-                .map(pi -> pi.analysis().getOrDefault(MODIFIED_PARAMETER, ValueImpl.BoolImpl.NO_VALUE))
-                .reduce(ValueImpl.BoolImpl.NO_VALUE, Value.Bool::or);
+                .map(pi -> pi.analysis().getOrDefault(UNMODIFIED_PARAMETER, ValueImpl.BoolImpl.NO_VALUE))
+                .reduce(ValueImpl.BoolImpl.NO_VALUE, Value.Bool::and);
         if (override.hasAValue()) {
             return override;
         }
-        return defaultParameterModified ? TRUE : FALSE;
+        return FALSE;
     }
 
 
@@ -369,12 +357,14 @@ public class ShallowMethodAnalyzer {
         MethodInfo methodInfo = parameterInfo.methodInfo();
 
         Value.Independent value;
-        if (type.isPrimitiveExcludingVoid() || immutable.isImmutable()) {
+        if (type.isTriviallyImmutable() || immutable.isImmutable()) {
             value = INDEPENDENT;
+        } else if (immutable.isImmutableHC()) {
+            value = INDEPENDENT_HC;
         } else {
             // @Modified needs to be marked explicitly
-            Value.Bool modifiedMethod = (Value.Bool) methodMap.get(PropertyImpl.MODIFIED_METHOD);
-            if (modifiedMethod.isTrue() || methodInfo.isFactoryMethod()) {
+            Value.Bool nonModifyingMethod = (Value.Bool) methodMap.get(NON_MODIFYING_METHOD);
+            if (nonModifyingMethod.isFalse() || methodInfo.isFactoryMethod()) {
                 // note that an unbound type parameter is by default @Dependent, not @Independent1!!
                 Value.Independent independentFromImmutable = immutable.toCorrespondingIndependent();
                 TypeInfo ownerType = parameterInfo.methodInfo().typeInfo();
@@ -398,9 +388,7 @@ public class ShallowMethodAnalyzer {
     }
 
 
-    private Value computeMethodModified(MethodInfo methodInfo,
-                                        Map<Property, Value> map,
-                                        boolean defaultModifiedMethod) {
+    private Value computeMethodNonModifying(MethodInfo methodInfo, Map<Property, Value> map) {
         if (methodInfo.isConstructor()) return TRUE;
         Value.Bool sse = (Value.Bool) map.get(STATIC_SIDE_EFFECTS_METHOD);
         if (sse != null && sse.isTrue()) return FALSE;
@@ -410,22 +398,22 @@ public class ShallowMethodAnalyzer {
         if (nonStaticVoid) return TRUE;
         Boolean fromOverride = methodInfo.overrides().stream()
                 .filter(MethodInfo::isPublic)
-                .filter(m -> m.analysis().haveAnalyzedValueFor(MODIFIED_METHOD, () -> {
+                .filter(m -> m.analysis().haveAnalyzedValueFor(NON_MODIFYING_METHOD, () -> {
                     if (hierarchyProblems.computeIfAbsent(methodInfo.typeInfo(), t -> new HashSet<>()).add(m.typeInfo())) {
                         LOGGER.warn("Have no modification value for {}, overridden by {}", m, methodInfo);
                     }
                 }))
-                .map(m -> m.analysis().getOrNull(MODIFIED_METHOD, ValueImpl.BoolImpl.class))
-                .map(v -> v == null ? null : v.isTrue())
-                .reduce(null, ShallowMethodAnalyzer::nullOr);
-        if (fromOverride == null) return defaultModifiedMethod ? TRUE : FALSE;
+                .map(m -> m.analysis().getOrNull(NON_MODIFYING_METHOD, ValueImpl.BoolImpl.class))
+                .map(v -> v == null ? null : v.isFalse())
+                .reduce(null, ShallowMethodAnalyzer::nullAnd);
+        if (fromOverride == null) return FALSE;
         return ValueImpl.BoolImpl.from(fromOverride);
     }
 
-    private static Boolean nullOr(Boolean b1, Boolean b2) {
+    private static Boolean nullAnd(Boolean b1, Boolean b2) {
         if (b1 == null) return b2;
         if (b2 == null) return b1;
-        return b1 || b2;
+        return b1 && b2;
     }
 
     private Value computeMethodFluent(MethodInfo methodInfo) {

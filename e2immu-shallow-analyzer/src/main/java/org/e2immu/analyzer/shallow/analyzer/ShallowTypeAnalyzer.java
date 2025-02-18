@@ -145,13 +145,13 @@ public class ShallowTypeAnalyzer {
                 warnings.incrementAndGet();
             }
             for (FieldInfo fieldInfo : typeInfo.fields()) {
-                if (fieldInfo.analysis().getOrDefault(MODIFIED_FIELD, FALSE).isTrue()) {
+                if (fieldInfo.analysis().getOrDefault(UNMODIFIED_FIELD, FALSE).isFalse()) {
                     LOGGER.warn("Have @Modified field {} in @Immutable type {}", fieldInfo.name(), typeInfo);
                     warnings.incrementAndGet();
                 }
             }
             for (MethodInfo methodInfo : typeInfo.methods()) {
-                if (methodInfo.analysis().getOrDefault(MODIFIED_METHOD, FALSE).isTrue()) {
+                if (methodInfo.analysis().getOrDefault(NON_MODIFYING_METHOD, FALSE).isFalse()) {
                     LOGGER.warn("Have @Modified method {} in @Immutable type {}", methodInfo.name(), typeInfo);
                     warnings.incrementAndGet();
                 }

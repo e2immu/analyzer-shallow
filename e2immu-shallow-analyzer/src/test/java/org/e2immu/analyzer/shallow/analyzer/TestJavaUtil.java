@@ -175,7 +175,7 @@ public class TestJavaUtil extends CommonTest {
                 .detailedSortedTypes());
 
         ParameterInfo p0 = addAll.parameters().get(0);
-        assertTrue(p0.analysis().getOrDefault(MODIFIED_PARAMETER, FALSE).isTrue());
+        assertTrue(p0.isModified());
         Value.Independent independent0 = p0.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT);
         Map<Integer, Integer> map = independent0.linkToParametersReturnValue();
         assertEquals(1, map.size());
@@ -183,7 +183,7 @@ public class TestJavaUtil extends CommonTest {
         assertEquals("0=0,1=*", p0.analysis().getOrDefault(HCS_PARAMETER, HiddenContentSelector.NONE).detailed());
 
         ParameterInfo p1 = addAll.parameters().get(1);
-        assertTrue(p1.analysis().getOrDefault(MODIFIED_PARAMETER, FALSE).isFalse());
+        assertTrue(p1.isUnmodified());
         Value.Independent independent1 = p1.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT);
         assertTrue(independent1.linkToParametersReturnValue().isEmpty());
         assertEquals("0=0", p1.analysis().getOrDefault(HCS_PARAMETER, HiddenContentSelector.NONE).detailed());
@@ -212,7 +212,7 @@ public class TestJavaUtil extends CommonTest {
         assertEquals(1, add.overrides().size());
         MethodInfo override = add.overrides().stream().findFirst().orElseThrow();
         assertEquals("java.util.Collection.add(E)", override.fullyQualifiedName());
-        assertSame(TRUE, add.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertTrue(add.isModifying());
     }
 
 
@@ -251,7 +251,7 @@ public class TestJavaUtil extends CommonTest {
         TypeInfo typeInfo = compiledTypesManager.get(List.class);
         MethodInfo get = typeInfo.findUniqueMethod("get", 1);
         assertTrue(get.overrides().isEmpty());
-        assertSame(FALSE, get.analysis().getOrDefault(MODIFIED_METHOD, FALSE));
+        assertTrue(get.isNotModifying());
 
         // hard-coded at the moment
         assertEquals("java.util.List._synthetic_list", get.getSetField().field().fullyQualifiedName());

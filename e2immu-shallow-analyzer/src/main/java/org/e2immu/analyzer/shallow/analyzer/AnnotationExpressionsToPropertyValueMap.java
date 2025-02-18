@@ -36,7 +36,7 @@ public class AnnotationExpressionsToPropertyValueMap {
         Value.Bool container = null;
         Value.Bool fluent = null;
         Value.Bool identity = null;
-        Value.Bool modified = null;
+        Value.Bool notModified = null;
         Value.Bool ignoreModifications = null;
         Value.Bool isFinal = null;
         Value.FieldValue getSetField = null;
@@ -93,9 +93,9 @@ public class AnnotationExpressionsToPropertyValueMap {
                     }
                 }
             } else if (NotModified.class.getCanonicalName().equals(fqn)) {
-                modified = ValueImpl.BoolImpl.from(isAbsent);
+                notModified = valueForTrue;
             } else if (Modified.class.getCanonicalName().equals(fqn)) {
-                modified = valueForTrue;
+                notModified = ValueImpl.BoolImpl.from(isAbsent);
                 String value = ae.extractString("value", "");
                 if (!value.isBlank()) {
                     FieldInfo fieldInfo = info.typeInfo().getFieldByName(value, false);
@@ -194,7 +194,7 @@ public class AnnotationExpressionsToPropertyValueMap {
             }
             if (container != null) map.put(PropertyImpl.CONTAINER_METHOD, container);
             if (notNull != null) map.put(PropertyImpl.NOT_NULL_METHOD, notNull);
-            if (modified != null) map.put(PropertyImpl.MODIFIED_METHOD, modified);
+            if (notModified != null) map.put(PropertyImpl.NON_MODIFYING_METHOD, notModified);
             if (allowInterrupt != null) map.put(PropertyImpl.METHOD_ALLOWS_INTERRUPTS, allowInterrupt);
             if (staticSideEffects != null) map.put(PropertyImpl.STATIC_SIDE_EFFECTS_METHOD, staticSideEffects);
             if (getSetEquivalent != null) map.put(PropertyImpl.GET_SET_EQUIVALENT, getSetEquivalent);
@@ -210,7 +210,7 @@ public class AnnotationExpressionsToPropertyValueMap {
             }
             if (container != null) map.put(PropertyImpl.CONTAINER_FIELD, container);
             if (notNull != null) map.put(PropertyImpl.NOT_NULL_FIELD, notNull);
-            if (modified != null) map.put(PropertyImpl.MODIFIED_FIELD, modified);
+            if (notModified != null) map.put(PropertyImpl.UNMODIFIED_FIELD, notModified);
             if (isFinal != null) map.put(PropertyImpl.FINAL_FIELD, isFinal);
             if (ignoreModifications != null) map.put(PropertyImpl.IGNORE_MODIFICATIONS_FIELD, ignoreModifications);
             return map;
@@ -220,14 +220,13 @@ public class AnnotationExpressionsToPropertyValueMap {
             if (independent != null) map.put(PropertyImpl.INDEPENDENT_PARAMETER, independent);
             if (container != null) map.put(PropertyImpl.CONTAINER_PARAMETER, container);
             if (notNull != null) map.put(PropertyImpl.NOT_NULL_PARAMETER, notNull);
-            if (modified != null) map.put(PropertyImpl.MODIFIED_PARAMETER, modified);
+            if (notModified != null) map.put(PropertyImpl.UNMODIFIED_PARAMETER, notModified);
             if (ignoreModifications != null) map.put(PropertyImpl.IGNORE_MODIFICATIONS_PARAMETER, ignoreModifications);
             if (modifiedComponents != null) map.put(PropertyImpl.MODIFIED_COMPONENTS_PARAMETER, modifiedComponents);
             return map;
         }
         throw new UnsupportedOperationException();
     }
-
 
     private static Value.GetSetEquivalent findBestCompatibleMethod(Stream<MethodInfo> candidateStream, MethodInfo target) {
         return candidateStream

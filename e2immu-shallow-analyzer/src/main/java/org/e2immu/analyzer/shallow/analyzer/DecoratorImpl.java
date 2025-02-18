@@ -124,8 +124,11 @@ public class DecoratorImpl implements Qualification.Decorator {
             boolean notModifying = typeIsMutable && methodInfo.isNotModifying();
             list.addAll(immutableUnmodifiedIndependentContainer(methodInfo.analysis(),
                     INDEPENDENT_METHOD, CONTAINER_METHOD, notModifying, methodInfo.returnType()));
-            if (methodInfo.isPotentiallyIdentity() && !methodInfo.isNotIdentity()) {
+            if (methodInfo.isIdentity()) {
                 list.add(runtime.e2immuAnnotation(Identity.class.getCanonicalName()));
+            }
+            if (methodInfo.isFluent()) {
+                list.add(runtime.e2immuAnnotation(Fluent.class.getCanonicalName()));
             }
         } else if (info instanceof FieldInfo fieldInfo) {
             boolean typeIsMutable = fieldInfo.typeInfo().analysis().getOrDefault(IMMUTABLE_TYPE, MUTABLE).isMutable();
