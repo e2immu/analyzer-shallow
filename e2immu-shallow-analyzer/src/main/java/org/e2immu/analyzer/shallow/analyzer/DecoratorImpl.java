@@ -46,6 +46,11 @@ public class DecoratorImpl implements Qualification.Decorator {
         return List.of();
     }
 
+    /*
+    method: notModified is completely independent of parameterizedType
+    parameter, field: notModified is not shown when parameterized type is immutable
+    type: notModified is never shown
+     */
     List<AnnotationExpression> immutableUnmodifiedIndependentContainer(PropertyValueMap analysis,
                                                                        Property independentProperty,
                                                                        Property containerProperty,
@@ -58,14 +63,25 @@ public class DecoratorImpl implements Qualification.Decorator {
         Value.Immutable immutable;
         Value.Independent independent;
         if (notTriviallyImmutable) {
-            immutable = analysisHelper.typeImmutable(parameterizedType);
-            container = analysis.getOrDefault(containerProperty, FALSE).isTrue();
-            if (immutable.isMutable()) {
-                notModified = notModifiedIn;
+            if (parameterizedType.arrays() > 0) {
+                immutable = MUTABLE; // no need to show @FinalFields
+                container = false; // no need to show @Container
                 independent = analysis.getOrDefault(independentProperty, DEPENDENT);
+                notModified = notModifiedIn;
             } else {
-                notModified = false; // no need to show
-                independent = DEPENDENT; // no need to show
+                immutable = analysisHelper.typeImmutable(parameterizedType);
+                container = analysis.getOrDefault(containerProperty, FALSE).isTrue();
+                if (immutable.isImmutable()) {
+                    independent = DEPENDENT; // no need to show
+                    notModified = false; // no need to show
+                } else {
+                    if (immutable.isMutable()) {
+                        notModified = notModifiedIn;
+                    } else {
+                        notModified = false; // no need to show
+                    }
+                    independent = analysis.getOrDefault(independentProperty, DEPENDENT);
+                }
             }
         } else {
             notModified = false; // no need to show
@@ -86,6 +102,9 @@ public class DecoratorImpl implements Qualification.Decorator {
                     ? runtime.e2immuAnnotation(ImmutableContainer.class.getCanonicalName())
                     : runtime.e2immuAnnotation(Immutable.class.getCanonicalName());
             if (immutable.isImmutableHC()) {
+                if (independent.isIndependent()) {
+                    list.add(runtime.e2immuAnnotation(Independent.class.getCanonicalName()));
+                }
                 list.add(immutableAnnotation.withKeyValuePair("hc", runtime.constantTrue()));
             } else {
                 list.add(immutableAnnotation);
@@ -122,8 +141,13 @@ public class DecoratorImpl implements Qualification.Decorator {
         if (info instanceof MethodInfo methodInfo) {
             boolean typeIsMutable = methodInfo.typeInfo().analysis().getOrDefault(IMMUTABLE_TYPE, MUTABLE).isMutable();
             boolean notModifying = typeIsMutable && methodInfo.isNotModifying();
-            list.addAll(immutableUnmodifiedIndependentContainer(methodInfo.analysis(),
-                    INDEPENDENT_METHOD, CONTAINER_METHOD, notModifying, methodInfo.returnType()));
+            if (notModifying) {
+                list.add(runtime.e2immuAnnotation(NotModified.class.getCanonicalName()));
+            }
+            if (!methodInfo.returnType().equals(methodInfo.typeInfo().asParameterizedType())) {
+                list.addAll(immutableUnmodifiedIndependentContainer(methodInfo.analysis(),
+                        INDEPENDENT_METHOD, CONTAINER_METHOD, false, methodInfo.returnType()));
+            }
             if (methodInfo.isIdentity()) {
                 list.add(runtime.e2immuAnnotation(Identity.class.getCanonicalName()));
             }
@@ -133,13 +157,20 @@ public class DecoratorImpl implements Qualification.Decorator {
         } else if (info instanceof FieldInfo fieldInfo) {
             boolean typeIsMutable = fieldInfo.typeInfo().analysis().getOrDefault(IMMUTABLE_TYPE, MUTABLE).isMutable();
             boolean unmodified = typeIsMutable && fieldInfo.isUnmodified();
-            list.addAll(immutableUnmodifiedIndependentContainer(fieldInfo.analysis(), INDEPENDENT_FIELD,
-                    CONTAINER_FIELD, unmodified, fieldInfo.type()));
+            if (fieldInfo.type().equals(fieldInfo.owner().asParameterizedType())) {
+                if (unmodified) {
+                    list.add(runtime.e2immuAnnotation(NotModified.class.getCanonicalName()));
+                }
+            } else {
+                list.addAll(immutableUnmodifiedIndependentContainer(fieldInfo.analysis(), INDEPENDENT_FIELD,
+                        CONTAINER_FIELD, unmodified, fieldInfo.type()));
+            }
             if (!fieldInfo.isFinal() && !fieldInfo.typeInfo().isAtLeastImmutableHC() && fieldInfo.isPropertyFinal()) {
                 list.add(runtime.e2immuAnnotation(Final.class.getCanonicalName()));
             }
         } else if (info instanceof ParameterInfo pi) {
             boolean unmodified = pi.isUnmodified();
+            // independent
             list.addAll(immutableUnmodifiedIndependentContainer(pi.analysis(),
                     INDEPENDENT_PARAMETER, CONTAINER_PARAMETER, unmodified, pi.parameterizedType()));
         } else if (info instanceof TypeInfo) {

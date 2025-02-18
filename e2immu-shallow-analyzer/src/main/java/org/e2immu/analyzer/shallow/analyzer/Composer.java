@@ -187,7 +187,7 @@ public class Composer {
     }
 
     private Comment addInformationLine(MethodInfo methodInfo) {
-        String shortString = "overrides in " + methodInfo.overrides()
+        String shortString = "override of " + methodInfo.overrides()
                 .stream().map(mi -> mi.typeInfo().fullyQualifiedName()).sorted().collect(Collectors.joining(", "))
                              + frequencyString(methodInfo);
         return new SingleLineComment(shortString);
@@ -257,7 +257,7 @@ public class Composer {
         }
         for (ParameterInfo p : methodInfo.parameters()) {
             ParameterInfo pi = builder.addParameter(p.name(), p.parameterizedType());
-            addAnnotationsOrComment(pi, pi.builder());
+            addAnnotationsOrComment(p, pi.builder());
             pi.builder().setVarArgs(p.isVarArgs()).commit();
         }
         for (TypeParameter tp : methodInfo.typeParameters()) {
@@ -317,7 +317,7 @@ public class Composer {
             TypeParameter newTp = runtime.newTypeParameter(tp.getIndex(), tp.simpleName(), typeInfo);
             typeInfo.builder().addOrSetTypeParameter(newTp);
         }
-        addAnnotationsOrComment(typeInfo, typeInfo.builder());
+        addAnnotationsOrComment(typeToCopy, typeInfo.builder());
         return typeInfo;
     }
 

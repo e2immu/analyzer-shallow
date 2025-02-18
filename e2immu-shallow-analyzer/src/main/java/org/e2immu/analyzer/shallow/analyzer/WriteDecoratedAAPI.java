@@ -56,7 +56,7 @@ public class WriteDecoratedAAPI {
         Collection<TypeInfo> apiTypes = composer.compose(list);
 
         Map<Info, Info> dollarMap = composer.translateFromDollarToReal();
-        composer.write(apiTypes, directory, () -> new DecoratorImpl(runtime, dollarMap));
+        composer.write(apiTypes, directory, () -> null);
 
     }
 

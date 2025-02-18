@@ -28,6 +28,25 @@ public class TestJavaIo extends CommonTest {
     }
 
     @Test
+    public void testBufferedInputStream() {
+        TypeInfo typeInfo = compiledTypesManager.get(BufferedInputStream.class);
+        assertSame(MUTABLE, typeInfo.analysis().getOrDefault(IMMUTABLE_TYPE, MUTABLE));
+        assertSame(INDEPENDENT, typeInfo.analysis().getOrDefault(INDEPENDENT_TYPE, DEPENDENT));
+        assertSame(FALSE, typeInfo.analysis().getOrDefault(CONTAINER_TYPE, FALSE));
+    }
+
+    @Test
+    public void testBufferedInputStreamRead3() {
+        TypeInfo typeInfo = compiledTypesManager.get(BufferedInputStream.class);
+        MethodInfo read3 = typeInfo.findUniqueMethod("read", 3);
+
+        assertTrue(read3.isModifying());
+        ParameterInfo b = read3.parameters().get(0);
+        assertTrue(b.isModified());
+        assertTrue(b.analysis().getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT).isIndependent());
+    }
+
+    @Test
     public void testPrintStreamPrintInt() {
         TypeInfo typeInfo = compiledTypesManager.get(PrintStream.class);
         TypeInfo intTypeInfo = runtime.intTypeInfo();
