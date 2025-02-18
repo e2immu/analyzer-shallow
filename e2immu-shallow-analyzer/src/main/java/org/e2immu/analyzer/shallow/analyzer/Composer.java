@@ -257,7 +257,9 @@ public class Composer {
         }
         for (ParameterInfo p : methodInfo.parameters()) {
             ParameterInfo pi = builder.addParameter(p.name(), p.parameterizedType());
-            addAnnotationsOrComment(p, pi.builder());
+            if (!pi.parameterizedType().isTriviallyImmutable()) {
+                addAnnotationsOrComment(p, pi.builder());
+            }
             pi.builder().setVarArgs(p.isVarArgs()).commit();
         }
         for (TypeParameter tp : methodInfo.typeParameters()) {
