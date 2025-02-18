@@ -1,6 +1,7 @@
 package org.e2immu.analyzer.shallow.analyzer;
 
 import org.e2immu.annotation.*;
+import org.e2immu.language.cst.api.analysis.Property;
 import org.e2immu.language.cst.api.analysis.PropertyValueMap;
 import org.e2immu.language.cst.api.analysis.Value;
 import org.e2immu.language.cst.api.element.Comment;
@@ -12,15 +13,8 @@ import org.e2immu.language.cst.api.runtime.Runtime;
 import org.e2immu.language.cst.api.type.ParameterizedType;
 import org.e2immu.language.cst.impl.analysis.PropertyImpl;
 import org.e2immu.language.cst.impl.analysis.ValueImpl;
-import org.e2immu.language.cst.impl.element.SingleLineComment;
-import org.e2immu.language.cst.impl.info.TypePrinter;
-import org.e2immu.language.cst.impl.output.QualificationImpl;
-import org.e2immu.language.cst.impl.type.DiamondEnum;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.*;
 
 import static org.e2immu.language.cst.impl.analysis.PropertyImpl.*;
 import static org.e2immu.language.cst.impl.analysis.ValueImpl.BoolImpl.FALSE;
@@ -30,25 +24,8 @@ import static org.e2immu.language.cst.impl.analysis.ValueImpl.IndependentImpl.DE
 public class DecoratorImpl implements Qualification.Decorator {
     private final Runtime runtime;
     private final AnalysisHelper analysisHelper;
-    private final AnnotationExpression modifiedAnnotation;
-    private final TypeInfo modifiedTi;
-    private final TypeInfo immutableTi;
-    private final TypeInfo independentTi;
-    private final TypeInfo finalTi;
-    private final TypeInfo immutableContainerTi;
-    private final AnnotationExpression identityAnnotation;
-    private final AnnotationExpression finalAnnotation;
-    private final AnnotationExpression containerAnnotation;
-
-    private boolean needContainerImport;
-    private boolean needModifiedImport;
-    private boolean needImmutableImport;
-    private boolean needIndependentImport;
-    private boolean needFinalImport;
-    private boolean needImmutableContainerImport;
-    private boolean needIdentityImport;
-
     private final Map<Info, Info> translationMap;
+    private final Set<TypeInfo> typesToImport = new HashSet<>();
 
     public DecoratorImpl(Runtime runtime) {
         this(runtime, null);
@@ -57,17 +34,6 @@ public class DecoratorImpl implements Qualification.Decorator {
     public DecoratorImpl(Runtime runtime, Map<Info, Info> translationMap) {
         this.runtime = runtime;
         analysisHelper = new AnalysisHelper();
-        modifiedTi = runtime.getFullyQualified(Modified.class, true);
-        modifiedAnnotation = runtime.newAnnotationExpressionBuilder().setTypeInfo(modifiedTi).build();
-        independentTi = runtime.getFullyQualified(Independent.class, true);
-        immutableTi = runtime.getFullyQualified(Immutable.class, true);
-        finalTi = runtime.getFullyQualified(Final.class, true);
-        TypeInfo containerTi = runtime.getFullyQualified(Container.class, true);
-        immutableContainerTi = runtime.getFullyQualified(ImmutableContainer.class, true);
-        finalAnnotation = runtime.newAnnotationExpressionBuilder().setTypeInfo(finalTi).build();
-        containerAnnotation = runtime.newAnnotationExpressionBuilder().setTypeInfo(containerTi).build();
-        TypeInfo identityTi = runtime.getFullyQualified(Identity.class, true);
-        identityAnnotation = runtime.newAnnotationExpressionBuilder().setTypeInfo(identityTi).build();
         this.translationMap = translationMap;
     }
 
@@ -80,131 +46,115 @@ public class DecoratorImpl implements Qualification.Decorator {
         return List.of();
     }
 
+    List<AnnotationExpression> immutableUnmodifiedIndependentContainer(PropertyValueMap analysis,
+                                                                       Property independentProperty,
+                                                                       Property containerProperty,
+                                                                       boolean notModifiedIn,
+                                                                       ParameterizedType parameterizedType) {
+        if (parameterizedType.isVoidOrJavaLangVoid()) return List.of();
+        boolean notTriviallyImmutable = !parameterizedType.isTriviallyImmutable();
+        boolean notModified;
+        boolean container;
+        Value.Immutable immutable;
+        Value.Independent independent;
+        if (notTriviallyImmutable) {
+            immutable = analysisHelper.typeImmutable(parameterizedType);
+            container = analysis.getOrDefault(containerProperty, FALSE).isTrue();
+            if (immutable.isMutable()) {
+                notModified = notModifiedIn;
+                independent = analysis.getOrDefault(independentProperty, DEPENDENT);
+            } else {
+                notModified = false; // no need to show
+                independent = DEPENDENT; // no need to show
+            }
+        } else {
+            notModified = false; // no need to show
+            independent = DEPENDENT; // no need to show
+            immutable = MUTABLE; // no need to show
+            container = false;
+        }
+        return immutableUnmodifiedIndependentContainerAnnotations(immutable, independent, container, notModified);
+    }
+
+    private List<AnnotationExpression> immutableUnmodifiedIndependentContainerAnnotations(Value.Immutable immutable,
+                                                                                          Value.Independent independent,
+                                                                                          boolean container,
+                                                                                          boolean notModified) {
+        List<AnnotationExpression> list = new ArrayList<>();
+        if (immutable.isAtLeastImmutableHC()) {
+            AnnotationExpression immutableAnnotation = container
+                    ? runtime.e2immuAnnotation(ImmutableContainer.class.getCanonicalName())
+                    : runtime.e2immuAnnotation(Immutable.class.getCanonicalName());
+            if (immutable.isImmutableHC()) {
+                list.add(immutableAnnotation.withKeyValuePair("hc", runtime.constantTrue()));
+            } else {
+                list.add(immutableAnnotation);
+            }
+        } else {
+            if (immutable.isFinalFields()) {
+                list.add(runtime.e2immuAnnotation(FinalFields.class.getCanonicalName()));
+            }
+            if (container) {
+                list.add(runtime.e2immuAnnotation(Container.class.getCanonicalName()));
+            }
+            if (independent.isAtLeastIndependentHc()) {
+                AnnotationExpression independentAnnotation = runtime.e2immuAnnotation(Independent.class.getCanonicalName());
+                if (independent.isIndependentHc()) {
+                    list.add(independentAnnotation.withKeyValuePair("hc", runtime.constantTrue()));
+                } else {
+                    list.add(independentAnnotation);
+                }
+            }
+            if (notModified) {
+                list.add(runtime.e2immuAnnotation(NotModified.class.getCanonicalName()));
+            }
+        }
+        return list;
+    }
+
     @Override
     public List<AnnotationExpression> annotations(Info infoIn) {
         Info info = translationMap == null ? infoIn : translationMap.getOrDefault(infoIn, infoIn);
-        boolean modified;
-        Value.Immutable immutable;
-        Value.Independent independent;
-        boolean isFinal;
-        boolean isContainer;
-        boolean isIdentity;
+
         PropertyValueMap analysis = info.analysis();
+        List<AnnotationExpression> list = new ArrayList<>();
+
         if (info instanceof MethodInfo methodInfo) {
-            modified = !methodInfo.isConstructor() && analysis.getOrDefault(MODIFIED_METHOD, FALSE).isTrue();
-            immutable = null;
-            independent = nonTrivialIndependent(analysis.getOrDefault(INDEPENDENT_METHOD, DEPENDENT), methodInfo.typeInfo(),
-                    methodInfo.returnType());
-            isFinal = false;
-            isIdentity = methodInfo.isIdentity();
-            isContainer = false;
+            boolean typeIsMutable = methodInfo.typeInfo().analysis().getOrDefault(IMMUTABLE_TYPE, MUTABLE).isMutable();
+            boolean notModifying = typeIsMutable && methodInfo.isNotModifying();
+            list.addAll(immutableUnmodifiedIndependentContainer(methodInfo.analysis(),
+                    INDEPENDENT_METHOD, CONTAINER_METHOD, notModifying, methodInfo.returnType()));
+            if (methodInfo.isPotentiallyIdentity() && !methodInfo.isNotIdentity()) {
+                list.add(runtime.e2immuAnnotation(Identity.class.getCanonicalName()));
+            }
         } else if (info instanceof FieldInfo fieldInfo) {
-            modified = analysis.getOrDefault(MODIFIED_FIELD, FALSE).isTrue();
-            immutable = null;
-            independent = nonTrivialIndependent(analysis.getOrDefault(INDEPENDENT_FIELD, DEPENDENT),
-                    fieldInfo.owner(), fieldInfo.type());
-            isFinal = !fieldInfo.isFinal() && fieldInfo.isPropertyFinal();
-            isContainer = false;
-            isIdentity = false;
+            boolean typeIsMutable = fieldInfo.typeInfo().analysis().getOrDefault(IMMUTABLE_TYPE, MUTABLE).isMutable();
+            boolean unmodified = typeIsMutable && fieldInfo.isUnmodified();
+            list.addAll(immutableUnmodifiedIndependentContainer(fieldInfo.analysis(), INDEPENDENT_FIELD,
+                    CONTAINER_FIELD, unmodified, fieldInfo.type()));
+            if (!fieldInfo.isFinal() && !fieldInfo.typeInfo().isAtLeastImmutableHC() && fieldInfo.isPropertyFinal()) {
+                list.add(runtime.e2immuAnnotation(Final.class.getCanonicalName()));
+            }
         } else if (info instanceof ParameterInfo pi) {
-            modified = analysis.getOrDefault(MODIFIED_PARAMETER, FALSE).isTrue();
-            immutable = null;
-            independent = nonTrivialIndependent(analysis.getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT), pi.typeInfo(),
-                    pi.parameterizedType());
-            isFinal = false;
-            isContainer = false;
-            isIdentity = false;
+            boolean unmodified = pi.isUnmodified();
+            list.addAll(immutableUnmodifiedIndependentContainer(pi.analysis(),
+                    INDEPENDENT_PARAMETER, CONTAINER_PARAMETER, unmodified, pi.parameterizedType()));
         } else if (info instanceof TypeInfo) {
-            modified = false;
-            immutable = analysis.getOrDefault(IMMUTABLE_TYPE, MUTABLE);
-            independent = nonTrivialIndependentType(analysis.getOrDefault(INDEPENDENT_TYPE, DEPENDENT), immutable);
-            isContainer = analysis.getOrDefault(CONTAINER_TYPE, FALSE).isTrue();
-            isFinal = false;
-            isIdentity = false;
+            Value.Immutable immutable = analysis.getOrDefault(IMMUTABLE_TYPE, MUTABLE);
+            Value.Independent independent = analysis.getOrDefault(INDEPENDENT_TYPE, DEPENDENT);
+            boolean container = analysis.getOrDefault(CONTAINER_TYPE, FALSE).isTrue();
+            list.addAll(immutableUnmodifiedIndependentContainerAnnotations(immutable, independent, container,
+                    false));
         } else throw new UnsupportedOperationException();
 
-        List<AnnotationExpression> list = new ArrayList<>();
-        if (isFinal) {
-            needFinalImport = true;
-            list.add(finalAnnotation);
-        }
-        if(isIdentity) {
-            needIdentityImport = true;
-            list.add(identityAnnotation);
-        }
-        if (immutable != null && !immutable.isMutable()) {
-            TypeInfo ti;
-            if (isContainer) {
-                ti = immutableContainerTi;
-                this.needImmutableContainerImport = true;
-            } else {
-                ti = immutableTi;
-                this.needImmutableImport = true;
-            }
-            AnnotationExpression.Builder b = runtime.newAnnotationExpressionBuilder().setTypeInfo(ti);
-            if (immutable.isImmutableHC()) {
-                b.addKeyValuePair("hc", runtime.constantTrue());
-            }
-            list.add(b.build());
-        } else if (isContainer) {
-            needContainerImport = true;
-            list.add(containerAnnotation);
-        }
-        if (independent != null && !independent.isDependent()) {
-            this.needIndependentImport = true;
-            AnnotationExpression.Builder b = runtime.newAnnotationExpressionBuilder().setTypeInfo(independentTi);
-            if (independent.isIndependentHc()) {
-                b.addKeyValuePair("hc", runtime.constantTrue());
-            }
-            list.add(b.build());
-        }
-        if (modified) {
-            this.needModifiedImport = true;
-            list.add(modifiedAnnotation);
-        }
+        list.forEach(ae -> typesToImport.add(ae.typeInfo()));
         return list;
     }
-
-    // we're only showing INDEPENDENT when both the type and the current type are not immutable (hc or not).
-    private Value.Independent nonTrivialIndependent(Value.Independent independent, TypeInfo currentType, ParameterizedType parameterizedType) {
-        if (parameterizedType.isVoidOrJavaLangVoid() || parameterizedType.isPrimitiveStringClass()) return null;
-        Value.Immutable immutable = analysisHelper.typeImmutable(currentType, parameterizedType);
-        if (immutable.isAtLeastImmutableHC()) return null; // no need
-        Value.Immutable immutableCurrent = currentType.analysis().getOrDefault(IMMUTABLE_TYPE, MUTABLE);
-        if (immutableCurrent.isAtLeastImmutableHC()) return null; // no need
-        return independent;
-    }
-
-    private Value.Independent nonTrivialIndependentType(Value.Independent independent, Value.Immutable immutable) {
-        if (immutable.isAtLeastImmutableHC()) return null;
-        return independent;
-    }
-
 
     @Override
     public List<ImportStatement> importStatements() {
-        List<ImportStatement> list = new ArrayList<>();
-        if (needContainerImport) {
-            list.add(runtime.newImportStatementBuilder().setImport(containerAnnotation.typeInfo().fullyQualifiedName()).build());
-        }
-        if (needFinalImport) {
-            list.add(runtime.newImportStatementBuilder().setImport(finalTi.fullyQualifiedName()).build());
-        }
-        if(needIdentityImport) {
-            list.add(runtime.newImportStatementBuilder().setImport(identityAnnotation.typeInfo().fullyQualifiedName()).build());
-        }
-        if (needIndependentImport) {
-            list.add(runtime.newImportStatementBuilder().setImport(independentTi.fullyQualifiedName()).build());
-        }
-        if (needImmutableImport) {
-            list.add(runtime.newImportStatementBuilder().setImport(immutableTi.fullyQualifiedName()).build());
-        }
-        if (needImmutableContainerImport) {
-            list.add(runtime.newImportStatementBuilder().setImport(immutableContainerTi.fullyQualifiedName()).build());
-        }
-        if (needModifiedImport) {
-            list.add(runtime.newImportStatementBuilder().setImport(modifiedTi.fullyQualifiedName()).build());
-        }
-        return list;
+        return typesToImport.stream().sorted(Comparator.comparing(TypeInfo::fullyQualifiedName))
+                .map(ti -> runtime.newImportStatementBuilder().setImport(ti.fullyQualifiedName()).build())
+                .toList();
     }
 }

@@ -94,7 +94,7 @@ public class Composer {
 
     private final Map<Info, Info> translateFromDollarToReal = new HashMap<>();
     private final TreeMap<Integer, Integer> starBounds;
-    private final AnnotationHelper annotationHelper;
+    private final DecoratorImpl decorator;
 
     public Composer(Runtime runtime,
                     String destinationPackage,
@@ -109,7 +109,7 @@ public class Composer {
         this.annotationOverrides = annotationOverrides;
         this.pathEntriesPerPackage = pathEntriesPerPackage;
         starBounds = computeStarBounds(frequencyTable, annotationOverrides);
-        annotationHelper = new AnnotationHelper(runtime);
+        decorator = new DecoratorImpl(runtime);
     }
 
     private TreeMap<Integer, Integer> computeStarBounds(Map<Info, Integer> frequencyTable,
@@ -285,7 +285,7 @@ public class Composer {
             StringBuilder commentStringBuilder = new StringBuilder();
             if (overrides == null) commentStringBuilder.append("? ");
             Qualification qualification = runtime.qualificationQualifyFromPrimaryType();
-            List<AnnotationExpression> toWrite = annotationHelper.annotationsToWrite(info);
+            List<AnnotationExpression> toWrite = decorator.annotations(info);
             boolean first = true;
             for (AnnotationExpression ae : toWrite) {
                 if (first) {
