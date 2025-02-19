@@ -28,14 +28,14 @@ public class LoadAnalyzedAnnotatedAPI {
 
     public void go(JavaInspector javaInspector, AnnotatedAPIConfiguration annotatedAPIConfiguration) throws IOException {
         Codec codec = new PrepWorkCodec(javaInspector.runtime()).codec();
-        go(codec, annotatedAPIConfiguration);
+        go(codec, javaInspector, annotatedAPIConfiguration);
     }
 
-    public void go(Codec codec, AnnotatedAPIConfiguration annotatedAPIConfiguration) throws IOException {
+    public void go(Codec codec, JavaInspector javaInspector, AnnotatedAPIConfiguration annotatedAPIConfiguration) throws IOException {
         for (String dir : annotatedAPIConfiguration.analyzedAnnotatedApiDirs()) {
             File directory = new File(dir);
             if (directory.canRead()) {
-                new LoadAnalyzedAnnotatedAPI().goDir(codec, null, directory);
+                new LoadAnalyzedAnnotatedAPI().goDir(codec, javaInspector.packageToInputPath(), directory);
                 LOGGER.info("Finished reading all json files in AAAPI {}", directory.getAbsolutePath());
             } else {
                 LOGGER.warn("Path '{}' is not a directory containing analyzed annotated API files", directory);
