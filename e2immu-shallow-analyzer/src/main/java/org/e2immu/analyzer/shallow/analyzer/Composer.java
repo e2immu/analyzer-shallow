@@ -30,8 +30,8 @@ import org.e2immu.language.cst.api.type.ParameterizedType;
 import org.e2immu.language.cst.api.type.TypeParameter;
 import org.e2immu.language.cst.impl.element.SingleLineComment;
 import org.e2immu.language.cst.impl.info.TypePrinter;
-import org.e2immu.language.cst.print.FormatterImpl;
 import org.e2immu.language.cst.print.FormattingOptionsImpl;
+import org.e2immu.language.cst.print.formatter2.Formatter2Impl;
 import org.e2immu.language.inspection.api.resource.InputPathEntry;
 import org.e2immu.util.internal.util.StringUtil;
 import org.slf4j.Logger;
@@ -384,7 +384,7 @@ public class Composer {
     public void write(Collection<TypeInfo> apiTypes,
                       File base,
                       Supplier<Qualification.Decorator> decoratorSupplier) throws IOException {
-        Formatter formatter = new FormatterImpl(runtime, FormattingOptionsImpl.DEFAULT);
+        Formatter formatter = new Formatter2Impl(runtime, FormattingOptionsImpl.DEFAULT);
         int count = 0;
         for (TypeInfo apiType : apiTypes) {
             assert apiType.isPrimaryType() && apiType.hasBeenInspected();
