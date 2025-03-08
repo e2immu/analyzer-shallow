@@ -1,0 +1,252 @@
+[
+{"name": "Tjava.util.concurrent.atomic.AtomicBoolean", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PinitialValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "C<init>(1)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mget(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "McompareAndSet(1)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PnewValue(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MweakCompareAndSet(2)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PnewValue(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MweakCompareAndSetPlain(3)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PnewValue(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mset(4)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MlazySet(5)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetAndSet(6)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MtoString(7)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetPlain(8)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetPlain(9)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetOpaque(10)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetOpaque(11)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetAcquire(12)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetRelease(13)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "McompareAndExchange(14)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PnewValue(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "McompareAndExchangeAcquire(15)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PnewValue(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "McompareAndExchangeRelease(16)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PnewValue(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MweakCompareAndSetVolatile(17)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PnewValue(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MweakCompareAndSetAcquire(18)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PnewValue(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MweakCompareAndSetRelease(19)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PnewValue(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]}]},
+
+{"name": "Tjava.util.concurrent.atomic.AtomicReference", "data":{"annotatedApi":1,"containerType":1,"hc":{"0":"PV:0","E":true,"M":1},"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"hc":{"M":1},"hcsMethod":{"0":[[0]]},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PinitialValue(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "C<init>(1)", "data":{"containerMethod":1,"hc":{"M":1},"hcsMethod":{"0":[[0]]},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mget(0)", "data":{"annotatedApi":1,"hc":{"M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "Mset(1)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"M":1},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "MlazySet(2)", "data":{"containerMethod":1,"hc":{"M":1},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "McompareAndSet(3)", "data":{"containerMethod":1,"hc":{"M":1},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
+  {"name": "PnewValue(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}]},
+ {"name": "MweakCompareAndSet(4)", "data":{"containerMethod":1,"hc":{"M":1},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
+  {"name": "PnewValue(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}]},
+ {"name": "MweakCompareAndSetPlain(5)", "data":{"containerMethod":1,"hc":{"M":1},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
+  {"name": "PnewValue(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}]},
+ {"name": "MgetAndSet(6)", "data":{"hc":{"M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "MgetAndUpdate(7)", "data":{"hc":{"1":"Tjava.util.function.UnaryOperator","M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PupdateFunction(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}},
+ {"name": "MupdateAndGet(8)", "data":{"hc":{"1":"Tjava.util.function.UnaryOperator","M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PupdateFunction(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}},
+ {"name": "MgetAndAccumulate(9)", "data":{"hc":{"1":"Tjava.util.function.BinaryOperator","M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Px(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
+  {"name": "PaccumulatorFunction(1)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}]},
+ {"name": "MaccumulateAndGet(10)", "data":{"hc":{"1":"Tjava.util.function.BinaryOperator","M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Px(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
+  {"name": "PaccumulatorFunction(1)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}]},
+ {"name": "MtoString(11)", "data":{"containerMethod":1,"hc":{"M":1},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetPlain(12)", "data":{"hc":{"M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetPlain(13)", "data":{"containerMethod":1,"hc":{"M":1},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "MgetOpaque(14)", "data":{"hc":{"M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetOpaque(15)", "data":{"containerMethod":1,"hc":{"M":1},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "MgetAcquire(16)", "data":{"hc":{"M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetRelease(17)", "data":{"containerMethod":1,"hc":{"M":1},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "McompareAndExchange(18)", "data":{"hc":{"M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
+  {"name": "PnewValue(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}]},
+ {"name": "McompareAndExchangeAcquire(19)", "data":{"hc":{"M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
+  {"name": "PnewValue(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}]},
+ {"name": "McompareAndExchangeRelease(20)", "data":{"hc":{"M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
+  {"name": "PnewValue(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}]},
+ {"name": "MweakCompareAndSetVolatile(21)", "data":{"containerMethod":1,"hc":{"M":1},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
+  {"name": "PnewValue(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}]},
+ {"name": "MweakCompareAndSetAcquire(22)", "data":{"containerMethod":1,"hc":{"M":1},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
+  {"name": "PnewValue(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}]},
+ {"name": "MweakCompareAndSetRelease(23)", "data":{"containerMethod":1,"hc":{"M":1},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
+  {"name": "PnewValue(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}]}]},
+
+{"name": "Tjava.util.concurrent.atomic.AtomicInteger", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PinitialValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "C<init>(1)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mget(0)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mset(1)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MlazySet(2)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetAndSet(3)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "McompareAndSet(4)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PnewValue(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MweakCompareAndSet(5)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PnewValue(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MweakCompareAndSetPlain(6)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PnewValue(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MgetAndIncrement(7)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetAndDecrement(8)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetAndAdd(9)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pdelta(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MincrementAndGet(10)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MdecrementAndGet(11)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MaddAndGet(12)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pdelta(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetAndUpdate(13)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.function.IntUnaryOperator"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PupdateFunction(0)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}},
+ {"name": "MupdateAndGet(14)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.function.IntUnaryOperator"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PupdateFunction(0)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}},
+ {"name": "MgetAndAccumulate(15)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.function.IntBinaryOperator"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PaccumulatorFunction(1)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}]},
+ {"name": "MaccumulateAndGet(16)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.function.IntBinaryOperator"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PaccumulatorFunction(1)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}]},
+ {"name": "MtoString(17)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MintValue(18)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MlongValue(19)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MfloatValue(20)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MdoubleValue(21)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetPlain(22)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetPlain(23)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetOpaque(24)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetOpaque(25)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetAcquire(26)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetRelease(27)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "McompareAndExchange(28)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PnewValue(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "McompareAndExchangeAcquire(29)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PnewValue(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "McompareAndExchangeRelease(30)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PnewValue(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MweakCompareAndSetVolatile(31)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PnewValue(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MweakCompareAndSetAcquire(32)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PnewValue(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MweakCompareAndSetRelease(33)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PnewValue(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]}]},
+
+{"name": "Tjava.util.concurrent.atomic.AtomicLong", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PinitialValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "C<init>(1)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MVMSupportsCS8(0)", "data":{"hc":{}}},
+ {"name": "Mget(1)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mset(2)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MlazySet(3)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetAndSet(4)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "McompareAndSet(5)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pl(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MweakCompareAndSet(6)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pl(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MweakCompareAndSetPlain(7)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pl(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MgetAndIncrement(8)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetAndDecrement(9)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetAndAdd(10)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pdelta(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MincrementAndGet(11)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MdecrementAndGet(12)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MaddAndGet(13)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pdelta(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetAndUpdate(14)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.function.LongUnaryOperator"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PupdateFunction(0)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}},
+ {"name": "MupdateAndGet(15)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.function.LongUnaryOperator"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PupdateFunction(0)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}},
+ {"name": "MgetAndAccumulate(16)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.function.LongBinaryOperator"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PlongBinaryOperator(1)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}]},
+ {"name": "MaccumulateAndGet(17)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.function.LongBinaryOperator"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PlongBinaryOperator(1)", "data":{"hcsParameter":{"0":[[-1]]},"ignoreModsParameter":1,"independentParameter":2}}]},
+ {"name": "MtoString(18)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MintValue(19)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MlongValue(20)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MfloatValue(21)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MdoubleValue(22)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetPlain(23)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetPlain(24)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetOpaque(25)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetOpaque(26)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetAcquire(27)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetRelease(28)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "McompareAndExchange(29)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pl(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "McompareAndExchangeAcquire(30)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pl(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "McompareAndExchangeRelease(31)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pl(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MweakCompareAndSetVolatile(32)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pl(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MweakCompareAndSetAcquire(33)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pl(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MweakCompareAndSetRelease(34)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PexpectedValue(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pl(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]}]}
+]

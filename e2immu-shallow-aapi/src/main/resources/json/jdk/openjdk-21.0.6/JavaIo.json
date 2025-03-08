@@ -1,0 +1,1060 @@
+[
+{"name": "Tjava.io.DataInput", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "MreadFully(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2}}},
+ {"name": "MreadFully(1)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pb(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2}},
+  {"name": "Pi(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MskipBytes(2)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MreadBoolean(3)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadByte(4)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadUnsignedByte(5)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadShort(6)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadUnsignedShort(7)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadChar(8)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadInt(9)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadLong(10)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadFloat(11)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadDouble(12)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadLine(13)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadUTF(14)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}}]},
+
+{"name": "Tjava.io.DataOutput", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "Mwrite(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mwrite(1)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1}}},
+ {"name": "Mwrite(2)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1}},
+  {"name": "Pi(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MwriteBoolean(3)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MwriteByte(4)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MwriteShort(5)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MwriteChar(6)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MwriteInt(7)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MwriteLong(8)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MwriteFloat(9)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pf(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MwriteDouble(10)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pd(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MwriteBytes(11)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MwriteChars(12)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MwriteUTF(13)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}}]},
+
+{"name": "Tjava.io.FileFilter", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "sub":
+ {"name": "Maccept(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.File"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pfile(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}}}},
+
+{"name": "Tjava.io.FilenameFilter", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "sub":
+ {"name": "Maccept(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.File"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pfile(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
+  {"name": "Pstring(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]}},
+
+{"name": "Tjava.io.Flushable", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "sub":
+ {"name": "Mflush(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}}},
+
+{"name": "Tjava.io.Serializable", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}},
+
+{"name": "Tjava.io.Closeable", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "sub":
+ {"name": "Mclose(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}}},
+
+{"name": "Tjava.io.File", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "SPathStatus(0)", "data":{"hc":{}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{}}},
+  {"name": "Mvalues(0)", "data":{"hc":{}}},
+  {"name": "MvalueOf(1)", "data":{"hc":{}}}]},
+ {"name": "STempDirectory(1)", "data":{"hc":{"E":true}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{}}},
+  {"name": "Mlocation(0)", "data":{"hc":{"0":"Tjava.io.File"},"hcsMethod":{"0":[[-1]]}}},
+  {"name": "MshortenSubName(1)", "data":{"hc":{}}},
+  {"name": "MgenerateFile(2)", "data":{"hc":{"0":"Tjava.io.File"},"hcsMethod":{"0":[[-1]]}}, "subs":[
+   {"name": "Pdir(2)", "data":{"hcsParameter":{"0":[[-1]]}}}]}]},
+ {"name": "FseparatorChar(4)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
+ {"name": "Fseparator(5)", "data":{"containerField":1,"finalField":1,"immutableField":3,"independentField":2,"shallowAnalyzer":1}},
+ {"name": "FpathSeparatorChar(6)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
+ {"name": "FpathSeparator(7)", "data":{"containerField":1,"finalField":1,"immutableField":3,"independentField":2,"shallowAnalyzer":1}},
+ {"name": "C<init>(0)", "data":{"hc":{}}},
+ {"name": "C<init>(1)", "data":{"hc":{"0":"Tjava.io.File"}}, "subs":[
+  {"name": "Pparent(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "C<init>(2)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Ppathname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "C<init>(3)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pparent(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pchild(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
+ {"name": "C<init>(4)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.File"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pparent(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]}}},
+  {"name": "Pchild(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
+ {"name": "C<init>(5)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Puri(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MisInvalid(0)", "data":{"hc":{}}},
+ {"name": "MgetPrefixLength(1)", "data":{"hc":{}}},
+ {"name": "MgetName(2)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetParent(3)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MgetParentFile(4)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.io.File"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MgetPath(5)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisAbsolute(6)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetAbsolutePath(7)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MgetAbsoluteFile(8)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.io.File"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MgetCanonicalPath(9)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MgetCanonicalFile(10)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.io.File"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "Mslashify(11)", "data":{"hc":{}}},
+ {"name": "MtoURL(12)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MtoURI(13)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "McanRead(14)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "McanWrite(15)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mexists(16)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisDirectory(17)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisFile(18)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisHidden(19)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MlastModified(20)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mlength(21)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "McreateNewFile(22)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mdelete(23)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MdeleteOnExit(24)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mlist(25)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":1,"shallowAnalyzer":1}},
+ {"name": "MnormalizedList(26)", "data":{"hc":{}}},
+ {"name": "Mlist(27)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.FilenameFilter"},"immutableMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pfilter(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "MlistFiles(28)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.io.File"},"hcsMethod":{"0":[[0]]},"immutableMethod":1,"shallowAnalyzer":1}},
+ {"name": "MlistFiles(29)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.io.FilenameFilter","1":"Tjava.io.File"},"hcsMethod":{"1":[[1]]},"immutableMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pfilter(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "MlistFiles(30)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.FileFilter","1":"Tjava.io.File"},"hcsMethod":{"1":[[1]]},"immutableMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pfilter(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "Mmkdir(31)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mmkdirs(32)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MrenameTo(33)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.File"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pdest(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "MsetLastModified(34)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Ptime(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MsetReadOnly(35)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetWritable(36)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pwritable(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PownerOnly(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MsetWritable(37)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pwritable(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MsetReadable(38)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Preadable(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PownerOnly(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MsetReadable(39)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Preadable(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MsetExecutable(40)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pexecutable(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PownerOnly(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MsetExecutable(41)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pexecutable(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "McanExecute(42)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MlistRoots(43)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.File"},"hcsMethod":{"0":[[0]]},"immutableMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetTotalSpace(44)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetFreeSpace(45)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetUsableSpace(46)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "McreateTempFile(47)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.File"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pprefix(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Psuffix(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pdirectory(2)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "McreateTempFile(48)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.File"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pprefix(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Psuffix(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
+ {"name": "McompareTo(49)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.File"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Ppathname(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mequals(50)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pobj(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "MhashCode(51)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MtoString(52)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MwriteObject(53)", "data":{"hc":{"0":"Tjava.io.ObjectOutputStream"}}, "sub":
+  {"name": "Ps(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MreadObject(54)", "data":{"hc":{"0":"Tjava.io.ObjectInputStream"}}, "sub":
+  {"name": "Ps(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MtoPath(55)", "data":{"hc":{"0":"Tjava.nio.file.Path"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}}]},
+
+{"name": "Tjava.io.ObjectStreamField", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Ptype(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}}]},
+ {"name": "C<init>(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Ptype(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2}},
+  {"name": "Punshared(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "C<init>(2)", "data":{"hc":{}}},
+ {"name": "C<init>(3)", "data":{"hc":{}}},
+ {"name": "MgetName(0)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MgetType(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MgetTypeCode(2)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetTypeString(3)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MgetOffset(4)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetOffset(5)", "data":{"annotatedApi":1,"hc":{}}, "sub":
+  {"name": "Poffset(0)", "data":{"annotatedApi":1}}},
+ {"name": "MisPrimitive(6)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisUnshared(7)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "McompareTo(8)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pobj(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MtoString(9)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetField(10)", "data":{"hc":{}}},
+ {"name": "MgetSignature(11)", "data":{"hc":{}}}]},
+
+{"name": "Tjava.io.InputStream", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MnullInputStream(0)", "data":{"hc":{"0":"Tjava.io.InputStream"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "Mread(1)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mread(2)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "Mread(3)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pb(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Poff(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MreadAllBytes(4)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadNBytes(5)", "data":{"containerMethod":1,"hc":{},"immutableMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Plen(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MreadNBytes(6)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2}},
+  {"name": "Poff(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mskip(7)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pn(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MskipNBytes(8)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pn(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mavailable(9)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mclose(10)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mmark(11)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Preadlimit(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mreset(12)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MmarkSupported(13)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MtransferTo(14)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.io.OutputStream"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pout(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}}]},
+
+{"name": "Tjava.io.OutputStream", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MnullOutputStream(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.OutputStream"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "Mwrite(1)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mwrite(2)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mwrite(3)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pb(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Poff(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mflush(4)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mclose(5)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}}]},
+
+{"name": "Tjava.io.RandomAccessFile", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pmode(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
+ {"name": "C<init>(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.File"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pfile(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
+  {"name": "Pmode(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
+ {"name": "C<init>(2)", "data":{"hc":{"0":"Tjava.io.File"}}, "subs":[
+  {"name": "Pfile(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "MgetFD(0)", "data":{"hc":{},"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MgetChannel(1)", "data":{"hc":{"0":"Tjava.nio.channels.FileChannel"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "Mopen0(2)", "data":{"hc":{}}},
+ {"name": "Mopen(3)", "data":{"hc":{}}},
+ {"name": "Mread(4)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mread0(5)", "data":{"hc":{}}},
+ {"name": "MreadBytes(6)", "data":{"hc":{}}},
+ {"name": "MreadBytes0(7)", "data":{"hc":{}}},
+ {"name": "Mread(8)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pb(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Poff(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mread(9)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MreadFully(10)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2}}},
+ {"name": "MreadFully(11)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2}},
+  {"name": "Poff(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MskipBytes(12)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pn(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mwrite(13)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mwrite0(14)", "data":{"hc":{}}},
+ {"name": "MwriteBytes(15)", "data":{"hc":{}}},
+ {"name": "MwriteBytes0(16)", "data":{"hc":{}}},
+ {"name": "Mwrite(17)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2}}},
+ {"name": "Mwrite(18)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2}},
+  {"name": "Poff(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MgetFilePointer(19)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mseek(20)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Ppos(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mseek0(21)", "data":{"hc":{}}},
+ {"name": "Mlength(22)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mlength0(23)", "data":{"hc":{}}},
+ {"name": "MsetLength(24)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewLength(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MsetLength0(25)", "data":{"hc":{}}},
+ {"name": "Mclose(26)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadBoolean(27)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadByte(28)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadUnsignedByte(29)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadShort(30)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadUnsignedShort(31)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadChar(32)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadInt(33)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadLong(34)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadFloat(35)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadDouble(36)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadLine(37)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadUTF(38)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MwriteBoolean(39)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pv(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MwriteByte(40)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pv(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MwriteShort(41)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pv(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MwriteChar(42)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pv(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MwriteInt(43)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pv(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MwriteLong(44)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pv(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MwriteFloat(45)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pv(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MwriteDouble(46)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pv(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MwriteBytes(47)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Ps(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MwriteChars(48)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Ps(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MwriteUTF(49)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pstr(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MinitIDs(50)", "data":{"hc":{}}}]},
+
+{"name": "Tjava.io.Reader", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"hc":{}}},
+ {"name": "C<init>(1)", "data":{"hc":{"0":"Tjava.lang.Object"}}, "sub":
+  {"name": "Plock(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "C<init>(2)", "data":{"hc":{"0":"Tjava.io.Reader"}}, "sub":
+  {"name": "Pin(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MnullReader(0)", "data":{"hc":{"0":"Tjava.io.Reader"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "Mread(1)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.nio.CharBuffer"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Ptarget(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1,"notNullParameter":1}}},
+ {"name": "Mread(2)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mread(3)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcbuf(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "Mread(4)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pc(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Pi(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mskip(5)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pn(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MimplSkip(6)", "data":{"hc":{}}},
+ {"name": "Mready(7)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MmarkSupported(8)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mmark(9)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PreadAheadLimit(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mreset(10)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mclose(11)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MtransferTo(12)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.io.Writer"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pout(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}}]},
+
+{"name": "Tjava.io.Writer", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"hc":{}}},
+ {"name": "C<init>(1)", "data":{"hc":{"0":"Tjava.io.Writer"}}, "sub":
+  {"name": "Pwriter(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "C<init>(2)", "data":{"hc":{"0":"Tjava.lang.Object"}}, "sub":
+  {"name": "Plock(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MnullWriter(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.Writer"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "Mwrite(1)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pc(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MimplWrite(2)", "data":{"hc":{}}},
+ {"name": "Mwrite(3)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcbuf(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mwrite(4)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pc(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mwrite(5)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pstr(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "Mwrite(6)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pstr(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Poff(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MimplWrite(7)", "data":{"hc":{}}},
+ {"name": "Mappend(8)", "data":{"containerMethod":1,"fluentMethod":1,"hc":{"0":"Tjava.lang.CharSequence","1":"Tjava.io.Writer"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcsq(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "Mappend(9)", "data":{"containerMethod":1,"fluentMethod":1,"hc":{"0":"Tjava.lang.CharSequence","1":"Tjava.io.Writer"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pcsq(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
+  {"name": "Pstart(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pend(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mappend(10)", "data":{"annotatedApi":1,"containerMethod":1,"fluentMethod":1,"hc":{"0":"Tjava.io.Writer"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pc(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mflush(11)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mclose(12)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}}]},
+
+{"name": "Tjava.io.BufferedReader", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.Reader"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pin(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
+  {"name": "Psz(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "C<init>(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.Reader"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pin(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "MensureOpen(0)", "data":{"hc":{}}},
+ {"name": "Mfill(1)", "data":{"hc":{}}},
+ {"name": "Mread(2)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MimplRead(3)", "data":{"hc":{}}},
+ {"name": "Mread1(4)", "data":{"hc":{}}},
+ {"name": "Mread(5)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pcbuf(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Poff(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MimplRead(6)", "data":{"hc":{}}},
+ {"name": "MreadLine(7)", "data":{"hc":{}}},
+ {"name": "MimplReadLine(8)", "data":{"hc":{}}},
+ {"name": "MreadLine(9)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mskip(10)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pn(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MimplSkip(11)", "data":{"hc":{}}},
+ {"name": "Mready(12)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MimplReady(13)", "data":{"hc":{}}},
+ {"name": "MmarkSupported(14)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mmark(15)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PreadAheadLimit(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MimplMark(16)", "data":{"hc":{}}},
+ {"name": "Mreset(17)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MimplReset(18)", "data":{"hc":{}}},
+ {"name": "Mclose(19)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MimplClose(20)", "data":{"hc":{}}},
+ {"name": "Mlines(21)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.Stream"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}}]},
+
+{"name": "Tjava.io.BufferedWriter", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.io.Writer"}}, "subs":[
+  {"name": "Pout(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "C<init>(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.Writer"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pout(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "C<init>(2)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.Writer"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pout(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
+  {"name": "Psz(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MinitialBufferSize(0)", "data":{"hc":{}}},
+ {"name": "MensureOpen(1)", "data":{"hc":{}}},
+ {"name": "MgrowIfNeeded(2)", "data":{"hc":{}}},
+ {"name": "MflushBuffer(3)", "data":{"hc":{}}},
+ {"name": "MimplFlushBuffer(4)", "data":{"hc":{}}},
+ {"name": "Mwrite(5)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pc(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MimplWrite(6)", "data":{"hc":{}}},
+ {"name": "Mmin(7)", "data":{"hc":{}}},
+ {"name": "Mwrite(8)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pcbuf(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Poff(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MimplWrite(9)", "data":{"hc":{}}},
+ {"name": "Mwrite(10)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Ps(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Poff(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MimplWrite(11)", "data":{"hc":{}}},
+ {"name": "MnewLine(12)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mflush(13)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MimplFlush(14)", "data":{"hc":{}}},
+ {"name": "Mclose(15)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MimplClose(16)", "data":{"hc":{}}}]},
+
+{"name": "Tjava.io.ByteArrayOutputStream", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "C<init>(1)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Psize(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MensureCapacity(0)", "data":{"hc":{}}},
+ {"name": "Mwrite(1)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mwrite(2)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Poff(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MwriteBytes(3)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1}}},
+ {"name": "MwriteTo(4)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.OutputStream"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pout(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "Mreset(5)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MtoByteArray(6)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":1,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "Msize(7)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MtoString(8)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MtoString(9)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "PcharsetName(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MtoString(10)", "data":{"containerMethod":1,"hc":{"0":"Tjava.nio.charset.Charset"},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcharset(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "MtoString(11)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Phibyte(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mclose(12)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}}]},
+
+{"name": "Tjava.io.FileInputStream", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "C<init>(1)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.io.File"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pfile(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "C<init>(2)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PfdObj(0)", "data":{"modifiedParameter":1}}},
+ {"name": "Mopen0(0)", "data":{"hc":{}}},
+ {"name": "Mopen(1)", "data":{"hc":{}}},
+ {"name": "Mread(2)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mread0(3)", "data":{"hc":{}}},
+ {"name": "MreadBytes(4)", "data":{"hc":{}}},
+ {"name": "Mread(5)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "Mread(6)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Poff(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MreadAllBytes(7)", "data":{"containerMethod":1,"hc":{},"immutableMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadNBytes(8)", "data":{"containerMethod":1,"hc":{},"immutableMethod":1,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Plen(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MtransferTo(9)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.OutputStream"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pout(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "Mlength(10)", "data":{"hc":{}}},
+ {"name": "Mlength0(11)", "data":{"hc":{}}},
+ {"name": "Mposition(12)", "data":{"hc":{}}},
+ {"name": "Mposition0(13)", "data":{"hc":{}}},
+ {"name": "Mskip(14)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pn(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mskip0(15)", "data":{"hc":{}}},
+ {"name": "Mavailable(16)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mavailable0(17)", "data":{"hc":{}}},
+ {"name": "Mclose(18)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetFD(19)", "data":{"hc":{},"shallowAnalyzer":1}},
+ {"name": "MgetChannel(20)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.channels.FileChannel"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MinitIDs(21)", "data":{"hc":{}}}]},
+
+{"name": "Tjava.io.FileOutputStream", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "C<init>(1)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pappend(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "C<init>(2)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.io.File"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pfile(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "C<init>(3)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.File"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pfile(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}},
+  {"name": "Pappend(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "C<init>(4)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PfdObj(0)", "data":{"modifiedParameter":1}}},
+ {"name": "Mopen0(0)", "data":{"hc":{}}},
+ {"name": "Mopen(1)", "data":{"hc":{}}},
+ {"name": "Mwrite(2)", "data":{"hc":{}}},
+ {"name": "Mwrite(3)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MwriteBytes(4)", "data":{"hc":{}}},
+ {"name": "Mwrite(5)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mwrite(6)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Poff(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mclose(7)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetFD(8)", "data":{"hc":{},"shallowAnalyzer":1}},
+ {"name": "MgetChannel(9)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.channels.FileChannel"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MinitIDs(10)", "data":{"hc":{}}}]},
+
+{"name": "Tjava.io.FilterInputStream", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.io.InputStream"}}, "sub":
+  {"name": "Pin(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "Mread(0)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mread(1)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "Mread(2)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Poff(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mskip(3)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pn(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mavailable(4)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mclose(5)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mmark(6)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Preadlimit(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mreset(7)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MmarkSupported(8)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}}]},
+
+{"name": "Tjava.io.FilterOutputStream", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "Fout(0)", "data":{"annotatedApi":1}},
+ {"name": "C<init>(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.io.OutputStream"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pout(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1,"notNullParameter":1}}},
+ {"name": "Mwrite(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mwrite(1)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mwrite(2)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Poff(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mflush(3)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mclose(4)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}}]},
+
+{"name": "Tjava.io.OutputStreamWriter", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.OutputStream"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pout(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
+  {"name": "PcharsetName(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
+ {"name": "C<init>(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.OutputStream"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pout(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "C<init>(2)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.OutputStream","1":"Tjava.nio.charset.Charset"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pout(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
+  {"name": "Pcs(1)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":2}}]},
+ {"name": "C<init>(3)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.OutputStream","1":"Tjava.nio.charset.CharsetEncoder"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pout(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
+  {"name": "Penc(1)", "data":{"hcsParameter":{"1":[[-1]]},"independentParameter":2}}]},
+ {"name": "MlockFor(0)", "data":{"hc":{"0":"Tjava.io.OutputStreamWriter","1":"Tjava.lang.Object"},"hcsMethod":{"1":[[-1]]}}, "sub":
+  {"name": "Pwriter(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MgetEncoding(1)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MflushBuffer(2)", "data":{"hc":{}}},
+ {"name": "Mwrite(3)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pc(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mwrite(4)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pcbuf(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Poff(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mwrite(5)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pstr(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Poff(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mappend(6)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.CharSequence","1":"Tjava.io.Writer"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pcsq(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
+  {"name": "Pstart(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pend(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mappend(7)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.CharSequence","1":"Tjava.io.Writer"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcsq(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "Mflush(8)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mclose(9)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}}]},
+
+{"name": "Tjava.io.PrintWriter", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.Writer"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pout(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "C<init>(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.Writer"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pout(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "PautoFlush(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "C<init>(2)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.OutputStream"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pout(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "C<init>(3)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.OutputStream"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pout(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "PautoFlush(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "C<init>(4)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.OutputStream","1":"Tjava.nio.charset.Charset"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pout(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "PautoFlush(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pcharset(2)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":2}}]},
+ {"name": "C<init>(5)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PfileName(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "C<init>(6)", "data":{"hc":{"0":"Tjava.io.Writer","1":"Tjava.lang.Object"}}, "subs":[
+  {"name": "Pout(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+  {"name": "Plock(1)", "data":{"hcsParameter":{"1":[[-1]]}}}]},
+ {"name": "C<init>(7)", "data":{"hc":{"0":"Tjava.nio.charset.Charset","1":"Tjava.io.File"}}, "subs":[
+  {"name": "Pcharset(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+  {"name": "Pfile(1)", "data":{"hcsParameter":{"1":[[-1]]}}}]},
+ {"name": "C<init>(8)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PfileName(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pcsn(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
+ {"name": "C<init>(9)", "data":{"containerMethod":1,"hc":{"0":"Tjava.nio.charset.Charset"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PfileName(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pcharset(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}]},
+ {"name": "C<init>(10)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.File"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pfile(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "C<init>(11)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.File"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pfile(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Pcsn(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
+ {"name": "C<init>(12)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.File","1":"Tjava.nio.charset.Charset"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pfile(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Pcharset(1)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":2}}]},
+ {"name": "MtoCharset(0)", "data":{"hc":{"0":"Tjava.nio.charset.Charset"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MensureOpen(1)", "data":{"hc":{}}},
+ {"name": "Mflush(2)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MimplFlush(3)", "data":{"hc":{}}},
+ {"name": "Mclose(4)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MimplClose(5)", "data":{"hc":{}}},
+ {"name": "McheckError(6)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetError(7)", "data":{"hc":{}}},
+ {"name": "MclearError(8)", "data":{"hc":{}}},
+ {"name": "Mwrite(9)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pc(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MimplWrite(10)", "data":{"hc":{}}},
+ {"name": "Mwrite(11)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pbuf(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Poff(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MimplWrite(12)", "data":{"hc":{}}},
+ {"name": "Mwrite(13)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pbuf(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mwrite(14)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Ps(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Poff(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MimplWrite(15)", "data":{"hc":{}}},
+ {"name": "Mwrite(16)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Ps(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MnewLine(17)", "data":{"hc":{}}},
+ {"name": "MimplNewLine(18)", "data":{"hc":{}}},
+ {"name": "Mprint(19)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mprint(20)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pc(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mprint(21)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mprint(22)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mprint(23)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pf(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mprint(24)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pd(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mprint(25)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Ps(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "Mprint(26)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Ps(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "Mprint(27)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pobj(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "Mprintln(28)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mprintln(29)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mprintln(30)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mprintln(31)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mprintln(32)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mprintln(33)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mprintln(34)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mprintln(35)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Px(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "Mprintln(36)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Px(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "Mprintln(37)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Px(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "Mprintf(38)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.lang.Object","1":"Tjava.io.PrintWriter"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pformat(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pargs(1)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[0]]},"immutableParameter":1,"independentParameter":2}}]},
+ {"name": "Mprintf(39)", "data":{"hc":{"0":"Tjava.lang.Object","1":"Tjava.io.PrintWriter"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pl(0)", "data":{"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Pformat(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pargs(2)", "data":{"containerParameter":1,"hcsParameter":{"0":[[0]]},"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}]},
+ {"name": "Mformat(40)", "data":{"hc":{"0":"Tjava.lang.Object","1":"Tjava.io.PrintWriter"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pformat(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pargs(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[0]]},"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}]},
+ {"name": "MimplFormat(41)", "data":{"hc":{"0":"Tjava.lang.Object"}}, "subs":[
+  {"name": "Pargs(1)", "data":{"hcsParameter":{"0":[[0]]}}}]},
+ {"name": "Mformat(42)", "data":{"hc":{"0":"Tjava.lang.Object","1":"Tjava.io.PrintWriter"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pl(0)", "data":{"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Pformat(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pargs(2)", "data":{"containerParameter":1,"hcsParameter":{"0":[[0]]},"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}]},
+ {"name": "MimplFormat(43)", "data":{"hc":{"0":"Tjava.lang.Object"}}, "subs":[
+  {"name": "Pargs(2)", "data":{"hcsParameter":{"0":[[0]]}}}]},
+ {"name": "Mappend(44)", "data":{"fluentMethod":1,"hc":{"0":"Tjava.lang.CharSequence","1":"Tjava.io.PrintWriter"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcsq(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "Mappend(45)", "data":{"fluentMethod":1,"hc":{"0":"Tjava.lang.CharSequence","1":"Tjava.io.PrintWriter"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pcsq(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
+  {"name": "Pstart(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pend(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mappend(46)", "data":{"fluentMethod":1,"hc":{"0":"Tjava.io.PrintWriter"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pc(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}}]},
+
+{"name": "Tjava.io.StringReader", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Ps(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MensureOpen(0)", "data":{"hc":{}}},
+ {"name": "Mread(1)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mread(2)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pcbuf(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Poff(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mskip(3)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pn(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mready(4)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MmarkSupported(5)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mmark(6)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PreadAheadLimit(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mreset(7)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mclose(8)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}}]},
+
+{"name": "Tjava.io.StringWriter", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "C<init>(1)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PinitialSize(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mwrite(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pc(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mwrite(1)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pcbuf(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Poff(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mwrite(2)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pstr(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "Mwrite(3)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pstr(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Poff(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mappend(4)", "data":{"annotatedApi":1,"containerMethod":1,"fluentMethod":1,"hc":{"0":"Tjava.lang.CharSequence","1":"Tjava.io.StringWriter"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcsq(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "Mappend(5)", "data":{"containerMethod":1,"fluentMethod":1,"hc":{"0":"Tjava.lang.CharSequence","1":"Tjava.io.StringWriter"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pcsq(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
+  {"name": "Pstart(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pend(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mappend(6)", "data":{"annotatedApi":1,"containerMethod":1,"fluentMethod":1,"hc":{"0":"Tjava.io.StringWriter"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pc(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MtoString(7)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetBuffer(8)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "Mflush(9)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mclose(10)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}}]},
+
+{"name": "Tjava.io.BufferedInputStream", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.InputStream"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pin(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "C<init>(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.InputStream"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pin(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
+  {"name": "Psize(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MgetInIfOpen(0)", "data":{"hc":{"0":"Tjava.io.InputStream"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MgetBufIfOpen(1)", "data":{"hc":{}}},
+ {"name": "MgetBufIfOpen(2)", "data":{"hc":{}}},
+ {"name": "MensureOpen(3)", "data":{"hc":{}}},
+ {"name": "Mfill(4)", "data":{"hc":{}}},
+ {"name": "Mread(5)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MimplRead(6)", "data":{"hc":{}}},
+ {"name": "Mread1(7)", "data":{"hc":{}}},
+ {"name": "Mread(8)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Poff(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MimplRead(9)", "data":{"hc":{}}},
+ {"name": "Mskip(10)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pn(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MimplSkip(11)", "data":{"hc":{}}},
+ {"name": "Mavailable(12)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MimplAvailable(13)", "data":{"hc":{}}},
+ {"name": "Mmark(14)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Preadlimit(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MimplMark(15)", "data":{"hc":{}}},
+ {"name": "Mreset(16)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MimplReset(17)", "data":{"hc":{}}},
+ {"name": "MmarkSupported(18)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mclose(19)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MtransferTo(20)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.OutputStream"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pout(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MimplTransferTo(21)", "data":{"hc":{"0":"Tjava.io.OutputStream"}}, "sub":
+  {"name": "Pout(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}]},
+
+{"name": "Tjava.io.BufferedOutputStream", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.io.OutputStream"}}, "subs":[
+  {"name": "Pout(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "C<init>(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.OutputStream"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pout(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1,"notNullParameter":1}}},
+ {"name": "C<init>(2)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.OutputStream"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pout(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]}}},
+  {"name": "Psize(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MinitialBufferSize(0)", "data":{"hc":{}}},
+ {"name": "MflushBuffer(1)", "data":{"hc":{}}},
+ {"name": "MgrowIfNeeded(2)", "data":{"hc":{}}},
+ {"name": "Mwrite(3)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MimplWrite(4)", "data":{"hc":{}}},
+ {"name": "Mwrite(5)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Poff(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MimplWrite(6)", "data":{"hc":{}}},
+ {"name": "Mflush(7)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MimplFlush(8)", "data":{"hc":{}}}]},
+
+{"name": "Tjava.io.DataInputStream", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.InputStream"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pin(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "Mread(0)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "Mread(1)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pb(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Poff(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MreadFully(2)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MreadFully(3)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pb(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Poff(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MskipBytes(4)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pn(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MreadBoolean(5)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadByte(6)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadUnsignedByte(7)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadShort(8)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadUnsignedShort(9)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadChar(10)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadInt(11)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadLong(12)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadFloat(13)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadDouble(14)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadLine(15)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadUTF(16)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MreadUTF(17)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.io.DataInput"},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Pin(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}}]},
+
+{"name": "Tjava.io.PrintStream", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.io.OutputStream"}}, "subs":[
+  {"name": "Pout(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "C<init>(1)", "data":{"hc":{"0":"Tjava.nio.charset.Charset","1":"Tjava.io.OutputStream"}}, "subs":[
+  {"name": "Pcharset(1)", "data":{"hcsParameter":{"0":[[-1]]}}},
+  {"name": "Pout(2)", "data":{"hcsParameter":{"1":[[-1]]}}}]},
+ {"name": "C<init>(2)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.OutputStream"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pout(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1,"notNullParameter":1}}},
+ {"name": "C<init>(3)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.OutputStream"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pout(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]}}},
+  {"name": "PautoFlush(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "C<init>(4)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.OutputStream"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pout(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]}}},
+  {"name": "PautoFlush(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pencoding(2)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
+ {"name": "C<init>(5)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.OutputStream","1":"Tjava.nio.charset.Charset"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pout(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]}}},
+  {"name": "PautoFlush(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pcharset(2)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":1}}]},
+ {"name": "C<init>(6)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PfileName(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "C<init>(7)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PfileName(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pcsn(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
+ {"name": "C<init>(8)", "data":{"containerMethod":1,"hc":{"0":"Tjava.nio.charset.Charset"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PfileName(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pcharset(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}}]},
+ {"name": "C<init>(9)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.File"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pfile(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "C<init>(10)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.File"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pfile(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]}}},
+  {"name": "Pcsn(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
+ {"name": "C<init>(11)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.File","1":"Tjava.nio.charset.Charset"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pfile(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]}}},
+  {"name": "Pcharset(1)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":1}}]},
+ {"name": "MrequireNonNull(0)", "data":{"hc":{"0":"PT:0"},"hcsMethod":{"0":[[-1]]}}, "subs":[
+  {"name": "Pobj(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "MtoCharset(1)", "data":{"hc":{"0":"Tjava.nio.charset.Charset"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MensureOpen(2)", "data":{"hc":{}}},
+ {"name": "Mflush(3)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MimplFlush(4)", "data":{"hc":{}}},
+ {"name": "Mclose(5)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MimplClose(6)", "data":{"hc":{}}},
+ {"name": "McheckError(7)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetError(8)", "data":{"hc":{}}},
+ {"name": "MclearError(9)", "data":{"hc":{}}},
+ {"name": "Mwrite(10)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MimplWrite(11)", "data":{"hc":{}}},
+ {"name": "Mwrite(12)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pbuf(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Poff(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MimplWrite(13)", "data":{"hc":{}}},
+ {"name": "Mwrite(14)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pbuf(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MwriteBytes(15)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pbuf(0)", "data":{"containerParameter":1,"immutableParameter":1}}},
+ {"name": "Mwrite(16)", "data":{"hc":{}}},
+ {"name": "MimplWrite(17)", "data":{"hc":{}}},
+ {"name": "Mwriteln(18)", "data":{"hc":{}}},
+ {"name": "MimplWriteln(19)", "data":{"hc":{}}},
+ {"name": "Mwrite(20)", "data":{"hc":{}}},
+ {"name": "MimplWrite(21)", "data":{"hc":{}}},
+ {"name": "Mwriteln(22)", "data":{"hc":{}}},
+ {"name": "MimplWriteln(23)", "data":{"hc":{}}},
+ {"name": "MnewLine(24)", "data":{"hc":{}}},
+ {"name": "MimplNewLine(25)", "data":{"hc":{}}},
+ {"name": "Mprint(26)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mprint(27)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pc(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mprint(28)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mprint(29)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mprint(30)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pf(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mprint(31)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pd(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mprint(32)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Ps(0)", "data":{"containerParameter":1,"immutableParameter":1}}},
+ {"name": "Mprint(33)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Ps(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "Mprint(34)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pobj(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}}},
+ {"name": "Mprintln(35)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mprintln(36)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Px(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mprintln(37)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Px(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mprintln(38)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Px(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mprintln(39)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Px(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mprintln(40)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Px(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mprintln(41)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Px(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mprintln(42)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Px(0)", "data":{"containerParameter":1,"immutableParameter":1}}},
+ {"name": "Mprintln(43)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Px(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "Mprintln(44)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"independentMethod":2,"methodAllowsInterrupts":1,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Px(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}}},
+ {"name": "Mprintf(45)", "data":{"hc":{"0":"Tjava.lang.Object","1":"Tjava.io.PrintStream"},"hcsMethod":{"1":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pformat(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pargs(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[0]]},"immutableParameter":1,"independentParameter":2}}]},
+ {"name": "Mprintf(46)", "data":{"hc":{"0":"Tjava.lang.Object","1":"Tjava.io.PrintStream"},"hcsMethod":{"1":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pl(0)", "data":{"independentParameter":2}},
+  {"name": "Pformat(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pargs(2)", "data":{"containerParameter":1,"hcsParameter":{"0":[[0]]},"immutableParameter":1,"independentParameter":2}}]},
+ {"name": "Mformat(47)", "data":{"hc":{"0":"Tjava.lang.Object","1":"Tjava.io.PrintStream"},"hcsMethod":{"1":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pformat(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pargs(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[0]]},"immutableParameter":1,"independentParameter":2}}]},
+ {"name": "MimplFormat(48)", "data":{"hc":{"0":"Tjava.lang.Object"}}, "subs":[
+  {"name": "Pargs(1)", "data":{"hcsParameter":{"0":[[0]]}}}]},
+ {"name": "Mformat(49)", "data":{"hc":{"0":"Tjava.lang.Object","1":"Tjava.io.PrintStream"},"hcsMethod":{"1":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pl(0)", "data":{"independentParameter":2}},
+  {"name": "Pformat(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pargs(2)", "data":{"containerParameter":1,"hcsParameter":{"0":[[0]]},"immutableParameter":1,"independentParameter":2}}]},
+ {"name": "MimplFormat(50)", "data":{"hc":{"0":"Tjava.lang.Object"}}, "subs":[
+  {"name": "Pargs(2)", "data":{"hcsParameter":{"0":[[0]]}}}]},
+ {"name": "Mappend(51)", "data":{"fluentMethod":1,"hc":{"0":"Tjava.lang.CharSequence","1":"Tjava.io.PrintStream"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcsq(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "Mappend(52)", "data":{"fluentMethod":1,"hc":{"0":"Tjava.lang.CharSequence","1":"Tjava.io.PrintStream"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pcsq(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
+  {"name": "Pstart(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pend(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mappend(53)", "data":{"fluentMethod":1,"hc":{"0":"Tjava.io.PrintStream"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pc(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mcharset(54)", "data":{"containerMethod":1,"hc":{"0":"Tjava.nio.charset.Charset"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}}]},
+
+{"name": "Tjava.io.PushbackInputStream", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.InputStream"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pin(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+  {"name": "Psize(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "C<init>(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.InputStream"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pin(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MensureOpen(0)", "data":{"hc":{}}},
+ {"name": "Mread(1)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mread(2)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pb(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Poff(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Munread(3)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Munread(4)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pb(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1}},
+  {"name": "Poff(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plen(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Munread(5)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1}}},
+ {"name": "Mavailable(6)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mskip(7)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pn(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MmarkSupported(8)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mmark(9)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Preadlimit(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mreset(10)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mclose(11)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MimplClose(12)", "data":{"hc":{}}},
+ {"name": "MtransferTo(13)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.OutputStream"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pout(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}}]}
+]

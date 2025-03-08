@@ -1,0 +1,8 @@
+[
+{"name": "Tjava.lang.annotation.Annotation", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "Mequals(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pobject(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "MhashCode(1)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MtoString(2)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MannotationType(3)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.annotation.Annotation"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}}]}
+]

@@ -1,0 +1,36 @@
+[
+{"name": "Tjava.lang.ref.Reference", "data":{"annotatedApi":1,"containerType":1,"hc":{"0":"PT:0","E":true,"M":1},"independentType":1,"shallowAnalyzer":1}, "subs":[
+ {"name": "SReferenceHandler(0)", "data":{"hc":{"E":true}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.lang.ThreadGroup"}}, "subs":[
+   {"name": "Pg(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+  {"name": "Mrun(0)", "data":{"hc":{}}}]},
+ {"name": "C<init>(0)", "data":{"hc":{"M":1},"hcsMethod":{"0":[[0]]}}, "sub":
+  {"name": "Preferent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "C<init>(1)", "data":{"hc":{"1":"Tjava.lang.ref.ReferenceQueue","M":1},"hcsMethod":{"0":[[0]]}}, "subs":[
+  {"name": "Preferent(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+  {"name": "Pqueue(1)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]}}}]},
+ {"name": "MgetAndClearReferencePendingList(0)", "data":{"hc":{"1":"Tjava.lang.ref.Reference","2":"Tjava.lang.Object","M":1},"hcsMethod":{"1":[[-1]]}}},
+ {"name": "MhasReferencePendingList(1)", "data":{"hc":{"M":1}}},
+ {"name": "MwaitForReferencePendingList(2)", "data":{"hc":{"M":1}}},
+ {"name": "MenqueueFromPending(3)", "data":{"hc":{"M":1}}},
+ {"name": "MprocessPendingReferences(4)", "data":{"hc":{"M":1}}},
+ {"name": "MwaitForReferenceProcessing(5)", "data":{"hc":{"M":1}}},
+ {"name": "MstartReferenceHandlerThread(6)", "data":{"hc":{"1":"Tjava.lang.ThreadGroup","M":1}}, "sub":
+  {"name": "Ptg(0)", "data":{"hcsParameter":{"1":[[-1]]}}}},
+ {"name": "Mget(7)", "data":{"annotatedApi":1,"hc":{"M":1},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
+ {"name": "MrefersTo(8)", "data":{"containerMethod":1,"hc":{"M":1},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pobj(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "MrefersToImpl(9)", "data":{"hc":{"M":1}}, "sub":
+  {"name": "Pobj(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MrefersTo0(10)", "data":{"hc":{"1":"Tjava.lang.Object","M":1}}, "sub":
+  {"name": "Pobject(0)", "data":{"hcsParameter":{"1":[[-1]]}}}},
+ {"name": "Mclear(11)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"M":1},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mclear0(12)", "data":{"hc":{"M":1}}},
+ {"name": "MgetFromInactiveFinalReference(13)", "data":{"hc":{"M":1},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MclearInactiveFinalReference(14)", "data":{"hc":{"M":1}}},
+ {"name": "MisEnqueued(15)", "data":{"containerMethod":1,"hc":{"M":1},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Menqueue(16)", "data":{"containerMethod":1,"hc":{"M":1},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mclone(17)", "data":{"hc":{"1":"Tjava.lang.Object","M":1},"hcsMethod":{"1":[[-1]]}}},
+ {"name": "MreachabilityFence(18)", "data":{"containerMethod":1,"hc":{"1":"Tjava.lang.Object","M":1},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Pref(0)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":2}}}]}
+]

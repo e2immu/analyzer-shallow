@@ -1,0 +1,152 @@
+[
+{"name": "Tjava.text.Format", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "SField(0)", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{}}}]},
+ {"name": "SFieldDelegate(1)", "data":{"hc":{"E":true}}, "subs":[
+  {"name": "Mformatted(0)", "data":{"hc":{"0":"Tjava.text.Format.Field","1":"Tjava.lang.Object"}}, "subs":[
+   {"name": "Pfield(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+   {"name": "Pobject(1)", "data":{"hcsParameter":{"1":[[-1]]}}}]},
+  {"name": "Mformatted(1)", "data":{"hc":{"0":"Tjava.text.Format.Field","1":"Tjava.lang.Object"}}, "subs":[
+   {"name": "Pfield(1)", "data":{"hcsParameter":{"0":[[-1]]}}},
+   {"name": "Pobject(2)", "data":{"hcsParameter":{"1":[[-1]]}}}]}]},
+ {"name": "C<init>(0)", "data":{"hc":{}}},
+ {"name": "Mformat(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Pobj(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "Mformat(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object","1":"Tjava.text.FieldPosition"},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pobject(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
+  {"name": "PstringBuffer(1)", "data":{"containerParameter":1,"independentParameter":2}},
+  {"name": "PfieldPosition(2)", "data":{"hcsParameter":{"1":[[-1]]},"independentParameter":2}}]},
+ {"name": "MformatToCharacterIterator(2)", "data":{"hc":{"0":"Tjava.lang.Object","1":"Tjava.text.AttributedCharacterIterator"},"hcsMethod":{"1":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Pobj(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "MparseObject(3)", "data":{"containerMethod":1,"hc":{"0":"Tjava.text.ParsePosition","1":"Tjava.lang.Object"},"hcsMethod":{"1":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "PparsePosition(1)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}]},
+ {"name": "MparseObject(4)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Psource(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "Mclone(5)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
+ {"name": "McreateAttributedCharacterIterator(6)", "data":{"hc":{"0":"Tjava.text.AttributedCharacterIterator"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "McreateAttributedCharacterIterator(7)", "data":{"hc":{"0":"Tjava.text.AttributedCharacterIterator"},"hcsMethod":{"0":[[-1]]}}, "sub":
+  {"name": "Piterators(0)", "data":{"hcsParameter":{"0":[[0]]}}}},
+ {"name": "McreateAttributedCharacterIterator(8)", "data":{"hc":{"0":"Tjava.text.AttributedCharacterIterator.Attribute","1":"Tjava.lang.Object","2":"Tjava.text.AttributedCharacterIterator"},"hcsMethod":{"2":[[-1]]}}, "subs":[
+  {"name": "Pkey(1)", "data":{"hcsParameter":{"0":[[-1]]}}},
+  {"name": "Pvalue(2)", "data":{"hcsParameter":{"1":[[-1]]}}}]},
+ {"name": "McreateAttributedCharacterIterator(9)", "data":{"hc":{"0":"Tjava.text.AttributedCharacterIterator","1":"Tjava.text.AttributedCharacterIterator.Attribute","2":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]}}, "subs":[
+  {"name": "Piterator(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+  {"name": "Pkey(1)", "data":{"hcsParameter":{"1":[[-1]]}}},
+  {"name": "Pvalue(2)", "data":{"hcsParameter":{"2":[[-1]]}}}]}]},
+
+{"name": "Tjava.text.NumberFormat", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "SField(0)", "data":{"annotatedApi":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "FINTEGER(2)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":2,"shallowAnalyzer":1}},
+  {"name": "FFRACTION(3)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":2,"shallowAnalyzer":1}},
+  {"name": "FEXPONENT(4)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":2,"shallowAnalyzer":1}},
+  {"name": "FDECIMAL_SEPARATOR(5)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":2,"shallowAnalyzer":1}},
+  {"name": "FSIGN(6)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":2,"shallowAnalyzer":1}},
+  {"name": "FGROUPING_SEPARATOR(7)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":2,"shallowAnalyzer":1}},
+  {"name": "FEXPONENT_SYMBOL(8)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":2,"shallowAnalyzer":1}},
+  {"name": "FPERCENT(9)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":2,"shallowAnalyzer":1}},
+  {"name": "FPERMILLE(10)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":2,"shallowAnalyzer":1}},
+  {"name": "FCURRENCY(11)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":2,"shallowAnalyzer":1}},
+  {"name": "FEXPONENT_SIGN(12)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":2,"shallowAnalyzer":1}},
+  {"name": "FPREFIX(13)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":2,"shallowAnalyzer":1}},
+  {"name": "FSUFFIX(14)", "data":{"annotatedApi":1,"finalField":1,"immutableField":2,"independentField":2,"shallowAnalyzer":1}},
+  {"name": "C<init>(0)", "data":{"hc":{}}},
+  {"name": "MreadResolve(0)", "data":{"hc":{"0":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]}}}]},
+ {"name": "SStyle(1)", "data":{"annotatedApi":1,"hc":{},"immutableType":3,"independentType":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "FSHORT(0)", "data":{"annotatedApi":1,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
+  {"name": "FLONG(1)", "data":{"annotatedApi":1,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
+  {"name": "C<init>(0)", "data":{"annotatedApi":1,"hc":{}}},
+  {"name": "Mvalues(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":1,"independentMethod":2,"shallowAnalyzer":1}},
+  {"name": "MvalueOf(1)", "data":{"annotatedApi":1,"hc":{},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+   {"name": "Pname(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}}]},
+ {"name": "FINTEGER_FIELD(0)", "data":{"annotatedApi":1,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
+ {"name": "FFRACTION_FIELD(1)", "data":{"annotatedApi":1,"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
+ {"name": "C<init>(0)", "data":{"annotatedApi":1,"hc":{}}},
+ {"name": "Mformat(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.lang.Object","1":"Tjava.text.FieldPosition"},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pnumber(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
+  {"name": "PtoAppendTo(1)", "data":{"annotatedApi":1,"containerParameter":1,"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Ppos(2)", "data":{"annotatedApi":1,"hcsParameter":{"1":[[-1]]},"independentParameter":2}}]},
+ {"name": "MparseObject(1)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.text.ParsePosition","1":"Tjava.lang.Object"},"hcsMethod":{"1":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Psource(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Ppos(1)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}}]},
+ {"name": "Mformat(2)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Pnumber(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MfastFormat(3)", "data":{"hc":{}}},
+ {"name": "Mformat(4)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Pnumber(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mformat(5)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.text.FieldPosition"},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pd(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PstringBuffer(1)", "data":{"annotatedApi":1,"containerParameter":1,"independentParameter":2,"modifiedParameter":1}},
+  {"name": "PfieldPosition(2)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}]},
+ {"name": "Mformat(6)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.text.FieldPosition"},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pl(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PstringBuffer(1)", "data":{"annotatedApi":1,"containerParameter":1,"independentParameter":2,"modifiedParameter":1}},
+  {"name": "PfieldPosition(2)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}]},
+ {"name": "Mparse(7)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.text.ParsePosition","1":"Tjava.lang.Number"},"hcsMethod":{"1":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pstring(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "PparsePosition(1)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}]},
+ {"name": "Mparse(8)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.lang.Number"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Psource(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MisParseIntegerOnly(9)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetParseIntegerOnly(10)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pvalue(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MisStrict(11)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetStrict(12)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pstrict(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetInstance(13)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.text.NumberFormat"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetInstance(14)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.text.NumberFormat"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PinLocale(0)", "data":{"annotatedApi":1}}},
+ {"name": "MgetNumberInstance(15)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.text.NumberFormat"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetNumberInstance(16)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.text.NumberFormat"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PinLocale(0)", "data":{"annotatedApi":1}}},
+ {"name": "MgetIntegerInstance(17)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.text.NumberFormat"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetIntegerInstance(18)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.text.NumberFormat"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PinLocale(0)", "data":{"annotatedApi":1}}},
+ {"name": "MgetCurrencyInstance(19)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.text.NumberFormat"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetCurrencyInstance(20)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.text.NumberFormat"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PinLocale(0)", "data":{"annotatedApi":1}}},
+ {"name": "MgetPercentInstance(21)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.text.NumberFormat"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetPercentInstance(22)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.text.NumberFormat"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PinLocale(0)", "data":{"annotatedApi":1}}},
+ {"name": "MgetScientificInstance(23)", "data":{"hc":{"0":"Tjava.text.NumberFormat"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MgetScientificInstance(24)", "data":{"hc":{"0":"Tjava.text.NumberFormat"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MgetCompactNumberInstance(25)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.text.NumberFormat"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetCompactNumberInstance(26)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.text.NumberFormat"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Plocale(0)", "data":{"annotatedApi":1}},
+  {"name": "PformatStyle(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2}}]},
+ {"name": "MmatchToStyle(27)", "data":{"hc":{"0":"Tjava.text.NumberFormat"}}, "subs":[
+  {"name": "Pfmt(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "MgetAvailableLocales(28)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":1,"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MhashCode(29)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mequals(30)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pobj(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "Mclone(31)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisGroupingUsed(32)", "data":{"annotatedApi":1,"containerMethod":1,"getSetField":["FgroupingUsed(8)",false],"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetGroupingUsed(33)", "data":{"annotatedApi":1,"containerMethod":1,"getSetField":["FgroupingUsed(8)",true],"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetMaximumIntegerDigits(34)", "data":{"annotatedApi":1,"containerMethod":1,"getSetField":["FmaximumIntegerDigits(14)",false],"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetMaximumIntegerDigits(35)", "data":{"annotatedApi":1,"containerMethod":1,"getSetField":["FmaximumIntegerDigits(14)",true],"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetMinimumIntegerDigits(36)", "data":{"annotatedApi":1,"containerMethod":1,"getSetField":["FminimumIntegerDigits(15)",false],"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetMinimumIntegerDigits(37)", "data":{"annotatedApi":1,"containerMethod":1,"getSetField":["FminimumIntegerDigits(15)",true],"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetMaximumFractionDigits(38)", "data":{"annotatedApi":1,"containerMethod":1,"getSetField":["FmaximumFractionDigits(16)",false],"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetMaximumFractionDigits(39)", "data":{"annotatedApi":1,"containerMethod":1,"getSetField":["FmaximumFractionDigits(16)",true],"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetMinimumFractionDigits(40)", "data":{"annotatedApi":1,"containerMethod":1,"getSetField":["FminimumFractionDigits(17)",false],"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetMinimumFractionDigits(41)", "data":{"annotatedApi":1,"containerMethod":1,"getSetField":["FminimumFractionDigits(17)",true],"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewValue(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetCurrency(42)", "data":{"annotatedApi":1,"hc":{},"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetCurrency(43)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcurrency(0)", "data":{"annotatedApi":1,"modifiedParameter":1}}},
+ {"name": "MgetRoundingMode(44)", "data":{"annotatedApi":1,"hc":{},"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetRoundingMode(45)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "ProundingMode(0)", "data":{"annotatedApi":1,"modifiedParameter":1}}},
+ {"name": "MgetInstance(46)", "data":{"hc":{"0":"Tjava.text.NumberFormat"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MgetInstance(47)", "data":{"hc":{"0":"Tsun.util.locale.provider.LocaleProviderAdapter","1":"Tjava.text.NumberFormat"},"hcsMethod":{"1":[[-1]]}}, "subs":[
+  {"name": "Padapter(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "MreadObject(48)", "data":{"hc":{"0":"Tjava.io.ObjectInputStream"}}, "sub":
+  {"name": "Pstream(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MwriteObject(49)", "data":{"hc":{"0":"Tjava.io.ObjectOutputStream"}}, "sub":
+  {"name": "Pstream(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}]}
+]

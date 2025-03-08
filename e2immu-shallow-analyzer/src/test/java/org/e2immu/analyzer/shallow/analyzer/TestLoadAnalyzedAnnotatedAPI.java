@@ -57,9 +57,20 @@ public class TestLoadAnalyzedAnnotatedAPI {
         InputConfigurationImpl.Builder inputConfiguration = new InputConfigurationImpl.Builder();
         classPath.forEach(inputConfiguration::addClassPath);
         javaInspector.initialize(inputConfiguration.build());
-        File jsonDir = new File("../e2immu-shallow-aapi/src/main/resources/json");
-        assertTrue(jsonDir.isDirectory());
-        new LoadAnalyzedAnnotatedAPI().goDir(javaInspector, jsonDir);
+
+        LoadAnalyzedAnnotatedAPI loadAnalyzedAnnotatedAPI = new LoadAnalyzedAnnotatedAPI();
+        String jdk = Run.currentJdk();
+        File jdkDir = new File("../e2immu-shallow-aapi/src/main/resources/json/jdk/" + jdk);
+        LOGGER.info("JDK dir is {}", jdkDir);
+        assertTrue(jdkDir.isDirectory());
+        int countJdk = loadAnalyzedAnnotatedAPI.goDir(javaInspector, jdkDir);
+        assertTrue(countJdk > 1);
+
+        File libDir = new File("../e2immu-shallow-aapi/src/main/resources/json/libs");
+        LOGGER.info("Lib dir is {}", libDir);
+        assertTrue(libDir.isDirectory());
+        int countLib = loadAnalyzedAnnotatedAPI.goDir(javaInspector, libDir);
+        assertTrue(countLib > 0);
 
         TypeInfo typeInfo = javaInspector.compiledTypesManager().get(Object.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("toString", 0);

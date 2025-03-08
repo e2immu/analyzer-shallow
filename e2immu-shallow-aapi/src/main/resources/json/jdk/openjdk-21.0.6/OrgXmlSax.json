@@ -1,0 +1,71 @@
+[
+{"name": "Torg.xml.sax.ContentHandler", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "MsetDocumentLocator(0)", "data":{"containerMethod":1,"hc":{"0":"Torg.xml.sax.Locator"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Plocator(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MstartDocument(1)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mdeclaration(2)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pversion(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pencoding(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pstandalone(2)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
+ {"name": "MendDocument(3)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MstartPrefixMapping(4)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pstring1(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
+ {"name": "MendPrefixMapping(5)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MstartElement(6)", "data":{"containerMethod":1,"hc":{"0":"Torg.xml.sax.Attributes"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pstring1(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pstring2(2)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pattributes(3)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "MendElement(7)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pstring(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pstring1(1)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pstring2(2)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
+ {"name": "Mcharacters(8)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pc(0)", "data":{"containerParameter":1,"immutableParameter":1}},
+  {"name": "Pi(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MignorableWhitespace(9)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pc(0)", "data":{"containerParameter":1,"immutableParameter":1}},
+  {"name": "Pi(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MprocessingInstruction(10)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pstring1(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
+ {"name": "MskippedEntity(11)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}}]},
+
+{"name": "Torg.xml.sax.XMLReader", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "MgetFeature(0)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MsetFeature(1)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pb(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MgetProperty(2)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MsetProperty(3)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pobject(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}}]},
+ {"name": "MsetEntityResolver(4)", "data":{"containerMethod":1,"hc":{"0":"Torg.xml.sax.EntityResolver"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PentityResolver(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MgetEntityResolver(5)", "data":{"hc":{"0":"Torg.xml.sax.EntityResolver"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MsetDTDHandler(6)", "data":{"containerMethod":1,"hc":{"0":"Torg.xml.sax.DTDHandler"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PdTDHandler(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MgetDTDHandler(7)", "data":{"hc":{"0":"Torg.xml.sax.DTDHandler"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MsetContentHandler(8)", "data":{"containerMethod":1,"hc":{"0":"Torg.xml.sax.ContentHandler"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PcontentHandler(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MgetContentHandler(9)", "data":{"hc":{"0":"Torg.xml.sax.ContentHandler"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MsetErrorHandler(10)", "data":{"containerMethod":1,"hc":{"0":"Torg.xml.sax.ErrorHandler"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PerrorHandler(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MgetErrorHandler(11)", "data":{"hc":{"0":"Torg.xml.sax.ErrorHandler"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "Mparse(12)", "data":{"containerMethod":1,"hc":{"0":"Torg.xml.sax.InputSource"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PinputSource(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "Mparse(13)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pstring(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}}]},
+
+{"name": "Torg.xml.sax.XMLFilter", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "MsetParent(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Torg.xml.sax.XMLReader"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PxMLReader(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MgetParent(1)", "data":{"annotatedApi":1,"hc":{"0":"Torg.xml.sax.XMLReader"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}}]}
+]

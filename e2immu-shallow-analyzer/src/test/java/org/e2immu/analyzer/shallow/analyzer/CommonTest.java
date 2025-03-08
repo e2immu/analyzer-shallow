@@ -47,7 +47,7 @@ public class CommonTest {
         ((Logger) LoggerFactory.getLogger("org.e2immu.analyzer.shallow")).setLevel(Level.DEBUG);
 
         AnnotatedApiParser annotatedApiParser = new AnnotatedApiParser();
-        annotatedApiParser.initialize(
+        annotatedApiParser.initialize(null,
                 List.of(JavaInspectorImpl.JAR_WITH_PATH_PREFIX + "org/slf4j",
                         "jmods/java.datatransfer.jmod",
                         "jmods/java.desktop.jmod"),
@@ -74,7 +74,7 @@ public class CommonTest {
 
         Value.Independent independent = typeInfo.analysis().getOrDefault(INDEPENDENT_TYPE, DEPENDENT);
         Value.Independent expectIndependent = hcIndependent
-                ? ValueImpl.IndependentImpl.INDEPENDENT_HC: ValueImpl.IndependentImpl.INDEPENDENT;
+                ? ValueImpl.IndependentImpl.INDEPENDENT_HC : ValueImpl.IndependentImpl.INDEPENDENT;
         assertSame(expectIndependent, independent);
 
         boolean container = typeInfo.analysis().getOrDefault(CONTAINER_TYPE, ValueImpl.BoolImpl.FALSE).isTrue();

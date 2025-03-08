@@ -1,0 +1,132 @@
+[
+{"name": "Tjava.util.random.RandomGenerator", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "SArbitrarilyJumpableGenerator(0)", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Mof(0)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.util.random.RandomGenerator.ArbitrarilyJumpableGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+   {"name": "Pname(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+  {"name": "Mcopy(1)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.util.random.RandomGenerator.ArbitrarilyJumpableGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
+  {"name": "MjumpPowerOfTwo(2)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+   {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+  {"name": "Mjump(3)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+   {"name": "Pd(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+  {"name": "Mjump(4)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+  {"name": "Mjumps(5)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.Stream","1":"Tjava.util.random.RandomGenerator.ArbitrarilyJumpableGenerator"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+   {"name": "Pdistance(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+  {"name": "Mjumps(6)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.Stream","1":"Tjava.util.random.RandomGenerator.ArbitrarilyJumpableGenerator"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+   {"name": "PstreamSize(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+   {"name": "Pd(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+  {"name": "Mleap(7)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+  {"name": "McopyAndJump(8)", "data":{"hc":{"0":"Tjava.util.random.RandomGenerator.ArbitrarilyJumpableGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+   {"name": "Pdistance(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}}]},
+ {"name": "SJumpableGenerator(1)", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Mof(0)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.util.random.RandomGenerator.JumpableGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+   {"name": "Pname(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+  {"name": "Mcopy(1)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.util.random.RandomGenerator.JumpableGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
+  {"name": "Mjump(2)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+  {"name": "MjumpDistance(3)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+  {"name": "Mjumps(4)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.Stream","1":"Tjava.util.random.RandomGenerator"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}},
+  {"name": "Mjumps(5)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.Stream","1":"Tjava.util.random.RandomGenerator"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+   {"name": "PstreamSize(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+  {"name": "Mrngs(6)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.util.stream.Stream","1":"Tjava.util.random.RandomGenerator"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}},
+  {"name": "Mrngs(7)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.util.stream.Stream","1":"Tjava.util.random.RandomGenerator"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+   {"name": "PstreamSize(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+  {"name": "McopyAndJump(8)", "data":{"hc":{"0":"Tjava.util.random.RandomGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}}]},
+ {"name": "SLeapableGenerator(2)", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Mof(0)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.util.random.RandomGenerator.LeapableGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+   {"name": "Pname(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+  {"name": "Mcopy(1)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.util.random.RandomGenerator.LeapableGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
+  {"name": "Mleap(2)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+  {"name": "MleapDistance(3)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+  {"name": "Mleaps(4)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.Stream","1":"Tjava.util.random.RandomGenerator.JumpableGenerator"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}},
+  {"name": "Mleaps(5)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.Stream","1":"Tjava.util.random.RandomGenerator.JumpableGenerator"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+   {"name": "PstreamSize(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+  {"name": "McopyAndLeap(6)", "data":{"hc":{"0":"Tjava.util.random.RandomGenerator.JumpableGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}}]},
+ {"name": "SSplittableGenerator(3)", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Mof(0)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.util.random.RandomGenerator.SplittableGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+   {"name": "Pname(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+  {"name": "Msplit(1)", "data":{"hc":{"0":"Tjava.util.random.RandomGenerator.SplittableGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
+  {"name": "Msplit(2)", "data":{"hc":{"0":"Tjava.util.random.RandomGenerator.SplittableGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+   {"name": "PsplittableGenerator(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+  {"name": "Msplits(3)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.Stream","1":"Tjava.util.random.RandomGenerator.SplittableGenerator"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}},
+  {"name": "Msplits(4)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.Stream","1":"Tjava.util.random.RandomGenerator.SplittableGenerator"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+   {"name": "Pl(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+  {"name": "Msplits(5)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.random.RandomGenerator.SplittableGenerator","1":"Tjava.util.stream.Stream"},"hcsMethod":{"0":[[0]],"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+   {"name": "PsplittableGenerator(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+  {"name": "Msplits(6)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.random.RandomGenerator.SplittableGenerator","1":"Tjava.util.stream.Stream"},"hcsMethod":{"0":[[0]],"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+   {"name": "Pl(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+   {"name": "PsplittableGenerator(1)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}]},
+  {"name": "Mrngs(7)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.util.stream.Stream","1":"Tjava.util.random.RandomGenerator"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}},
+  {"name": "Mrngs(8)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.util.stream.Stream","1":"Tjava.util.random.RandomGenerator"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+   {"name": "PstreamSize(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}}]},
+ {"name": "SStreamableGenerator(4)", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Mof(0)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.util.random.RandomGenerator.StreamableGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+   {"name": "Pname(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+  {"name": "Mrngs(1)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.util.stream.Stream","1":"Tjava.util.random.RandomGenerator"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}},
+  {"name": "Mrngs(2)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.util.stream.Stream","1":"Tjava.util.random.RandomGenerator"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+   {"name": "PstreamSize(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}}]},
+ {"name": "Mof(0)", "data":{"hc":{"0":"Tjava.util.random.RandomGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MgetDefault(1)", "data":{"hc":{"0":"Tjava.util.random.RandomGenerator"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MisDeprecated(2)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mdoubles(3)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.DoubleStream"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "Mdoubles(4)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.DoubleStream"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "PrandomNumberOrigin(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pd(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mdoubles(5)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.DoubleStream"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "PstreamSize(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mdoubles(6)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.DoubleStream"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "PstreamSize(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pd(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PrandomNumberOrigin(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mints(7)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.IntStream"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "Mints(8)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.IntStream"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "PrandomNumberOrigin(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PrandomNumberBound(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mints(9)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.IntStream"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "PstreamSize(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mints(10)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.IntStream"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "PstreamSize(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PrandomNumberOrigin(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mlongs(11)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.LongStream"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "Mlongs(12)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.LongStream"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "PrandomNumberOrigin(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pl(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mlongs(13)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.LongStream"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "PstreamSize(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mlongs(14)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.LongStream"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "PstreamSize(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pl(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PrandomNumberOrigin(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MnextBoolean(15)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MnextBytes(16)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pbytes(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "MnextFloat(17)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MnextFloat(18)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pbound(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MnextFloat(19)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Porigin(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pbound(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MnextDouble(20)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MnextDouble(21)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pbound(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MnextDouble(22)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Porigin(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pd(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MnextInt(23)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MnextInt(24)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pbound(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MnextInt(25)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Porigin(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pbound(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MnextLong(26)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MnextLong(27)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pbound(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MnextLong(28)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Porigin(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pl(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MnextGaussian(29)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MnextGaussian(30)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pmean(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pd(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MnextExponential(31)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}}]}
+]

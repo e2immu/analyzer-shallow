@@ -1,0 +1,166 @@
+[
+{"name": "Tjava.nio.channels.Channels", "data":{"annotatedApi":1,"hc":{},"shallowAnalyzer":1}, "subs":[
+ {"name": "SReadableByteChannelImpl(0)", "data":{"hc":{"E":true}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.io.InputStream"}}, "sub":
+   {"name": "Pin(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+  {"name": "Mread(0)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"}}, "sub":
+   {"name": "Pdst(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+  {"name": "MimplCloseChannel(1)", "data":{"hc":{}}}]},
+ {"name": "SWritableByteChannelImpl(1)", "data":{"hc":{"E":true}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.io.OutputStream"}}, "sub":
+   {"name": "Pout(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+  {"name": "Mwrite(0)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"}}, "sub":
+   {"name": "Psrc(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+  {"name": "MimplCloseChannel(1)", "data":{"hc":{}}}]},
+ {"name": "C<init>(0)", "data":{"annotatedApi":1,"hc":{}}},
+ {"name": "MnewInputStream(0)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.channels.ReadableByteChannel","1":"Tjava.io.InputStream"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Pch(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "MnewOutputStream(1)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.nio.channels.WritableByteChannel","1":"Tjava.io.OutputStream"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Pch(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "MnewInputStream(2)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.channels.AsynchronousByteChannel","1":"Tjava.io.InputStream"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Pch(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "MnewOutputStream(3)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.nio.channels.AsynchronousByteChannel","1":"Tjava.io.OutputStream"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Pch(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "MnewChannel(4)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.io.InputStream","1":"Tjava.nio.channels.ReadableByteChannel"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Pin(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "MnewChannel(5)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.io.OutputStream","1":"Tjava.nio.channels.WritableByteChannel"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "sub":
+  {"name": "Pout(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "MnewReader(6)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.channels.ReadableByteChannel","1":"Tjava.nio.charset.CharsetDecoder","2":"Tjava.io.Reader"},"hcsMethod":{"2":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pch(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
+  {"name": "Pdec(1)", "data":{"annotatedApi":1,"hcsParameter":{"1":[[-1]]},"independentParameter":2}},
+  {"name": "PminBufferCap(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MnewReader(7)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.channels.ReadableByteChannel","1":"Tjava.io.Reader"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pch(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
+  {"name": "PcsName(1)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
+ {"name": "MnewReader(8)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.channels.ReadableByteChannel","1":"Tjava.nio.charset.Charset","2":"Tjava.io.Reader"},"hcsMethod":{"2":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pch(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
+  {"name": "Pcharset(1)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":2}}]},
+ {"name": "MnewWriter(9)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.nio.channels.WritableByteChannel","1":"Tjava.nio.charset.CharsetEncoder","2":"Tjava.io.Writer"},"hcsMethod":{"2":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pch(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
+  {"name": "Penc(1)", "data":{"annotatedApi":1,"hcsParameter":{"1":[[-1]]},"independentParameter":2}},
+  {"name": "PminBufferCap(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MnewWriter(10)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.nio.channels.WritableByteChannel","1":"Tjava.io.Writer"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pch(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
+  {"name": "PcsName(1)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
+ {"name": "MnewWriter(11)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.nio.channels.WritableByteChannel","1":"Tjava.nio.charset.Charset","2":"Tjava.io.Writer"},"hcsMethod":{"2":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pch(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
+  {"name": "Pcharset(1)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":2}}]}]},
+
+{"name": "Tjava.nio.channels.Channel", "data":{"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "MisOpen(0)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mclose(1)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}}]},
+
+{"name": "Tjava.nio.channels.InterruptibleChannel", "data":{"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "sub":
+ {"name": "Mclose(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}}},
+
+{"name": "Tjava.nio.channels.ReadableByteChannel", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "sub":
+ {"name": "Mread(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.nio.ByteBuffer"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PbyteBuffer(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}}},
+
+{"name": "Tjava.nio.channels.WritableByteChannel", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "sub":
+ {"name": "Mwrite(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.nio.ByteBuffer"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PbyteBuffer(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}}},
+
+{"name": "Tjava.nio.channels.ByteChannel", "data":{"hc":{"E":true},"shallowAnalyzer":1}},
+
+{"name": "Tjava.nio.channels.GatheringByteChannel", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "Mwrite(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.nio.ByteBuffer"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PbyteBuffer(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[0]]},"immutableParameter":1,"independentParameter":2}},
+  {"name": "Pi(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mwrite(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.nio.ByteBuffer"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PbyteBuffer(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[0]]},"immutableParameter":1,"independentParameter":2}}}]},
+
+{"name": "Tjava.nio.channels.ScatteringByteChannel", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "Mread(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.nio.ByteBuffer"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PbyteBuffer(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[0]]},"immutableParameter":1,"independentParameter":2}},
+  {"name": "Pi(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mread(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.nio.ByteBuffer"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PbyteBuffer(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[0]]},"immutableParameter":1,"independentParameter":2}}}]},
+
+{"name": "Tjava.nio.channels.SeekableByteChannel", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "Mread(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.nio.ByteBuffer"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PbyteBuffer(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "Mwrite(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.nio.ByteBuffer"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PbyteBuffer(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "Mposition(2)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mposition(3)", "data":{"hc":{"0":"Tjava.nio.channels.SeekableByteChannel"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Msize(4)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mtruncate(5)", "data":{"hc":{"0":"Tjava.nio.channels.SeekableByteChannel"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}}]},
+
+{"name": "Tjava.nio.channels.FileChannel", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "SMapMode(0)", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "FREAD_ONLY(0)", "data":{"annotatedApi":1,"finalField":1,"independentField":2,"shallowAnalyzer":1}},
+  {"name": "FREAD_WRITE(1)", "data":{"annotatedApi":1,"finalField":1,"independentField":2,"shallowAnalyzer":1}},
+  {"name": "FPRIVATE(2)", "data":{"annotatedApi":1,"finalField":1,"independentField":2,"shallowAnalyzer":1}},
+  {"name": "C<init>(0)", "data":{"hc":{}}},
+  {"name": "MtoString(0)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}}]},
+ {"name": "C<init>(0)", "data":{"annotatedApi":1,"hc":{}}},
+ {"name": "Mopen(0)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.file.Path","1":"Tjava.util.Set","2":"Tjava.nio.file.OpenOption","3":"Tjava.nio.file.attribute.FileAttribute","4":"Tjava.lang.Object","5":"Tjava.nio.channels.FileChannel"},"hcsMethod":{"5":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Ppath(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}},
+  {"name": "Poptions(1)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"1":[[-1]],"2":[[0]]}}},
+  {"name": "Pattrs(2)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"3":[[3]]},"immutableParameter":1}}]},
+ {"name": "Mopen(1)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.file.Path","1":"Tjava.nio.file.OpenOption","2":"Tjava.nio.channels.FileChannel"},"hcsMethod":{"2":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Ppath(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}},
+  {"name": "Poptions(1)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"1":[[1]]},"immutableParameter":1}}]},
+ {"name": "Mread(2)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.nio.ByteBuffer"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PbyteBuffer(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "Mread(3)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.nio.ByteBuffer"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PbyteBuffer(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[0]]},"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Pi(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mread(4)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.nio.ByteBuffer"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pdsts(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[0]]},"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "Mwrite(5)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.nio.ByteBuffer"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PbyteBuffer(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "Mwrite(6)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.nio.ByteBuffer"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PbyteBuffer(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[0]]},"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}},
+  {"name": "Pi(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mwrite(7)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.nio.ByteBuffer"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Psrcs(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[0]]},"immutableParameter":1,"independentParameter":2,"modifiedParameter":1}}},
+ {"name": "Mposition(8)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mposition(9)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.channels.FileChannel"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Msize(10)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mtruncate(11)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.channels.FileChannel"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mforce(12)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MtransferTo(13)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.nio.channels.WritableByteChannel"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pl(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pl1(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PwritableByteChannel(2)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}}]},
+ {"name": "MtransferFrom(14)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.nio.channels.ReadableByteChannel"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PreadableByteChannel(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}},
+  {"name": "Pl(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pl1(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mread(15)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.nio.ByteBuffer"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PbyteBuffer(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}},
+  {"name": "Pl(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mwrite(16)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.nio.ByteBuffer"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "PbyteBuffer(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"modifiedParameter":1}},
+  {"name": "Pl(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mmap(17)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.channels.FileChannel.MapMode","1":"Tjava.nio.MappedByteBuffer"},"hcsMethod":{"1":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "PmapMode(0)", "data":{"annotatedApi":1,"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
+  {"name": "Pl(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pl1(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mmap(18)", "data":{"hc":{"0":"Tjava.nio.channels.FileChannel.MapMode","1":"Tjava.lang.foreign.Arena","2":"Tjava.lang.foreign.MemorySegment"},"hcsMethod":{"2":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pmode(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
+  {"name": "Poffset(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pl(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Psize(3)", "data":{"hcsParameter":{"1":[[-1]]},"independentParameter":2}}]},
+ {"name": "Mlock(19)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.channels.FileLock"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pl(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pl1(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pb(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mlock(20)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.channels.FileLock"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MtryLock(21)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.channels.FileLock"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pl(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pl1(1)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pb(2)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MtryLock(22)", "data":{"annotatedApi":1,"hc":{"0":"Tjava.nio.channels.FileLock"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}}]}
+]

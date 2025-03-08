@@ -1,0 +1,173 @@
+[
+{"name": "Tjava.util.concurrent.locks.Condition", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "Mawait(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MawaitUninterruptibly(1)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MawaitNanos(2)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mawait(3)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pl(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PtimeUnit(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
+ {"name": "MawaitUntil(4)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.Date"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pdate(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "Msignal(5)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsignalAll(6)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}}]},
+
+{"name": "Tjava.util.concurrent.locks.Lock", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "Mlock(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MlockInterruptibly(1)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MtryLock(2)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MtryLock(3)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pl(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PtimeUnit(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
+ {"name": "Munlock(4)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MnewCondition(5)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.concurrent.locks.Condition"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}}]},
+
+{"name": "Tjava.util.concurrent.locks.ReadWriteLock", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "MreadLock(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.concurrent.locks.Lock"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MwriteLock(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.concurrent.locks.Lock"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}}]},
+
+{"name": "Tjava.util.concurrent.locks.ReentrantLock", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "SFairSync(0)", "data":{"hc":{}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{}}},
+  {"name": "MinitialTryLock(0)", "data":{"hc":{}}},
+  {"name": "MtryAcquire(1)", "data":{"hc":{}}}]},
+ {"name": "SNonfairSync(1)", "data":{"hc":{}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{}}},
+  {"name": "MinitialTryLock(0)", "data":{"hc":{}}},
+  {"name": "MtryAcquire(1)", "data":{"hc":{}}}]},
+ {"name": "SSync(2)", "data":{"hc":{"E":true}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{}}},
+  {"name": "MtryLock(0)", "data":{"hc":{}}},
+  {"name": "MinitialTryLock(1)", "data":{"hc":{}}},
+  {"name": "Mlock(2)", "data":{"hc":{}}},
+  {"name": "MlockInterruptibly(3)", "data":{"hc":{}}},
+  {"name": "MtryLockNanos(4)", "data":{"hc":{}}},
+  {"name": "MtryRelease(5)", "data":{"hc":{}}},
+  {"name": "MisHeldExclusively(6)", "data":{"hc":{}}},
+  {"name": "MnewCondition(7)", "data":{"hc":{"0":"Tjava.util.concurrent.locks.AbstractQueuedSynchronizer.ConditionObject"},"hcsMethod":{"0":[[-1]]}}},
+  {"name": "MgetOwner(8)", "data":{"hc":{"0":"Tjava.lang.Thread"},"hcsMethod":{"0":[[-1]]}}},
+  {"name": "MgetHoldCount(9)", "data":{"hc":{}}},
+  {"name": "MisLocked(10)", "data":{"hc":{}}},
+  {"name": "MreadObject(11)", "data":{"hc":{"0":"Tjava.io.ObjectInputStream"}}, "sub":
+   {"name": "Ps(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}]},
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "C<init>(1)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pfair(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mlock(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MlockInterruptibly(1)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MtryLock(2)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MtryLock(3)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Ptimeout(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PtimeUnit(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
+ {"name": "Munlock(4)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MnewCondition(5)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.concurrent.locks.Condition"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MgetHoldCount(6)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisHeldByCurrentThread(7)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisLocked(8)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisFair(9)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetOwner(10)", "data":{"hc":{"0":"Tjava.lang.Thread"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MhasQueuedThreads(11)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MhasQueuedThread(12)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Thread"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pthread(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "MgetQueueLength(13)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetQueuedThreads(14)", "data":{"hc":{"0":"Tjava.util.Collection","1":"Tjava.lang.Thread"},"hcsMethod":{"0":[[-1]],"1":[[0]]}}},
+ {"name": "MhasWaiters(15)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.concurrent.locks.Condition"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcondition(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "MgetWaitQueueLength(16)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.concurrent.locks.Condition"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcondition(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "MgetWaitingThreads(17)", "data":{"hc":{"0":"Tjava.util.concurrent.locks.Condition","1":"Tjava.util.Collection","2":"Tjava.lang.Thread"},"hcsMethod":{"1":[[-1]],"2":[[0]]}}, "sub":
+  {"name": "Pcondition(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MtoString(18)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}}]},
+
+{"name": "Tjava.util.concurrent.locks.ReentrantReadWriteLock", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "SFairSync(0)", "data":{"hc":{}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{}}},
+  {"name": "MwriterShouldBlock(0)", "data":{"hc":{}}},
+  {"name": "MreaderShouldBlock(1)", "data":{"hc":{}}}]},
+ {"name": "SNonfairSync(1)", "data":{"hc":{}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{}}},
+  {"name": "MwriterShouldBlock(0)", "data":{"hc":{}}},
+  {"name": "MreaderShouldBlock(1)", "data":{"hc":{}}}]},
+ {"name": "SReadLock(2)", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.util.concurrent.locks.ReentrantReadWriteLock"}}, "sub":
+   {"name": "Plock(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+  {"name": "Mlock(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+  {"name": "MlockInterruptibly(1)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+  {"name": "MtryLock(2)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+  {"name": "MtryLock(3)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+   {"name": "Ptimeout(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+   {"name": "PtimeUnit(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
+  {"name": "Munlock(4)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+  {"name": "MnewCondition(5)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.concurrent.locks.Condition"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
+  {"name": "MtoString(6)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}}]},
+ {"name": "SSync(3)", "data":{"hc":{"E":true}}, "subs":[
+  {"name": "SHoldCounter(0)", "data":{"hc":{}}, "subs":[
+   {"name": "C<init>(0)", "data":{"hc":{}}}]},
+  {"name": "SThreadLocalHoldCounter(1)", "data":{"hc":{}}, "subs":[
+   {"name": "C<init>(0)", "data":{"hc":{}}},
+   {"name": "MinitialValue(0)", "data":{"hc":{}}}]},
+  {"name": "C<init>(0)", "data":{"hc":{}}},
+  {"name": "MsharedCount(0)", "data":{"hc":{}}},
+  {"name": "MexclusiveCount(1)", "data":{"hc":{}}},
+  {"name": "MreaderShouldBlock(2)", "data":{"hc":{}}},
+  {"name": "MwriterShouldBlock(3)", "data":{"hc":{}}},
+  {"name": "MtryRelease(4)", "data":{"hc":{}}},
+  {"name": "MtryAcquire(5)", "data":{"hc":{}}},
+  {"name": "MtryReleaseShared(6)", "data":{"hc":{}}},
+  {"name": "MunmatchedUnlockException(7)", "data":{"hc":{"0":"Tjava.lang.IllegalMonitorStateException"},"hcsMethod":{"0":[[-1]]}}},
+  {"name": "MtryAcquireShared(8)", "data":{"hc":{}}},
+  {"name": "MfullTryAcquireShared(9)", "data":{"hc":{"0":"Tjava.lang.Thread"}}, "sub":
+   {"name": "Pcurrent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+  {"name": "MtryWriteLock(10)", "data":{"hc":{}}},
+  {"name": "MtryReadLock(11)", "data":{"hc":{}}},
+  {"name": "MisHeldExclusively(12)", "data":{"hc":{}}},
+  {"name": "MnewCondition(13)", "data":{"hc":{"0":"Tjava.util.concurrent.locks.AbstractQueuedSynchronizer.ConditionObject"},"hcsMethod":{"0":[[-1]]}}},
+  {"name": "MgetOwner(14)", "data":{"hc":{"0":"Tjava.lang.Thread"},"hcsMethod":{"0":[[-1]]}}},
+  {"name": "MgetReadLockCount(15)", "data":{"hc":{}}},
+  {"name": "MisWriteLocked(16)", "data":{"hc":{}}},
+  {"name": "MgetWriteHoldCount(17)", "data":{"hc":{}}},
+  {"name": "MgetReadHoldCount(18)", "data":{"hc":{}}},
+  {"name": "MreadObject(19)", "data":{"hc":{"0":"Tjava.io.ObjectInputStream"}}, "sub":
+   {"name": "Ps(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+  {"name": "MgetCount(20)", "data":{"hc":{}}}]},
+ {"name": "SWriteLock(4)", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"immutableType":2,"independentType":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.util.concurrent.locks.ReentrantReadWriteLock"}}, "sub":
+   {"name": "Plock(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+  {"name": "Mlock(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+  {"name": "MlockInterruptibly(1)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+  {"name": "MtryLock(2)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+  {"name": "MtryLock(3)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+   {"name": "Ptimeout(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+   {"name": "PtimeUnit(1)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}]},
+  {"name": "Munlock(4)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+  {"name": "MnewCondition(5)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.concurrent.locks.Condition"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
+  {"name": "MtoString(6)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+  {"name": "MisHeldByCurrentThread(7)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+  {"name": "MgetHoldCount(8)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}}]},
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "C<init>(1)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pfair(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MwriteLock(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.concurrent.locks.ReentrantReadWriteLock.WriteLock"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MreadLock(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.concurrent.locks.ReentrantReadWriteLock.ReadLock"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MisFair(2)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetOwner(3)", "data":{"hc":{"0":"Tjava.lang.Thread"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MgetReadLockCount(4)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisWriteLocked(5)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisWriteLockedByCurrentThread(6)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetWriteHoldCount(7)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetReadHoldCount(8)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetQueuedWriterThreads(9)", "data":{"hc":{"0":"Tjava.util.Collection","1":"Tjava.lang.Thread"},"hcsMethod":{"0":[[-1]],"1":[[0]]}}},
+ {"name": "MgetQueuedReaderThreads(10)", "data":{"hc":{"0":"Tjava.util.Collection","1":"Tjava.lang.Thread"},"hcsMethod":{"0":[[-1]],"1":[[0]]}}},
+ {"name": "MhasQueuedThreads(11)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MhasQueuedThread(12)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Thread"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pthread(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "MgetQueueLength(13)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetQueuedThreads(14)", "data":{"hc":{"0":"Tjava.util.Collection","1":"Tjava.lang.Thread"},"hcsMethod":{"0":[[-1]],"1":[[0]]}}},
+ {"name": "MhasWaiters(15)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.concurrent.locks.Condition"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcondition(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "MgetWaitQueueLength(16)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.concurrent.locks.Condition"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcondition(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "MgetWaitingThreads(17)", "data":{"hc":{"0":"Tjava.util.concurrent.locks.Condition","1":"Tjava.util.Collection","2":"Tjava.lang.Thread"},"hcsMethod":{"1":[[-1]],"2":[[0]]}}, "sub":
+  {"name": "Pcondition(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MtoString(18)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}}]}
+]

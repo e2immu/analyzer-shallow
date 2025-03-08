@@ -1,0 +1,185 @@
+[
+{"name": "Tjava.util.zip.ZipConstants", "data":{"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}},
+
+{"name": "Tjava.util.zip.ZipEntry", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "FSTORED(14)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
+ {"name": "FDEFLATED(15)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "C<init>(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.zip.ZipEntry"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pe(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MgetName(0)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MsetTime(1)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Ptime(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetTime(2)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetTimeLocal(3)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetTimeLocal(4)", "data":{"hc":{},"shallowAnalyzer":1}},
+ {"name": "MsetLastModifiedTime(5)", "data":{"hc":{"0":"Tjava.util.zip.ZipEntry"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Ptime(0)", "data":{"independentParameter":2}}},
+ {"name": "MgetLastModifiedTime(6)", "data":{"hc":{},"shallowAnalyzer":1}},
+ {"name": "MsetLastAccessTime(7)", "data":{"hc":{"0":"Tjava.util.zip.ZipEntry"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Ptime(0)", "data":{"independentParameter":2}}},
+ {"name": "MgetLastAccessTime(8)", "data":{"hc":{},"shallowAnalyzer":1}},
+ {"name": "MsetCreationTime(9)", "data":{"hc":{"0":"Tjava.util.zip.ZipEntry"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Ptime(0)", "data":{"independentParameter":2}}},
+ {"name": "MgetCreationTime(10)", "data":{"hc":{},"shallowAnalyzer":1}},
+ {"name": "MsetSize(11)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Psize(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetSize(12)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetCompressedSize(13)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetCompressedSize(14)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcsize(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MsetCrc(15)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcrc(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetCrc(16)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetMethod(17)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pmethod(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetMethod(18)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetExtra(19)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pextra(0)", "data":{"containerParameter":1,"immutableParameter":1}}},
+ {"name": "MsetExtra0(20)", "data":{"hc":{}}},
+ {"name": "MgetExtra(21)", "data":{"containerMethod":1,"hc":{},"immutableMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetComment(22)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcomment(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MgetComment(23)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MisDirectory(24)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MtoString(25)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MhashCode(26)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mclone(27)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}}]},
+
+{"name": "Tjava.util.zip.ZipFile", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "SCleanableResource(0)", "data":{"hc":{"E":true}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.util.zip.ZipFile","1":"Tjava.util.zip.ZipCoder","2":"Tjava.io.File"}}, "subs":[
+   {"name": "Pzf(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+   {"name": "Pzc(1)", "data":{"hcsParameter":{"1":[[-1]]}}},
+   {"name": "Pfile(2)", "data":{"hcsParameter":{"2":[[-1]]}}}]},
+  {"name": "Mclean(0)", "data":{"hc":{}}},
+  {"name": "MgetInflater(1)", "data":{"hc":{"0":"Tjava.util.zip.Inflater"},"hcsMethod":{"0":[[-1]]}}},
+  {"name": "MreleaseInflater(2)", "data":{"hc":{"0":"Tjava.util.zip.Inflater"}}, "sub":
+   {"name": "Pinf(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+  {"name": "Mrun(3)", "data":{"hc":{}}}]},
+ {"name": "SEntrySpliterator(1)", "data":{"hc":{"0":"PT:0","E":true,"M":1}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{"1":"Tjava.util.function.IntFunction","M":1},"hcsMethod":{"0":[[0]]}}, "subs":[
+   {"name": "Pfence(2)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]}}}]},
+  {"name": "MtryAdvance(0)", "data":{"hc":{"1":"Tjava.util.function.Consumer","M":1}}, "sub":
+   {"name": "Paction(0)", "data":{"hcsParameter":{"0":[[0]],"1":[[-1]]}}}}]},
+ {"name": "SInflaterCleanupAction(2)", "data":{"hc":{"E":true}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.util.zip.Inflater","1":"Tjava.util.zip.ZipFile.CleanableResource"}}, "subs":[
+   {"name": "Pinf(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+   {"name": "Pres(1)", "data":{"hcsParameter":{"1":[[-1]]}}}]},
+  {"name": "Mrun(0)", "data":{"hc":{}}}]},
+ {"name": "SSource(3)", "data":{"hc":{"E":true}}, "subs":[
+  {"name": "SEnd(0)", "data":{"hc":{"E":true}}, "subs":[
+   {"name": "C<init>(0)", "data":{"hc":{}}}]},
+  {"name": "SKey(1)", "data":{"hc":{"E":true}}, "subs":[
+   {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.io.File","1":"Tjava.nio.file.attribute.BasicFileAttributes","2":"Tjava.util.zip.ZipCoder"}}, "subs":[
+    {"name": "Pfile(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+    {"name": "Pattrs(1)", "data":{"hcsParameter":{"1":[[-1]]}}},
+    {"name": "Pzc(2)", "data":{"hcsParameter":{"2":[[-1]]}}}]},
+   {"name": "MhashCode(0)", "data":{"hc":{}}},
+   {"name": "Mequals(1)", "data":{"hc":{"0":"Tjava.lang.Object"}}, "sub":
+    {"name": "Pobj(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}]},
+  {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.util.zip.ZipFile.Source.Key","1":"Tjava.util.zip.ZipCoder"}}, "subs":[
+   {"name": "Pkey(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+   {"name": "Pzc(2)", "data":{"hcsParameter":{"1":[[-1]]}}}]},
+  {"name": "McheckAndAddEntry(0)", "data":{"hc":{}}},
+  {"name": "McheckExtraFields(1)", "data":{"hc":{}}},
+  {"name": "McheckZip64ExtraFieldValues(2)", "data":{"hc":{}}},
+  {"name": "MisZip64ExtBlockSizeValid(3)", "data":{"hc":{}}},
+  {"name": "MgetEntryHash(4)", "data":{"hc":{}}},
+  {"name": "MgetEntryNext(5)", "data":{"hc":{}}},
+  {"name": "MgetEntryPos(6)", "data":{"hc":{}}},
+  {"name": "Mget(7)", "data":{"hc":{"0":"Tjava.io.File","1":"Tjava.util.zip.ZipCoder","2":"Tjava.util.zip.ZipFile.Source"},"hcsMethod":{"2":[[-1]]}}, "subs":[
+   {"name": "Pfile(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+   {"name": "Pzc(2)", "data":{"hcsParameter":{"1":[[-1]]}}}]},
+  {"name": "Mrelease(8)", "data":{"hc":{"0":"Tjava.util.zip.ZipFile.Source"}}, "sub":
+   {"name": "Psrc(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+  {"name": "Mclose(9)", "data":{"hc":{}}},
+  {"name": "MreadFullyAt(10)", "data":{"hc":{}}},
+  {"name": "MreadAt(11)", "data":{"hc":{}}},
+  {"name": "MfindEND(12)", "data":{"hc":{"0":"Tjava.util.zip.ZipFile.Source.End"},"hcsMethod":{"0":[[-1]]}}},
+  {"name": "MinitCEN(13)", "data":{"hc":{}}},
+  {"name": "MnextEntryPos(14)", "data":{"hc":{}}},
+  {"name": "Mzerror(15)", "data":{"hc":{}}},
+  {"name": "MgetEntryPos(16)", "data":{"hc":{}}},
+  {"name": "MzipCoderForPos(17)", "data":{"hc":{"0":"Tjava.util.zip.ZipCoder"},"hcsMethod":{"0":[[-1]]}}},
+  {"name": "MisMetaName(18)", "data":{"hc":{}}},
+  {"name": "MisManifestName(19)", "data":{"hc":{}}},
+  {"name": "MisSignatureRelated(20)", "data":{"hc":{}}},
+  {"name": "MhasSlash(21)", "data":{"hc":{}}},
+  {"name": "MgetMetaVersion(22)", "data":{"hc":{}}},
+  {"name": "McountCENHeaders(23)", "data":{"hc":{}}}]},
+ {"name": "SZipEntryIterator(4)", "data":{"hc":{"0":"PT:0","E":true,"M":1}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{"1":"Tjava.util.zip.ZipFile","M":1},"hcsMethod":{"0":[[0]]}}, "subs":[
+   {"name": "PzipFile(0)", "data":{"hcsParameter":{"1":[[-1]]}}}]},
+  {"name": "MhasMoreElements(0)", "data":{"hc":{"M":1}}},
+  {"name": "MhasNext(1)", "data":{"hc":{"M":1}}},
+  {"name": "MnextElement(2)", "data":{"hc":{"M":1},"hcsMethod":{"0":[[-1]]}}},
+  {"name": "Mnext(3)", "data":{"hc":{"M":1},"hcsMethod":{"0":[[-1]]}}},
+  {"name": "MasIterator(4)", "data":{"hc":{"1":"Tjava.util.Iterator","M":1},"hcsMethod":{"0":[[0]],"1":[[-1]]}}}]},
+ {"name": "SZipFileInflaterInputStream(5)", "data":{"hc":{"E":true}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.util.zip.ZipFile","1":"Tjava.util.zip.ZipFile.ZipFileInputStream","2":"Tjava.util.zip.ZipFile.CleanableResource"}}, "subs":[
+   {"name": "PzipFile(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+   {"name": "Pzfin(1)", "data":{"hcsParameter":{"1":[[-1]]}}},
+   {"name": "Pres(2)", "data":{"hcsParameter":{"2":[[-1]]}}}]},
+  {"name": "C<init>(1)", "data":{"hc":{"0":"Tjava.util.zip.ZipFile","1":"Tjava.util.zip.ZipFile.ZipFileInputStream","2":"Tjava.util.zip.ZipFile.CleanableResource","3":"Tjava.util.zip.Inflater"}}, "subs":[
+   {"name": "PzipFile(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
+   {"name": "Pzfin(1)", "data":{"hcsParameter":{"1":[[-1]]}}},
+   {"name": "Pres(2)", "data":{"hcsParameter":{"2":[[-1]]}}},
+   {"name": "Pinf(3)", "data":{"hcsParameter":{"3":[[-1]]}}}]},
+  {"name": "Mclose(0)", "data":{"hc":{}}},
+  {"name": "Mfill(1)", "data":{"hc":{}}},
+  {"name": "Mavailable(2)", "data":{"hc":{}}}]},
+ {"name": "SZipFileInputStream(6)", "data":{"hc":{"E":true}}, "subs":[
+  {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.util.zip.ZipFile"}}, "subs":[
+   {"name": "PzipFile(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+  {"name": "McheckZIP64(0)", "data":{"hc":{}}},
+  {"name": "MinitDataOffset(1)", "data":{"hc":{}}},
+  {"name": "Mread(2)", "data":{"hc":{}}},
+  {"name": "Mread(3)", "data":{"hc":{}}},
+  {"name": "Mskip(4)", "data":{"hc":{}}},
+  {"name": "Mavailable(5)", "data":{"hc":{}}},
+  {"name": "Msize(6)", "data":{"hc":{}}},
+  {"name": "Mclose(7)", "data":{"hc":{}}}]},
+ {"name": "FOPEN_READ(5)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
+ {"name": "FOPEN_DELETE(6)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
+ {"name": "C<init>(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "C<init>(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.File"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pfile(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]}}},
+  {"name": "Pmode(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "C<init>(2)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.File"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pfile(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "C<init>(3)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.File","1":"Tjava.nio.charset.Charset"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pfile(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]}}},
+  {"name": "Pmode(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pcharset(2)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":1}}]},
+ {"name": "C<init>(4)", "data":{"containerMethod":1,"hc":{"0":"Tjava.nio.charset.Charset"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pcharset(1)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}}]},
+ {"name": "C<init>(5)", "data":{"containerMethod":1,"hc":{"0":"Tjava.io.File","1":"Tjava.nio.charset.Charset"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pfile(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]}}},
+  {"name": "Pcharset(1)", "data":{"containerParameter":1,"hcsParameter":{"1":[[-1]]},"immutableParameter":2,"independentParameter":1}}]},
+ {"name": "MgetComment(0)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "MgetEntry(1)", "data":{"hc":{"0":"Tjava.util.zip.ZipEntry"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Pname(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MgetInputStream(2)", "data":{"hc":{"0":"Tjava.util.zip.ZipEntry","1":"Tjava.io.InputStream"},"hcsMethod":{"1":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Pentry(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "MgetName(3)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
+ {"name": "Mentries(4)", "data":{"hc":{"0":"Tjava.util.Enumeration","1":"Tjava.util.zip.ZipEntry"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"shallowAnalyzer":1}},
+ {"name": "MjarEntries(5)", "data":{"hc":{"0":"Tjava.util.Enumeration","1":"Tjava.util.jar.JarEntry"},"hcsMethod":{"0":[[-1]],"1":[[0]]}}},
+ {"name": "Mstream(6)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.Stream","1":"Tjava.util.zip.ZipEntry"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"shallowAnalyzer":1}},
+ {"name": "MgetEntryName(7)", "data":{"hc":{}}},
+ {"name": "MentryNameStream(8)", "data":{"hc":{"0":"Tjava.util.stream.Stream"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MjarStream(9)", "data":{"hc":{"0":"Tjava.util.stream.Stream","1":"Tjava.util.jar.JarEntry"},"hcsMethod":{"0":[[-1]],"1":[[0]]}}},
+ {"name": "MgetZipEntry(10)", "data":{"hc":{"0":"Tjava.util.zip.ZipEntry"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "Msize(11)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mclose(12)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MensureOpen(13)", "data":{"hc":{}}},
+ {"name": "MensureOpenOrZipException(14)", "data":{"hc":{}}},
+ {"name": "MgetManifestAndSignatureRelatedFiles(15)", "data":{"hc":{"0":"Tjava.util.List"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MgetManifestNum(16)", "data":{"hc":{}}},
+ {"name": "MgetManifestName(17)", "data":{"hc":{}}},
+ {"name": "MgetMetaInfVersions(18)", "data":{"hc":{}}},
+ {"name": "MgetDisableZip64ExtraFieldValidation(19)", "data":{"hc":{}}}]}
+]

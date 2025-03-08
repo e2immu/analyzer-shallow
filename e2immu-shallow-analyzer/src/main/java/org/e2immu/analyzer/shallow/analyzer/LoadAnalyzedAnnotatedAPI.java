@@ -15,15 +15,18 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class LoadAnalyzedAnnotatedAPI {
     private static final Logger LOGGER = LoggerFactory.getLogger(LoadAnalyzedAnnotatedAPI.class);
 
     public void go(JavaInspector javaInspector, AnnotatedAPIConfiguration annotatedAPIConfiguration) throws IOException {
-        Codec codec =new PrepWorkCodec(javaInspector.runtime()).codec();
+        Codec codec = new PrepWorkCodec(javaInspector.runtime()).codec();
         go(codec, annotatedAPIConfiguration);
     }
 
@@ -39,28 +42,36 @@ public class LoadAnalyzedAnnotatedAPI {
         }
     }
 
-    public void goDir(JavaInspector javaInspector, File directory) throws IOException {
+    public int goDir(JavaInspector javaInspector, File directory) throws IOException {
         Codec codec = new PrepWorkCodec(javaInspector.runtime()).codec();
-        goDir(codec, directory);
+        return goDir(codec, directory);
     }
 
-    public void goDir(Codec codec, File directory) throws IOException {
-        File[] jsonFiles = directory.listFiles(fnf -> fnf.getName().endsWith(".json"));
-        assert jsonFiles != null;
-        for (File jsonFile : jsonFiles) {
-            go(codec, jsonFile);
+    public int goDir(Codec codec, File directory) throws IOException {
+        if (!directory.isDirectory()) throw new UnsupportedEncodingException(directory + " is not a directory");
+        try (Stream<Path> jsonFiles = Files.walk(directory.toPath(), 3)
+                .filter(p -> p.toString().endsWith(".json"))) {
+            int count = 0;
+            for (Path jsonFile : jsonFiles.toList()) {
+                go(codec, jsonFile);
+                ++count;
+            }
+            return count;
         }
     }
 
-    public void go(Codec codec, File jsonFile) throws IOException {
+    public int go(Codec codec, Path jsonFile) throws IOException {
         LOGGER.info("Parsing {}", jsonFile);
-        String s = Files.readString(jsonFile.toPath());
+        String s = Files.readString(jsonFile);
         JSONParser parser = new JSONParser(s);
         parser.Root();
         Node root = parser.rootNode();
+        int count = 0;
         for (JSONObject jo : root.get(0).childrenOfType(JSONObject.class)) {
             processPrimaryType(codec, jo);
+            ++count;
         }
+        return count;
     }
 
     private static void processPrimaryType(Codec codec, JSONObject jo) {

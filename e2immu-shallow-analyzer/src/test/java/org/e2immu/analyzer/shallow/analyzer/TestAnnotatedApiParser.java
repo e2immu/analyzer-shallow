@@ -29,7 +29,7 @@ public class TestAnnotatedApiParser {
     @Test
     public void test() throws IOException {
         AnnotatedApiParser annotatedApiParser = new AnnotatedApiParser();
-        annotatedApiParser.initialize(
+        annotatedApiParser.initialize(null,
                 List.of(JavaInspectorImpl.JAR_WITH_PATH_PREFIX + "org/slf4j"),
                 List.of("src/test/java/org/e2immu/analyzer/shallow/analyzer"),
                 List.of("example."));

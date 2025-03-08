@@ -44,8 +44,12 @@ public class AnnotatedApiParser implements AnnotationProvider {
                 annotatedTypes, annotations, warnings);
     }
 
-    public void initialize(List<String> addToClasspath, List<String> sourceDirs, List<String> packageList) throws IOException {
+    public void initialize(String alternativeJreOrNull,
+                           List<String> addToClasspath,
+                           List<String> sourceDirs,
+                           List<String> packageList) throws IOException {
         InputConfigurationImpl.Builder builder = new InputConfigurationImpl.Builder()
+                .setAlternativeJREDirectory(alternativeJreOrNull)
                 .addClassPath(InputConfigurationImpl.DEFAULT_CLASSPATH);
         sourceDirs.forEach(builder::addSources);
         packageList.forEach(builder::addRestrictSourceToPackages);

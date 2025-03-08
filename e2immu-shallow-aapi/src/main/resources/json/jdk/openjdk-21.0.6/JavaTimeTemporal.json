@@ -1,0 +1,10 @@
+[
+{"name": "Tjava.time.temporal.TemporalAmount", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "Mget(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.time.temporal.TemporalUnit"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PtemporalUnit(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "MgetUnits(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.List","1":"Tjava.time.temporal.TemporalUnit"},"hcsMethod":{"0":[[-1]],"1":[[0]]},"shallowAnalyzer":1}},
+ {"name": "MaddTo(2)", "data":{"hc":{"0":"Tjava.time.temporal.Temporal"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Ptemporal(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "MsubtractFrom(3)", "data":{"hc":{"0":"Tjava.time.temporal.Temporal"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Ptemporal(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}}]}
+]

@@ -1,0 +1,6 @@
+[
+{"name": "Tsun.nio.ch.Interruptible", "data":{"annotatedApi":1,"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "Minterrupt(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Thread"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pthread(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "MpostInterrupt(1)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}}]}
+]

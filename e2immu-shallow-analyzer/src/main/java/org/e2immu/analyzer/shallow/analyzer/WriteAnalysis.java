@@ -19,6 +19,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -55,7 +57,12 @@ public class WriteAnalysis {
         if (list.isEmpty()) return;
         String compressedPackages = Arrays.stream(packageParts).map(WriteAnalysis::capitalize)
                 .collect(Collectors.joining());
-        File outputFile = new File(directory, compressedPackages + ".json");
+        String libraryName = createLibraryName(list);
+        File subDirectory = new File(directory, libraryName);
+        if (subDirectory.mkdirs()) {
+            LOGGER.info("Created {}", subDirectory);
+        }
+        File outputFile = new File(subDirectory, compressedPackages + ".json");
         LOGGER.info("Writing {} type(s) to {}", list.size(), outputFile.getAbsolutePath());
         try (OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(outputFile), StandardCharsets.UTF_8)) {
             osw.write("[");
@@ -65,6 +72,22 @@ public class WriteAnalysis {
             }
             osw.write("\n]\n");
         }
+    }
+
+    private static final Pattern JAR_PATTERN = Pattern.compile("/([^/]+)\\.jar!/");
+
+    private String createLibraryName(List<TypeInfo> list) {
+        String uri = list.stream().map(ti -> ti.compilationUnit().uri().toString())
+                .filter(s -> !s.contains("predefined://")).findFirst().orElseThrow();
+        Matcher m = Run.JDK_PATTERN.matcher(uri);
+        if (m.find()) {
+            return "jdk/openjdk-" + m.group(2);
+        }
+        Matcher m2 = JAR_PATTERN.matcher(uri);
+        if (m2.find()) {
+            return "libs/" + m2.group(1);
+        }
+        return "libs/unclassified";
     }
 
     private static Codec.EncodedValue write(Codec codec, Codec.Context context, Info fieldInfo, int index) {

@@ -1,0 +1,330 @@
+[
+{"name": "Tjava.nio.Buffer", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.lang.foreign.MemorySegment"}}, "subs":[
+  {"name": "Pcap(2)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "C<init>(1)", "data":{"hc":{"0":"Tjava.lang.foreign.MemorySegment"}}, "subs":[
+  {"name": "Psegment(4)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "McreateSameBufferException(0)", "data":{"hc":{"0":"Tjava.lang.IllegalArgumentException"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "McreateCapacityException(1)", "data":{"hc":{"0":"Tjava.lang.IllegalArgumentException"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "Mcapacity(2)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mposition(3)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mposition(4)", "data":{"containerMethod":1,"hc":{"0":"Tjava.nio.Buffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewPosition(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "McreatePositionException(5)", "data":{"hc":{"0":"Tjava.lang.IllegalArgumentException"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "Mlimit(6)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mlimit(7)", "data":{"annotatedApi":1,"containerMethod":1,"fluentMethod":1,"hc":{"0":"Tjava.nio.Buffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewLimit(0)", "data":{"annotatedApi":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "McreateLimitException(8)", "data":{"hc":{"0":"Tjava.lang.IllegalArgumentException"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "Mmark(9)", "data":{"annotatedApi":1,"containerMethod":1,"fluentMethod":1,"hc":{"0":"Tjava.nio.Buffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mreset(10)", "data":{"annotatedApi":1,"containerMethod":1,"fluentMethod":1,"hc":{"0":"Tjava.nio.Buffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mclear(11)", "data":{"annotatedApi":1,"containerMethod":1,"fluentMethod":1,"hc":{"0":"Tjava.nio.Buffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mflip(12)", "data":{"annotatedApi":1,"containerMethod":1,"fluentMethod":1,"hc":{"0":"Tjava.nio.Buffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mrewind(13)", "data":{"annotatedApi":1,"containerMethod":1,"fluentMethod":1,"hc":{"0":"Tjava.nio.Buffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mremaining(14)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MhasRemaining(15)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisReadOnly(16)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MhasArray(17)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Marray(18)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MarrayOffset(19)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisDirect(20)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mslice(21)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.nio.Buffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "Mslice(22)", "data":{"containerMethod":1,"hc":{"0":"Tjava.nio.Buffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mduplicate(23)", "data":{"containerMethod":1,"hc":{"0":"Tjava.nio.Buffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mbase(24)", "data":{"hc":{"0":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MnextGetIndex(25)", "data":{"hc":{}}},
+ {"name": "MnextGetIndex(26)", "data":{"hc":{}}},
+ {"name": "MnextPutIndex(27)", "data":{"hc":{}}},
+ {"name": "MnextPutIndex(28)", "data":{"hc":{}}},
+ {"name": "McheckIndex(29)", "data":{"hc":{}}},
+ {"name": "McheckIndex(30)", "data":{"hc":{}}},
+ {"name": "MmarkValue(31)", "data":{"hc":{}}},
+ {"name": "MdiscardMark(32)", "data":{"hc":{}}},
+ {"name": "McheckSession(33)", "data":{"hc":{}}}]},
+
+{"name": "Tjava.nio.ByteBuffer", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.lang.foreign.MemorySegment"}}, "subs":[
+  {"name": "Psegment(6)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "C<init>(1)", "data":{"hc":{"0":"Tjava.lang.foreign.MemorySegment"}}, "subs":[
+  {"name": "Psegment(4)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "C<init>(2)", "data":{"hc":{"0":"Tjava.lang.foreign.MemorySegment"}}, "subs":[
+  {"name": "Pcap(3)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "Mbase(0)", "data":{"hc":{"0":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MallocateDirect(1)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Pcapacity(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mallocate(2)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Pcapacity(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mwrap(3)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Parray(0)", "data":{"containerParameter":1,"immutableParameter":1}},
+  {"name": "Poffset(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plength(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mwrap(4)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Parray(0)", "data":{"containerParameter":1,"immutableParameter":1}}},
+ {"name": "Mslice(5)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "Mslice(6)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mduplicate(7)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MasReadOnlyBuffer(8)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "Mget(9)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mput(10)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Pb(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mget(11)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mput(12)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pb(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mget(13)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pdst(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2}},
+  {"name": "Poffset(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plength(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mget(14)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Pdst(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2}}},
+ {"name": "Mget(15)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pindex(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pdst(1)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2}},
+  {"name": "Poffset(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plength(3)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mget(16)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pindex(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pdst(1)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2}}]},
+ {"name": "MgetArray(17)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "Mput(18)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Psrc(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "Mput(19)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pindex(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Psrc(1)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
+  {"name": "Poffset(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plength(3)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MputBuffer(20)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"}}, "subs":[
+  {"name": "Psrc(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "Mput(21)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Psrc(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2}},
+  {"name": "Poffset(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plength(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mput(22)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Psrc(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2}}},
+ {"name": "Mput(23)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pindex(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Psrc(1)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2}},
+  {"name": "Poffset(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plength(3)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mput(24)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pindex(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Psrc(1)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2}}]},
+ {"name": "MputArray(25)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MhasArray(26)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Marray(27)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":1,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MarrayOffset(28)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mposition(29)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewPosition(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mlimit(30)", "data":{"fluentMethod":1,"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewLimit(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mmark(31)", "data":{"fluentMethod":1,"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mreset(32)", "data":{"fluentMethod":1,"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mclear(33)", "data":{"fluentMethod":1,"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mflip(34)", "data":{"fluentMethod":1,"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mrewind(35)", "data":{"fluentMethod":1,"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mcompact(36)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MisDirect(37)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MtoString(38)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MhashCode(39)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mequals(40)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pob(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "McompareTo(41)", "data":{"containerMethod":1,"hc":{"0":"Tjava.nio.ByteBuffer"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pthat(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mcompare(42)", "data":{"hc":{}}},
+ {"name": "Mmismatch(43)", "data":{"containerMethod":1,"hc":{"0":"Tjava.nio.ByteBuffer"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pthat(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "Morder(44)", "data":{"hc":{},"shallowAnalyzer":1}},
+ {"name": "Morder(45)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Pbo(0)", "data":{"independentParameter":2}}},
+ {"name": "MalignmentOffset(46)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pindex(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "PunitSize(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MalignedSlice(47)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "PunitSize(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetChar(48)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MputChar(49)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Pc(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetChar(50)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MputChar(51)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pc(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MasCharBuffer(52)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MgetShort(53)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MputShort(54)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Ps(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetShort(55)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MputShort(56)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Ps(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MasShortBuffer(57)", "data":{"hc":{"0":"Tjava.nio.ShortBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MgetInt(58)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MputInt(59)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetInt(60)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MputInt(61)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MasIntBuffer(62)", "data":{"hc":{"0":"Tjava.nio.IntBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MgetLong(63)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MputLong(64)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Pl(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetLong(65)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MputLong(66)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pl(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MasLongBuffer(67)", "data":{"hc":{"0":"Tjava.nio.LongBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MgetFloat(68)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MputFloat(69)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Pf(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetFloat(70)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MputFloat(71)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pf(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MasFloatBuffer(72)", "data":{"hc":{"0":"Tjava.nio.FloatBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MgetDouble(73)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MputDouble(74)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Pd(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetDouble(75)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MputDouble(76)", "data":{"hc":{"0":"Tjava.nio.ByteBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pd(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MasDoubleBuffer(77)", "data":{"hc":{"0":"Tjava.nio.DoubleBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}}]},
+
+{"name": "Tjava.nio.CharBuffer", "data":{"annotatedApi":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"hc":{"0":"Tjava.lang.foreign.MemorySegment"}}, "subs":[
+  {"name": "Psegment(6)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "C<init>(1)", "data":{"hc":{"0":"Tjava.lang.foreign.MemorySegment"}}, "subs":[
+  {"name": "Psegment(4)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "C<init>(2)", "data":{"hc":{"0":"Tjava.lang.foreign.MemorySegment"}}, "subs":[
+  {"name": "Pcap(3)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "Mbase(0)", "data":{"hc":{"0":"Tjava.lang.Object"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "Mallocate(1)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Pcapacity(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mwrap(2)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Parray(0)", "data":{"containerParameter":1,"immutableParameter":1}},
+  {"name": "Poffset(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plength(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mwrap(3)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Parray(0)", "data":{"containerParameter":1,"immutableParameter":1}}},
+ {"name": "Mread(4)", "data":{"containerMethod":1,"hc":{"0":"Tjava.nio.CharBuffer"},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Ptarget(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"modifiedParameter":1,"notNullParameter":1}}},
+ {"name": "Mwrap(5)", "data":{"hc":{"0":"Tjava.lang.CharSequence","1":"Tjava.nio.CharBuffer"},"hcsMethod":{"1":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pcsq(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}},
+  {"name": "Pstart(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pend(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mwrap(6)", "data":{"hc":{"0":"Tjava.lang.CharSequence","1":"Tjava.nio.CharBuffer"},"hcsMethod":{"1":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Pcsq(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":1}}},
+ {"name": "Mslice(7)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "Mslice(8)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mduplicate(9)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MasReadOnlyBuffer(10)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "Mget(11)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mput(12)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Pc(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mget(13)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetUnchecked(14)", "data":{"hc":{}}},
+ {"name": "Mput(15)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pc(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mget(16)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pdst(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2}},
+  {"name": "Poffset(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plength(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mget(17)", "data":{"annotatedApi":1,"fluentMethod":1,"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pdst(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":1,"modifiedParameter":1}}},
+ {"name": "Mget(18)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pindex(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pdst(1)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2}},
+  {"name": "Poffset(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plength(3)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mget(19)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pindex(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pdst(1)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2}}]},
+ {"name": "MgetArray(20)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "Mput(21)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Psrc(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "Mput(22)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pindex(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Psrc(1)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}},
+  {"name": "Poffset(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plength(3)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MputBuffer(23)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"}}, "subs":[
+  {"name": "Psrc(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "Mput(24)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Psrc(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2}},
+  {"name": "Poffset(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plength(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mput(25)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Psrc(0)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2}}},
+ {"name": "Mput(26)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pindex(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Psrc(1)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2}},
+  {"name": "Poffset(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Plength(3)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mput(27)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pindex(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Psrc(1)", "data":{"containerParameter":1,"immutableParameter":1,"independentParameter":2}}]},
+ {"name": "MputArray(28)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "Mput(29)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Psrc(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}},
+  {"name": "Pstart(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pend(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mput(30)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Psrc(0)", "data":{"containerParameter":1,"immutableParameter":3,"independentParameter":2}}},
+ {"name": "MhasArray(31)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Marray(32)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{},"immutableMethod":1,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MarrayOffset(33)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mposition(34)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewPosition(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mlimit(35)", "data":{"fluentMethod":1,"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PnewLimit(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mmark(36)", "data":{"fluentMethod":1,"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mreset(37)", "data":{"fluentMethod":1,"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mclear(38)", "data":{"fluentMethod":1,"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mflip(39)", "data":{"fluentMethod":1,"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mrewind(40)", "data":{"fluentMethod":1,"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mcompact(41)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MisDirect(42)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisAddressable(43)", "data":{"hc":{}}},
+ {"name": "MhashCode(44)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mequals(45)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Object"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pob(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "McompareTo(46)", "data":{"containerMethod":1,"hc":{"0":"Tjava.nio.CharBuffer"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pthat(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Mcompare(47)", "data":{"hc":{}}},
+ {"name": "Mmismatch(48)", "data":{"containerMethod":1,"hc":{"0":"Tjava.nio.CharBuffer"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pthat(0)", "data":{"hcsParameter":{"0":[[-1]]},"independentParameter":2}}},
+ {"name": "MtoString(49)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MtoString(50)", "data":{"hc":{}}},
+ {"name": "Mlength(51)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MisEmpty(52)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "McharAt(53)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pindex(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MsubSequence(54)", "data":{"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mappend(55)", "data":{"fluentMethod":1,"hc":{"0":"Tjava.lang.CharSequence","1":"Tjava.nio.CharBuffer"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pcsq(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "Mappend(56)", "data":{"fluentMethod":1,"hc":{"0":"Tjava.lang.CharSequence","1":"Tjava.nio.CharBuffer"},"hcsMethod":{"1":[[-1]]},"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pcsq(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}},
+  {"name": "Pstart(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pend(2)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "Mappend(57)", "data":{"fluentMethod":1,"hc":{"0":"Tjava.nio.CharBuffer"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"modifiedMethod":1,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pc(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "Morder(58)", "data":{"hc":{},"shallowAnalyzer":1}},
+ {"name": "McharRegionOrder(59)", "data":{"hc":{}}},
+ {"name": "Mchars(60)", "data":{"containerMethod":1,"hc":{"0":"Tjava.util.stream.IntStream"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"shallowAnalyzer":1}}]}
+]

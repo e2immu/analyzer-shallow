@@ -16,9 +16,12 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 import static org.e2immu.language.inspection.integration.JavaInspectorImpl.JAR_WITH_PATH_PREFIX;
@@ -26,19 +29,46 @@ import static org.e2immu.language.inspection.integration.JavaInspectorImpl.JAR_W
 public class Run {
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(Run.class);
 
+    public static final String[] JRES = {
+            "/opt/homebrew/Cellar/openjdk/23.0.2/libexec/openjdk.jdk/Contents/Home",
+            "/opt/homebrew/Cellar/openjdk@21/21.0.6/libexec/openjdk.jdk/Contents/Home",
+            "/opt/homebrew/Cellar/openjdk@17/17.0.14/libexec/openjdk.jdk/Contents/Home"
+    };
+
+    public static String currentJdk() {
+        String home = System.getProperty("java.home");
+        return Arrays.stream(JRES).filter(home::equals).map(Run::extractJdkName).findFirst().orElseThrow();
+    }
+
+    public static final Pattern JDK_PATTERN = Pattern.compile("openjdk(@\\d+)?/([\\d.]+)/libexec/openjdk.jdk");
+
+    public static String extractJdkName(String jdkHome) {
+        Matcher m = JDK_PATTERN.matcher(jdkHome);
+        if(m.find()) {
+            return "openjdk-" + m.group(2);
+        }
+        throw new UnsupportedOperationException("Unknown JDK/JRE "+jdkHome);
+    }
+
+    public static final String[] SOURCES = {
+            "../analyzer-shallow/e2immu-shallow-aapi/src/main/java/org/e2immu/analyzer/shallow/aapi"
+    };
+
     public static void main(String[] args) throws IOException {
         ((Logger) LoggerFactory.getLogger(org.slf4j.Logger.ROOT_LOGGER_NAME)).setLevel(Level.INFO);
         ((Logger) LoggerFactory.getLogger("org.e2immu.analyzer.shallow")).setLevel(Level.DEBUG);
         ((Logger) LoggerFactory.getLogger("org.e2immu.analyzer.modification.prepwork")).setLevel(Level.DEBUG);
 
         Run run = new Run();
-        run.go(new String[]{"../analyzer-shallow/e2immu-shallow-aapi/src/main/java/org/e2immu/analyzer/shallow/aapi"});
+        for (String jre : JRES) {
+            run.go(jre, SOURCES);
+        }
     }
 
-    public List<Message> go(String[] args) throws IOException {
+    public List<Message> go(String alternativeJreOrNull, String[] args) throws IOException {
         LOGGER.info("I'm at {}", new File(".").getAbsolutePath());
         AnnotatedApiParser annotatedApiParser = new AnnotatedApiParser();
-        annotatedApiParser.initialize(
+        annotatedApiParser.initialize(alternativeJreOrNull,
                 List.of("jmods/java.base.jmod", "jmods/java.xml.jmod", "jmods/java.net.http.jmod",
                         "jmods/java.datatransfer.jmod", "jmods/java.desktop.jmod",
                         JAR_WITH_PATH_PREFIX + "org/e2immu/support",
