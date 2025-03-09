@@ -18,7 +18,7 @@ public class TestRun {
         ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger(org.slf4j.Logger.ROOT_LOGGER_NAME)).setLevel(Level.INFO);
         ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger("org.e2immu.analyzer.shallow")).setLevel(Level.DEBUG);
 
-        for (String jre : Run.JRES) {
+        for (String jre : ToolChain.JRES) {
             Run run = new Run();
             List<Message> messages = run.go(jre, SOURCES);
             LOGGER.info("Have {} message(s)", messages.size());

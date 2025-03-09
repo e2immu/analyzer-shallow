@@ -8,6 +8,8 @@ import org.e2immu.language.cst.api.info.ParameterInfo;
 import org.e2immu.language.cst.api.info.TypeInfo;
 import org.e2immu.language.inspection.integration.JavaInspectorImpl;
 import org.e2immu.language.inspection.resource.InputConfigurationImpl;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,15 +35,19 @@ import static org.e2immu.language.inspection.integration.JavaInspectorImpl.JAR_W
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
-public class TestLoadAnalyzedAnnotatedAPI {
-    private static final Logger LOGGER = LoggerFactory.getLogger(TestLoadAnalyzedAnnotatedAPI.class);
+public class TestLoadAnalyzedPackageFiles {
+    private static final Logger LOGGER = LoggerFactory.getLogger(TestLoadAnalyzedPackageFiles.class);
 
-    @Test
-    public void test() throws IOException {
+    @BeforeAll
+    public static void beforeAll() {
         ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger(org.slf4j.Logger.ROOT_LOGGER_NAME)).setLevel(Level.INFO);
         ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger("org.e2immu.analyzer.shallow")).setLevel(Level.DEBUG);
         ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger("org.e2immu.analyzer.modification")).setLevel(Level.DEBUG);
+    }
 
+    @DisplayName("using files")
+    @Test
+    public void test1() throws IOException {
         List<String> classPath = List.of(
                 "jmods/java.base.jmod", "jmods/java.xml.jmod", "jmods/java.net.http.jmod",
                 "jmods/java.desktop.jmod", "jmods/java.datatransfer.jmod",
@@ -58,20 +64,44 @@ public class TestLoadAnalyzedAnnotatedAPI {
         classPath.forEach(inputConfiguration::addClassPath);
         javaInspector.initialize(inputConfiguration.build());
 
-        LoadAnalyzedAnnotatedAPI loadAnalyzedAnnotatedAPI = new LoadAnalyzedAnnotatedAPI();
-        String jdk = Run.currentJdk();
-        File jdkDir = new File("../e2immu-shallow-aapi/src/main/resources/json/jdk/" + jdk);
+        LoadAnalyzedPackageFiles loadAnalyzedPackageFiles = new LoadAnalyzedPackageFiles();
+        String jdk = ToolChain.currentJdk();
+        File jdkDir = new File("../e2immu-shallow-aapi/src/main/resources/org/e2immu/analyzer/shallow/aapi/analyzedPackageFiles/jdk/" + jdk);
         LOGGER.info("JDK dir is {}", jdkDir);
         assertTrue(jdkDir.isDirectory());
-        int countJdk = loadAnalyzedAnnotatedAPI.goDir(javaInspector, jdkDir);
+        int countJdk = loadAnalyzedPackageFiles.goDir(javaInspector, jdkDir);
         assertTrue(countJdk > 1);
 
-        File libDir = new File("../e2immu-shallow-aapi/src/main/resources/json/libs");
+        File libDir = new File("../e2immu-shallow-aapi/src/main/resources/org/e2immu/analyzer/shallow/aapi/analyzedPackageFiles/libs");
         LOGGER.info("Lib dir is {}", libDir);
         assertTrue(libDir.isDirectory());
-        int countLib = loadAnalyzedAnnotatedAPI.goDir(javaInspector, libDir);
+        int countLib = loadAnalyzedPackageFiles.goDir(javaInspector, libDir);
         assertTrue(countLib > 0);
 
+        doTests(javaInspector);
+    }
+
+    @DisplayName("using resource:")
+    @Test
+    public void test2() throws IOException {
+        JavaInspectorImpl javaInspector = new JavaInspectorImpl();
+        InputConfigurationImpl.Builder inputConfiguration = new InputConfigurationImpl.Builder()
+                .addClassPath(InputConfigurationImpl.GRADLE_DEFAULT)
+                .addClassPath(ToolChain.CLASSPATH_SLF4J_LOGBACK)
+                .addClassPath(ToolChain.CLASSPATH_JUNIT);
+        javaInspector.initialize(inputConfiguration.build());
+
+        LoadAnalyzedPackageFiles loadAnalyzedPackageFiles = new LoadAnalyzedPackageFiles();
+        AnnotatedAPIConfiguration annotatedAPIConfiguration = new AnnotatedAPIConfigurationImpl.Builder()
+                .addAnalyzedAnnotatedApiDirs(ToolChain.currentJdkAnalyzedPackages())
+                .addAnalyzedAnnotatedApiDirs(ToolChain.commonLibsAnalyzedPackages())
+                .build();
+        int count = loadAnalyzedPackageFiles.go(javaInspector, annotatedAPIConfiguration);
+        assertTrue(count > 1);
+        doTests(javaInspector);
+    }
+
+    private static void doTests(JavaInspectorImpl javaInspector) {
         TypeInfo typeInfo = javaInspector.compiledTypesManager().get(Object.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("toString", 0);
         assertSame(TRUE, methodInfo.analysis().getOrDefault(CONTAINER_METHOD, FALSE));

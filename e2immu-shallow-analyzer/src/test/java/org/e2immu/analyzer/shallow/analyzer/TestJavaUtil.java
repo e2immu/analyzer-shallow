@@ -195,7 +195,10 @@ public class TestJavaUtil extends CommonTest {
         assertTrue(typeInfo.isInterface());
         assertFalse(typeInfo.isAtLeastImmutableHC());
         ParameterizedType collection = typeInfo.interfacesImplemented().get(0);
-        assertEquals("Type java.util.Collection<E>", collection.toString());
+        String expectImplemented = ToolChain.currentJdkMainVersion() < 21
+                ? "Type java.util.Collection<E>"
+                : "Type java.util.SequencedCollection<E>";
+        assertEquals(expectImplemented, collection.toString());
         assertEquals("E=TP#0 in List", collection.parameters().get(0).typeParameter().toString());
 
         assertSame(MUTABLE, typeInfo.analysis().getOrDefault(IMMUTABLE_TYPE, MUTABLE));
@@ -397,9 +400,11 @@ public class TestJavaUtil extends CommonTest {
     public void testTreeMapFirstEntry() {
         TypeInfo typeInfo = compiledTypesManager.get(TreeMap.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("firstEntry", 0);
-        assertEquals(1, methodInfo.overrides().size());
-        MethodInfo override = methodInfo.overrides().stream().findFirst().orElseThrow();
-        assertEquals("java.util.NavigableMap.firstEntry()", override.fullyQualifiedName());
+        int expectOverrides = ToolChain.currentJdkMainVersion() < 21 ? 1 : 2;
+        assertEquals(expectOverrides, methodInfo.overrides().size());
+        Set<String> overrideNames = methodInfo.overrides().stream()
+                .map(MethodInfo::fullyQualifiedName).collect(Collectors.toUnmodifiableSet());
+        assertTrue(overrideNames.contains("java.util.NavigableMap.firstEntry()"));
         assertFalse(methodInfo.isModifying());
         assertSame(TRUE, typeInfo.analysis().getOrDefault(CONTAINER_TYPE, FALSE));
         assertSame(INDEPENDENT_HC, methodInfo.analysis().getOrDefault(INDEPENDENT_METHOD, DEPENDENT));
@@ -616,8 +621,10 @@ public class TestJavaUtil extends CommonTest {
         assertSame(DEPENDENT, typeInfo.analysis().getOrDefault(INDEPENDENT_TYPE, DEPENDENT));
         assertSame(TRUE, typeInfo.analysis().getOrDefault(CONTAINER_TYPE, FALSE));
 
-        // IMPORTANT: SequencedMap will be added as soon as we switch to Java 21; currently at 17
-        assertEquals("AbstractMap,Cloneable,Map,NavigableMap,Serializable,SortedMap",
+        String expect = ToolChain.currentJdkMainVersion() < 21
+                ? "AbstractMap,Cloneable,Map,NavigableMap,Serializable,SortedMap"
+                : "AbstractMap,Cloneable,Map,NavigableMap,SequencedMap,Serializable,SortedMap";
+        assertEquals(expect,
                 typeInfo.superTypesExcludingJavaLangObject().stream()
                         .map(TypeInfo::simpleName).sorted().collect(Collectors.joining(",")));
     }

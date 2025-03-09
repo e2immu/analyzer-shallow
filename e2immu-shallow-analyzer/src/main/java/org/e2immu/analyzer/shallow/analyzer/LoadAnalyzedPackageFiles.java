@@ -5,6 +5,7 @@ import org.e2immu.language.cst.api.analysis.Codec;
 import org.e2immu.language.cst.api.info.Info;
 import org.e2immu.language.cst.io.CodecImpl;
 import org.e2immu.language.inspection.api.integration.JavaInspector;
+import org.e2immu.language.inspection.resource.ResourcesImpl;
 import org.parsers.json.JSONParser;
 import org.parsers.json.Node;
 import org.parsers.json.ast.Array;
@@ -13,33 +14,76 @@ import org.parsers.json.ast.KeyValuePair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
+import java.net.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
+import java.util.jar.JarInputStream;
 import java.util.stream.Stream;
 
-public class LoadAnalyzedAnnotatedAPI {
-    private static final Logger LOGGER = LoggerFactory.getLogger(LoadAnalyzedAnnotatedAPI.class);
+public class LoadAnalyzedPackageFiles {
+    private static final Logger LOGGER = LoggerFactory.getLogger(LoadAnalyzedPackageFiles.class);
 
-    public void go(JavaInspector javaInspector, AnnotatedAPIConfiguration annotatedAPIConfiguration) throws IOException {
+    public int go(JavaInspector javaInspector, AnnotatedAPIConfiguration annotatedAPIConfiguration) throws IOException {
         Codec codec = new PrepWorkCodec(javaInspector.runtime()).codec();
-        go(codec, annotatedAPIConfiguration);
+        return go(codec, annotatedAPIConfiguration);
     }
 
-    public void go(Codec codec, AnnotatedAPIConfiguration annotatedAPIConfiguration) throws IOException {
+    public int go(Codec codec, AnnotatedAPIConfiguration annotatedAPIConfiguration) throws IOException {
+        int countPrimaryTypes = 0;
         for (String dir : annotatedAPIConfiguration.analyzedAnnotatedApiDirs()) {
-            File directory = new File(dir);
-            if (directory.canRead()) {
-                new LoadAnalyzedAnnotatedAPI().goDir(codec, directory);
-                LOGGER.info("Finished reading all json files in AAAPI {}", directory.getAbsolutePath());
+            if (dir.startsWith(ToolChain.RESOURCE_PROTOCOL)) {
+                String path = dir.substring(9);
+                URL jarUrl = getClass().getResource(path);
+                if (jarUrl == null) {
+                    LOGGER.warn("Cannot find resource {}", dir);
+                } else {
+                    countPrimaryTypes += processJsonJar(codec, jarUrl);
+                }
             } else {
-                LOGGER.warn("Path '{}' is not a directory containing analyzed annotated API files", directory);
+                File directory = new File(dir);
+                if (directory.canRead()) {
+                    countPrimaryTypes += goDir(codec, directory);
+                    LOGGER.info("Finished reading all json files in AAAPI {}", directory.getAbsolutePath());
+                } else {
+                    LOGGER.warn("Path '{}' is not a directory containing analyzed annotated API files", directory);
+                }
             }
         }
+        return countPrimaryTypes;
+    }
+
+    private int processJsonJar(Codec codec, URL jarUrl) {
+        int countPrimaryTypes = 0;
+        try (InputStream inputStream = jarUrl.openStream();
+             JarInputStream jis = new JarInputStream(inputStream)) {
+            JarEntry jarEntry;
+            while ((jarEntry = jis.getNextJarEntry()) != null) {
+                String realName = jarEntry.getRealName();
+                if (realName.endsWith(".json")) {
+                    LOGGER.debug("Adding {}", realName);
+                    try (ByteArrayOutputStream os = new ByteArrayOutputStream()) {
+                        byte[] bytes = new byte[1024];
+                        int read;
+                        while ((read = jis.read(bytes, 0, bytes.length)) > 0) {
+                            os.write(bytes, 0, read);
+                        }
+                        String content = os.toString();
+                        countPrimaryTypes += go(codec, content);
+                    }
+                }
+            }
+        } catch (IOException e) {
+            LOGGER.error("Caught exception", e);
+            throw new RuntimeException(e);
+        }
+        LOGGER.info("Loaded {} primary types from {}", countPrimaryTypes, jarUrl);
+        return countPrimaryTypes;
     }
 
     public int goDir(JavaInspector javaInspector, File directory) throws IOException {
@@ -51,27 +95,30 @@ public class LoadAnalyzedAnnotatedAPI {
         if (!directory.isDirectory()) throw new UnsupportedEncodingException(directory + " is not a directory");
         try (Stream<Path> jsonFiles = Files.walk(directory.toPath(), 3)
                 .filter(p -> p.toString().endsWith(".json"))) {
-            int count = 0;
+            int countPrimaryTypes = 0;
             for (Path jsonFile : jsonFiles.toList()) {
-                go(codec, jsonFile);
-                ++count;
+                countPrimaryTypes += go(codec, jsonFile);
             }
-            return count;
+            return countPrimaryTypes;
         }
     }
 
     public int go(Codec codec, Path jsonFile) throws IOException {
         LOGGER.info("Parsing {}", jsonFile);
         String s = Files.readString(jsonFile);
-        JSONParser parser = new JSONParser(s);
+        return go(codec, s);
+    }
+
+    public int go(Codec codec, String content) {
+        JSONParser parser = new JSONParser(content);
         parser.Root();
         Node root = parser.rootNode();
-        int count = 0;
+        int countPrimaryTypes = 0;
         for (JSONObject jo : root.get(0).childrenOfType(JSONObject.class)) {
             processPrimaryType(codec, jo);
-            ++count;
+            ++countPrimaryTypes;
         }
-        return count;
+        return countPrimaryTypes;
     }
 
     private static void processPrimaryType(Codec codec, JSONObject jo) {

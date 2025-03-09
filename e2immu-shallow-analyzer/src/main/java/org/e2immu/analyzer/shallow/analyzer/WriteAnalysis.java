@@ -19,8 +19,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -34,17 +32,28 @@ public class WriteAnalysis {
     }
 
     public void write(String destinationDirectory, Trie<TypeInfo> typeTrie) throws IOException {
+        write(destinationDirectory, typeTrie, null);
+    }
+
+    public void write(String destinationDirectory, Trie<TypeInfo> typeTrie, String libraryName) throws IOException {
         File directory = new File(destinationDirectory);
         if (directory.mkdirs()) {
             LOGGER.info("Created directory {}", directory.getAbsolutePath());
         }
         Codec codec = new CodecImpl(runtime, PropertyProviderImpl::get, null, null); // we don't have to decode
-        write(directory, typeTrie, codec);
+        write(directory, typeTrie, codec, libraryName);
     }
 
     public void write(File directory, Trie<TypeInfo> typeTrie, Codec codec) throws IOException {
+        write(directory, typeTrie, codec, null);
+    }
+
+    public void write(File directory, Trie<TypeInfo> typeTrie, Codec codec, String libraryNameIn) throws IOException {
         try {
-            typeTrie.visitThrowing(new String[]{}, (parts, list) -> write(directory, codec, parts, list));
+            typeTrie.visitThrowing(new String[]{}, (parts, list) -> {
+                String libraryName = libraryNameIn == null ? ToolChain.extractLibraryName(list) : libraryNameIn;
+                write(directory, codec, parts, list, libraryName);
+            });
         } catch (RuntimeException re) {
             if (re.getCause() instanceof IOException ioe) {
                 throw ioe;
@@ -53,15 +62,14 @@ public class WriteAnalysis {
         }
     }
 
-    private void write(File directory, Codec codec, String[] packageParts, List<TypeInfo> list) throws IOException {
+    private void write(File directory, Codec codec, String[] packageParts, List<TypeInfo> list, String libraryName) throws IOException {
         if (list.isEmpty()) return;
-        String compressedPackages = Arrays.stream(packageParts).map(WriteAnalysis::capitalize)
-                .collect(Collectors.joining());
-        String libraryName = createLibraryName(list);
         File subDirectory = new File(directory, libraryName);
         if (subDirectory.mkdirs()) {
             LOGGER.info("Created {}", subDirectory);
         }
+        String compressedPackages = Arrays.stream(packageParts).map(WriteAnalysis::capitalize)
+                .collect(Collectors.joining());
         File outputFile = new File(subDirectory, compressedPackages + ".json");
         LOGGER.info("Writing {} type(s) to {}", list.size(), outputFile.getAbsolutePath());
         try (OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(outputFile), StandardCharsets.UTF_8)) {
@@ -72,22 +80,6 @@ public class WriteAnalysis {
             }
             osw.write("\n]\n");
         }
-    }
-
-    private static final Pattern JAR_PATTERN = Pattern.compile("/([^/]+)\\.jar!/");
-
-    private String createLibraryName(List<TypeInfo> list) {
-        String uri = list.stream().map(ti -> ti.compilationUnit().uri().toString())
-                .filter(s -> !s.contains("predefined://")).findFirst().orElseThrow();
-        Matcher m = Run.JDK_PATTERN.matcher(uri);
-        if (m.find()) {
-            return "jdk/openjdk-" + m.group(2);
-        }
-        Matcher m2 = JAR_PATTERN.matcher(uri);
-        if (m2.find()) {
-            return "libs/" + m2.group(1);
-        }
-        return "libs/unclassified";
     }
 
     private static Codec.EncodedValue write(Codec codec, Codec.Context context, Info fieldInfo, int index) {

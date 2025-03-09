@@ -5,50 +5,24 @@ import ch.qos.logback.classic.Logger;
 import org.e2immu.analyzer.modification.prepwork.PrepAnalyzer;
 import org.e2immu.language.cst.api.analysis.Message;
 import org.e2immu.language.cst.api.info.Info;
-import org.e2immu.language.cst.api.info.MethodInfo;
 import org.e2immu.language.cst.api.info.TypeInfo;
 import org.e2immu.language.cst.impl.analysis.PropertyImpl;
 import org.e2immu.language.cst.impl.analysis.ValueImpl;
-import org.e2immu.util.internal.graph.G;
-import org.e2immu.util.internal.graph.op.Linearize;
+import org.e2immu.language.inspection.resource.InputConfigurationImpl;
 import org.e2immu.util.internal.util.Trie;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 import static org.e2immu.language.inspection.integration.JavaInspectorImpl.JAR_WITH_PATH_PREFIX;
 
 public class Run {
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(Run.class);
-
-    public static final String[] JRES = {
-            "/opt/homebrew/Cellar/openjdk/23.0.2/libexec/openjdk.jdk/Contents/Home",
-            "/opt/homebrew/Cellar/openjdk@21/21.0.6/libexec/openjdk.jdk/Contents/Home",
-            "/opt/homebrew/Cellar/openjdk@17/17.0.14/libexec/openjdk.jdk/Contents/Home"
-    };
-
-    public static String currentJdk() {
-        String home = System.getProperty("java.home");
-        return Arrays.stream(JRES).filter(home::equals).map(Run::extractJdkName).findFirst().orElseThrow();
-    }
-
-    public static final Pattern JDK_PATTERN = Pattern.compile("openjdk(@\\d+)?/([\\d.]+)/libexec/openjdk.jdk");
-
-    public static String extractJdkName(String jdkHome) {
-        Matcher m = JDK_PATTERN.matcher(jdkHome);
-        if(m.find()) {
-            return "openjdk-" + m.group(2);
-        }
-        throw new UnsupportedOperationException("Unknown JDK/JRE "+jdkHome);
-    }
 
     public static final String[] SOURCES = {
             "../analyzer-shallow/e2immu-shallow-aapi/src/main/java/org/e2immu/analyzer/shallow/aapi"
@@ -60,7 +34,7 @@ public class Run {
         ((Logger) LoggerFactory.getLogger("org.e2immu.analyzer.modification.prepwork")).setLevel(Level.DEBUG);
 
         Run run = new Run();
-        for (String jre : JRES) {
+        for (String jre : ToolChain.JRES) {
             run.go(jre, SOURCES);
         }
     }
@@ -69,16 +43,8 @@ public class Run {
         LOGGER.info("I'm at {}", new File(".").getAbsolutePath());
         AnnotatedApiParser annotatedApiParser = new AnnotatedApiParser();
         annotatedApiParser.initialize(alternativeJreOrNull,
-                List.of("jmods/java.base.jmod", "jmods/java.xml.jmod", "jmods/java.net.http.jmod",
-                        "jmods/java.datatransfer.jmod", "jmods/java.desktop.jmod",
-                        JAR_WITH_PATH_PREFIX + "org/e2immu/support",
-                        JAR_WITH_PATH_PREFIX + "org/slf4j",
-                        JAR_WITH_PATH_PREFIX + "ch/qos/logback/classic",
-                        JAR_WITH_PATH_PREFIX + "org/junit/jupiter/api",
-                        JAR_WITH_PATH_PREFIX + "ch/qos/logback/core/spi",
-                        JAR_WITH_PATH_PREFIX + "org/apiguardian/api",
-                        JAR_WITH_PATH_PREFIX + "org/opentest4j"
-                ),
+                Stream.concat(Arrays.stream(ToolChain.CLASSPATH_JUNIT),
+                        Arrays.stream(ToolChain.CLASSPATH_SLF4J_LOGBACK)).toList(),
                 List.of(args[0]),
                 List.of("java", "javax", "e2immu", "log", "test"));
         ShallowAnalyzer shallowAnalyzer = new ShallowAnalyzer(annotatedApiParser);

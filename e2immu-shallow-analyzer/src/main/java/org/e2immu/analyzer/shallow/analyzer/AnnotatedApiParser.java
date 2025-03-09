@@ -13,7 +13,6 @@ import org.e2immu.language.inspection.resource.InputConfigurationImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.util.*;
@@ -37,7 +36,7 @@ public class AnnotatedApiParser implements AnnotationProvider {
 
     public void initialize(InputConfiguration inputConfiguration, AnnotatedAPIConfiguration annotatedAPIConfiguration) throws IOException {
         javaInspector.initialize(inputConfiguration);
-        new LoadAnalyzedAnnotatedAPI().go(javaInspector, annotatedAPIConfiguration);
+        new LoadAnalyzedPackageFiles().go(javaInspector, annotatedAPIConfiguration);
         javaInspector.sourceURIs().forEach(this::load);
         javaInspector.testURIs().forEach(this::load);
         LOGGER.info("Finished parsing, annotated {} types, counted {} annotations, issued {} warning(s)",
@@ -50,7 +49,7 @@ public class AnnotatedApiParser implements AnnotationProvider {
                            List<String> packageList) throws IOException {
         InputConfigurationImpl.Builder builder = new InputConfigurationImpl.Builder()
                 .setAlternativeJREDirectory(alternativeJreOrNull)
-                .addClassPath(InputConfigurationImpl.DEFAULT_CLASSPATH);
+                .addClassPath(InputConfigurationImpl.GRADLE_DEFAULT);
         sourceDirs.forEach(builder::addSources);
         packageList.forEach(builder::addRestrictSourceToPackages);
         addToClasspath.forEach(builder::addClassPath);

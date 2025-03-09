@@ -45,6 +45,7 @@ dependencies {
     implementation("org.e2immu:e2immu-inspection-resource:some.version")
     implementation("org.e2immu:e2immu-inspection-parser:some.version")
     implementation("org.e2immu:e2immu-modification-prepwork:some.version")
+    implementation("org.e2immu:e2immu-shallow-aapi:some.version")
 
     implementation("org.slf4j:slf4j-api:2.0.7")
     implementation("org.apiguardian:apiguardian-api:1.1.2")

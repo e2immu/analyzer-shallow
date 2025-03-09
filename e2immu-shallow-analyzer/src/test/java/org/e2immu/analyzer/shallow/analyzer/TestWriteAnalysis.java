@@ -50,7 +50,7 @@ public class TestWriteAnalysis {
         Trie<TypeInfo> trie = new Trie<>();
         trie.add(new String[]{"org", "e2immu"}, typeInfo);
         File dir = new File("build");
-        File targetFile = new File(dir, "OrgE2Immu.json");
+        File targetFile = new File(dir, "libs/unclassified/OrgE2immu.json");
         if (targetFile.delete()) LOGGER.debug("Deleted {}", targetFile);
         wa.write(dir.getAbsolutePath(), trie);
         String s = Files.readString(targetFile.toPath());
