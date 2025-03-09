@@ -51,7 +51,9 @@ public class WriteAnalysis {
     public void write(File directory, Trie<TypeInfo> typeTrie, Codec codec, String libraryNameIn) throws IOException {
         try {
             typeTrie.visitThrowing(new String[]{}, (parts, list) -> {
-                String libraryName = libraryNameIn == null ? ToolChain.extractLibraryName(list) : libraryNameIn;
+                String libraryName = libraryNameIn == null
+                        ? ToolChain.extractLibraryName(list, true)
+                        : libraryNameIn;
                 write(directory, codec, parts, list, libraryName);
             });
         } catch (RuntimeException re) {

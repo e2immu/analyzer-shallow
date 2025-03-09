@@ -92,7 +92,7 @@ public class ToolChain {
 
     private static final Pattern JAR_PATTERN = Pattern.compile("/([^/]+)\\.jar!/");
 
-    public static String extractLibraryName(List<TypeInfo> list) {
+    public static String extractLibraryName(List<TypeInfo> list, boolean prefixWithJdk) {
         String uri = list.stream()
                 .filter(ti -> ti.compilationUnit().uri() != null)
                 .map(ti -> ti.compilationUnit().uri().toString())
@@ -100,7 +100,7 @@ public class ToolChain {
         if (uri != null) {
             String jdkShortHand = extractJdkName(uri);
             if (jdkShortHand != null) {
-                return "jdk/" + jdkShortHand;
+                return (prefixWithJdk ? "jdk/" : "") + jdkShortHand;
             }
             Matcher m2 = JAR_PATTERN.matcher(uri);
             if (m2.find()) {
