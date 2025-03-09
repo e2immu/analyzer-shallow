@@ -4,6 +4,7 @@ import org.e2immu.language.cst.api.info.TypeInfo;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -15,6 +16,7 @@ public class ToolChain {
     }
 
     public static final JRE[] JRES = DetectJREs.runSystemCommand();
+    public static final Map<String, String> jreShortNameToAnalyzedPackageFiles = DetectJREs.loadJreMapping(JRES);
 
     public static final String[] CLASSPATH_JUNIT = {
             JAR_WITH_PATH_PREFIX + "org/junit/jupiter/api",
@@ -45,7 +47,13 @@ public class ToolChain {
             JAR_WITH_PATH_PREFIX + "org/e2immu/analyzer/shallow/analyzer"};
 
     public static String currentJdkAnalyzedPackages() {
-        return jdkAnalyzedPackages(currentJre().shortName());
+        String currentJreShortName = currentJre().shortName();
+        String analyzedPackageFile = mapJreShortNameToAnalyzedPackageShortName(currentJreShortName);
+        return jdkAnalyzedPackages(analyzedPackageFile);
+    }
+
+    public static String mapJreShortNameToAnalyzedPackageShortName(String shortName) {
+        return jreShortNameToAnalyzedPackageFiles.getOrDefault(shortName, shortName);
     }
 
     public static final String RESOURCE_PROTOCOL = "resource:";

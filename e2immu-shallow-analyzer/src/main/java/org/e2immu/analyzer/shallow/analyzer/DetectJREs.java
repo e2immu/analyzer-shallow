@@ -1,6 +1,7 @@
 package org.e2immu.analyzer.shallow.analyzer;
 
-import org.xml.sax.Attributes;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
@@ -8,15 +9,47 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.stream.Collectors;
 
+/*
+We expect the file ~/.e2immu.jremap to contain a property-value like mapping, as for example
+
+Homebrew-17.0.4=openjdk-17.0.4
+IBMCorporation-17.0.9=openjdk-17.0.4
+
+it maps the actual JRE shortname as computed below to the directories in the resources of the
+e2immu-shallow-aapi/src/main/resources/org/.../jdk directory.
+ */
 public class DetectJREs {
+    private static final Logger LOGGER = LoggerFactory.getLogger(DetectJREs.class);
+
+    public static Map<String, String> loadJreMapping(ToolChain.JRE[] jres) {
+        String home = System.getProperty("user.home");
+        File file = new File(home + File.separator + ".e2immu.jremap");
+        if (file.canRead()) {
+            try (InputStream is = new FileInputStream(file)) {
+                Properties properties = new Properties();
+                properties.load(is);
+                Map<String, String> map = properties.entrySet().stream()
+                        .filter(e -> Arrays.stream(jres).anyMatch(jre -> jre.shortName().equals(e.getKey())))
+                        .collect(Collectors.toUnmodifiableMap(e -> (String) e.getKey(),
+                                e -> (String) e.getValue()));
+                LOGGER.info("JRE mapping: {}", map);
+                return map;
+            } catch (IOException ioe) {
+                LOGGER.error("Exception reading {}", file, ioe);
+            }
+        } else {
+            LOGGER.warn("Cannot read {}", file);
+        }
+        return Map.of();
+    }
+
     public static ToolChain.JRE[] runSystemCommand() {
+        LOGGER.info("Loading JREs");
         try {
             ExecutorService executor = Executors.newFixedThreadPool(1);
             Process process = new ProcessBuilder().command("/usr/libexec/java_home", "-X").start();
@@ -38,7 +71,10 @@ public class DetectJREs {
         Handler handler = new Handler();
         try (InputStream is = new ByteArrayInputStream(xmlString.getBytes())) {
             saxParser.parse(is, handler);
-            return handler.jreList.toArray(new ToolChain.JRE[0]);
+            ToolChain.JRE[] jres = handler.jreList.toArray(new ToolChain.JRE[0]);
+            LOGGER.info("Detected {} JREs using /usr/libexec/java_home: {}", jres.length,
+                    Arrays.stream(jres).map(ToolChain.JRE::shortName).collect(Collectors.joining(", ")));
+            return jres;
         }
     }
 
