@@ -34,8 +34,10 @@ public class Run {
         ((Logger) LoggerFactory.getLogger("org.e2immu.analyzer.modification.prepwork")).setLevel(Level.DEBUG);
 
         Run run = new Run();
-        for (String jre : ToolChain.JRES) {
-            run.go(jre, SOURCES);
+        for (ToolChain.JRE jre : ToolChain.JRES) {
+            if ("HomeBrew".equals(jre.vendor()) && 17 <= jre.mainVersion()) {
+                run.go(jre.path(), SOURCES);
+            }
         }
     }
 

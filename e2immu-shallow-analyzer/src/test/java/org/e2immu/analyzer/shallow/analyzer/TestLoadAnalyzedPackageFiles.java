@@ -65,7 +65,7 @@ public class TestLoadAnalyzedPackageFiles {
         javaInspector.initialize(inputConfiguration.build());
 
         LoadAnalyzedPackageFiles loadAnalyzedPackageFiles = new LoadAnalyzedPackageFiles();
-        String jdk = ToolChain.currentJdk();
+        String jdk = ToolChain.currentJre().shortName();
         File jdkDir = new File("../e2immu-shallow-aapi/src/main/resources/org/e2immu/analyzer/shallow/aapi/analyzedPackageFiles/jdk/" + jdk);
         LOGGER.info("JDK dir is {}", jdkDir);
         assertTrue(jdkDir.isDirectory());

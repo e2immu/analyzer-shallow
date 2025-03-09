@@ -4,18 +4,17 @@ import org.e2immu.language.cst.api.info.TypeInfo;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static org.e2immu.language.inspection.integration.JavaInspectorImpl.JAR_WITH_PATH_PREFIX;
 
 public class ToolChain {
-    public static final String[] JRES = {
-            "/opt/homebrew/Cellar/openjdk/23.0.2/libexec/openjdk.jdk/Contents/Home",
-            "/opt/homebrew/Cellar/openjdk@21/21.0.6/libexec/openjdk.jdk/Contents/Home",
-            "/opt/homebrew/Cellar/openjdk@17/17.0.14/libexec/openjdk.jdk/Contents/Home"
-    };
+
+    public record JRE(int mainVersion, String platformVersion, String vendor, String path, String shortName) {
+    }
+
+    public static final JRE[] JRES = DetectJREs.runSystemCommand();
 
     public static final String[] CLASSPATH_JUNIT = {
             JAR_WITH_PATH_PREFIX + "org/junit/jupiter/api",
@@ -46,7 +45,7 @@ public class ToolChain {
             JAR_WITH_PATH_PREFIX + "org/e2immu/analyzer/shallow/analyzer"};
 
     public static String currentJdkAnalyzedPackages() {
-        return jdkAnalyzedPackages(currentJdk());
+        return jdkAnalyzedPackages(currentJre().shortName());
     }
 
     public static final String RESOURCE_PROTOCOL = "resource:";
@@ -62,25 +61,18 @@ public class ToolChain {
 
     // internal
 
-    private static final Pattern JDK_PATTERN = Pattern.compile("openjdk(@\\d+)?/([\\d.]+)/libexec/openjdk.jdk");
-
-    public static String currentJdk() {
+    public static JRE currentJre() {
         String home = System.getProperty("java.home");
-        return Arrays.stream(JRES).filter(home::equals).map(ToolChain::extractJdkName)
-                .filter(Objects::nonNull)
-                .findFirst().orElseThrow(() -> new UnsupportedOperationException("Toolchain not found"));
+        return Arrays.stream(JRES).filter(jre -> jre.path.equals(home))
+                .findFirst()
+                .orElseThrow(() -> new UnsupportedOperationException("Toolchain not found"));
     }
-
-    private static final Pattern JDK_MAIN_VERSION = Pattern.compile("openjdk-(\\d+)\\.(\\d)\\.(\\d)+");
 
     public static int currentJdkMainVersion() {
-        Matcher m = JDK_MAIN_VERSION.matcher(currentJdk());
-        if (m.matches()) {
-            return Integer.parseInt(m.group(1));
-        }
-        throw new UnsupportedOperationException();
+        return currentJre().mainVersion;
     }
 
+    private static final Pattern JDK_PATTERN = Pattern.compile("openjdk(@\\d+)?/([\\d.]+)/libexec/openjdk.jdk");
 
     public static String extractJdkName(String jdkHome) {
         Matcher m = JDK_PATTERN.matcher(jdkHome);
