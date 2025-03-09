@@ -15,7 +15,7 @@ public class ToolChain {
     public record JRE(int mainVersion, String platformVersion, String vendor, String path, String shortName) {
     }
 
-    public static final JRE[] JRES = DetectJREs.runSystemCommand();
+    public static final List<JRE> JRES = DetectJREs.runSystemCommand();
     public static final Map<String, String> jreShortNameToAnalyzedPackageFiles = DetectJREs.loadJreMapping(JRES);
 
     public static final String[] CLASSPATH_JUNIT = {
@@ -71,7 +71,7 @@ public class ToolChain {
 
     public static JRE currentJre() {
         String home = System.getProperty("java.home");
-        return Arrays.stream(JRES).filter(jre -> jre.path.equals(home))
+        return JRES.stream().filter(jre -> jre.path.equals(home))
                 .findFirst()
                 .orElseThrow(() -> new UnsupportedOperationException("Toolchain not found"));
     }

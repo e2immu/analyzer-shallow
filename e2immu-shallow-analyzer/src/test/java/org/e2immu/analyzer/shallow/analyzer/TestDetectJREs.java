@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestDetectJREs {
@@ -11,8 +13,8 @@ public class TestDetectJREs {
 
     @Test
     public void test() {
-        ToolChain.JRE[] jres = DetectJREs.runSystemCommand();
-        assertTrue(jres.length > 1);
+        List<ToolChain.JRE> jres = DetectJREs.runSystemCommand();
+        assertTrue(jres.size() > 1);
         boolean have17 = false;
         for (ToolChain.JRE jre : jres) {
             LOGGER.info("JRE = {}", jre);
