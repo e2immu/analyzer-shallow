@@ -13,6 +13,8 @@ import java.nio.file.Files;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 /*
@@ -52,12 +54,64 @@ public class DetectJREs {
     }
 
     public static List<ToolChain.JRE> runSystemCommand() {
+        String os = System.getProperty("os.name");
+        if ("Mac OS X".equals(os)) return runSystemCommandMacOs();
+        if ("linux".equals(os)) return runSystemCommandLinux();
+        throw new UnsupportedOperationException("Unrecognized operating system: " + os);
+    }
+
+    public static List<ToolChain.JRE> runSystemCommandLinux() {
+        String home = System.getProperty("user.home");
+        File file = new File(home + File.separator + ".e2immu.jre.properties");
+        try {
+            String output;
+            if (!file.canRead()) {
+                LOGGER.info("Calling 'update-alternatives' to find out which JREs are installed");
+
+                Process process = new ProcessBuilder().command("update-alternatives", "--list", "java").start();
+                Collect collect = new Collect(process.getInputStream());
+                ExecutorService executor = Executors.newFixedThreadPool(1);
+                executor.submit(collect);
+                int exitCode = process.waitFor();
+                if (exitCode != 0) throw new UnsupportedOperationException();
+                output = collect.stringBuilder.toString();
+                Files.writeString(file.toPath(), output);
+            } else {
+                output = Files.readString(file.toPath());
+            }
+            return parseLinuxOutput(output);
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+            throw new UnsupportedOperationException("Cannot detect JREs: " + e.getMessage());
+        }
+    }
+
+    private static final Pattern UBUNTU = Pattern.compile("/usr/lib/jvm/java-(\\d+)-(\\S+)-(\\S+)/bin/java");
+
+    private static List<ToolChain.JRE> parseLinuxOutput(String lines) {
+        List<ToolChain.JRE> list = new ArrayList<>();
+        for (String line : lines.split("\n")) {
+            if (!line.isBlank()) {
+                Matcher m = UBUNTU.matcher(line);
+                if (m.matches()) {
+                    String version = m.group(1);
+                    int mainVersion = Integer.parseInt(version);
+                    String shortName = m.group(3) + "-" + version;
+                    ToolChain.JRE jre = new ToolChain.JRE(mainVersion, version, m.group(2), line, shortName);
+                    list.add(jre);
+                }
+            }
+        }
+        return List.copyOf(list);
+    }
+
+    public static List<ToolChain.JRE> runSystemCommandMacOs() {
         String home = System.getProperty("user.home");
         File file = new File(home + File.separator + ".e2immu.java_home.xml");
         try {
             String xmlString;
             if (!file.canRead()) {
-                LOGGER.info("Loading JREs");
+                LOGGER.info("Calling 'java_home' to find out which JREs are installed");
 
                 Process process = new ProcessBuilder().command("/usr/libexec/java_home", "-X").start();
                 Collect collect = new Collect(process.getInputStream());
@@ -70,14 +124,14 @@ public class DetectJREs {
             } else {
                 xmlString = Files.readString(file.toPath());
             }
-            return parseXml(xmlString);
+            return parseMacOsXml(xmlString);
         } catch (IOException | InterruptedException | ParserConfigurationException | SAXException e) {
             e.printStackTrace();
             throw new UnsupportedOperationException("Cannot detect JREs: " + e.getMessage());
         }
     }
 
-    private static List<ToolChain.JRE> parseXml(String xmlString) throws IOException, ParserConfigurationException, SAXException {
+    private static List<ToolChain.JRE> parseMacOsXml(String xmlString) throws IOException, ParserConfigurationException, SAXException {
         SAXParserFactory factory = SAXParserFactory.newInstance();
         SAXParser saxParser = factory.newSAXParser();
         Handler handler = new Handler();
