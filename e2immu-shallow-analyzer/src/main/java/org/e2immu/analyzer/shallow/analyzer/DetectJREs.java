@@ -56,7 +56,7 @@ public class DetectJREs {
     public static List<ToolChain.JRE> runSystemCommand() {
         String os = System.getProperty("os.name");
         if ("Mac OS X".equals(os)) return runSystemCommandMacOs();
-        if ("linux".equals(os)) return runSystemCommandLinux();
+        if ("Linux".equals(os)) return runSystemCommandLinux();
         throw new UnsupportedOperationException("Unrecognized operating system: " + os);
     }
 
