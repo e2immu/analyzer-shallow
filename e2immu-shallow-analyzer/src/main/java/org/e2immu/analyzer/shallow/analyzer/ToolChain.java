@@ -1,8 +1,9 @@
 package org.e2immu.analyzer.shallow.analyzer;
 
 import org.e2immu.language.cst.api.info.TypeInfo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -11,6 +12,7 @@ import java.util.regex.Pattern;
 import static org.e2immu.language.inspection.integration.JavaInspectorImpl.JAR_WITH_PATH_PREFIX;
 
 public class ToolChain {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ToolChain.class);
 
     public record JRE(int mainVersion, String platformVersion, String vendor, String path, String shortName) {
     }
@@ -80,12 +82,20 @@ public class ToolChain {
         return currentJre().mainVersion;
     }
 
-    private static final Pattern JDK_PATTERN = Pattern.compile("openjdk(@\\d+)?/([\\d.]+)/libexec/openjdk.jdk");
+    private static final Pattern MAC_OPENJDK_PATTERN = Pattern.compile("openjdk(@\\d+)?/([\\d.]+)/libexec/openjdk.jdk");
+    private static final Pattern LINUX_OPENJDK_PATTERN = Pattern.compile("/usr/lib/jvm/java-(\\d+)-openjdk");
+
+    // Linux: jar:file:/usr/lib/jvm/java-23-openjdk-arm64/jmods/java.base.jmod!/classes/java/io/BufferedInputStream.class
+    // Mac: jar:file:/opt/homebrew/Cellar/openjdk/23.0.2/libexec/openjdk.jdk/Contents/Home/jmods/java.base.jmod!/classes/java/io/BufferedInputStream.class
 
     public static String extractJdkName(String jdkHome) {
-        Matcher m = JDK_PATTERN.matcher(jdkHome);
+        Matcher m = MAC_OPENJDK_PATTERN.matcher(jdkHome);
         if (m.find()) {
             return "openjdk-" + m.group(2);
+        }
+        Matcher mm = LINUX_OPENJDK_PATTERN.matcher(jdkHome);
+        if (mm.find()) {
+            return "openjdk-" + mm.group(1);
         }
         return null;
     }
@@ -93,8 +103,10 @@ public class ToolChain {
     private static final Pattern JAR_PATTERN = Pattern.compile("/([^/]+)\\.jar!/");
 
     public static String extractLibraryName(List<TypeInfo> list, boolean prefixWithJdk) {
+        LOGGER.info("List has size {}", list.size());
         String uri = list.stream()
                 .filter(ti -> ti.compilationUnit().uri() != null)
+                .peek(ti -> LOGGER.info("Class {} -> {}", ti, ti.compilationUnit().uri()))
                 .map(ti -> ti.compilationUnit().uri().toString())
                 .filter(s -> !s.contains("predefined://")).findFirst().orElse(null);
         if (uri != null) {
