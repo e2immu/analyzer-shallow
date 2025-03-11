@@ -35,6 +35,7 @@ public class ToolChain {
     public static String[] CLASSPATH_E2IMMU = {
             JAR_WITH_PATH_PREFIX + "org/parsers/java/ast",
             JAR_WITH_PATH_PREFIX + "org/e2immu/util/internal/util",
+            JAR_WITH_PATH_PREFIX + "org/e2immu/util/internal/graph",
             JAR_WITH_PATH_PREFIX + "org/e2immu/language/cst/api",
             JAR_WITH_PATH_PREFIX + "org/e2immu/language/cst/io",
             JAR_WITH_PATH_PREFIX + "org/e2immu/language/cst/impl",

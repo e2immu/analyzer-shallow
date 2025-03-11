@@ -20,7 +20,7 @@ public class TestRun {
         ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger("org.e2immu.analyzer.shallow")).setLevel(Level.DEBUG);
 
         for (ToolChain.JRE jre : ToolChain.JRES) {
-            if ("HomeBrew".equals(jre.vendor()) && 17 <= jre.mainVersion()) {
+            if ("Homebrew".equals(jre.vendor()) && 17 <= jre.mainVersion()) {
                 Run run = new Run();
                 List<Message> messages = run.go(jre.path(), SOURCES);
                 LOGGER.info("Have {} message(s)", messages.size());
