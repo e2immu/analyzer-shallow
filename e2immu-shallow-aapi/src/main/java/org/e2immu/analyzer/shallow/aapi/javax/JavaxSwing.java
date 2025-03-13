@@ -7,12 +7,13 @@ import java.awt.event.ActionListener;
 
 public class JavaxSwing {
     public static final String PACKAGE_NAME = "javax.swing";
-    interface AbstractButton {
+
+    interface AbstractButton$ {
         @Modified
         void addActionListener(ActionListener l);
     }
 
-    interface JTable {
+    interface JTable$ {
         @Modified
         void setDefaultRenderer(Class<?> columnClass, TableCellRenderer renderer);
     }
