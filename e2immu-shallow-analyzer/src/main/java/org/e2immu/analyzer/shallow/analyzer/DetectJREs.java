@@ -173,7 +173,7 @@ public class DetectJREs {
         }
     }
 
-    private static class Collect implements Runnable {
+    public static class Collect implements Runnable {
         private final InputStream inputStream;
         private final StringBuilder stringBuilder = new StringBuilder();
 
