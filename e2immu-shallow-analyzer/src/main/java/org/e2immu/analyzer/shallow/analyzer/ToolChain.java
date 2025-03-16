@@ -23,12 +23,12 @@ public class ToolChain {
     public static final String[] CLASSPATH_JUNIT = {
             JAR_WITH_PATH_PREFIX + "org/junit/jupiter/api",
             JAR_WITH_PATH_PREFIX + "org/apiguardian/api",
-            JAR_WITH_PATH_PREFIX + "org/junit/platform/commons"};
+            JAR_WITH_PATH_PREFIX + "org/junit/platform/commons",
+            JAR_WITH_PATH_PREFIX + "org/opentest4j"};
     public static final String[] CLASSPATH_SLF4J_LOGBACK = {
             JAR_WITH_PATH_PREFIX + "org/slf4j/event",
             JAR_WITH_PATH_PREFIX + "ch/qos/logback/core",
-            JAR_WITH_PATH_PREFIX + "ch/qos/logback/classic",
-            JAR_WITH_PATH_PREFIX + "org/opentest4j"};
+            JAR_WITH_PATH_PREFIX + "ch/qos/logback/classic"};
 
     public static final String CLASSPATH_INTELLIJ_LANG = JAR_WITH_PATH_PREFIX + "org/intellij/lang/annotations";
 
