@@ -6,6 +6,7 @@ import org.e2immu.language.cst.api.info.*;
 import org.e2immu.language.cst.api.runtime.Runtime;
 import org.e2immu.language.cst.api.type.ParameterizedType;
 import org.e2immu.language.inspection.api.integration.JavaInspector;
+import org.e2immu.language.inspection.api.parser.ParseResult;
 import org.e2immu.language.inspection.api.parser.Summary;
 import org.e2immu.language.inspection.api.resource.InputConfiguration;
 import org.e2immu.language.inspection.integration.JavaInspectorImpl;
@@ -58,8 +59,8 @@ public class AnnotatedApiParser implements AnnotationProvider {
     }
 
     private void load(URI uri) {
-        Summary summary = javaInspector.parse(uri, JavaInspectorImpl.FAIL_FAST);
-        TypeInfo typeInfo = summary.firstType();
+        ParseResult parseResult = javaInspector.parse(uri, JavaInspectorImpl.FAIL_FAST).parseResult();
+        TypeInfo typeInfo = parseResult.firstType();
         typesParsed.add(typeInfo);
         FieldInfo packageName = typeInfo.getFieldByName("PACKAGE_NAME", false);
         if (packageName == null) {
