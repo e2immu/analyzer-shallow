@@ -12,6 +12,20 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class TestJavaxSwing extends CommonTest {
 
     @Test
+    public void testJLabelSetText() {
+        TypeInfo typeInfo = compiledTypesManager.getOrLoad(JLabel.class);
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("setText", 1);
+        assertTrue(methodInfo.isModifying());
+    }
+
+    @Test
+    public void testJComboBoxAddActionListener() {
+        TypeInfo typeInfo = compiledTypesManager.getOrLoad(JComboBox.class);
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("addActionListener", 1);
+        assertTrue(methodInfo.isModifying());
+    }
+
+    @Test
     public void testAbstractButtonAddActionListener() {
         TypeInfo typeInfo = compiledTypesManager.getOrLoad(AbstractButton.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("addActionListener", 1);

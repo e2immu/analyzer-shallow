@@ -18,4 +18,13 @@ public class JavaxSwing {
         void setDefaultRenderer(Class<?> columnClass, TableCellRenderer renderer);
     }
 
+    interface JComboBox$ {
+        @Modified
+        void addActionListener(ActionListener l);
+    }
+
+    interface JLabel$ {
+        @Modified
+        void setText(String text);
+    }
 }
