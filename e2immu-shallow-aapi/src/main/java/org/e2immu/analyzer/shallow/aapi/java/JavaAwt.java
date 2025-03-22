@@ -1,4 +1,5 @@
 package org.e2immu.analyzer.shallow.aapi.java;
+import org.e2immu.annotation.Commutable;
 import org.e2immu.annotation.Immutable;
 import org.e2immu.annotation.Independent;
 import org.e2immu.annotation.Modified;
@@ -25,6 +26,12 @@ import java.util.*;
 import javax.accessibility.AccessibleContext;
 public class JavaAwt {
     public static final String PACKAGE_NAME = "java.awt";
+
+    interface Component$ {
+        @Commutable
+        @Modified
+        void addMouseListener(MouseListener l);
+    }
 
     @Immutable(hc = true)
     class Color$ {

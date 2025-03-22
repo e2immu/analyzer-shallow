@@ -1,7 +1,7 @@
 package org.e2immu.analyzer.shallow.aapi.javax;
 
+import org.e2immu.annotation.Commutable;
 import org.e2immu.annotation.Modified;
-
 import javax.swing.table.TableCellRenderer;
 import java.awt.event.ActionListener;
 
@@ -14,8 +14,17 @@ public class JavaxSwing {
     }
 
     interface JTable$ {
+        @Commutable
         @Modified
         void setDefaultRenderer(Class<?> columnClass, TableCellRenderer renderer);
+
+        @Commutable
+        @Modified
+        void setFillsViewportHeight(boolean fillsViewportHeight);
+
+        @Commutable
+        @Modified
+        void setRowSelectionAllowed(boolean rowSelectionAllowed);
     }
 
     interface JComboBox$ {
