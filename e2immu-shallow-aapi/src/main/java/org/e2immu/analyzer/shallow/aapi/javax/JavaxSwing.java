@@ -14,7 +14,7 @@ public class JavaxSwing {
     }
 
     interface JTable$ {
-        @Commutable
+        @Commutable(seq="class,0")
         @Modified
         void setDefaultRenderer(Class<?> columnClass, TableCellRenderer renderer);
 
