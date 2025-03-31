@@ -27,6 +27,11 @@ import javax.accessibility.AccessibleContext;
 public class JavaAwt {
     public static final String PACKAGE_NAME = "java.awt";
 
+    interface Container$ {
+        @Modified
+        Component add(Component comp);
+    }
+
     interface Component$ {
         @Commutable
         @Modified
