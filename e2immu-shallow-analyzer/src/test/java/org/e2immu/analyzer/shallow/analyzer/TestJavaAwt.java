@@ -14,6 +14,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class TestJavaAwt extends CommonTest {
 
     @Test
+    public void testContainerAdd() {
+        TypeInfo typeInfo = compiledTypesManager.getOrLoad(Container.class);
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("add", 1);
+        assertTrue(methodInfo.isModifying());
+    }
+
+    @Test
     public void testComponentAddMouseListener() {
         TypeInfo typeInfo = compiledTypesManager.getOrLoad(Component.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("addMouseListener", 1);
