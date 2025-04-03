@@ -21,6 +21,13 @@ public class TestJavaAwt extends CommonTest {
     }
 
     @Test
+    public void testContainerSetLayout() {
+        TypeInfo typeInfo = compiledTypesManager.getOrLoad(Container.class);
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("setLayout", 1);
+        assertTrue(methodInfo.isModifying());
+    }
+
+    @Test
     public void testComponentAddMouseListener() {
         TypeInfo typeInfo = compiledTypesManager.getOrLoad(Component.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("addMouseListener", 1);
