@@ -30,6 +30,8 @@ public class JavaAwt {
     interface Container$ {
         @Modified
         Component add(Component comp);
+        @Modified
+        void setLayout(LayoutManager mgr);
     }
 
     interface Component$ {
