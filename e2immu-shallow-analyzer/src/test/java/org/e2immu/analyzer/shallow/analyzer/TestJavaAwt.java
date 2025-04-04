@@ -18,6 +18,7 @@ public class TestJavaAwt extends CommonTest {
         TypeInfo typeInfo = compiledTypesManager.getOrLoad(Container.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("add", 1);
         assertTrue(methodInfo.isModifying());
+        testCommutable(methodInfo);
     }
 
     @Test

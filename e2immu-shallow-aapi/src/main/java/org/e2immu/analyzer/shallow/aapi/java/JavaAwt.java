@@ -28,6 +28,7 @@ public class JavaAwt {
     public static final String PACKAGE_NAME = "java.awt";
 
     interface Container$ {
+        @Commutable
         @Modified
         Component add(Component comp);
         @Modified
