@@ -134,6 +134,73 @@
   {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
   {"name": "Pi1(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]}]},
 
+{"name": "Tjavax.accessibility.AccessibleSelection", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "MgetAccessibleSelectionCount(0)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetAccessibleSelection(1)", "data":{"hc":{"0":"Tjavax.accessibility.Accessible"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MisAccessibleChildSelected(2)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MaddAccessibleSelection(3)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MremoveAccessibleSelection(4)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MclearAccessibleSelection(5)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "MselectAllAccessibleSelection(6)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}}]},
+
+{"name": "Tjavax.accessibility.AccessibleTable", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "MgetAccessibleCaption(0)", "data":{"hc":{"0":"Tjavax.accessibility.Accessible"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MsetAccessibleCaption(1)", "data":{"containerMethod":1,"hc":{"0":"Tjavax.accessibility.Accessible"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Paccessible(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MgetAccessibleSummary(2)", "data":{"hc":{"0":"Tjavax.accessibility.Accessible"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MsetAccessibleSummary(3)", "data":{"containerMethod":1,"hc":{"0":"Tjavax.accessibility.Accessible"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Paccessible(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MgetAccessibleRowCount(4)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetAccessibleColumnCount(5)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetAccessibleAt(6)", "data":{"hc":{"0":"Tjavax.accessibility.Accessible"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MgetAccessibleRowExtentAt(7)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MgetAccessibleColumnExtentAt(8)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MgetAccessibleRowHeader(9)", "data":{"hc":{"0":"Tjavax.accessibility.AccessibleTable"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MsetAccessibleRowHeader(10)", "data":{"containerMethod":1,"hc":{"0":"Tjavax.accessibility.AccessibleTable"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PaccessibleTable(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MgetAccessibleColumnHeader(11)", "data":{"hc":{"0":"Tjavax.accessibility.AccessibleTable"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MsetAccessibleColumnHeader(12)", "data":{"containerMethod":1,"hc":{"0":"Tjavax.accessibility.AccessibleTable"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PaccessibleTable(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MgetAccessibleRowDescription(13)", "data":{"hc":{"0":"Tjavax.accessibility.Accessible"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MsetAccessibleRowDescription(14)", "data":{"containerMethod":1,"hc":{"0":"Tjavax.accessibility.Accessible"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Paccessible(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "MgetAccessibleColumnDescription(15)", "data":{"hc":{"0":"Tjavax.accessibility.Accessible"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MsetAccessibleColumnDescription(16)", "data":{"containerMethod":1,"hc":{"0":"Tjavax.accessibility.Accessible"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Paccessible(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
+ {"name": "MisAccessibleSelected(17)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]},
+ {"name": "MisAccessibleRowSelected(18)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MisAccessibleColumnSelected(19)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetSelectedAccessibleRows(20)", "data":{"containerMethod":1,"hc":{},"immutableMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetSelectedAccessibleColumns(21)", "data":{"containerMethod":1,"hc":{},"immutableMethod":1,"shallowAnalyzer":1}}]},
+
+{"name": "Tjavax.accessibility.AccessibleTableModelChange", "data":{"hc":{"E":true},"independentType":2,"shallowAnalyzer":1}, "subs":[
+ {"name": "FINSERT(0)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
+ {"name": "FUPDATE(1)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
+ {"name": "FDELETE(2)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
+ {"name": "MgetType(0)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetFirstRow(1)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetLastRow(2)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetFirstColumn(3)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetLastColumn(4)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}}]},
+
 {"name": "Tjavax.accessibility.AccessibleText", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "FCHARACTER(0)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FWORD(1)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
@@ -158,6 +225,13 @@
  {"name": "MgetSelectionStart(8)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MgetSelectionEnd(9)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
  {"name": "MgetSelectedText(10)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}}]},
+
+{"name": "Tjavax.accessibility.AccessibleValue", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "MgetCurrentAccessibleValue(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Number"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
+ {"name": "MsetCurrentAccessibleValue(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Number"},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pnumber(0)", "data":{"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":2,"independentParameter":2}}},
+ {"name": "MgetMinimumAccessibleValue(2)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Number"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetMaximumAccessibleValue(3)", "data":{"containerMethod":1,"hc":{"0":"Tjava.lang.Number"},"hcsMethod":{"0":[[-1]]},"immutableMethod":2,"independentMethod":1,"shallowAnalyzer":1}}]},
 
 {"name": "Tjavax.accessibility.AccessibleEditableText", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "MsetTextContents(0)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
@@ -191,5 +265,14 @@
 {"name": "Tjavax.accessibility.AccessibleExtendedComponent", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "MgetToolTipText(0)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
  {"name": "MgetTitledBorderText(1)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"shallowAnalyzer":1}},
- {"name": "MgetAccessibleKeyBinding(2)", "data":{"hc":{"0":"Tjavax.accessibility.AccessibleKeyBinding"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}}]}
+ {"name": "MgetAccessibleKeyBinding(2)", "data":{"hc":{"0":"Tjavax.accessibility.AccessibleKeyBinding"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}}]},
+
+{"name": "Tjavax.accessibility.AccessibleExtendedTable", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "MgetAccessibleRow(0)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetAccessibleColumn(1)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
+ {"name": "MgetAccessibleIndex(2)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "subs":[
+  {"name": "Pi(0)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}},
+  {"name": "Pi1(1)", "data":{"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}]}]}
 ]

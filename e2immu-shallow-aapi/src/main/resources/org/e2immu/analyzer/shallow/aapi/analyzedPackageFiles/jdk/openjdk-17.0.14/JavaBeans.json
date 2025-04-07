@@ -1,0 +1,5 @@
+[
+{"name": "Tjava.beans.PropertyChangeListener", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "sub":
+ {"name": "MpropertyChange(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.beans.PropertyChangeEvent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PpropertyChangeEvent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}}
+]

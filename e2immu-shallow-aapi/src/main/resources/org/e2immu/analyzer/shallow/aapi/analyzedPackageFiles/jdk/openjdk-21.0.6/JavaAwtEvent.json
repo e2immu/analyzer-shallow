@@ -1,0 +1,27 @@
+[
+{"name": "Tjava.awt.event.ActionListener", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "sub":
+ {"name": "MactionPerformed(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.ActionEvent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PactionEvent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}},
+
+{"name": "Tjava.awt.event.ComponentListener", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "McomponentResized(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.ComponentEvent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PcomponentEvent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "McomponentMoved(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.ComponentEvent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PcomponentEvent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "McomponentShown(2)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.ComponentEvent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PcomponentEvent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "McomponentHidden(3)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.ComponentEvent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PcomponentEvent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}]},
+
+{"name": "Tjava.awt.event.ContainerListener", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "McomponentAdded(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.ContainerEvent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PcontainerEvent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "McomponentRemoved(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.ContainerEvent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PcontainerEvent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}]},
+
+{"name": "Tjava.awt.event.FocusListener", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "MfocusGained(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.FocusEvent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PfocusEvent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
+ {"name": "MfocusLost(1)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.FocusEvent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
+  {"name": "PfocusEvent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}]}
+]

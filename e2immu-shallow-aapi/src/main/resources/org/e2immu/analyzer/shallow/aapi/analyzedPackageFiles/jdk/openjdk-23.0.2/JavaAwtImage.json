@@ -1,4 +1,13 @@
 [
+{"name": "Tjava.awt.image.BufferStrategy", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
+ {"name": "C<init>(0)", "data":{"hc":{}}},
+ {"name": "MgetCapabilities(0)", "data":{"hc":{"0":"Tjava.awt.BufferCapabilities"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "MgetDrawGraphics(1)", "data":{"hc":{"0":"Tjava.awt.Graphics"},"hcsMethod":{"0":[[-1]]},"shallowAnalyzer":1}},
+ {"name": "McontentsLost(2)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "McontentsRestored(3)", "data":{"containerMethod":1,"hc":{},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mshow(4)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}},
+ {"name": "Mdispose(5)", "data":{"containerMethod":1,"hc":{},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}}]},
+
 {"name": "Tjava.awt.image.ImageObserver", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "FWIDTH(0)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
  {"name": "FHEIGHT(1)", "data":{"finalField":1,"immutableField":3,"independentField":2,"notNullField":1,"shallowAnalyzer":1}},
