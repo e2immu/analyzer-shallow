@@ -22,10 +22,25 @@ public class TestJavaAwt extends CommonTest {
     }
 
     @Test
+    public void testContainerAddWithConstraints() {
+        TypeInfo typeInfo = compiledTypesManager.getOrLoad(Container.class);
+        MethodInfo methodInfo = typeInfo.methods().stream()
+                                        .filter(m -> m.simpleName().equals("add")
+                                                             && m.parameters().size() == 2
+                                                             && m.parameters().get(1)
+                                                                        .parameterizedType()
+                                                                        .equals(runtime.newParameterizedType(runtime.objectTypeInfo(), 0)))
+                                        .findFirst().orElseThrow();
+        assertTrue(methodInfo.isModifying());
+        testCommutable(methodInfo);
+    }
+
+    @Test
     public void testContainerSetLayout() {
         TypeInfo typeInfo = compiledTypesManager.getOrLoad(Container.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("setLayout", 1);
         assertTrue(methodInfo.isModifying());
+        testCommutable(methodInfo);
     }
 
     @Test
