@@ -36,6 +36,7 @@ public class JavaAwt {
         @Modified
         void add(Component comp, Object constraints);
 
+        @Commutable
         @Modified
         void setLayout(LayoutManager mgr);
     }
