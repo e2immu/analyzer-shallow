@@ -9,10 +9,6 @@
  {"name": "MeditingCanceled(1)", "data":{"containerMethod":1,"hc":{"0":"Tjavax.swing.event.ChangeEvent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "PchangeEvent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}]},
 
-{"name": "Tjavax.swing.event.ChangeListener", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "sub":
- {"name": "MstateChanged(0)", "data":{"containerMethod":1,"hc":{"0":"Tjavax.swing.event.ChangeEvent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "PchangeEvent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}},
-
 {"name": "Tjavax.swing.event.DocumentListener", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "MinsertUpdate(0)", "data":{"containerMethod":1,"hc":{"0":"Tjavax.swing.event.DocumentEvent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "PdocumentEvent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
