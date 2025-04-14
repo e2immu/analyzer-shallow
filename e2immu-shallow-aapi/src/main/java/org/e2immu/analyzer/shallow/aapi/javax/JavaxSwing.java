@@ -4,6 +4,7 @@ import org.e2immu.annotation.Commutable;
 import org.e2immu.annotation.Modified;
 import javax.swing.table.TableCellRenderer;
 import java.awt.event.ActionListener;
+import java.util.Collection;
 
 public class JavaxSwing {
     public static final String PACKAGE_NAME = "javax.swing";
@@ -35,5 +36,13 @@ public class JavaxSwing {
     interface JLabel$ {
         @Modified
         void setText(String text);
+    }
+
+    interface DefaultComboBoxModel$<E> {
+        @Modified
+        void removeAllElements();
+
+        @Modified
+        void addAll(int index, Collection<? extends E> c);
     }
 }

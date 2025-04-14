@@ -15,6 +15,19 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class TestJavaxSwing extends CommonTest {
 
     @Test
+    public void testDefaultComboBoxRemoveAllElements() {
+        TypeInfo typeInfo = compiledTypesManager.getOrLoad(DefaultComboBoxModel.class);
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("removeAllElements", 0);
+        assertTrue(methodInfo.isModifying());
+    }
+
+    @Test
+    public void testDefaultComboBoxAddAll() {
+        TypeInfo typeInfo = compiledTypesManager.getOrLoad(DefaultComboBoxModel.class);
+        MethodInfo methodInfo = typeInfo.findUniqueMethod("addAll", 2);
+        assertTrue(methodInfo.isModifying());
+    }
+    @Test
     public void testJLabelSetText() {
         TypeInfo typeInfo = compiledTypesManager.getOrLoad(JLabel.class);
         MethodInfo methodInfo = typeInfo.findUniqueMethod("setText", 1);
