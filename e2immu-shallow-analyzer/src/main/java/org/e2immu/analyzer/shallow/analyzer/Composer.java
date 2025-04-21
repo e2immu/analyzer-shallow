@@ -27,10 +27,6 @@ import org.e2immu.language.cst.api.statement.Block;
 import org.e2immu.language.cst.api.statement.Statement;
 import org.e2immu.language.cst.api.type.ParameterizedType;
 import org.e2immu.language.cst.api.type.TypeParameter;
-import org.e2immu.language.cst.impl.element.SingleLineComment;
-import org.e2immu.language.cst.impl.info.TypePrinter;
-import org.e2immu.language.cst.impl.output.QualificationImpl;
-import org.e2immu.language.cst.impl.type.DiamondEnum;
 import org.e2immu.language.cst.print.FormatterImpl;
 import org.e2immu.language.cst.print.FormattingOptionsImpl;
 import org.e2immu.util.internal.util.StringUtil;
@@ -150,11 +146,11 @@ public class Composer {
     private Comment addCommentLine(MethodInfo methodInfo) {
         String shortString = "overrides in " + methodInfo.overrides()
                 .stream().map(mi -> mi.typeInfo().fullyQualifiedName()).sorted().collect(Collectors.joining(", "));
-        return new SingleLineComment(shortString);
+        return runtime.newSingleLineComment(shortString);
     }
 
     private Comment addCommentLine(TypeInfo typeInfo) {
-        String access = TypePrinter.minimalModifiers(typeInfo)
+        String access = runtime.newTypePrinter(typeInfo, true).minimalModifiers(typeInfo)
                 .stream().map(m -> m.keyword().minimal())
                 .collect(Collectors.joining(" ", "", " "));
         String type = typeInfo.typeNature().keyword().minimal() + " ";
@@ -165,7 +161,7 @@ public class Composer {
                 .map(i -> i.print(runtime.qualificationQualifyFromPrimaryType(), false, runtime.diamondShowAll()).toString())
                 .collect(Collectors.joining(", "));
         String shortString = access + type + typeInfo.simpleName() + extendString + implementString;
-        return new SingleLineComment(shortString);
+        return runtime.newSingleLineComment(shortString);
     }
 
     private boolean acceptTypeOrAnySubType(TypeInfo typeInfo) {
