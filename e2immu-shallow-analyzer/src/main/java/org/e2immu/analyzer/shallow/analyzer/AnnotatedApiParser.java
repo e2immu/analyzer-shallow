@@ -9,6 +9,7 @@ import org.e2immu.language.inspection.api.integration.JavaInspector;
 import org.e2immu.language.inspection.api.parser.ParseResult;
 import org.e2immu.language.inspection.api.parser.Summary;
 import org.e2immu.language.inspection.api.resource.InputConfiguration;
+import org.e2immu.language.inspection.api.resource.SourceFile;
 import org.e2immu.language.inspection.integration.JavaInspectorImpl;
 import org.e2immu.language.inspection.resource.InputConfigurationImpl;
 import org.slf4j.Logger;
@@ -58,8 +59,8 @@ public class AnnotatedApiParser implements AnnotationProvider {
         initialize(inputConfiguration, new AnnotatedAPIConfigurationImpl.Builder().build());
     }
 
-    private void load(URI uri) {
-        ParseResult parseResult = javaInspector.parse(uri, JavaInspectorImpl.FAIL_FAST).parseResult();
+    private void load(SourceFile sourceFile) {
+        ParseResult parseResult = javaInspector.parse(sourceFile.uri(), JavaInspectorImpl.FAIL_FAST).parseResult();
         TypeInfo typeInfo = parseResult.firstType();
         typesParsed.add(typeInfo);
         FieldInfo packageName = typeInfo.getFieldByName("PACKAGE_NAME", false);
