@@ -8,18 +8,16 @@ import org.e2immu.language.cst.api.info.Info;
 import org.e2immu.language.cst.api.info.TypeInfo;
 import org.e2immu.language.cst.impl.analysis.PropertyImpl;
 import org.e2immu.language.cst.impl.analysis.ValueImpl;
-import org.e2immu.language.inspection.resource.InputConfigurationImpl;
+import org.e2immu.language.inspection.integration.JavaInspectorImpl;
 import org.e2immu.util.internal.util.Trie;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Stream;
-
-import static org.e2immu.language.inspection.integration.JavaInspectorImpl.JAR_WITH_PATH_PREFIX;
 
 public class Run {
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(Run.class);
@@ -44,9 +42,12 @@ public class Run {
     public List<Message> go(String alternativeJreOrNull, String[] args) throws IOException {
         LOGGER.info("I'm at {}", new File(".").getAbsolutePath());
         AnnotatedApiParser annotatedApiParser = new AnnotatedApiParser();
+        List<String> classPath = new ArrayList<>();
+        Collections.addAll(classPath, ToolChain.CLASSPATH_JUNIT);
+        Collections.addAll(classPath, ToolChain.CLASSPATH_SLF4J_LOGBACK);
+        classPath.add(JavaInspectorImpl.E2IMMU_SUPPORT);
         annotatedApiParser.initialize(alternativeJreOrNull,
-                Stream.concat(Arrays.stream(ToolChain.CLASSPATH_JUNIT),
-                        Arrays.stream(ToolChain.CLASSPATH_SLF4J_LOGBACK)).toList(),
+                classPath,
                 List.of(args[0]),
                 List.of("java", "javax", "e2immu", "log", "test"));
         ShallowAnalyzer shallowAnalyzer = new ShallowAnalyzer(annotatedApiParser);

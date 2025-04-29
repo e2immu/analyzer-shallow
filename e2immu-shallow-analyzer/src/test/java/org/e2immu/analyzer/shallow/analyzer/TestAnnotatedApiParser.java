@@ -6,6 +6,7 @@ import org.e2immu.language.cst.api.expression.AnnotationExpression;
 import org.e2immu.language.cst.api.info.MethodInfo;
 import org.e2immu.language.cst.api.info.TypeInfo;
 import org.e2immu.language.cst.api.runtime.Runtime;
+import org.e2immu.language.inspection.api.integration.JavaInspector;
 import org.e2immu.language.inspection.api.parser.SourceTypes;
 import org.e2immu.language.inspection.integration.JavaInspectorImpl;
 import org.junit.jupiter.api.BeforeAll;
@@ -30,7 +31,8 @@ public class TestAnnotatedApiParser {
     public void test() throws IOException {
         AnnotatedApiParser annotatedApiParser = new AnnotatedApiParser();
         annotatedApiParser.initialize(null,
-                List.of(JavaInspectorImpl.JAR_WITH_PATH_PREFIX + "org/slf4j"),
+                List.of(JavaInspectorImpl.JAR_WITH_PATH_PREFIX + "org/slf4j",
+                        JavaInspectorImpl.E2IMMU_SUPPORT),
                 List.of("src/test/java/org/e2immu/analyzer/shallow/analyzer"),
                 List.of("example."));
         List<TypeInfo> types = annotatedApiParser.typesParsed();

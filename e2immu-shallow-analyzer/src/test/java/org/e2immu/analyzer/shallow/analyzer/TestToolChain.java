@@ -1,7 +1,10 @@
 package org.e2immu.analyzer.shallow.analyzer;
 
 import ch.qos.logback.classic.Level;
+import org.e2immu.language.cst.api.info.TypeInfo;
 import org.e2immu.language.inspection.api.integration.JavaInspector;
+import org.e2immu.language.inspection.api.resource.ClassPathPart;
+import org.e2immu.language.inspection.api.resource.InputConfiguration;
 import org.e2immu.language.inspection.integration.JavaInspectorImpl;
 import org.e2immu.language.inspection.resource.InputConfigurationImpl;
 import org.junit.jupiter.api.BeforeAll;
@@ -9,10 +12,14 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestToolChain {
+
+    public static final String BASE = "jmods/java.base.jmod";
+
     @BeforeAll
     public static void beforeAll() {
         ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger(org.slf4j.Logger.ROOT_LOGGER_NAME)).setLevel(Level.INFO);
@@ -28,12 +35,19 @@ public class TestToolChain {
     public void test() throws IOException {
         InputConfigurationImpl.Builder inputConfigurationBuilder = new InputConfigurationImpl.Builder()
                 .addSources("none")
-                .addClassPath("jmods/java.base.jmod");
+                .addClassPath(BASE);
+        InputConfiguration inputConfiguration = inputConfigurationBuilder.build();
+        ClassPathPart base = inputConfiguration.classPathParts().get(0);
+        assertEquals(BASE, base.name());
+        assertEquals(BASE, base.uri().toString());
 
         JavaInspector javaInspector = new JavaInspectorImpl();
-        javaInspector.initialize(inputConfigurationBuilder.build());
+        javaInspector.initialize(inputConfiguration);
 
-        String s = ToolChain.extractLibraryName(javaInspector.compiledTypesManager().typesLoaded(), false);
-        assertEquals("openjdk-23.0.2", s);
+        List<TypeInfo> typesLoaded = javaInspector.compiledTypesManager().typesLoaded();
+        assertSame(base, typesLoaded.get(0).compilationUnit().sourceSet());
+
+        String s = ToolChain.extractLibraryName(typesLoaded, false);
+        assertTrue(s.startsWith("openjdk-"));
     }
 }

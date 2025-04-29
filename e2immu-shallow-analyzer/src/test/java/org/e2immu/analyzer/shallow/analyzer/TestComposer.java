@@ -22,7 +22,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestComposer {
@@ -39,6 +38,7 @@ public class TestComposer {
     public void test() throws IOException {
         InputConfigurationImpl.Builder inputConfigurationBuilder = new InputConfigurationImpl.Builder()
                 .addSources("none")
+                .addClassPath(JavaInspectorImpl.E2IMMU_SUPPORT)
                 .addClassPath("jmods/java.base.jmod");
 
         JavaInspector javaInspector = new JavaInspectorImpl();
