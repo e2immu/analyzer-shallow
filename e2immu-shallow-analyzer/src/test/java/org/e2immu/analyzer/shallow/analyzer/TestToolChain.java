@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TestToolChain {
 
-    public static final String BASE = "jmod:java.base.jmod";
+    public static final String BASE = "jmod:java.base";
 
     @BeforeAll
     public static void beforeAll() {
