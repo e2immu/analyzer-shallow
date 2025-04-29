@@ -39,7 +39,7 @@ public class TestComposer {
         InputConfigurationImpl.Builder inputConfigurationBuilder = new InputConfigurationImpl.Builder()
                 .addSources("none")
                 .addClassPath(JavaInspectorImpl.E2IMMU_SUPPORT)
-                .addClassPath("jmods/java.base.jmod");
+                .addClassPath("jmod:java.base.jmod");
 
         JavaInspector javaInspector = new JavaInspectorImpl();
         javaInspector.initialize(inputConfigurationBuilder.build());

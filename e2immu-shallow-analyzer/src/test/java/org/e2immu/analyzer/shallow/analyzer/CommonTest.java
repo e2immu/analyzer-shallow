@@ -50,8 +50,8 @@ public class CommonTest {
         annotatedApiParser.initialize(null,
                 List.of(JavaInspectorImpl.JAR_WITH_PATH_PREFIX + "org/slf4j",
                         JavaInspectorImpl.E2IMMU_SUPPORT,
-                        "jmods/java.datatransfer.jmod",
-                        "jmods/java.desktop.jmod"),
+                        "jmod:java.datatransfer.jmod",
+                        "jmod:java.desktop.jmod"),
                 List.of("../e2immu-shallow-aapi/src/main/java/org/e2immu/analyzer/shallow/aapi"),
                 List.of("java", "javax"));
         ShallowAnalyzer shallowAnalyzer = new ShallowAnalyzer(annotatedApiParser);

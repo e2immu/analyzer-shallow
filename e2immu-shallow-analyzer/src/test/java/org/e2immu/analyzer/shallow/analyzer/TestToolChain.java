@@ -1,9 +1,9 @@
 package org.e2immu.analyzer.shallow.analyzer;
 
 import ch.qos.logback.classic.Level;
+import org.e2immu.language.cst.api.element.SourceSet;
 import org.e2immu.language.cst.api.info.TypeInfo;
 import org.e2immu.language.inspection.api.integration.JavaInspector;
-import org.e2immu.language.inspection.api.resource.ClassPathPart;
 import org.e2immu.language.inspection.api.resource.InputConfiguration;
 import org.e2immu.language.inspection.integration.JavaInspectorImpl;
 import org.e2immu.language.inspection.resource.InputConfigurationImpl;
@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TestToolChain {
 
-    public static final String BASE = "jmods/java.base.jmod";
+    public static final String BASE = "jmod:java.base.jmod";
 
     @BeforeAll
     public static void beforeAll() {
@@ -37,7 +37,7 @@ public class TestToolChain {
                 .addSources("none")
                 .addClassPath(BASE);
         InputConfiguration inputConfiguration = inputConfigurationBuilder.build();
-        ClassPathPart base = inputConfiguration.classPathParts().get(0);
+        SourceSet base = inputConfiguration.classPathParts().get(0);
         assertEquals(BASE, base.name());
         assertEquals(BASE, base.uri().toString());
 
