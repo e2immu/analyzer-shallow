@@ -12,3 +12,7 @@ tasks.register("test") {
 tasks.register("clean") {
     dependsOn(gradle.includedBuilds.map { it.task(":clean") })
 }
+tasks.register("publish") {
+    dependsOn(gradle.includedBuild("e2immu-shallow-aapi").task(":publish"))
+    dependsOn(gradle.includedBuild("e2immu-shallow-analyzer").task(":publish"))
+}
