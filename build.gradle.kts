@@ -16,3 +16,7 @@ tasks.register("publish") {
     dependsOn(gradle.includedBuild("e2immu-shallow-aapi").task(":publish"))
     dependsOn(gradle.includedBuild("e2immu-shallow-analyzer").task(":publish"))
 }
+tasks.register("publishToMavenLocal") {
+    dependsOn(gradle.includedBuild("e2immu-shallow-aapi").task(":publishToMavenLocal"))
+    dependsOn(gradle.includedBuild("e2immu-shallow-analyzer").task(":publishToMavenLocal"))
+}
