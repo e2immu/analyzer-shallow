@@ -5,7 +5,6 @@ import org.e2immu.language.cst.api.analysis.Codec;
 import org.e2immu.language.cst.api.info.Info;
 import org.e2immu.language.cst.io.CodecImpl;
 import org.e2immu.language.inspection.api.integration.JavaInspector;
-import org.e2immu.language.inspection.resource.ResourcesImpl;
 import org.parsers.json.JSONParser;
 import org.parsers.json.Node;
 import org.parsers.json.ast.Array;
@@ -15,14 +14,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
-import java.net.*;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
 import java.util.jar.JarInputStream;
 import java.util.stream.Stream;
 
@@ -134,22 +131,29 @@ public class LoadAnalyzedPackageFiles {
 
         char type = fullyQualifiedWithType.charAt(0);
         String name = fullyQualifiedWithType.substring(1);
-        Info info = codec.decodeInfoInContext(context, type, name);
-        assert info != null : "Cannot find " + name;
-        context.push(info);
-        processData(codec, context, info, dataJo);
-        if (jo.size() > 5) {
-            KeyValuePair subs = (KeyValuePair) jo.get(5);
-            String subKey = subs.get(0).getSource();
-            if ("\"sub\"".equals(subKey)) {
-                processSub(codec, context, (JSONObject) subs.get(2));
-            } else {
-                assert "\"subs\"".equals(subKey);
-                Array array = (Array) subs.get(2);
-                for (int i = 1; i < array.size(); i += 2) {
-                    processSub(codec, context, (JSONObject) array.get(i));
+        try {
+            Info info = codec.decodeInfoInContext(context, type, name);
+            if (info == null) {
+                throw new UnsupportedOperationException("Cannot find " + name);
+            }
+            context.push(info);
+            processData(codec, context, info, dataJo);
+            if (jo.size() > 5) {
+                KeyValuePair subs = (KeyValuePair) jo.get(5);
+                String subKey = subs.get(0).getSource();
+                if ("\"sub\"".equals(subKey)) {
+                    processSub(codec, context, (JSONObject) subs.get(2));
+                } else {
+                    assert "\"subs\"".equals(subKey);
+                    Array array = (Array) subs.get(2);
+                    for (int i = 1; i < array.size(); i += 2) {
+                        processSub(codec, context, (JSONObject) array.get(i));
+                    }
                 }
             }
+        } catch (RuntimeException re) {
+            LOGGER.error("Caught exception destreaming {}", name);
+            throw re;
         }
         context.pop();
     }

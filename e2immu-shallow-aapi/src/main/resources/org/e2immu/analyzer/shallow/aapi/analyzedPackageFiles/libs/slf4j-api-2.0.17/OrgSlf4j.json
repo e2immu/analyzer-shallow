@@ -220,38 +220,39 @@
  {"name": "Mreset(3)", "data":{"hc":{}}},
  {"name": "MperformInitialization(4)", "data":{"hc":{}}},
  {"name": "Mbind(5)", "data":{"hc":{}}},
- {"name": "MloadExplicitlySpecified(6)", "data":{"hc":{"0":"Tjava.lang.ClassLoader","1":"Torg.slf4j.spi.SLF4JServiceProvider"},"hcsMethod":{"1":[[-1]]}}, "sub":
+ {"name": "MearlyBindMDCAdapter(6)", "data":{"hc":{}}},
+ {"name": "MloadExplicitlySpecified(7)", "data":{"hc":{"0":"Tjava.lang.ClassLoader","1":"Torg.slf4j.spi.SLF4JServiceProvider"},"hcsMethod":{"1":[[-1]]}}, "sub":
   {"name": "PclassLoader(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
- {"name": "MreportIgnoredStaticLoggerBinders(7)", "data":{"hc":{"0":"Tjava.util.Set"}}, "sub":
+ {"name": "MreportIgnoredStaticLoggerBinders(8)", "data":{"hc":{"0":"Tjava.util.Set"}}, "sub":
   {"name": "PstaticLoggerBinderPathSet(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
- {"name": "MfindPossibleStaticLoggerBinderPathSet(8)", "data":{"hc":{"0":"Tjava.util.Set"},"hcsMethod":{"0":[[-1]]}}},
- {"name": "MpostBindCleanUp(9)", "data":{"hc":{}}},
- {"name": "MfixSubstituteLoggers(10)", "data":{"hc":{}}},
- {"name": "MfailedBinding(11)", "data":{"hc":{"0":"Tjava.lang.Throwable"}}, "sub":
+ {"name": "MfindPossibleStaticLoggerBinderPathSet(9)", "data":{"hc":{"0":"Tjava.util.Set"},"hcsMethod":{"0":[[-1]]}}},
+ {"name": "MpostBindCleanUp(10)", "data":{"hc":{}}},
+ {"name": "MfixSubstituteLoggers(11)", "data":{"hc":{}}},
+ {"name": "MfailedBinding(12)", "data":{"hc":{"0":"Tjava.lang.Throwable"}}, "sub":
   {"name": "Pt(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
- {"name": "MreplayEvents(12)", "data":{"hc":{}}},
- {"name": "MemitReplayOrSubstituionWarning(13)", "data":{"hc":{"0":"Torg.slf4j.event.SubstituteLoggingEvent"}}, "subs":[
+ {"name": "MreplayEvents(13)", "data":{"hc":{}}},
+ {"name": "MemitReplayOrSubstituionWarning(14)", "data":{"hc":{"0":"Torg.slf4j.event.SubstituteLoggingEvent"}}, "subs":[
   {"name": "Pevent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
- {"name": "MreplaySingleEvent(14)", "data":{"hc":{"0":"Torg.slf4j.event.SubstituteLoggingEvent"}}, "sub":
+ {"name": "MreplaySingleEvent(15)", "data":{"hc":{"0":"Torg.slf4j.event.SubstituteLoggingEvent"}}, "sub":
   {"name": "Pevent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
- {"name": "MemitSubstitutionWarning(15)", "data":{"hc":{}}},
- {"name": "MemitReplayWarning(16)", "data":{"hc":{}}},
- {"name": "MversionSanityCheck(17)", "data":{"hc":{}}},
- {"name": "MisAmbiguousProviderList(18)", "data":{"hc":{"0":"Tjava.util.List","1":"Torg.slf4j.spi.SLF4JServiceProvider"}}, "sub":
+ {"name": "MemitSubstitutionWarning(16)", "data":{"hc":{}}},
+ {"name": "MemitReplayWarning(17)", "data":{"hc":{}}},
+ {"name": "MversionSanityCheck(18)", "data":{"hc":{}}},
+ {"name": "MisAmbiguousProviderList(19)", "data":{"hc":{"0":"Tjava.util.List","1":"Torg.slf4j.spi.SLF4JServiceProvider"}}, "sub":
   {"name": "PproviderList(0)", "data":{"hcsParameter":{"0":[[-1]],"1":[[0]]}}}},
- {"name": "MreportMultipleBindingAmbiguity(19)", "data":{"hc":{"0":"Tjava.util.List","1":"Torg.slf4j.spi.SLF4JServiceProvider"}}, "sub":
+ {"name": "MreportMultipleBindingAmbiguity(20)", "data":{"hc":{"0":"Tjava.util.List","1":"Torg.slf4j.spi.SLF4JServiceProvider"}}, "sub":
   {"name": "PproviderList(0)", "data":{"hcsParameter":{"0":[[-1]],"1":[[0]]}}}},
- {"name": "MreportActualBinding(20)", "data":{"hc":{"0":"Torg.slf4j.spi.SLF4JServiceProvider"}}, "sub":
-  {"name": "Pprovider(0)", "data":{"hcsParameter":{"0":[[-1]]}}}},
- {"name": "MgetLogger(21)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Torg.slf4j.Logger"},"hcsMethod":{"0":[[-1]]},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+ {"name": "MreportActualBinding(21)", "data":{"hc":{"0":"Tjava.util.List","1":"Torg.slf4j.spi.SLF4JServiceProvider"}}, "sub":
+  {"name": "PproviderList(0)", "data":{"hcsParameter":{"0":[[-1]],"1":[[0]]}}}},
+ {"name": "MgetLogger(22)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Torg.slf4j.Logger"},"hcsMethod":{"0":[[-1]]},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pname(0)", "data":{"annotatedApi":1,"containerParameter":1,"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
- {"name": "MgetLogger(22)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Torg.slf4j.Logger"},"hcsMethod":{"2":[[-1]]},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
+ {"name": "MgetLogger(23)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object","2":"Torg.slf4j.Logger"},"hcsMethod":{"2":[[-1]]},"immutableMethod":3,"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}, "sub":
   {"name": "Pclazz(0)", "data":{"annotatedApi":1,"containerParameter":1,"hcsParameter":{"0":[[-1]]},"immutableParameter":3,"independentParameter":2,"notNullParameter":1}}},
- {"name": "MnonMatchingClasses(23)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "subs":[
+ {"name": "MnonMatchingClasses(24)", "data":{"hc":{"0":"Tjava.lang.Class","1":"Tjava.lang.Object"}}, "subs":[
   {"name": "Pclazz(0)", "data":{"hcsParameter":{"0":[[-1]]}}},
   {"name": "PautoComputedCallingClass(1)", "data":{"hcsParameter":{"0":[[-1]]}}}]},
- {"name": "MgetILoggerFactory(24)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Torg.slf4j.ILoggerFactory"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
- {"name": "MgetProvider(25)", "data":{"hc":{"0":"Torg.slf4j.spi.SLF4JServiceProvider"},"hcsMethod":{"0":[[-1]]}}}]},
+ {"name": "MgetILoggerFactory(25)", "data":{"annotatedApi":1,"containerMethod":1,"hc":{"0":"Torg.slf4j.ILoggerFactory"},"hcsMethod":{"0":[[-1]]},"independentMethod":2,"notNullMethod":1,"shallowAnalyzer":1}},
+ {"name": "MgetProvider(26)", "data":{"hc":{"0":"Torg.slf4j.spi.SLF4JServiceProvider"},"hcsMethod":{"0":[[-1]]}}}]},
 
 {"name": "Torg.slf4j.Marker", "data":{"annotatedApi":1,"containerType":1,"hc":{"E":true},"shallowAnalyzer":1}, "subs":[
  {"name": "FANY_MARKER(0)", "data":{"containerField":1,"finalField":1,"immutableField":3,"independentField":2,"shallowAnalyzer":1}},

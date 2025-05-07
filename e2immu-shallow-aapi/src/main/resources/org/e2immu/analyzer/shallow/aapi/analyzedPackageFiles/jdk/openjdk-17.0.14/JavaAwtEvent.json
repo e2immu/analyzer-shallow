@@ -1,5 +1,0 @@
-[
-{"name": "Tjava.awt.event.ActionListener", "data":{"hc":{"E":true},"shallowAnalyzer":1}, "sub":
- {"name": "MactionPerformed(0)", "data":{"containerMethod":1,"hc":{"0":"Tjava.awt.event.ActionEvent"},"independentMethod":2,"modifiedMethod":1,"shallowAnalyzer":1}, "sub":
-  {"name": "PactionEvent(0)", "data":{"hcsParameter":{"0":[[-1]]}}}}}
-]
