@@ -1,4 +1,39 @@
-== Annotation rules
+= AAPI System
+
+== System
+
+. plugin goal `write-annotated-apis` generates AAPI files.
+Internally,
+
+.. e2immu parses the sources, and loads class files
+.. the method call graph is computed to provide statistics, to be added as comments
+.. the shallow analyzer precomputes defaults, to be added as comments (prefixed `//?`)
+.. finally, the `Composer` and `DecoratorImpl` are used to write out the files.
+
+. the user changes defaults by adding real annotations
+. the user confirms defaults by removing the `?` in the default comments
+. the user's changes may propagate.
+Therefore, at any time, the `process-annotated-apis` plugin goal can be called
+
+.. e2immu parses the sources, and loads class files
+.. e2immu loads the annotated API files
+.. the shallow analyzer takes the manual interventions into account
+.. confirmations are kept, defaults are removed where manual overrides are present, ripple effects of the manual overrides are written as comments, using the `//>>` prefix
+.. again, the `Composer` and `DecoratorImpl` are used to overwrite the files.
+
+. once the AAPIs are in good shape, the `compile-annotated-apis` plugin will write compiled AAPI files to be used by the normal e2immu `run-analyzer` goal.
+
+Because AAPI and compiled API files are overwritten by the `process-annotated-apis`, we recommend storing them in Git.
+
+=== Annotation rules
+
+The general principles are:
+
+- types are mutable and dependent by default, unless they obviously are not
+- methods and parameters are modifiable unless they obviously are not
+- methods are dependent (see return value), parameters are dependent, unless they obviously are not
+
+All deviations from the obvious rules will be marked using annotations, or the inheritance marker `//>>`.
 
 == Modification
 
@@ -6,7 +41,8 @@
 
 * explicitly empty methods are `@NotModified` (even though they can be non-static and `void`)
 * non-static `void` methods, `@Fluent` methods, constructors are `@Modified` by default
-* methods in an immutable type are `@NotModified` by default. Overriding this will result in a warning.
+* methods in an immutable type are `@NotModified` by default.
+Overriding this will result in a warning.
 
 === Modification of parameter
 
@@ -14,11 +50,12 @@
 * always `@NotModified` if the parameter type is `@Immutable`, with or without hidden content
 * if the method is an override, then the disjunction of the values for the override is taken
 * otherwise, the default value for that type is taken.
+Primitives, java.lang.String are immutable.
 
 == Independence
 
-Is the parameter or method return value linked to any of the fields? In other words, can a modification
-to an argument or return value imply a modification on the fields of the object, or vice versa?
+Is the parameter or method return value linked to any of the fields?
+In other words, can a modification to an argument or return value imply a modification on the fields of the object, or vice versa?
 If not, then the parameter or method is termed _independent_.
 
 Immutable objects are always independent, by definition: no modifications are possible.
@@ -47,14 +84,11 @@ Only in situations that differ from the situations above, the annotation will be
 
 Broadly speaking, immutability is the combination of non-modification and independence.
 
-
 == Container
 
 A type is termed a container when none of the parameters of its methods and constructors is modifying.
 
-
-Both methods and parameters can also have the `@Container` property, as a restriction on the argument
-or concrete return type in overrides.
+Both methods and parameters can also have the `@Container` property, as a restriction on the argument or concrete return type in overrides.
 
 A method is computed to be a `@Container` when
 

@@ -37,7 +37,10 @@ public class AnnotatedApiParser implements AnnotationProvider {
     public void initialize(InputConfiguration inputConfiguration, AnnotatedAPIConfiguration annotatedAPIConfiguration) throws IOException {
         javaInspector.initialize(inputConfiguration);
         new LoadAnalyzedPackageFiles().go(javaInspector, annotatedAPIConfiguration);
-        javaInspector.sourceFiles().forEach(this::load);
+        javaInspector.sourceFiles().forEach(sf -> {
+            LOGGER.info("Loading {}", sf.uri());
+            load(sf);
+        });
         LOGGER.info("Finished parsing, annotated {} types, counted {} annotations, issued {} warning(s)",
                 annotatedTypes, annotations, warnings);
     }

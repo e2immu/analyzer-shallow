@@ -1,8 +1,9 @@
 package org.e2immu.analyzer.shallow.analyzer;
 
-import org.e2immu.language.cst.api.runtime.Runtime;
 import org.e2immu.language.cst.api.analysis.Codec;
+import org.e2immu.language.cst.api.element.SourceSet;
 import org.e2immu.language.cst.api.info.*;
+import org.e2immu.language.cst.api.runtime.Runtime;
 import org.e2immu.language.cst.impl.analysis.PropertyProviderImpl;
 import org.e2immu.language.cst.io.CodecImpl;
 import org.e2immu.util.internal.util.Trie;
@@ -19,6 +20,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -32,29 +34,30 @@ public class WriteAnalysis {
     }
 
     public void write(String destinationDirectory, Trie<TypeInfo> typeTrie) throws IOException {
-        write(destinationDirectory, typeTrie, null);
+        write(destinationDirectory, typeTrie, sourceSet -> "");
     }
 
-    public void write(String destinationDirectory, Trie<TypeInfo> typeTrie, String libraryName) throws IOException {
+    public void write(String destinationDirectory, Trie<TypeInfo> typeTrie, Function<SourceSet, String> subDirectory) throws IOException {
         File directory = new File(destinationDirectory);
         if (directory.mkdirs()) {
             LOGGER.info("Created directory {}", directory.getAbsolutePath());
         }
         Codec codec = new CodecImpl(runtime, PropertyProviderImpl::get, null, null); // we don't have to decode
-        write(directory, typeTrie, codec, libraryName);
+        write(directory, typeTrie, codec, subDirectory);
     }
 
     public void write(File directory, Trie<TypeInfo> typeTrie, Codec codec) throws IOException {
-        write(directory, typeTrie, codec, null);
+        write(directory, typeTrie, codec, sourceSet -> "");
     }
 
-    public void write(File directory, Trie<TypeInfo> typeTrie, Codec codec, String libraryNameIn) throws IOException {
+    // NOTE: if packages are split across different source sets (jars) then all types of one package will end up in one of the source sets
+    public void write(File destinationDirectory, Trie<TypeInfo> typeTrie, Codec codec, Function<SourceSet, String> subDirectory) throws IOException {
         try {
             typeTrie.visitThrowing(new String[]{}, (parts, list) -> {
-                String libraryName = libraryNameIn == null
-                        ? ToolChain.extractLibraryName(list, true)
-                        : libraryNameIn;
-                write(directory, codec, parts, list, libraryName);
+                if (!list.isEmpty()) {
+                    String dir = subDirectory.apply(list.getFirst().compilationUnit().sourceSet());
+                    write(destinationDirectory, codec, parts, list, dir);
+                }
             });
         } catch (RuntimeException re) {
             if (re.getCause() instanceof IOException ioe) {
@@ -64,15 +67,17 @@ public class WriteAnalysis {
         }
     }
 
-    private void write(File directory, Codec codec, String[] packageParts, List<TypeInfo> list, String libraryName) throws IOException {
-        if (list.isEmpty()) return;
-        File subDirectory = new File(directory, libraryName);
-        if (subDirectory.mkdirs()) {
-            LOGGER.info("Created {}", subDirectory);
+    /*
+     Write one .json file, containing a single package's worth of types' analyzed data.
+     */
+    private void write(File directory, Codec codec, String[] packageParts, List<TypeInfo> list, String subDirectory) throws IOException {
+        File subDir = subDirectory.isBlank() ? directory : new File(directory, subDirectory);
+        if (subDir.mkdirs()) {
+            LOGGER.info("Created {}", subDir);
         }
         String compressedPackages = Arrays.stream(packageParts).map(WriteAnalysis::capitalize)
                 .collect(Collectors.joining());
-        File outputFile = new File(subDirectory, compressedPackages + ".json");
+        File outputFile = new File(subDir, compressedPackages + ".json");
         LOGGER.info("Writing {} type(s) to {}", list.size(), outputFile.getAbsolutePath());
         try (OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(outputFile), StandardCharsets.UTF_8)) {
             osw.write("[");

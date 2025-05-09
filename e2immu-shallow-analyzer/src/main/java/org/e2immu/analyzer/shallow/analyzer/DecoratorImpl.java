@@ -85,38 +85,44 @@ public class DecoratorImpl implements Qualification.Decorator {
         boolean isContainer;
         boolean isIdentity;
         PropertyValueMap analysis = info.analysis();
-        if (info instanceof MethodInfo methodInfo) {
-            modified = !methodInfo.isConstructor() && analysis.getOrDefault(MODIFIED_METHOD, FALSE).isTrue();
-            immutable = null;
-            independent = nonTrivialIndependent(analysis.getOrDefault(INDEPENDENT_METHOD, DEPENDENT), methodInfo.typeInfo(),
-                    methodInfo.returnType());
-            isFinal = false;
-            isIdentity = methodInfo.isIdentity();
-            isContainer = false;
-        } else if (info instanceof FieldInfo fieldInfo) {
-            modified = analysis.getOrDefault(MODIFIED_FIELD, FALSE).isTrue();
-            immutable = null;
-            independent = nonTrivialIndependent(analysis.getOrDefault(INDEPENDENT_FIELD, DEPENDENT),
-                    fieldInfo.owner(), fieldInfo.type());
-            isFinal = !fieldInfo.isFinal() && fieldInfo.isPropertyFinal();
-            isContainer = false;
-            isIdentity = false;
-        } else if (info instanceof ParameterInfo pi) {
-            modified = analysis.getOrDefault(MODIFIED_PARAMETER, FALSE).isTrue();
-            immutable = null;
-            independent = nonTrivialIndependent(analysis.getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT), pi.typeInfo(),
-                    pi.parameterizedType());
-            isFinal = false;
-            isContainer = false;
-            isIdentity = false;
-        } else if (info instanceof TypeInfo) {
-            modified = false;
-            immutable = analysis.getOrDefault(IMMUTABLE_TYPE, MUTABLE);
-            independent = nonTrivialIndependentType(analysis.getOrDefault(INDEPENDENT_TYPE, DEPENDENT), immutable);
-            isContainer = analysis.getOrDefault(CONTAINER_TYPE, FALSE).isTrue();
-            isFinal = false;
-            isIdentity = false;
-        } else throw new UnsupportedOperationException();
+        switch (info) {
+            case MethodInfo methodInfo -> {
+                modified = !methodInfo.isConstructor() && analysis.getOrDefault(MODIFIED_METHOD, FALSE).isTrue();
+                immutable = null;
+                independent = nonTrivialIndependent(analysis.getOrDefault(INDEPENDENT_METHOD, DEPENDENT), methodInfo.typeInfo(),
+                        methodInfo.returnType());
+                isFinal = false;
+                isIdentity = methodInfo.isIdentity();
+                isContainer = false;
+            }
+            case FieldInfo fieldInfo -> {
+                modified = analysis.getOrDefault(MODIFIED_FIELD, FALSE).isTrue();
+                immutable = null;
+                independent = nonTrivialIndependent(analysis.getOrDefault(INDEPENDENT_FIELD, DEPENDENT),
+                        fieldInfo.owner(), fieldInfo.type());
+                isFinal = !fieldInfo.isFinal() && fieldInfo.isPropertyFinal();
+                isContainer = false;
+                isIdentity = false;
+            }
+            case ParameterInfo pi -> {
+                modified = analysis.getOrDefault(MODIFIED_PARAMETER, FALSE).isTrue();
+                immutable = null;
+                independent = nonTrivialIndependent(analysis.getOrDefault(INDEPENDENT_PARAMETER, DEPENDENT), pi.typeInfo(),
+                        pi.parameterizedType());
+                isFinal = false;
+                isContainer = false;
+                isIdentity = false;
+            }
+            case TypeInfo typeInfo -> {
+                modified = false;
+                immutable = analysis.getOrDefault(IMMUTABLE_TYPE, MUTABLE);
+                independent = nonTrivialIndependentType(analysis.getOrDefault(INDEPENDENT_TYPE, DEPENDENT), immutable);
+                isContainer = analysis.getOrDefault(CONTAINER_TYPE, FALSE).isTrue();
+                isFinal = false;
+                isIdentity = false;
+            }
+            default -> throw new UnsupportedOperationException();
+        }
 
         List<AnnotationExpression> list = new ArrayList<>();
         if (isFinal) {
