@@ -1,30 +1,26 @@
 package org.e2immu.analyzer.shallow.analyzer;
 
-import org.e2immu.language.cst.api.analysis.Codec;
-import org.e2immu.language.cst.api.info.*;
-import org.e2immu.language.cst.api.runtime.Runtime;
-import org.e2immu.language.cst.impl.analysis.PropertyProviderImpl;
-import org.e2immu.language.cst.io.CodecImpl;
+import org.e2immu.language.cst.api.info.Info;
+import org.e2immu.language.cst.api.info.TypeInfo;
+import org.e2immu.language.inspection.api.integration.JavaInspector;
 import org.e2immu.util.internal.util.Trie;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.nio.charset.StandardCharsets;
-import java.util.*;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class WriteDecoratedAAPI {
     private static final Logger LOGGER = LoggerFactory.getLogger(WriteDecoratedAAPI.class);
-    private final Runtime runtime;
+    private final JavaInspector javaInspector;
 
-    public WriteDecoratedAAPI(Runtime runtime) {
-        this.runtime = runtime;
+    public WriteDecoratedAAPI(JavaInspector javaInspector) {
+        this.javaInspector = javaInspector;
     }
 
     public void write(String destinationDirectory, Trie<TypeInfo> typeTrie) throws IOException {
@@ -48,11 +44,11 @@ public class WriteDecoratedAAPI {
                 .collect(Collectors.joining());
         File outputFile = new File(directory, compressedPackages + ".json");
         LOGGER.info("Writing {} type(s) to {}", list.size(), outputFile.getAbsolutePath());
-        Composer composer = new Composer(runtime, "org.e2immu", w -> true);
+        Composer composer = new Composer(javaInspector, set -> "org.e2immu", w -> true);
         Collection<TypeInfo> apiTypes = composer.compose(list);
 
         Map<Info, Info> dollarMap = composer.translateFromDollarToReal();
-        composer.write(apiTypes, directory, () -> new DecoratorImpl(runtime, dollarMap));
+        composer.write(apiTypes, directory, new DecoratorImpl(javaInspector.runtime(), dollarMap));
 
     }
 

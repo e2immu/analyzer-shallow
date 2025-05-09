@@ -44,7 +44,7 @@ public class TestComposer {
         JavaInspector javaInspector = new JavaInspectorImpl();
         javaInspector.initialize(inputConfigurationBuilder.build());
 
-        Composer composer = new Composer(javaInspector.runtime(), "org.e2immu.testannotatedapi", w -> true);
+        Composer composer = new Composer(javaInspector, set -> "org.e2immu.testannotatedapi", w -> true);
         List<TypeInfo> primaryTypes = javaInspector.compiledTypesManager()
                 .typesLoaded().stream().filter(TypeInfo::isPrimaryType).toList();
         LOGGER.info("Have {} primary types loaded", primaryTypes.size());
@@ -60,7 +60,7 @@ public class TestComposer {
         }
 
         Map<Info, Info> dollarMap = composer.translateFromDollarToReal();
-        composer.write(apiTypes, TEST_DIR, () -> new DecoratorImpl(javaInspector.runtime(), dollarMap));
+        composer.write(apiTypes, TEST_DIR, new DecoratorImpl(javaInspector.runtime(), dollarMap));
 
         String ju = Files.readString(new File(TEST_DIR, "org/e2immu/testannotatedapi/JavaUtil.java").toPath());
         assertTrue(ju.contains("//public abstract class AbstractSet extends AbstractCollection<E> implements Set<E>"));

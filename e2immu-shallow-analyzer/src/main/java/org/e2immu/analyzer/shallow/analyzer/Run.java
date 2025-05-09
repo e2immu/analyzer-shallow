@@ -75,7 +75,7 @@ public class Run {
         if (targetFile.delete()) LOGGER.debug("Deleted {}", targetFile);
         wa.write(dir.getAbsolutePath(), trie);
 
-        WriteDecoratedAAPI writeDecoratedAAPI = new WriteDecoratedAAPI(annotatedApiParser.runtime());
+        WriteDecoratedAAPI writeDecoratedAAPI = new WriteDecoratedAAPI(annotatedApiParser.javaInspector());
         writeDecoratedAAPI.write("build/decorated", trie);
         return shallowAnalyzer.getMessages();
     }

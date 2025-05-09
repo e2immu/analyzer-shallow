@@ -17,18 +17,16 @@ package org.e2immu.analyzer.shallow.analyzer;
 
 import org.e2immu.language.cst.api.element.Comment;
 import org.e2immu.language.cst.api.element.CompilationUnit;
+import org.e2immu.language.cst.api.element.SourceSet;
 import org.e2immu.language.cst.api.expression.Expression;
 import org.e2immu.language.cst.api.info.*;
-import org.e2immu.language.cst.api.output.Formatter;
-import org.e2immu.language.cst.api.output.OutputBuilder;
 import org.e2immu.language.cst.api.output.Qualification;
 import org.e2immu.language.cst.api.runtime.Runtime;
 import org.e2immu.language.cst.api.statement.Block;
 import org.e2immu.language.cst.api.statement.Statement;
 import org.e2immu.language.cst.api.type.ParameterizedType;
 import org.e2immu.language.cst.api.type.TypeParameter;
-import org.e2immu.language.cst.print.FormatterImpl;
-import org.e2immu.language.cst.print.FormattingOptionsImpl;
+import org.e2immu.language.inspection.api.integration.JavaInspector;
 import org.e2immu.util.internal.util.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,6 +37,7 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -77,14 +76,16 @@ public class NameOfPackageWithoutDots {
 public class Composer {
     private static final Logger LOGGER = LoggerFactory.getLogger(Composer.class);
     private final Runtime runtime;
-    private final String destinationPackage;
+    private final JavaInspector javaInspector;
+    private final Function<SourceSet, String> destinationPackage;
     private final Predicate<Info> predicate;
     private final Map<Info, Info> translateFromDollarToReal = new HashMap<>();
 
-    public Composer(Runtime runtime,
-                    String destinationPackage,
+    public Composer(JavaInspector javaInspector,
+                    Function<SourceSet, String> destinationPackage,
                     Predicate<Info> predicate) {
-        this.runtime = runtime;
+        this.runtime = javaInspector.runtime();
+        this.javaInspector = javaInspector;
         this.destinationPackage = destinationPackage;
         this.predicate = predicate;
     }
@@ -95,7 +96,8 @@ public class Composer {
             if (acceptTypeOrAnySubType(primaryType)) {
                 assert primaryType.isPrimaryType();
                 String packageName = primaryType.packageName();
-                TypeInfo packageType = typesPerPackage.computeIfAbsent(packageName, this::newPackageType);
+                TypeInfo packageType = typesPerPackage.computeIfAbsent(packageName,
+                        pn -> newPackageType(primaryType.compilationUnit().sourceSet(), pn));
                 appendType(packageType, primaryType, true);
             }
         }
@@ -245,9 +247,10 @@ public class Composer {
         return translateFromDollarToReal;
     }
 
-    private TypeInfo newPackageType(String packageName) {
+    private TypeInfo newPackageType(SourceSet sourceSet, String packageName) {
         String camelCasePackageName = convertToCamelCase(packageName);
-        CompilationUnit compilationUnit = runtime.newCompilationUnitBuilder().setPackageName(destinationPackage).build();
+        CompilationUnit compilationUnit = runtime.newCompilationUnitBuilder()
+                .setPackageName(destinationPackage.apply(sourceSet)).build();
         TypeInfo typeInfo = runtime.newTypeInfo(compilationUnit, camelCasePackageName);
         TypeInfo.Builder builder = typeInfo.builder();
         builder.setTypeNature(runtime.typeNatureClass())
@@ -275,37 +278,36 @@ public class Composer {
 
     public void write(Collection<TypeInfo> apiTypes,
                       String writeAnnotatedAPIsDir,
-                      Supplier<Qualification.Decorator> decoratorSupplier) throws IOException {
+                      Qualification.Decorator decorator) throws IOException {
         File base = new File(writeAnnotatedAPIsDir);
         if (base.mkdirs()) {
             LOGGER.info("Created annotated API destination folder '{}'", base.getAbsolutePath());
         }
-        write(apiTypes, base, decoratorSupplier);
+        write(apiTypes, base, decorator);
     }
 
     public void write(Collection<TypeInfo> apiTypes,
                       File base,
-                      Supplier<Qualification.Decorator> decoratorSupplier) throws IOException {
-        Formatter formatter = new FormatterImpl(runtime, FormattingOptionsImpl.DEFAULT);
+                      Qualification.Decorator decorator) throws IOException {
         int count = 0;
         for (TypeInfo apiType : apiTypes) {
             assert apiType.isPrimaryType() && apiType.hasBeenInspected();
-
-            String convertedPackage = apiType.packageName().replace(".", "/");
-            File directory = new File(base, convertedPackage);
-            if (directory.mkdirs()) {
-                LOGGER.info("Created annotated API destination package folder '{}'", directory.getAbsolutePath());
+            if (apiType.packageName() == null) {
+                LOGGER.error("Empty package for {}", apiType);
+            } else {
+                String convertedPackage = apiType.packageName().replace(".", "/");
+                File directory = new File(base, convertedPackage);
+                if (directory.mkdirs()) {
+                    LOGGER.info("Created annotated API destination package folder '{}'", directory.getAbsolutePath());
+                }
+                File outputFile = new File(directory, apiType.simpleName() + ".java");
+                try (OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(outputFile),
+                        StandardCharsets.UTF_8)) {
+                    outputStreamWriter.write(javaInspector.print2(apiType, decorator));
+                }
+                LOGGER.info("Wrote {}", apiType);
+                ++count;
             }
-            File outputFile = new File(directory, apiType.simpleName() + ".java");
-            Qualification.Decorator decorator = decoratorSupplier.get();
-            try (OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(outputFile),
-                    StandardCharsets.UTF_8)) {
-                Qualification qualification = runtime.qualificationQualifyFromPrimaryType(decorator);
-                OutputBuilder outputBuilder = apiType.print(qualification);
-                outputStreamWriter.write(formatter.write(outputBuilder));
-            }
-            LOGGER.info("Wrote {}", apiType);
-            ++count;
         }
         LOGGER.info("Wrote {} files", count);
     }
