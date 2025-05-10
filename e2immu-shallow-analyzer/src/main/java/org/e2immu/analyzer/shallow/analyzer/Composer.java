@@ -39,7 +39,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 
@@ -124,7 +123,7 @@ public class Composer {
             }
         }
         for (MethodInfo constructor : typeInfo.constructors()) {
-            if (constructor.isPublic() && predicate.test(constructor)) {
+            if (constructor.isPublic() && !constructor.isSynthetic() && predicate.test(constructor)) {
                 MethodInfo newConstructor = createMethod(constructor, newType);
                 translateFromDollarToReal.put(newConstructor, constructor);
                 newConstructor.parameters().forEach(newPi ->
@@ -133,7 +132,12 @@ public class Composer {
             }
         }
         for (MethodInfo methodInfo : typeInfo.methods()) {
-            if (methodInfo.isPublic() && predicate.test(methodInfo) && !methodInfo.isOverloadOfJLOMethod()) {
+            if (methodInfo.isPublic()
+                && !methodInfo.isSynthetic()
+                && predicate.test(methodInfo)
+                && validJavaName(methodInfo.name()) != null
+                && methodInfo.parameters().stream().allMatch(p -> validJavaName(p.name()) != null)
+            ) {
                 MethodInfo newMethod = createMethod(methodInfo, newType);
                 translateFromDollarToReal.put(newMethod, methodInfo);
                 newMethod.parameters().forEach(newPi ->
@@ -192,7 +196,8 @@ public class Composer {
         } else {
             MethodInfo.MethodType methodType = methodInfo.isStatic() ? runtime.methodTypeStaticMethod()
                     : runtime.methodTypeMethod();
-            newMethod = runtime.newMethod(owner, methodInfo.name(), methodType);
+            String name = validJavaName(methodInfo.name());
+            newMethod = runtime.newMethod(owner, name, methodType);
             if (!methodInfo.overrides().isEmpty()) {
                 newMethod.builder().addComment(addCommentLine(methodInfo));
             }
@@ -210,7 +215,9 @@ public class Composer {
             newMethod.builder().setMethodBody(runtime.newBlockBuilder().build());
         }
         for (ParameterInfo p : methodInfo.parameters()) {
-            ParameterInfo pi = newMethod.builder().addParameter(p.name(), p.parameterizedType());
+            String name = validJavaName(p.name());
+            assert name != null;
+            ParameterInfo pi = newMethod.builder().addParameter(name, p.parameterizedType());
             pi.builder().setVarArgs(p.isVarArgs()).commit();
         }
         for (TypeParameter tp : methodInfo.typeParameters()) {
@@ -227,6 +234,15 @@ public class Composer {
         }
         newMethod.builder().commitParameters().commit();
         return newMethod;
+    }
+
+
+    private static final Set<String> keywords = Set.of("boolean", "byte", "char", "class", "int", "double", "float", "long", "short");
+
+    private static String validJavaName(String name) {
+        if (keywords.contains(name)) return name + "0";
+        if (name.contains("-")) return null;
+        return name;
     }
 
     private TypeInfo createType(TypeInfo parent, TypeInfo typeToCopy, boolean topLevel) {
