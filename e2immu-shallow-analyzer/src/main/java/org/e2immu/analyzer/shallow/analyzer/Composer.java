@@ -24,6 +24,7 @@ import org.e2immu.language.cst.api.output.Qualification;
 import org.e2immu.language.cst.api.runtime.Runtime;
 import org.e2immu.language.cst.api.statement.Block;
 import org.e2immu.language.cst.api.statement.Statement;
+import org.e2immu.language.cst.api.translate.TranslationMap;
 import org.e2immu.language.cst.api.type.ParameterizedType;
 import org.e2immu.language.cst.api.type.TypeParameter;
 import org.e2immu.language.inspection.api.integration.JavaInspector;
@@ -97,7 +98,7 @@ public class Composer {
                 String packageName = primaryType.packageName();
                 TypeInfo packageType = typesPerPackage.computeIfAbsent(packageName,
                         pn -> newPackageType(primaryType.compilationUnit().sourceSet(), pn));
-                appendType(packageType, primaryType, true);
+                appendType(packageType, primaryType, null);
             }
         }
         List<TypeInfo> allTypes = typesPerPackage.values().stream().toList();
@@ -105,15 +106,17 @@ public class Composer {
         return allTypes;
     }
 
-    private void appendType(TypeInfo parentType, TypeInfo typeInfo, boolean topLevel) {
+    private void appendType(TypeInfo parentType, TypeInfo typeInfo, TranslationMap tm) {
         if (!acceptTypeOrAnySubType(typeInfo)) return;
-        TypeInfo newType = createType(parentType, typeInfo, topLevel);
+        TypeTm newTypeTm = createType(parentType, typeInfo, tm);
+        TypeInfo newType = newTypeTm.typeInfo;
+
         translateFromDollarToReal.put(newType, typeInfo);
 
         newType.builder().addComment(addCommentLine(typeInfo));
 
         for (TypeInfo subType : typeInfo.subTypes()) {
-            appendType(newType, subType, false);
+            appendType(newType, subType, newTypeTm.tm);
         }
         for (FieldInfo fieldInfo : typeInfo.fields()) {
             if (fieldInfo.access().isPublic() && predicate.test(fieldInfo)) {
@@ -124,7 +127,7 @@ public class Composer {
         }
         for (MethodInfo constructor : typeInfo.constructors()) {
             if (constructor.isPublic() && !constructor.isSynthetic() && predicate.test(constructor)) {
-                MethodInfo newConstructor = createMethod(constructor, newType);
+                MethodInfo newConstructor = createMethod(constructor, newType, newTypeTm.tm);
                 translateFromDollarToReal.put(newConstructor, constructor);
                 newConstructor.parameters().forEach(newPi ->
                         translateFromDollarToReal.put(newPi, constructor.parameters().get(newPi.index())));
@@ -138,7 +141,7 @@ public class Composer {
                 && validJavaName(methodInfo.name()) != null
                 && methodInfo.parameters().stream().allMatch(p -> validJavaName(p.name()) != null)
             ) {
-                MethodInfo newMethod = createMethod(methodInfo, newType);
+                MethodInfo newMethod = createMethod(methodInfo, newType, newTypeTm.tm);
                 translateFromDollarToReal.put(newMethod, methodInfo);
                 newMethod.parameters().forEach(newPi ->
                         translateFromDollarToReal.put(newPi, methodInfo.parameters().get(newPi.index())));
@@ -189,7 +192,10 @@ public class Composer {
         return newField;
     }
 
-    private MethodInfo createMethod(MethodInfo methodInfo, TypeInfo owner) {
+    // FIXME two issues
+    //   some method type parameters are duplicated
+    //   some method type parameters don't have the proper "extends"
+    private MethodInfo createMethod(MethodInfo methodInfo, TypeInfo owner, TranslationMap typeTm) {
         MethodInfo newMethod;
         if (methodInfo.isConstructor()) {
             newMethod = runtime.newConstructor(owner);
@@ -203,9 +209,7 @@ public class Composer {
             }
         }
         ParameterizedType returnType = methodInfo.returnType();
-        newMethod.builder()
-                .setAccess(runtime.accessPackage())
-                .setReturnType(returnType);
+        newMethod.builder().setAccess(runtime.accessPackage());
         if (methodInfo.hasReturnValue()) {
             Expression defaultReturnValue = runtime.nullValue(returnType);
             Statement returnStatement = runtime.newReturnStatement(defaultReturnValue);
@@ -214,16 +218,33 @@ public class Composer {
         } else {
             newMethod.builder().setMethodBody(runtime.newBlockBuilder().build());
         }
-        for (ParameterInfo p : methodInfo.parameters()) {
-            String name = validJavaName(p.name());
-            assert name != null;
-            ParameterInfo pi = newMethod.builder().addParameter(name, p.parameterizedType());
-            pi.builder().setVarArgs(p.isVarArgs()).commit();
-        }
+
+        // 2-stage type parameter copying: we must handle self-references properly
+        TranslationMap.Builder tmb = runtime.newTranslationMapBuilder(typeTm);
+        List<TypeParameter> newTypeParameters = new ArrayList<>();
         for (TypeParameter tp : methodInfo.typeParameters()) {
             TypeParameter newTp = runtime.newTypeParameter(tp.getIndex(), tp.simpleName(), newMethod);
             newMethod.builder().addTypeParameter(newTp);
+            tmb.put(tp, newTp);
+            newTypeParameters.add(newTp);
         }
+        TranslationMap tm = tmb.build();
+        int i = 0;
+        for (TypeParameter tp : methodInfo.typeParameters()) {
+            TypeParameter newTp = newTypeParameters.get(i++);
+            tp.typeBounds().forEach(tb -> newTp.builder().addTypeBound(tm.translateType(tb)));
+            newTp.builder().commit();
+        }
+
+        for (ParameterInfo p : methodInfo.parameters()) {
+            String name = validJavaName(p.name());
+            assert name != null;
+            ParameterizedType newPt = tm.translateType(p.parameterizedType());
+            ParameterInfo pi = newMethod.builder().addParameter(name, newPt);
+            pi.builder().setVarArgs(p.isVarArgs()).commit();
+        }
+        newMethod.builder().setReturnType(tm.translateType(returnType));
+
         if (methodInfo.isOverloadOfJLOMethod()) {
             LOGGER.info("Method {} is overload", methodInfo);
             if ("clone".equals(methodInfo.name()) || "finalize".equals(methodInfo.name())) {
@@ -245,18 +266,38 @@ public class Composer {
         return name;
     }
 
-    private TypeInfo createType(TypeInfo parent, TypeInfo typeToCopy, boolean topLevel) {
+    private record TypeTm(TypeInfo typeInfo, TranslationMap tm) {
+    }
+
+    private TypeTm createType(TypeInfo parent, TypeInfo typeToCopy, TranslationMap parentTm) {
         String typeName = typeToCopy.simpleName();
+        boolean topLevel = parentTm == null;
         TypeInfo typeInfo = runtime.newTypeInfo(parent, topLevel ? typeName + "$" : typeName);
         typeInfo.builder().setParentClass(runtime.objectParameterizedType())
                 .setTypeNature(runtime.typeNatureClass())
                 .setAccess(runtime.accessPackage())
                 .setSingleAbstractMethod(null);
+        // 2-stage type parameter copying: we must handle self-references properly
+        TranslationMap.Builder tmb = parentTm == null ? runtime.newTranslationMapBuilder()
+                : runtime.newTranslationMapBuilder(parentTm);
+        List<TypeParameter> newTypeParameters = new ArrayList<>();
         for (TypeParameter tp : typeToCopy.typeParameters()) {
             TypeParameter newTp = runtime.newTypeParameter(tp.getIndex(), tp.simpleName(), typeInfo);
             typeInfo.builder().addOrSetTypeParameter(newTp);
+            tmb.put(tp, newTp);
+            newTypeParameters.add(newTp);
         }
-        return typeInfo;
+        TranslationMap tm = tmb.build();
+        int i = 0;
+        for (TypeParameter tp : typeToCopy.typeParameters()) {
+            TypeParameter newTp = newTypeParameters.get(i++);
+            for (ParameterizedType typeBound : tp.typeBounds()) {
+                ParameterizedType translatedTypeBound = tm.translateType(typeBound);
+                newTp.builder().addTypeBound(translatedTypeBound);
+            }
+            newTp.builder().commit();
+        }
+        return new TypeTm(typeInfo, tm);
     }
 
     public Map<Info, Info> translateFromDollarToReal() {
