@@ -61,6 +61,12 @@ dependencies {
 
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$jupiterEngineVersion")
 
+    // for one test in TestComposer
+    testRuntimeOnly("info.picocli:picocli:4.7.7")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter:${jupiterApiVersion}")
+    testRuntimeOnly("org.springframework.security:spring-security-config:6.3.9")
+    testRuntimeOnly("org.springframework.security:spring-security-web:6.3.9")
+
 }
 
 tasks.test {

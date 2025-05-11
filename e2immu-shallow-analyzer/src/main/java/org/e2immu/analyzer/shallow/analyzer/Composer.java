@@ -80,24 +80,36 @@ public class Composer {
     private final Function<SourceSet, String> destinationPackage;
     private final Predicate<Info> predicate;
     private final Map<Info, Info> translateFromDollarToReal = new HashMap<>();
+    private final ImportComputer importComputer;
 
     public Composer(JavaInspector javaInspector,
+                    Function<SourceSet, String> destinationPackage,
+                    Predicate<Info> predicate) {
+        this(javaInspector, javaInspector.importComputer(4), destinationPackage, predicate);
+    }
+
+    public Composer(JavaInspector javaInspector,
+                    ImportComputer importComputer,
                     Function<SourceSet, String> destinationPackage,
                     Predicate<Info> predicate) {
         this.runtime = javaInspector.runtime();
         this.javaInspector = javaInspector;
         this.destinationPackage = destinationPackage;
         this.predicate = predicate;
+        this.importComputer = importComputer;
     }
 
     public Collection<TypeInfo> compose(Collection<TypeInfo> primaryTypes) {
+        SourceSet javaBase = javaInspector.compiledTypesManager().get(AutoCloseable.class).compilationUnit().sourceSet();
+        if (javaBase == null || !javaBase.name().equals("java.base")) throw new RuntimeException("?");
+
         Map<String, TypeInfo> typesPerPackage = new HashMap<>();
         for (TypeInfo primaryType : primaryTypes) {
             if (acceptTypeOrAnySubType(primaryType)) {
                 assert primaryType.isPrimaryType();
                 String packageName = primaryType.packageName();
                 TypeInfo packageType = typesPerPackage.computeIfAbsent(packageName,
-                        pn -> newPackageType(primaryType.compilationUnit().sourceSet(), pn));
+                        pn -> newPackageType(Objects.requireNonNullElse(primaryType.compilationUnit().sourceSet(), javaBase), pn));
                 appendType(packageType, primaryType, null);
             }
         }
@@ -360,7 +372,7 @@ public class Composer {
                 File outputFile = new File(directory, apiType.simpleName() + ".java");
                 try (OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(outputFile),
                         StandardCharsets.UTF_8)) {
-                    outputStreamWriter.write(javaInspector.print2(apiType, decorator));
+                    outputStreamWriter.write(javaInspector.print2(apiType, decorator, importComputer));
                 }
                 LOGGER.info("Wrote {}", apiType);
                 ++count;
